@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>crazy的博客</title>
+  <title>hexo github 搭建个人博客 | crazy的博客</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -153,173 +153,97 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/c_blog/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-<!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/c_blog/2017/06/27/hexo搭建个人博客教程/">hexo github 搭建个人博客</a></h3>
-                    <span>
-                        <span class="post-meta">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
       <time datetime="2017-06-27T09:59:49.572Z" itemprop="datePublished">
           2017-06-27
       </time>
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        hexo搭建个人博客教程
-前提：
-拥有github账号,安装好npm
-
-本地构建
-操作步骤如下：
-
-安装hexo-cli: pm install -g hexo-cli
-初始化博客框架：hexo init blog
-进入blog文件夹，安装依赖包：
-cd blog
-npm install
-
-
-启动hexo服务：hexo server
-浏览器输入：127.0.0.1:4000即可访问
-
-如需写文章，只需要在\blog\source_pos
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/c_blog/2017/06/27/hexo搭建个人博客教程/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>hexo github 搭建个人博客</h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/c_blog/2017/06/27/Angular 学习笔记/">angular生命周期</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-06-27T04:00:51.722Z" itemprop="datePublished">
-          2017-06-27
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        Angular 学习笔记：生命周期钩子：
+        <div class="col-md-8 col-md-offset-2">
+      		<h4 id="hexo搭建个人博客教程"><a href="#hexo搭建个人博客教程" class="headerlink" title="hexo搭建个人博客教程"></a>hexo搭建个人博客教程</h4><blockquote>
+<p>前提：</p>
+<p>拥有github账号,安装好npm</p>
+</blockquote>
+<h5 id="本地构建"><a href="#本地构建" class="headerlink" title="本地构建"></a>本地构建</h5><blockquote>
+<p>操作步骤如下：</p>
+<ol>
+<li>安装hexo-cli: <strong>pm install -g hexo-cli</strong></li>
+<li>初始化博客框架：<strong>hexo init blog</strong></li>
+<li>进入blog文件夹，安装依赖包：<ul>
+<li><strong>cd blog</strong></li>
+<li><strong>npm install</strong></li>
+</ul>
+</li>
+<li>启动hexo服务：<strong>hexo server</strong></li>
+<li>浏览器输入：<strong>127.0.0.1:4000</strong>即可访问</li>
+</ol>
+<p>如需写文章，只需要在\blog\source_posts\文件夹下面防止写好的md文件，之后执行<strong>hexo g</strong>即可在个人站点访问刚才发布的md文件；</p>
+</blockquote>
+<p>如有不明确之处可参见官网：<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
+<p><strong>主题安装</strong></p>
+<p>hexo提供了众多主题，可以根据个人喜好进行安装，安装过程如下：</p>
+<blockquote>
+<ol>
+<li>登录hexo官网(<a href="https://hexo.io/)，选择主题页面" target="_blank" rel="external">https://hexo.io/)，选择主题页面</a></li>
+<li>选择喜欢的主题，进入对应的github获取主题源码</li>
+<li>进入博客主目录，git clone 仓库地址 themes/主题名称（可自定义）</li>
+<li>将_config.yml 下面的theme: landscape 修改为theme：主题名称</li>
+<li>其他依赖包相关可参见主题所在github下的关于主题仓库的说明</li>
+<li>hexo clean  –&gt; hexo g –&gt;hexo server</li>
+</ol>
+</blockquote>
+<p>综上所述均为本地如何开发hexo，我们构建个人博客需要远程访问，接下来，讲述如何将github与hexo结合开发个人博客：</p>
+<p><strong>将本地博客发布在github上面</strong></p>
+<blockquote>
+<ol>
+<li><p>首先在github上创建blog仓库</p>
+</li>
+<li><p>进入项目主目录打开_config.yml，在文中对应位置添加以下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    url:  github配置的页面访问url</div><div class="line">&gt;    root: github根目录</div><div class="line">&gt;    deploy:</div><div class="line">&gt;      type: git</div><div class="line">&gt;      repo: git@github.com:github上个人的仓库</div><div class="line">&gt;      branch: master</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>打包<strong>hexo g</strong></p>
+</li>
+<li><p>执行构建，在此之前需要安装构架依赖的组件：<strong>npm install hexo-deployer-git –save</strong> （如没有该依赖会报错：ERROR Deployer not found: git）</p>
+</li>
+<li><p>执行构建，<strong>hexo d</strong>或者<strong>hexo deploy</strong> 或者 <strong>hexo d -g</strong></p>
+</li>
+<li><p>在github配置的页面访问路径下访问该博客</p>
+</li>
+</ol>
+</blockquote>
 
-共享模块共享模块作用：
-
-有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个ShareModule里面中：
-
-123456789101112import &#123; NgModule &#125;            from '@angular/core';import &#123; CommonModule 
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/c_blog/2017/06/27/Angular 学习笔记/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/c_blog/2017/06/27/springboot环境搭建教程（eclipse）/">springboot环境搭建</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-06-27T03:39:26.263Z" itemprop="datePublished">
-          2017-06-27
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        springboot环境搭建教程（eclipse）
-new-&gt;project-&gt;maven Project-&gt;quickStart
-查看文件目录机构，是否符合约定优配置原则
-配置pom，添加一下依赖
-
-123456789101112131415&lt;parent&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifact
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/c_blog/2017/06/27/springboot环境搭建教程（eclipse）/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
-          
-          
-        </nav>
+    
+    
+    <a class="pull-right" href="/c_blog/2017/06/27/Angular 学习笔记/">
+        angular生命周期 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>多学点没啥不好</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+
 
       
 <!-- ============================ Footer =========================== -->
