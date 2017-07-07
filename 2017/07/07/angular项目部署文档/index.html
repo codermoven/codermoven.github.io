@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>hexo github 搭建个人博客 | crazy的博客</title>
+  <title>angular+Tomcat项目部署文档 | crazy的博客</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -159,84 +159,37 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-06-27T09:59:49.572Z" itemprop="datePublished">
-          2017-06-27
+      <time datetime="2017-07-07T08:08:06.537Z" itemprop="datePublished">
+          2017-07-07
       </time>
     
 </span>
-                <h1>hexo github 搭建个人博客</h1>
+                <h1>angular+Tomcat项目部署文档</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h4 id="hexo搭建个人博客教程"><a href="#hexo搭建个人博客教程" class="headerlink" title="hexo搭建个人博客教程"></a>hexo搭建个人博客教程</h4><blockquote>
-<p>前提：</p>
-<p>拥有github账号,安装好npm</p>
-</blockquote>
-<h5 id="本地构建"><a href="#本地构建" class="headerlink" title="本地构建"></a>本地构建</h5><blockquote>
-<p>操作步骤如下：</p>
-<ol>
-<li>安装hexo-cli: <strong>pm install -g hexo-cli</strong></li>
-<li>初始化博客框架：<strong>hexo init blog</strong></li>
-<li>进入blog文件夹，安装依赖包：<ul>
-<li><strong>cd blog</strong></li>
-<li><strong>npm install</strong></li>
-</ul>
-</li>
-<li>启动hexo服务：<strong>hexo server</strong></li>
-<li>浏览器输入：<strong>127.0.0.1:4000</strong>即可访问</li>
-</ol>
-<p>如需写文章，只需要在\blog\source_posts\文件夹下面防止写好的md文件，之后执行<strong>hexo g</strong>即可在个人站点访问刚才发布的md文件；</p>
-</blockquote>
-<p>如有不明确之处可参见官网：<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
-<p><strong>主题安装</strong></p>
-<p>hexo提供了众多主题，可以根据个人喜好进行安装，安装过程如下：</p>
-<blockquote>
-<ol>
-<li>登录hexo官网(<a href="https://hexo.io/)，选择主题页面" target="_blank" rel="external">https://hexo.io/)，选择主题页面</a></li>
-<li>选择喜欢的主题，进入对应的github获取主题源码</li>
-<li>进入博客主目录，git clone 仓库地址 themes/主题名称（可自定义）</li>
-<li>将_config.yml 下面的theme: landscape 修改为theme：主题名称</li>
-<li>其他依赖包相关可参见主题所在github下的关于主题仓库的说明</li>
-<li>hexo clean  –&gt; hexo g –&gt;hexo server</li>
-</ol>
-</blockquote>
-<p>综上所述均为本地如何开发hexo，我们构建个人博客需要远程访问，接下来，讲述如何将github与hexo结合开发个人博客：</p>
-<p><strong>将本地博客发布在github上面</strong></p>
-<blockquote>
-<ol>
-<li><p>首先在github上创建blog仓库</p>
-</li>
-<li><p>进入项目主目录打开_config.yml，在文中对应位置添加以下配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    url:  github配置的页面访问url</div><div class="line">&gt;    root: github根目录</div><div class="line">&gt;    deploy:</div><div class="line">&gt;      type: git</div><div class="line">&gt;      repo: git@github.com:github上个人的仓库</div><div class="line">&gt;      branch: master</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li><p>打包<strong>hexo g</strong></p>
-</li>
-<li><p>执行构建，在此之前需要安装构架依赖的组件：<strong>npm install hexo-deployer-git –save</strong> （如没有该依赖会报错：ERROR Deployer not found: git）</p>
-</li>
-<li><p>执行构建，<strong>hexo d</strong>或者<strong>hexo deploy</strong> 或者 <strong>hexo d -g</strong></p>
-</li>
-<li><p>在github配置的页面访问路径下访问该博客</p>
-</li>
-</ol>
-</blockquote>
+      		<p>angular项目部署：</p>
+<p>Step1：配置：(.angular-cli.json)</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="string">"apps"</span>: [</div><div class="line">  &#123;</div><div class="line">    <span class="string">"root"</span>: <span class="string">"src"</span>,</div><div class="line">    <span class="string">"outDir"</span>: <span class="string">"dist"</span>,</div><div class="line">    <span class="string">"assets"</span>: [</div><div class="line">      <span class="string">"assets"</span>,</div><div class="line">      <span class="string">"favicon.ico"</span></div><div class="line">    ],</div><div class="line">    <span class="string">"index"</span>: <span class="string">"index.html"</span>,</div><div class="line">    <span class="string">"main"</span>: <span class="string">"main.ts"</span>,</div><div class="line">    <span class="string">"polyfills"</span>: <span class="string">"polyfills.ts"</span>,</div><div class="line">    <span class="string">"test"</span>: <span class="string">"test.ts"</span>,</div><div class="line">    <span class="string">"tsconfig"</span>: <span class="string">"tsconfig.app.json"</span>,</div><div class="line">    <span class="string">"testTsconfig"</span>: <span class="string">"tsconfig.spec.json"</span>,</div><div class="line">    <span class="string">"prefix"</span>: <span class="string">"app"</span>,</div><div class="line">    <span class="string">"styles"</span>: [</div><div class="line">      <span class="string">"styles.css"</span></div><div class="line">    ],</div><div class="line">    <span class="string">"scripts"</span>: [],</div><div class="line">    <span class="string">"environmentSource"</span>: <span class="string">"environments/environment.ts"</span>,</div><div class="line">    <span class="string">"environments"</span>: &#123;</div><div class="line">      <span class="string">"dev"</span>: <span class="string">"environments/environment.ts"</span>,</div><div class="line">      <span class="string">"prod"</span>: <span class="string">"environments/environment.prod.ts"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p><strong>root指代的是源文件的目录，即项目源码的目录，outDir是指build以后文件的输出的静态文件的输出目录</strong></p>
+<p>Step2：执行 构建命令ng-build</p>
+<p>Step3：安装tomcat服务器，第二步中构建产生的dist目录拷贝到Tomcat的webapp下面</p>
+<p>Step4：启动服务：访问：域名+端口+dist即可查看angular项目网站</p>
+<p>结束···</p>
+<p>构建中遇到了一下坑：</p>
+<p>1、由于在index.html中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>致使项目资源文件无法加载资源文件，需修改为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">"./"</span>&gt;</span></div></pre></td></tr></table></figure>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/c_blog/2017/07/07/angular项目部署文档/" style="float: left;">
-        ← angular+Tomcat项目部署文档
-    </a>
     
-    
-    <a class="pull-right" href="/c_blog/2017/06/27/Angular 学习笔记/">
-        angular生命周期 →
+    <a class="pull-right" href="/c_blog/2017/06/27/hexo搭建个人博客教程/">
+        hexo github 搭建个人博客 →
     </a>
     
 </nav>
