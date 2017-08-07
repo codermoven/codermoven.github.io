@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>crazy的博客</title>
+  <title>centos7下Jenkins安装 | crazy的博客</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -153,272 +153,73 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/c_blog/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-<!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/c_blog/2017/08/07/centos7下Jenkins安装/">centos7下Jenkins安装</a></h3>
-                    <span>
-                        <span class="post-meta">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
       <time datetime="2017-08-07T09:01:09.165Z" itemprop="datePublished">
           2017-08-07
       </time>
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        centos7下Jenkins安装在安装Jenkins之前需要安装jdk，安装jdk有两种方法：
-1、yum安装安装的为Linux下的open-jdk
-2、安装jdk，以下为安装甲骨文体-jdk的步骤：
-
-1、到甲骨文官网找到要下在的文件地址
-eg:    http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/c_blog/2017/08/07/centos7下Jenkins安装/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>centos7下Jenkins安装</h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/c_blog/2017/08/06/Docker初体验/">Docker初体验</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-08-06T02:36:16.828Z" itemprop="datePublished">
-          2017-08-06
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        ##Docker初体验
-​    Docker 是一个开源的基于 LXC 的高级应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。（不会总结，但是觉得百度说的蛮好）;
-​    综合以上概念，我们可以看出docker是一个应用容器的引擎，其中关键词有两个，应用容器，引擎，引擎自不必说，最为关键的是应用容器，也
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/c_blog/2017/08/06/Docker初体验/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
+<p>1、yum安装安装的为Linux下的open-jdk</p>
+<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
+<blockquote>
+<p>1、到甲骨文官网找到要下在的文件地址</p>
+<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>2、下载该压缩包：</p>
+<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>3、下载完成之后解压</p>
+<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
+<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
+<p>4、vi /etc/profile</p>
+<p>添加：</p>
+<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
+<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
+<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
+<p>PATH=$JAVA_HOME/bin:$$PATH</p>
+<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
+<p>5、source /etc/profile 让添加项生效</p>
+<p>至此jdk安装成功;</p>
+</blockquote>
+<p>接下来安装Jenkins：</p>
+<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="external">jenkins官网</a></p>
+<p>在这里我们选择稳定版安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</div><div class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</div><div class="line">sudo yum install jenkins</div></pre></td></tr></table></figure>
+<p>安装成功后启动:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service jenkins start(或者 systemctl start jenkins)</div></pre></td></tr></table></figure>
+<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
+<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</div><div class="line">firewall-cmd --zone=public --add-service=http --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
+<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
+<p>结束</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/c_blog/2017/07/07/angular项目部署文档/">angular+Tomcat项目部署文档</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-07-07T08:08:06.537Z" itemprop="datePublished">
-          2017-07-07
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        angular项目部署：
-Step1：配置：(.angular-cli.json)
-1234567891011121314151617181920212223242526"apps": [  &#123;    "root": "src",    "outDir": "dist",    "assets": [      "assets",      "favicon.ico"    ],    "index": "index.html
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/c_blog/2017/07/07/angular项目部署文档/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/c_blog/2017/06/27/hexo搭建个人博客教程/">hexo github 搭建个人博客</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-06-27T09:59:49.572Z" itemprop="datePublished">
-          2017-06-27
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        hexo搭建个人博客教程
-前提：
-拥有github账号,安装好npm
-
-本地构建
-操作步骤如下：
-
-安装hexo-cli: pm install -g hexo-cli
-初始化博客框架：hexo init blog
-进入blog文件夹，安装依赖包：
-cd blog
-npm install
-
-
-启动hexo服务：hexo server
-浏览器输入：127.0.0.1:4000即可访问
-
-如需写文章，只需要在\blog\source_pos
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/c_blog/2017/06/27/hexo搭建个人博客教程/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/c_blog/2017/06/27/Angular 学习笔记/">angular生命周期</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-06-27T04:00:51.722Z" itemprop="datePublished">
-          2017-06-27
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        Angular 学习笔记：生命周期钩子：
-
-共享模块共享模块作用：
-
-有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个ShareModule里面中：
-
-123456789101112import &#123; NgModule &#125;            from '@angular/core';import &#123; CommonModule 
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/c_blog/2017/06/27/Angular 学习笔记/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/c_blog/2017/06/27/springboot环境搭建教程（eclipse）/">springboot环境搭建</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-06-27T03:39:26.263Z" itemprop="datePublished">
-          2017-06-27
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        springboot环境搭建教程（eclipse）
-new-&gt;project-&gt;maven Project-&gt;quickStart
-查看文件目录机构，是否符合约定优配置原则
-配置pom，添加一下依赖
-
-123456789101112131415&lt;parent&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifact
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/c_blog/2017/06/27/springboot环境搭建教程（eclipse）/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
-          
-          
-        </nav>
+    
+    
+    <a class="pull-right" href="/c_blog/2017/08/06/Docker初体验/">
+        Docker初体验 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>多学点没啥不好</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+
 
       
 <!-- ============================ Footer =========================== -->
