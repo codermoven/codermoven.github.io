@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>centos7下Jenkins安装 | crazy的博客</title>
+  <title>crazy的博客</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -159,60 +159,36 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-08-07T09:01:09.165Z" itemprop="datePublished">
-          2017-08-07
+      <time datetime="2017-08-10T08:56:50.056Z" itemprop="datePublished">
+          2017-08-10
       </time>
     
 </span>
-                <h1>centos7下Jenkins安装</h1>
+                <h1></h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
-<p>1、yum安装安装的为Linux下的open-jdk</p>
-<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
-<blockquote>
-<p>1、到甲骨文官网找到要下在的文件地址</p>
-<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
-<p>2、下载该压缩包：</p>
-<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
-<p>3、下载完成之后解压</p>
-<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
-<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
-<p>4、vi /etc/profile</p>
-<p>添加：</p>
-<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
-<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
-<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
-<p>PATH=$JAVA_HOME/bin:$$PATH</p>
-<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
-<p>5、source /etc/profile 让添加项生效</p>
-<p>至此jdk安装成功;</p>
-</blockquote>
-<p>接下来安装Jenkins：</p>
-<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="external">jenkins官网</a></p>
-<p>在这里我们选择稳定版安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</div><div class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</div><div class="line">sudo yum install jenkins</div></pre></td></tr></table></figure>
-<p>安装成功后启动:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service jenkins start(或者 systemctl start jenkins)</div></pre></td></tr></table></figure>
-<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
-<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</div><div class="line">firewall-cmd --zone=public --add-service=http --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
-<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
-<p>结束</p>
+      		<hr>
+<h2 id="title-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法"><a href="#title-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="headerlink" title="title:关于angular4部署服务器刷新报错以及相关资源加载不到解决办法"></a>title:关于angular4部署服务器刷新报错以及相关资源加载不到解决办法</h2><p>部署angular4项目：</p>
+<p>ng build –prod –aot</p>
+<p>资源加载不到问题：</p>
+<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
+<p>部署项目成功后刷新报错问题：</p>
+<p>需要在app.module里面添加配置项：</p>
+<p>首先导入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</div></pre></td></tr></table></figure>
+<p>其次在providers里面添加:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [</div><div class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/c_blog/2017/08/10/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" style="float: left;">
-        ← 
-    </a>
     
-    
-    <a class="pull-right" href="/c_blog/2017/08/06/Docker初体验/">
-        Docker初体验 →
+    <a class="pull-right" href="/c_blog/2017/08/07/centos7下Jenkins安装/">
+        centos7下Jenkins安装 →
     </a>
     
 </nav>
