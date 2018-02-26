@@ -410,6 +410,55 @@
 
 
   
+    <article id="post-Linux下面显示分支名称的方法：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Linux下面显示分支名称的方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function git_branch &#123;</div><div class="line">  branch="`git branch 2&gt;/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"</div><div class="line">  if [ "$&#123;branch&#125;" != "" ];then</div><div class="line">      if [ "$&#123;branch&#125;" = "(no branch)" ];then</div><div class="line">          branch="(`git rev-parse --short HEAD`...)"</div><div class="line">      fi</div><div class="line">      echo "-&gt;$branch"</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"> </div><div class="line">export PS1='\[\e[37;40m\][\[\033[01;36m\]\u\[\e[37;40m\]@\[\e[0m\]\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\]\[\e[37;40m\]]\[\e[0m\]\$ '</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/17/Linux下面显示分支名称的方法：/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Docker构建项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -479,55 +528,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/11/17/Docker构建项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux下面显示分支名称的方法：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Linux下面显示分支名称的方法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function git_branch &#123;</div><div class="line">  branch="`git branch 2&gt;/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"</div><div class="line">  if [ "$&#123;branch&#125;" != "" ];then</div><div class="line">      if [ "$&#123;branch&#125;" = "(no branch)" ];then</div><div class="line">          branch="(`git rev-parse --short HEAD`...)"</div><div class="line">      fi</div><div class="line">      echo "-&gt;$branch"</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"> </div><div class="line">export PS1='\[\e[37;40m\][\[\033[01;36m\]\u\[\e[37;40m\]@\[\e[0m\]\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\]\[\e[37;40m\]]\[\e[0m\]\$ '</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/17/Linux下面显示分支名称的方法：/">展开全文 >></a>
         </p>
       
 
@@ -1040,7 +1040,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">毕业院校:西安电子科技大学软件学院 邮箱:1228785231@qq.com</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">毕业院校:西安电子科技大学软件学院 &lt;br&gt; 邮箱:1228785231@qq.com</div>
   	  	
     	</section>
     
