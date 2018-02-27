@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://crazyxxl.github.io">
-  <title>hexo github 搭建个人博客 | crazy的博客</title>
+  <title>Docker初体验之构建javaWeb项目 | crazy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo搭建个人博客教程 前提： 拥有github账号,安装好npm  本地构建 操作步骤如下：  安装hexo-cli: pm install -g hexo-cli 初始化博客框架：hexo init blog 进入blog文件夹，安装依赖包： cd blog npm install   启动hexo服务：hexo server 浏览器输入：127.0.0.1:4000即可访问  如需写文章，">
+  <meta name="description" content="Ｄocker 构建javaWeb项目主环境搭建（tomcat）步骤如下： 1.拉取基准镜像：docker pull hub.c.163.com/public/ubuntu:16.04-tools 2.配置Dockerfile: 12345678910111213141516171819202122232425262728# Ubuntu MYNF Dockerfile####base system">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo github 搭建个人博客">
-<meta property="og:url" content="https://crazyxxl.github.io/2017/11/17/hexo搭建个人博客教程/index.html">
+<meta property="og:title" content="Docker初体验之构建javaWeb项目">
+<meta property="og:url" content="https://crazyxxl.github.io/2018/02/27/Docker构建项目/index.html">
 <meta property="og:site_name" content="crazy的博客">
-<meta property="og:description" content="hexo搭建个人博客教程 前提： 拥有github账号,安装好npm  本地构建 操作步骤如下：  安装hexo-cli: pm install -g hexo-cli 初始化博客框架：hexo init blog 进入blog文件夹，安装依赖包： cd blog npm install   启动hexo服务：hexo server 浏览器输入：127.0.0.1:4000即可访问  如需写文章，">
-<meta property="og:updated_time" content="2017-06-27T10:00:38.000Z">
+<meta property="og:description" content="Ｄocker 构建javaWeb项目主环境搭建（tomcat）步骤如下： 1.拉取基准镜像：docker pull hub.c.163.com/public/ubuntu:16.04-tools 2.配置Dockerfile: 12345678910111213141516171819202122232425262728# Ubuntu MYNF Dockerfile####base system">
+<meta property="og:updated_time" content="2018-02-27T10:09:41.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo github 搭建个人博客">
-<meta name="twitter:description" content="hexo搭建个人博客教程 前提： 拥有github账号,安装好npm  本地构建 操作步骤如下：  安装hexo-cli: pm install -g hexo-cli 初始化博客框架：hexo init blog 进入blog文件夹，安装依赖包： cd blog npm install   启动hexo服务：hexo server 浏览器输入：127.0.0.1:4000即可访问  如需写文章，">
+<meta name="twitter:title" content="Docker初体验之构建javaWeb项目">
+<meta name="twitter:description" content="Ｄocker 构建javaWeb项目主环境搭建（tomcat）步骤如下： 1.拉取基准镜像：docker pull hub.c.163.com/public/ubuntu:16.04-tools 2.配置Dockerfile: 12345678910111213141516171819202122232425262728# Ubuntu MYNF Dockerfile####base system">
   
     <link rel="alternative" href="/atom.xml" title="crazy的博客" type="application/atom+xml">
   
@@ -137,81 +137,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo搭建个人博客教程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Docker构建项目" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo github 搭建个人博客
+      Docker初体验之构建javaWeb项目
     </h1>
   
 
         
-        <a href="/2017/11/17/hexo搭建个人博客教程/" class="archive-article-date">
-  	<time datetime="2017-11-17T11:51:29.568Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
+        <a href="/2018/02/27/Docker构建项目/" class="archive-article-date">
+  	<time datetime="2018-02-27T10:09:41.090Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="hexo搭建个人博客教程"><a href="#hexo搭建个人博客教程" class="headerlink" title="hexo搭建个人博客教程"></a>hexo搭建个人博客教程</h4><blockquote>
-<p>前提：</p>
-<p>拥有github账号,安装好npm</p>
-</blockquote>
-<h5 id="本地构建"><a href="#本地构建" class="headerlink" title="本地构建"></a>本地构建</h5><blockquote>
-<p>操作步骤如下：</p>
-<ol>
-<li>安装hexo-cli: <strong>pm install -g hexo-cli</strong></li>
-<li>初始化博客框架：<strong>hexo init blog</strong></li>
-<li>进入blog文件夹，安装依赖包：<ul>
-<li><strong>cd blog</strong></li>
-<li><strong>npm install</strong></li>
-</ul>
-</li>
-<li>启动hexo服务：<strong>hexo server</strong></li>
-<li>浏览器输入：<strong>127.0.0.1:4000</strong>即可访问</li>
-</ol>
-<p>如需写文章，只需要在\blog\source_posts\文件夹下面防止写好的md文件，之后执行<strong>hexo g</strong>即可在个人站点访问刚才发布的md文件；</p>
-</blockquote>
-<p>如有不明确之处可参见官网：<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
-<p><strong>主题安装</strong></p>
-<p>hexo提供了众多主题，可以根据个人喜好进行安装，安装过程如下：</p>
+        <h3 id="Docker-构建javaWeb项目"><a href="#Docker-构建javaWeb项目" class="headerlink" title="Ｄocker 构建javaWeb项目"></a>Ｄocker 构建javaWeb项目</h3><h4 id="主环境搭建（tomcat）"><a href="#主环境搭建（tomcat）" class="headerlink" title="主环境搭建（tomcat）"></a>主环境搭建（tomcat）</h4><p>步骤如下：</p>
+<p>1.拉取基准镜像：docker pull hub.c.163.com/public/ubuntu:16.04-tools</p>
+<p>2.配置Dockerfile:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu MYNF Dockerfile</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">###base system</span></div><div class="line"><span class="keyword">FROM</span> hub.c.<span class="number">163</span>.com/public/ubuntu:<span class="number">16.04</span>-tools</div><div class="line"></div><div class="line"><span class="comment">###auther</span></div><div class="line"><span class="keyword">MAINTAINER</span> crazyxxl <span class="string">"1228785231@qq.com"</span></div><div class="line"></div><div class="line"><span class="comment">###config java env begin</span></div><div class="line"><span class="keyword">ADD</span> jdk1.8.0_144 /usr/local/java</div><div class="line"><span class="keyword">RUN</span> ls /usr/local/java/</div><div class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/local/java</div><div class="line"><span class="keyword">ENV</span> PATH $JAVA_HOME/bin:$PATH</div><div class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib</div><div class="line"><span class="comment">###config java env end</span></div><div class="line"></div><div class="line"><span class="comment">###config jms begin</span></div><div class="line"><span class="keyword">ADD</span> apache-activemq-5.5.0 /usr/local/jms</div><div class="line"><span class="comment">###config jms end</span></div><div class="line"></div><div class="line"><span class="keyword">COPY</span> apache-tomcat-8.5.20 /usr/local/tomcat/apache-tomcat-8.5.20/</div><div class="line"><span class="keyword">COPY</span> mynf.war /usr/local/tomcat/apache-tomcat-8.5.20/webapps/</div><div class="line"><span class="keyword">COPY</span> dist /usr/local/tomcat/apache-tomcat-8.5.20/webapps/ROOT/</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/*</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/bin/*.sh</div><div class="line"><span class="keyword">EXPOSE</span> <span class="number">8080</span> <span class="number">60000</span></div><div class="line"><span class="keyword">CMD</span> /usr/local/jms/bin/activemq start</div><div class="line"><span class="keyword">ENTRYPOINT</span> /usr/local/tomcat/apache-tomcat-8.5.20/bin/catalina.sh run</div></pre></td></tr></table></figure>
+<p>3.构建镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t xxl/ubuntu/mynf .</div></pre></td></tr></table></figure>
+<h4 id="构建mongo镜像"><a href="#构建mongo镜像" class="headerlink" title="构建mongo镜像"></a>构建mongo镜像</h4><p>１.拉取mongodb镜像：docker pull hub.c.163.com/public/mongodb:3.2.0</p>
+<p>2.导出宿主机上面的ｍｏｎｇｏ数据，并将其放置在/data 下面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodump  -d mynf -o /data</div></pre></td></tr></table></figure>
+<p>2.启动镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_mongo -v /data:/mnt -d hub.c.163.com/public/mongodb:3.2.0</div></pre></td></tr></table></figure>
 <blockquote>
-<ol>
-<li>登录hexo官网(<a href="https://hexo.io/)，选择主题页面" target="_blank" rel="external">https://hexo.io/)，选择主题页面</a></li>
-<li>选择喜欢的主题，进入对应的github获取主题源码</li>
-<li>进入博客主目录，git clone 仓库地址 themes/主题名称（可自定义）</li>
-<li>将_config.yml 下面的theme: landscape 修改为theme：主题名称</li>
-<li>其他依赖包相关可参见主题所在github下的关于主题仓库的说明</li>
-<li>hexo clean  –&gt; hexo g –&gt;hexo server</li>
-</ol>
+<p>备注：-v 表示把宿主机子上面的/data 挂在到容器的/mnt下面。这样/data下面的数据就可以被容器访问了</p>
 </blockquote>
-<p>综上所述均为本地如何开发hexo，我们构建个人博客需要远程访问，接下来，讲述如何将github与hexo结合开发个人博客：</p>
-<p><strong>将本地博客发布在github上面</strong></p>
+<p>３.进入容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it mynf_mongo bash</div></pre></td></tr></table></figure>
+<p>4.导入数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore  -d mynf --dir /mnt/mynf</div></pre></td></tr></table></figure>
+<p>5.创建用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">use mynf;</div><div class="line">db.createUser(&#123;user:"root",pwd:"mynfadmin",roles:[]&#125;);</div></pre></td></tr></table></figure>
+<h4 id="构建mysql环境"><a href="#构建mysql环境" class="headerlink" title="构建mysql环境"></a>构建mysql环境</h4><p>１.拉取mysql镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull hub.c.163.com/library/mysql:latest</div></pre></td></tr></table></figure>
+<p> 2.导出宿主镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -u root -p mynf &gt; mynf.sql</div></pre></td></tr></table></figure>
+<p>3.创建挂载文件夹：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/mysql</div></pre></td></tr></table></figure>
+<p>4.启动镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name MYNF-mysql  -v /data/mynf:/mnt   -e MYSQL_ROOT_PASSWORD=mima -d hub.c.163.com/library/mysql</div></pre></td></tr></table></figure>
+<p>5.进入镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it MYNF-mysql bash</div></pre></td></tr></table></figure>
+<p>6.导入数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pPSW -e source /mnt/mynf.sql</div></pre></td></tr></table></figure>
+<h4 id="连接容器启动项目"><a href="#连接容器启动项目" class="headerlink" title="连接容器启动项目"></a>连接容器启动项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_server --link MYNF-mysql:mysql --link mynf_mongo:mongo -p 8080:8080  -d xxl/ununtu/mynf</div></pre></td></tr></table></figure>
 <blockquote>
-<ol>
-<li><p>首先在github上创建blog仓库</p>
-</li>
-<li><p>进入项目主目录打开_config.yml，在文中对应位置添加以下配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    url:  github配置的页面访问url</div><div class="line">&gt;    root: github根目录</div><div class="line">&gt;    deploy:</div><div class="line">&gt;      type: git</div><div class="line">&gt;      repo: git@github.com:github上个人的仓库</div><div class="line">&gt;      branch: master</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li><p>打包<strong>hexo g</strong></p>
-</li>
-<li><p>执行构建，在此之前需要安装构架依赖的组件：<strong>npm install hexo-deployer-git –save</strong> （如没有该依赖会报错：ERROR Deployer not found: git）</p>
-</li>
-<li><p>执行构建，<strong>hexo d</strong>或者<strong>hexo deploy</strong> 或者 <strong>hexo d -g</strong></p>
-</li>
-<li><p>在github配置的页面访问路径下访问该博客</p>
-</li>
-</ol>
+<p>备注：–name 表示容器名称　–link MYNF-mysql：表示连接容器名称，mysql 连接名称　-p 前面端口指代宿主端口号，后者表示容器内部的端口号　</p>
 </blockquote>
 
       
@@ -297,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2017/11/17/hexo搭建个人博客教程/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/02/27/Docker构建项目/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,18 +291,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/17/centos7下Jenkins安装/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          centos7下Jenkins安装
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/17/springboot环境搭建教程（eclipse）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">springboot环境搭建</div>
+    <a href="/2018/02/27/Docker初体验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker初体验之docker简介</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -349,7 +320,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo搭建个人博客教程"><span class="toc-number">1.</span> <span class="toc-text">hexo搭建个人博客教程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#本地构建"><span class="toc-number">1.1.</span> <span class="toc-text">本地构建</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-构建javaWeb项目"><span class="toc-number">1.</span> <span class="toc-text">Ｄocker 构建javaWeb项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主环境搭建（tomcat）"><span class="toc-number">1.1.</span> <span class="toc-text">主环境搭建（tomcat）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构建mongo镜像"><span class="toc-number">1.2.</span> <span class="toc-text">构建mongo镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构建mysql环境"><span class="toc-number">1.3.</span> <span class="toc-text">构建mysql环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#连接容器启动项目"><span class="toc-number">1.4.</span> <span class="toc-text">连接容器启动项目</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -365,7 +336,7 @@
   
 
   
-  <div id="SOHUCS" sid="hexo搭建个人博客教程" ></div> 
+  <div id="SOHUCS" sid="Docker构建项目" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

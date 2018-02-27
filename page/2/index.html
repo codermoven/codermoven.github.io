@@ -135,19 +135,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-centos7下Jenkins安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-springboot环境搭建教程（eclipse）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/17/centos7下Jenkins安装/">centos7下Jenkins安装</a>
+      <a class="article-title" href="/2017/11/17/springboot环境搭建教程（eclipse）/">springboot环境搭建</a>
     </h1>
   
 
         
-        <a href="/2017/11/17/centos7下Jenkins安装/" class="archive-article-date">
+        <a href="/2017/11/17/springboot环境搭建教程（eclipse）/" class="archive-article-date">
   	<time datetime="2017-11-17T11:51:29.568Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
 </a>
         
@@ -155,38 +155,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
-<p>1、yum安装安装的为Linux下的open-jdk</p>
-<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
-<blockquote>
-<p>1、到甲骨文官网找到要下在的文件地址</p>
-<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
-<p>2、下载该压缩包：</p>
-<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
-<p>3、下载完成之后解压</p>
-<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
-<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
-<p>4、vi /etc/profile</p>
-<p>添加：</p>
-<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
-<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
-<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
-<p>PATH=$JAVA_HOME/bin:$$PATH</p>
-<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
-<p>5、source /etc/profile 让添加项生效</p>
-<p>至此jdk安装成功;</p>
-</blockquote>
-<p>接下来安装Jenkins：</p>
-<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="external">jenkins官网</a></p>
-<p>在这里我们选择稳定版安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</div><div class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</div><div class="line">sudo yum install jenkins</div></pre></td></tr></table></figure>
-<p>安装成功后启动:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service jenkins start(或者 systemctl start jenkins)</div></pre></td></tr></table></figure>
-<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
-<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</div><div class="line">firewall-cmd --zone=public --add-service=http --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
-<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
-<p>结束</p>
+        <h2 id="springboot环境搭建教程（eclipse）"><a href="#springboot环境搭建教程（eclipse）" class="headerlink" title="springboot环境搭建教程（eclipse）"></a>springboot环境搭建教程（eclipse）</h2><ol>
+<li>new-&gt;project-&gt;maven Project-&gt;quickStart</li>
+<li>查看文件目录机构，是否符合约定优配置原则</li>
+<li>配置pom，添加一下依赖</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;parent&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.2.7.RELEASE&lt;/version&gt;</div><div class="line">&lt;/parent&gt;</div><div class="line">  &lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">   	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;dependencies&gt;</div></pre></td></tr></table></figure>
+<p>4、添加配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">spring.datasource.url = jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false //若使用到数据库在此配置，需要在pom里面添加对应的数据驱动，或配置于环境变量中</div><div class="line">spring.datasource.username = username</div><div class="line">spring.datasource.password = password</div><div class="line">spring.datasource.driverClassName = com.mysql.jdbc.Driver</div><div class="line">spring.jpa.database = MYSQL</div><div class="line">spring.jpa.show-sql = true</div><div class="line">spring.jpa.hibernate.ddl-auto = update</div><div class="line">spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy</div><div class="line">spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect</div><div class="line">spring.template.cache = false</div></pre></td></tr></table></figure>
+<p>5、建立boot类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookStart</span> </span>&#123;	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SpringApplication.run(BookStart.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>6、建立controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</div><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>至此、配置完成；</p>
+<p><strong>注意：boot类一定要位于所有其他组件（controller，service，vo）的上层，否则，会导致组件注册失败</strong></p>
 
       
 
@@ -199,7 +181,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/17/centos7下Jenkins安装/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/17/springboot环境搭建教程（eclipse）/">展开全文 >></a>
         </p>
       
 
