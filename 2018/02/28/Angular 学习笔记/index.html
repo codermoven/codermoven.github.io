@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://crazyxxl.github.io">
-  <title>设计模式学习笔记之策略模式 | crazy的博客</title>
+  <title>angular生命周期 | crazy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="设计模式学习笔记之策略模式什么是策略模式策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换  策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法">
-<meta name="keywords" content="设计模式学习笔记">
+  <meta name="description" content="Angular 学习笔记：生命周期钩子：  共享模块共享模块作用：  有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个ShareModule里面中：  123456789101112import &amp;#123; NgModule &amp;#125;            from &apos;@angular/core&apos;;import">
+<meta name="keywords" content="杂项">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式学习笔记之策略模式">
-<meta property="og:url" content="https://crazyxxl.github.io/2018/02/28/设计模式学习笔记之策略模式/index.html">
+<meta property="og:title" content="angular生命周期">
+<meta property="og:url" content="https://crazyxxl.github.io/2018/02/28/Angular 学习笔记/index.html">
 <meta property="og:site_name" content="crazy的博客">
-<meta property="og:description" content="设计模式学习笔记之策略模式什么是策略模式策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换  策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法">
-<meta property="og:image" content="http://www.crazyxxl.tech/Strategy.png">
-<meta property="og:image" content="http://www.crazyxxl.tech/Strategy-eg.png">
-<meta property="og:updated_time" content="2018-02-28T05:14:06.209Z">
+<meta property="og:description" content="Angular 学习笔记：生命周期钩子：  共享模块共享模块作用：  有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个ShareModule里面中：  123456789101112import &amp;#123; NgModule &amp;#125;            from &apos;@angular/core&apos;;import">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1692534-691cbdecbd1df3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:updated_time" content="2018-02-28T05:16:18.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式学习笔记之策略模式">
-<meta name="twitter:description" content="设计模式学习笔记之策略模式什么是策略模式策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换  策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法">
-<meta name="twitter:image" content="http://www.crazyxxl.tech/Strategy.png">
+<meta name="twitter:title" content="angular生命周期">
+<meta name="twitter:description" content="Angular 学习笔记：生命周期钩子：  共享模块共享模块作用：  有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个ShareModule里面中：  123456789101112import &amp;#123; NgModule &amp;#125;            from &apos;@angular/core&apos;;import">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1692534-691cbdecbd1df3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
   
     <link rel="alternative" href="/atom.xml" title="crazy的博客" type="application/atom+xml">
   
@@ -141,53 +140,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-设计模式学习笔记之策略模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Angular 学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      设计模式学习笔记之策略模式
+      angular生命周期
     </h1>
   
 
         
-        <a href="/2018/02/28/设计模式学习笔记之策略模式/" class="archive-article-date">
-  	<time datetime="2018-02-28T05:14:06.209Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+        <a href="/2018/02/28/Angular 学习笔记/" class="archive-article-date">
+  	<time datetime="2018-02-28T05:16:18.138Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="设计模式学习笔记之策略模式"><a href="#设计模式学习笔记之策略模式" class="headerlink" title="设计模式学习笔记之策略模式"></a>设计模式学习笔记之策略模式</h2><h3 id="什么是策略模式"><a href="#什么是策略模式" class="headerlink" title="什么是策略模式"></a>什么是策略模式</h3><p><strong>策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换</strong></p>
+        <h4 id="Angular-学习笔记："><a href="#Angular-学习笔记：" class="headerlink" title="Angular 学习笔记："></a>Angular 学习笔记：</h4><p><strong>生命周期钩子：</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1692534-691cbdecbd1df3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="钩子示意图"></p>
+<h5 id="共享模块"><a href="#共享模块" class="headerlink" title="共享模块"></a>共享模块</h5><p>共享模块作用：</p>
 <blockquote>
-<p>策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法的执行顺序,或者替换方法执行,这就是策略模式</p>
+<p>有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个<strong><em>ShareModule</em></strong>里面中：</p>
 </blockquote>
-<h3 id="策略模式类图"><a href="#策略模式类图" class="headerlink" title="策略模式类图"></a>策略模式类图</h3><p><img src="http://www.crazyxxl.tech/Strategy.png" alt="策略模式类图"></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NgModule &#125;            <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;        <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormsModule &#125;         <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AwesomePipe &#125;         <span class="keyword">from</span> <span class="string">'./awesome.pipe'</span>;</div><div class="line"><span class="keyword">import</span> &#123; HighlightDirective &#125;  <span class="keyword">from</span> <span class="string">'./highlight.directive'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ AwesomePipe, HighlightDirective ],</div><div class="line">  exports:      [ AwesomePipe, HighlightDirective,</div><div class="line">                  CommonModule, FormsModule ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> SharedModule &#123; &#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>解析:Client为客户,Context为策略的调用者,策略与Context为松耦合(接口耦合),正因为这层关系,才能够使得策略的替换不影响客户</p>
+<p>如上所示：</p>
+<p><strong>管道</strong></p>
 </blockquote>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>现有一游戏,一个角色可以随意的切换武器,但是同一时间只能使用某一个武器,实现该游戏</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>我们可以把游戏的角色抽象成为策略的调用者,武器抽象成为策略,角色随意切换武器,而不必管武器的材质(算法的内部实现)</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><h5 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h5><p><img src="http://www.crazyxxl.tech/Strategy-eg.png" alt=""></p>
-<p>类图解析:Character为策略的调用者,weaponBehavior为策略的抽象,角色的子类可不予考究(这是我在学习策略模式(HeadFirst设计模式)的时候自己画),我们只需要考量,角色以及武器以及武器的实现即可</p>
-<p>角色:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Character</span> </span>&#123;</div><div class="line"></div><div class="line">    WeaponBehavior weaponBehavior = <span class="keyword">null</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeaponBehavior</span><span class="params">(WeaponBehavior weaponBehavior)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior = weaponBehavior;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>武器抽象接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>武器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器斧头</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AxeBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"AxeBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-弓箭</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BowAndArrowBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"BowAndArrowBehavior"</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 骑士武器</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnightBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"KnightBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-刀</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwordBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"SwordBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>开始游戏</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建角色</div><div class="line">         */</div><div class="line">        Character character = <span class="keyword">new</span> Character();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建武器斧头</div><div class="line">         */</div><div class="line">        AxeBehavior axeBehavior  = <span class="keyword">new</span> AxeBehavior();</div><div class="line">        character.setWeaponBehavior(axeBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 切换武器骑士武器</div><div class="line">         */</div><div class="line">        KnightBehavior knightBehavior = <span class="keyword">new</span> KnightBehavior();</div><div class="line">        character.setWeaponBehavior(knightBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于策略模式来讲,最重要要的两个概念是:</p>
-<ol>
-<li><strong>算法</strong></li>
-<li><strong>顺序</strong></li>
-</ol>
-<p>对于第一点算法,策略模式是对于算法的封装,也就是我们不必要去管算大的实现,只需要知道的策略提供了某个算法,可以让我们来解决一些问题,至于这个算法怎么实现的我们没必要知晓,也就是算法是黑盒的;</p>
-<p>对于第二点,调用者可以根据自身的需求,随意的调换算法的执行顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AwesomePipe</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>指令</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HighlightDirective</div></pre></td></tr></table></figure>
+<blockquote>
+<p>都需要在多个模块中使用，我们可以将其放置在同一个共享模块中，然后将共享模块导入到所要使用这些模块的组件里面，便可以使用这些组件</p>
+</blockquote>
+<p>模块共享注意点：</p>
+<p><strong><em>不要在共享模块中把应用级单例添加到<code>providers</code>中。 否则如果一个惰性加载模块导入了此共享模块，就会导致它自己也生成一份此服务的实例。</em></strong></p>
+<h5 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h5><p>核心模块作用：</p>
+<blockquote>
+<p>将系统首次启动需要加载且只加载一次的模块抽取出来，定义到一起形成一个独立的模块，类似共享模块，与其区别在与共享模块可以导入多次，但是核心模块全应用只能导入一次，否则会导致，单一应用实例被赋予新的值，比如<strong>service</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  ModuleWithProviders, NgModule,</div><div class="line">  Optional, SkipSelf &#125;       <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;      <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; TitleComponent &#125;    <span class="keyword">from</span> <span class="string">'./title.component'</span>;</div><div class="line"><span class="keyword">import</span> &#123; UserService &#125;       <span class="keyword">from</span> <span class="string">'./user.service'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ TitleComponent ],</div><div class="line">  exports:      [ TitleComponent ],</div><div class="line">  providers:    [ UserService ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> CoreModule &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如以上代码所示：</p>
+<p><strong>组件</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TitleComponent</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>服务</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserService</div></pre></td></tr></table></figure>
+<blockquote>
+<p>均需要在系统初始化时完成导入，而且只导入一次，属于全局单例，可以放置在核心模块中，在<strong>AppModule</strong>中进行导入;</p>
+</blockquote>
+<p>共享模块与核心模块总结：</p>
+<blockquote>
+<p>共享模块的作用无非代码的复用与模块化，核心模块为使得启动类看起来整洁，美观，将核心的一次导入的全局单例模块放置在一个module中便于管理隐藏关键信息；</p>
+</blockquote>
+<p><strong>参见：</strong></p>
 
       
 
@@ -227,7 +242,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
         		</li>
       		
 		</ul>
@@ -283,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/02/28/设计模式学习笔记之策略模式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/02/28/Angular 学习笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -297,18 +312,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/28/设计模式学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/02/28/2018年读书计划/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          设计模式学习笔记
+          2018读书计划
         
       </div>
     </a>
   
   
-    <a href="/2018/02/28/设计模式学习笔记之装饰器模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式学习笔记之装饰器模式</div>
+    <a href="/2018/02/28/centos7下Jenkins安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">centos7下Jenkins安装</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -335,7 +350,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式学习笔记之策略模式"><span class="toc-number">1.</span> <span class="toc-text">设计模式学习笔记之策略模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是策略模式"><span class="toc-number">1.1.</span> <span class="toc-text">什么是策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式类图"><span class="toc-number">1.2.</span> <span class="toc-text">策略模式类图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">1.3.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#需求"><span class="toc-number">1.3.1.</span> <span class="toc-text">需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需求分析"><span class="toc-number">1.3.2.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#详细设计"><span class="toc-number">1.3.3.</span> <span class="toc-text">详细设计</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#类图"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">类图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Angular-学习笔记："><span class="toc-number">1.</span> <span class="toc-text">Angular 学习笔记：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#共享模块"><span class="toc-number">1.1.</span> <span class="toc-text">共享模块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#核心模块"><span class="toc-number">1.2.</span> <span class="toc-text">核心模块</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -351,7 +366,7 @@
   
 
   
-  <div id="SOHUCS" sid="设计模式学习笔记之策略模式" ></div> 
+  <div id="SOHUCS" sid="Angular 学习笔记" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
