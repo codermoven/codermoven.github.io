@@ -135,6 +135,109 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/28/设计模式学习笔记之观察者模式/">设计模式学习笔记之观察者模式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/28/设计模式学习笔记之观察者模式/" class="archive-article-date">
+  	<time datetime="2018-02-28T08:01:30.229Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设计模式学习笔记之观察者模式"><a href="#设计模式学习笔记之观察者模式" class="headerlink" title="设计模式学习笔记之观察者模式"></a>设计模式学习笔记之观察者模式</h2><h3 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h3><p>观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式</p>
+<blockquote>
+<p>举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)</p>
+</blockquote>
+<h3 id="观察者模式类图"><a href="#观察者模式类图" class="headerlink" title="观察者模式类图"></a>观察者模式类图</h3><p><img src="http://www.crazyxxl.tech/Observer.png" alt="观察者模式类图"></p>
+<p><strong>简要叙述:</strong></p>
+<p><strong>Subject(被监听着接口):</strong></p>
+<p>对于一个被监听者而言,监听其的对象可以有多个(皇帝派出多个间谍监听某一大臣),当某一监听者需要监听被监听者的时候,Subject调用注册监听者方法(registerObserver),取消监听调用(removeObserver),当其状态发生改变的时候调用notifyObserver方法通知已监听该对象的对象</p>
+<p><strong>ConcreteSubject:</strong></p>
+<p>实际被监听者</p>
+<p><strong>Observer:</strong></p>
+<p>监听者对象接口</p>
+<p><strong>ConcreteObserver:</strong></p>
+<p>实际监听的对象</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>古时候,某一个皇帝觉得自己的宰相有谋反的意图,因此派出了间谍1,潜入相府,检查宰相的行为,一旦有变立即上报,辅政大臣一片赤诚之心,派遣了间谍2去监测丞相的行为,用程序模拟该行为</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>皇帝和辅政大臣同时派出了间谍1和间谍2,来监听丞相的行为,我们可以将丞相模拟成被监听者(本来就是个被监听者),间谍1和间谍2是监听者,一旦他有谋反的举动,就干掉他</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><p><img src="http://www.crazyxxl.tech/Observer-eg.png" alt=""></p>
+<p>监控者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍1</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage1</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"发现他谋反了,通知皇上"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍2:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍2</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage2</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"丞相谋反了,快快通知辅政大臣"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被监听者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 被监听者接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 注册监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>丞相类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> move_xing</div><div class="line"> * <span class="doctag">@describe</span> 丞相类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeMinister</span> <span class="keyword">implements</span> <span class="title">Subject</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        observers.add(object);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = observers.indexOf(object);</div><div class="line">        <span class="keyword">if</span>(-<span class="number">1</span> != index) &#123;</div><div class="line">            observers.remove(index);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebellion</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"杀了那个狗皇帝"</span>);</div><div class="line">        notifyObserver();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">        observers.forEach(item-&gt;&#123;</div><div class="line">            item.update();</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>场景类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 场景类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">//初始化丞相类</span></div><div class="line">        PrimeMinister primeMinister = <span class="keyword">new</span> PrimeMinister();</div><div class="line">        <span class="comment">//皇上派出间谍</span></div><div class="line">        Espionage1 espionage1 = <span class="keyword">new</span> Espionage1();</div><div class="line">        <span class="comment">//辅政大臣派出间谍</span></div><div class="line">        Espionage2 espionage2 = <span class="keyword">new</span> Espionage2();</div><div class="line">        <span class="comment">//间谍1潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage1);</div><div class="line">        <span class="comment">//间谍2潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage2);</div><div class="line">        <span class="comment">//丞相谋反了</span></div><div class="line">        primeMinister.rebellion();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line">*out:</div><div class="line">*杀了那个狗皇帝</div><div class="line">*发现他谋反了,通知皇上</div><div class="line">*丞相谋反了,快快通知辅政大臣</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>监听者模式在我们的开发中是经常会遇到的,前端触发,若干事件触发机制,Android开发事件触发,(部分是监控者模式,当然也有责任链模式),java自身也提供了Observer对象,以及Observable接口来实现监听者模式,感兴趣的可以下来自己看一下.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/28/设计模式学习笔记之观察者模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2018年读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1032,118 +1135,6 @@
 
 
   
-    <article id="post-设计模式学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/设计模式学习笔记/">设计模式学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/28/设计模式学习笔记/" class="archive-article-date">
-  	<time datetime="2018-02-28T05:14:21.406Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记"><a href="#设计模式学习笔记" class="headerlink" title="设计模式学习笔记"></a>设计模式学习笔记</h2><h3 id="什么是设计模式"><a href="#什么是设计模式" class="headerlink" title="什么是设计模式"></a>什么是设计模式</h3><p>设计模式（Design Pattern）在百度百科中的定义为:<strong>是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结,</strong>说的通俗一点就是用来解决某些问题的套路;</p>
-<h3 id="设计模式遵从的原则有哪些"><a href="#设计模式遵从的原则有哪些" class="headerlink" title="设计模式遵从的原则有哪些"></a>设计模式遵从的原则有哪些</h3><ol>
-<li>单一职责原则</li>
-<li>里氏代换原则</li>
-<li>依赖倒置</li>
-<li>接口隔离原则</li>
-<li>迪米特法则(最少知道原则)</li>
-<li>开放封闭原则(扩展开放,修改封闭)</li>
-</ol>
-<h3 id="常用的设计模式有哪些-java"><a href="#常用的设计模式有哪些-java" class="headerlink" title="常用的设计模式有哪些(java)"></a>常用的设计模式有哪些(java)</h3><p>从用途的不同,可以将设计模式分成三大类<strong>:创建类模式,结构类模式,行为类模式</strong></p>
-<h4 id="创建类模式"><a href="#创建类模式" class="headerlink" title="创建类模式"></a>创建类模式</h4><ol>
-<li>单例模式</li>
-<li>工厂模式</li>
-<li>抽象工厂模式</li>
-<li>建造者模式</li>
-<li>原型模式</li>
-</ol>
-<h4 id="结构类模式"><a href="#结构类模式" class="headerlink" title="结构类模式"></a>结构类模式</h4><ol>
-<li>适配器模式</li>
-<li>桥梁模式</li>
-<li>组合模式</li>
-<li>装饰器模式   <a href="https://crazyxxl.github.io/2018/02/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>外观模式(门面模式)</li>
-<li>享元模式</li>
-<li>代理模式</li>
-</ol>
-<h4 id="行为类模式"><a href="#行为类模式" class="headerlink" title="行为类模式"></a>行为类模式</h4><ol>
-<li>责任链模式</li>
-<li>命令模式</li>
-<li>解释器模式</li>
-<li>迭代模式</li>
-<li>中介模式</li>
-<li>备忘录模式</li>
-<li>观察者模式</li>
-<li>策略模式  <a href="https://crazyxxl.github.io/2018/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>模板模式</li>
-<li>访问者模式</li>
-<li>状态模式</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/28/设计模式学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1241,15 +1232,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂项</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">

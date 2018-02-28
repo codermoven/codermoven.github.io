@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://crazyxxl.github.io">
-  <title>hexo github 搭建个人博客 | crazy的博客</title>
+  <title>设计模式学习笔记之观察者模式 | crazy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo搭建个人博客教程 前提： 拥有github账号,安装好npm  本地构建 操作步骤如下：  安装hexo-cli: pm install -g hexo-cli 初始化博客框架：hexo init blog 进入blog文件夹，安装依赖包： cd blog npm install   启动hexo服务：hexo server 浏览器输入：127.0.0.1:4000即可访问  如需写文章，">
-<meta name="keywords" content="杂项">
+  <meta name="description" content="设计模式学习笔记之观察者模式什么是观察者模式观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式  举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)  观察者模式类">
+<meta name="keywords" content="设计模式学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo github 搭建个人博客">
-<meta property="og:url" content="https://crazyxxl.github.io/2018/02/28/hexo搭建个人博客教程/index.html">
+<meta property="og:title" content="设计模式学习笔记之观察者模式">
+<meta property="og:url" content="https://crazyxxl.github.io/2018/02/28/设计模式学习笔记之观察者模式/index.html">
 <meta property="og:site_name" content="crazy的博客">
-<meta property="og:description" content="hexo搭建个人博客教程 前提： 拥有github账号,安装好npm  本地构建 操作步骤如下：  安装hexo-cli: pm install -g hexo-cli 初始化博客框架：hexo init blog 进入blog文件夹，安装依赖包： cd blog npm install   启动hexo服务：hexo server 浏览器输入：127.0.0.1:4000即可访问  如需写文章，">
-<meta property="og:updated_time" content="2018-02-28T05:15:19.730Z">
+<meta property="og:description" content="设计模式学习笔记之观察者模式什么是观察者模式观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式  举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)  观察者模式类">
+<meta property="og:image" content="http://www.crazyxxl.tech/Observer.png">
+<meta property="og:image" content="http://www.crazyxxl.tech/Observer-eg.png">
+<meta property="og:updated_time" content="2018-02-28T08:00:50.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo github 搭建个人博客">
-<meta name="twitter:description" content="hexo搭建个人博客教程 前提： 拥有github账号,安装好npm  本地构建 操作步骤如下：  安装hexo-cli: pm install -g hexo-cli 初始化博客框架：hexo init blog 进入blog文件夹，安装依赖包： cd blog npm install   启动hexo服务：hexo server 浏览器输入：127.0.0.1:4000即可访问  如需写文章，">
+<meta name="twitter:title" content="设计模式学习笔记之观察者模式">
+<meta name="twitter:description" content="设计模式学习笔记之观察者模式什么是观察者模式观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式  举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)  观察者模式类">
+<meta name="twitter:image" content="http://www.crazyxxl.tech/Observer.png">
   
     <link rel="alternative" href="/atom.xml" title="crazy的博客" type="application/atom+xml">
   
@@ -138,82 +141,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo搭建个人博客教程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo github 搭建个人博客
+      设计模式学习笔记之观察者模式
     </h1>
   
 
         
-        <a href="/2018/02/28/hexo搭建个人博客教程/" class="archive-article-date">
-  	<time datetime="2018-02-28T05:15:19.730Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+        <a href="/2018/02/28/设计模式学习笔记之观察者模式/" class="archive-article-date">
+  	<time datetime="2018-02-28T08:01:30.229Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="hexo搭建个人博客教程"><a href="#hexo搭建个人博客教程" class="headerlink" title="hexo搭建个人博客教程"></a>hexo搭建个人博客教程</h4><blockquote>
-<p>前提：</p>
-<p>拥有github账号,安装好npm</p>
-</blockquote>
-<h5 id="本地构建"><a href="#本地构建" class="headerlink" title="本地构建"></a>本地构建</h5><blockquote>
-<p>操作步骤如下：</p>
-<ol>
-<li>安装hexo-cli: <strong>pm install -g hexo-cli</strong></li>
-<li>初始化博客框架：<strong>hexo init blog</strong></li>
-<li>进入blog文件夹，安装依赖包：<ul>
-<li><strong>cd blog</strong></li>
-<li><strong>npm install</strong></li>
-</ul>
-</li>
-<li>启动hexo服务：<strong>hexo server</strong></li>
-<li>浏览器输入：<strong>127.0.0.1:4000</strong>即可访问</li>
-</ol>
-<p>如需写文章，只需要在\blog\source_posts\文件夹下面防止写好的md文件，之后执行<strong>hexo g</strong>即可在个人站点访问刚才发布的md文件；</p>
-</blockquote>
-<p>如有不明确之处可参见官网：<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
-<p><strong>主题安装</strong></p>
-<p>hexo提供了众多主题，可以根据个人喜好进行安装，安装过程如下：</p>
+        <h2 id="设计模式学习笔记之观察者模式"><a href="#设计模式学习笔记之观察者模式" class="headerlink" title="设计模式学习笔记之观察者模式"></a>设计模式学习笔记之观察者模式</h2><h3 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h3><p>观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式</p>
 <blockquote>
-<ol>
-<li>登录hexo官网(<a href="https://hexo.io/)，选择主题页面" target="_blank" rel="external">https://hexo.io/)，选择主题页面</a></li>
-<li>选择喜欢的主题，进入对应的github获取主题源码</li>
-<li>进入博客主目录，git clone 仓库地址 themes/主题名称（可自定义）</li>
-<li>将_config.yml 下面的theme: landscape 修改为theme：主题名称</li>
-<li>其他依赖包相关可参见主题所在github下的关于主题仓库的说明</li>
-<li>hexo clean  –&gt; hexo g –&gt;hexo server</li>
-</ol>
+<p>举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)</p>
 </blockquote>
-<p>综上所述均为本地如何开发hexo，我们构建个人博客需要远程访问，接下来，讲述如何将github与hexo结合开发个人博客：</p>
-<p><strong>将本地博客发布在github上面</strong></p>
-<blockquote>
-<ol>
-<li><p>首先在github上创建blog仓库</p>
-</li>
-<li><p>进入项目主目录打开_config.yml，在文中对应位置添加以下配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    url:  github配置的页面访问url</div><div class="line">&gt;    root: github根目录</div><div class="line">&gt;    deploy:</div><div class="line">&gt;      type: git</div><div class="line">&gt;      repo: git@github.com:github上个人的仓库</div><div class="line">&gt;      branch: master</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li><p>打包<strong>hexo g</strong></p>
-</li>
-<li><p>执行构建，在此之前需要安装构架依赖的组件：<strong>npm install hexo-deployer-git –save</strong> （如没有该依赖会报错：ERROR Deployer not found: git）</p>
-</li>
-<li><p>执行构建，<strong>hexo d</strong>或者<strong>hexo deploy</strong> 或者 <strong>hexo d -g</strong></p>
-</li>
-<li><p>在github配置的页面访问路径下访问该博客</p>
-</li>
-</ol>
-</blockquote>
+<h3 id="观察者模式类图"><a href="#观察者模式类图" class="headerlink" title="观察者模式类图"></a>观察者模式类图</h3><p><img src="http://www.crazyxxl.tech/Observer.png" alt="观察者模式类图"></p>
+<p><strong>简要叙述:</strong></p>
+<p><strong>Subject(被监听着接口):</strong></p>
+<p>对于一个被监听者而言,监听其的对象可以有多个(皇帝派出多个间谍监听某一大臣),当某一监听者需要监听被监听者的时候,Subject调用注册监听者方法(registerObserver),取消监听调用(removeObserver),当其状态发生改变的时候调用notifyObserver方法通知已监听该对象的对象</p>
+<p><strong>ConcreteSubject:</strong></p>
+<p>实际被监听者</p>
+<p><strong>Observer:</strong></p>
+<p>监听者对象接口</p>
+<p><strong>ConcreteObserver:</strong></p>
+<p>实际监听的对象</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>古时候,某一个皇帝觉得自己的宰相有谋反的意图,因此派出了间谍1,潜入相府,检查宰相的行为,一旦有变立即上报,辅政大臣一片赤诚之心,派遣了间谍2去监测丞相的行为,用程序模拟该行为</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>皇帝和辅政大臣同时派出了间谍1和间谍2,来监听丞相的行为,我们可以将丞相模拟成被监听者(本来就是个被监听者),间谍1和间谍2是监听者,一旦他有谋反的举动,就干掉他</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><p><img src="http://www.crazyxxl.tech/Observer-eg.png" alt=""></p>
+<p>监控者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍1</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage1</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"发现他谋反了,通知皇上"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍2:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍2</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage2</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"丞相谋反了,快快通知辅政大臣"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被监听者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 被监听者接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 注册监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>丞相类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> move_xing</div><div class="line"> * <span class="doctag">@describe</span> 丞相类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeMinister</span> <span class="keyword">implements</span> <span class="title">Subject</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        observers.add(object);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = observers.indexOf(object);</div><div class="line">        <span class="keyword">if</span>(-<span class="number">1</span> != index) &#123;</div><div class="line">            observers.remove(index);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebellion</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"杀了那个狗皇帝"</span>);</div><div class="line">        notifyObserver();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">        observers.forEach(item-&gt;&#123;</div><div class="line">            item.update();</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>场景类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 场景类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">//初始化丞相类</span></div><div class="line">        PrimeMinister primeMinister = <span class="keyword">new</span> PrimeMinister();</div><div class="line">        <span class="comment">//皇上派出间谍</span></div><div class="line">        Espionage1 espionage1 = <span class="keyword">new</span> Espionage1();</div><div class="line">        <span class="comment">//辅政大臣派出间谍</span></div><div class="line">        Espionage2 espionage2 = <span class="keyword">new</span> Espionage2();</div><div class="line">        <span class="comment">//间谍1潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage1);</div><div class="line">        <span class="comment">//间谍2潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage2);</div><div class="line">        <span class="comment">//丞相谋反了</span></div><div class="line">        primeMinister.rebellion();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line">*out:</div><div class="line">*杀了那个狗皇帝</div><div class="line">*发现他谋反了,通知皇上</div><div class="line">*丞相谋反了,快快通知辅政大臣</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>监听者模式在我们的开发中是经常会遇到的,前端触发,若干事件触发机制,Android开发事件触发,(部分是监控者模式,当然也有责任链模式),java自身也提供了Observer对象,以及Observable接口来实现监听者模式,感兴趣的可以下来自己看一下.</p>
 
       
 
@@ -253,7 +230,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
         		</li>
       		
 		</ul>
@@ -309,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/02/28/hexo搭建个人博客教程/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/02/28/设计模式学习笔记之观察者模式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,18 +300,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/28/Docker构建项目/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Docker初体验之构建javaWeb项目
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/02/28/Linux下面显示分支名称的方法：/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux下面显示分支名称的方法</div>
+    <a href="/2018/02/28/2018年读书计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2018读书计划</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -361,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo搭建个人博客教程"><span class="toc-number">1.</span> <span class="toc-text">hexo搭建个人博客教程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#本地构建"><span class="toc-number">1.1.</span> <span class="toc-text">本地构建</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式学习笔记之观察者模式"><span class="toc-number">1.</span> <span class="toc-text">设计模式学习笔记之观察者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是观察者模式"><span class="toc-number">1.1.</span> <span class="toc-text">什么是观察者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者模式类图"><span class="toc-number">1.2.</span> <span class="toc-text">观察者模式类图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">1.3.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#需求"><span class="toc-number">1.3.1.</span> <span class="toc-text">需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需求分析"><span class="toc-number">1.3.2.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#详细设计"><span class="toc-number">1.3.3.</span> <span class="toc-text">详细设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -377,7 +345,7 @@
   
 
   
-  <div id="SOHUCS" sid="hexo搭建个人博客教程" ></div> 
+  <div id="SOHUCS" sid="设计模式学习笔记之观察者模式" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
