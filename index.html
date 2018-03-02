@@ -135,6 +135,122 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-设计模式学习笔记之抽象工厂" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/02/设计模式学习笔记之抽象工厂/">设计模式学习笔记之抽象工厂模式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/02/设计模式学习笔记之抽象工厂/" class="archive-article-date">
+  	<time datetime="2018-03-02T09:11:56.858Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设计模式学习笔记之抽象工厂"><a href="#设计模式学习笔记之抽象工厂" class="headerlink" title="设计模式学习笔记之抽象工厂"></a>设计模式学习笔记之抽象工厂</h2><h3 id="什么是抽象工厂"><a href="#什么是抽象工厂" class="headerlink" title="什么是抽象工厂"></a>什么是抽象工厂</h3><p>提供一个接口,用于创建相关联或者依赖的对象家族,而不指明其实现类(来源于HeadFirst,不是很能理解)</p>
+<blockquote>
+<p>上一节中我们讲述了,工厂模式,工厂模式是用来生产某一个类产品,但是工厂模式生产的是一个产品族,例如:工厂模式用来生产轮胎,抽象工厂就是用来生产车子(包括相互关联的轮胎,车架,引擎等等)</p>
+</blockquote>
+<h3 id="抽象工厂模式类图"><a href="#抽象工厂模式类图" class="headerlink" title="抽象工厂模式类图"></a>抽象工厂模式类图</h3><p><img src="http://www.crazyxxl.tech/AbstractFactory.png" alt="抽象工厂模式类图"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类或者接口名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">AbstractFactory</td>
+<td>抽象接口,用于创建产品家族(每一个方法都可以创建一个产品)</td>
+</tr>
+<tr>
+<td style="text-align:center">ConcreteFactory1/ConcreteFactory</td>
+<td>用于创建某一具体产品族</td>
+</tr>
+<tr>
+<td style="text-align:center">ProductA1/ProductB1</td>
+<td>具体产品</td>
+</tr>
+</tbody>
+</table>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h4><p>(接着工厂模式)奔驰总部觉得西安人力资源较为廉价,所以打算将中国区的A,C(A和C配件的数目以及种类一致)两种车系全部生产全部交由西安生产,包含两种车辆的各个零部件的生产,全部交由西安,但是车辆的组装,不交给西安(车辆的组装设计先后顺序,之后讲述建造者模式的时候可以用得着),模拟该场景</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>现在A,C两种车系组件的的生产全部交由西安,A,C两种类型部件,全部交由西安,我们可以见建立一个专门生产A类配件的工厂A,和一个专门生产C类车辆配件的工厂C,由于他们的配件种类一致,所以可以给他们向上抽象一个接口,故而使用抽象工厂模式</p>
+<h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="http://www.crazyxxl.tech/AbstractFactory-eg.png" alt=""></p>
+<p>实体类如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 引擎抽象接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AbstractEngine</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 轮胎抽象接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AbstractTyre</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 用于抽象工厂接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AbstractFactory</span> </span>&#123;</div><div class="line">    <span class="function">AbstractTyre <span class="title">createTyre</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">AbstractEngine <span class="title">createEngine</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> A车引擎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EngineA</span> <span class="keyword">implements</span> <span class="title">AbstractEngine</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"A-Engine--001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TyreA</span> <span class="keyword">implements</span> <span class="title">AbstractTyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"A-TyreA-001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> C车引擎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EngineC</span> <span class="keyword">implements</span> <span class="title">AbstractEngine</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"C_Engine_C--001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> C车轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TyreC</span> <span class="keyword">implements</span> <span class="title">AbstractTyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//关于轮胎这一块,我们在工厂模式里面已经做了详述,具体的生产摸一个产品族里面也可以添加,用于建立单个产品的工厂,</span></div><div class="line">        <span class="comment">//说白了,抽象工厂的某一个方法就是一个工厂模式</span></div><div class="line">        System.out.println(<span class="string">"C-TyreC-001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 用于生产A车家族的工厂</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarAFactory</span> <span class="keyword">implements</span> <span class="title">AbstractFactory</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 此处可以结合工厂模式,例如可以将A轮胎的工厂注入进来,在具体的方法中调用用于生产出不同A轮胎</div><div class="line">     *</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> AbstractTyre <span class="title">createTyre</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TyreA();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> AbstractEngine <span class="title">createEngine</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EngineA();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 用于生产C车家族的工厂</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarCFactory</span> <span class="keyword">implements</span> <span class="title">AbstractFactory</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> AbstractTyre <span class="title">createTyre</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TyreC();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> AbstractEngine <span class="title">createEngine</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EngineC();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>开始创造零件:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        AbstractTyre tyre = <span class="keyword">null</span> ;</div><div class="line">        AbstractEngine engine = <span class="keyword">null</span>;</div><div class="line">        AbstractFactory factory = <span class="keyword">null</span>;</div><div class="line">        <span class="comment">//生产A家族的产品</span></div><div class="line">        factory = <span class="keyword">new</span> CarAFactory();</div><div class="line">        tyre = factory.createTyre();</div><div class="line">        tyre.SN();</div><div class="line">        engine = factory.createEngine();</div><div class="line">        engine.SN();</div><div class="line">        <span class="comment">//生产C家族的产品</span></div><div class="line">        factory = <span class="keyword">new</span> CarCFactory();</div><div class="line">        tyre = factory.createTyre();</div><div class="line">        tyre.SN();</div><div class="line">        engine = factory.createEngine();</div><div class="line">        engine.SN();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>抽象工厂与工厂模式差别在于,工厂模式对应的是摸一个类型产品,而抽象工厂模式对应的是一个产品族,抽象工厂内部对于每一个相关产品的构建都是对于工厂模式的使用.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/02/设计模式学习笔记之抽象工厂/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-设计模式学习笔记之工厂模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1071,115 +1187,6 @@
 
 
   
-    <article id="post-Docker构建项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/Docker构建项目/">Docker初体验之构建javaWeb项目</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/28/Docker构建项目/" class="archive-article-date">
-  	<time datetime="2018-02-28T05:15:31.731Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Docker-构建javaWeb项目"><a href="#Docker-构建javaWeb项目" class="headerlink" title="Ｄocker 构建javaWeb项目"></a>Ｄocker 构建javaWeb项目</h3><h4 id="主环境搭建（tomcat）"><a href="#主环境搭建（tomcat）" class="headerlink" title="主环境搭建（tomcat）"></a>主环境搭建（tomcat）</h4><p>步骤如下：</p>
-<p>1.拉取基准镜像：docker pull hub.c.163.com/public/ubuntu:16.04-tools</p>
-<p>2.配置Dockerfile:</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu MYNF Dockerfile</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">###base system</span></div><div class="line"><span class="keyword">FROM</span> hub.c.<span class="number">163</span>.com/public/ubuntu:<span class="number">16.04</span>-tools</div><div class="line"></div><div class="line"><span class="comment">###auther</span></div><div class="line"><span class="keyword">MAINTAINER</span> crazyxxl <span class="string">"1228785231@qq.com"</span></div><div class="line"></div><div class="line"><span class="comment">###config java env begin</span></div><div class="line"><span class="keyword">ADD</span> jdk1.8.0_144 /usr/local/java</div><div class="line"><span class="keyword">RUN</span> ls /usr/local/java/</div><div class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/local/java</div><div class="line"><span class="keyword">ENV</span> PATH $JAVA_HOME/bin:$PATH</div><div class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib</div><div class="line"><span class="comment">###config java env end</span></div><div class="line"></div><div class="line"><span class="comment">###config jms begin</span></div><div class="line"><span class="keyword">ADD</span> apache-activemq-5.5.0 /usr/local/jms</div><div class="line"><span class="comment">###config jms end</span></div><div class="line"></div><div class="line"><span class="keyword">COPY</span> apache-tomcat-8.5.20 /usr/local/tomcat/apache-tomcat-8.5.20/</div><div class="line"><span class="keyword">COPY</span> mynf.war /usr/local/tomcat/apache-tomcat-8.5.20/webapps/</div><div class="line"><span class="keyword">COPY</span> dist /usr/local/tomcat/apache-tomcat-8.5.20/webapps/ROOT/</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/*</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/bin/*.sh</div><div class="line"><span class="keyword">EXPOSE</span> <span class="number">8080</span> <span class="number">60000</span></div><div class="line"><span class="keyword">CMD</span> /usr/local/jms/bin/activemq start</div><div class="line"><span class="keyword">ENTRYPOINT</span> /usr/local/tomcat/apache-tomcat-8.5.20/bin/catalina.sh run</div></pre></td></tr></table></figure>
-<p>3.构建镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t xxl/ubuntu/mynf .</div></pre></td></tr></table></figure>
-<h4 id="构建mongo镜像"><a href="#构建mongo镜像" class="headerlink" title="构建mongo镜像"></a>构建mongo镜像</h4><p>１.拉取mongodb镜像：docker pull hub.c.163.com/public/mongodb:3.2.0</p>
-<p>2.导出宿主机上面的ｍｏｎｇｏ数据，并将其放置在/data 下面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodump  -d mynf -o /data</div></pre></td></tr></table></figure>
-<p>2.启动镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_mongo -v /data:/mnt -d hub.c.163.com/public/mongodb:3.2.0</div></pre></td></tr></table></figure>
-<blockquote>
-<p>备注：-v 表示把宿主机子上面的/data 挂在到容器的/mnt下面。这样/data下面的数据就可以被容器访问了</p>
-</blockquote>
-<p>３.进入容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it mynf_mongo bash</div></pre></td></tr></table></figure>
-<p>4.导入数据</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore  -d mynf --dir /mnt/mynf</div></pre></td></tr></table></figure>
-<p>5.创建用户</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">use mynf;</div><div class="line">db.createUser(&#123;user:"root",pwd:"mynfadmin",roles:[]&#125;);</div></pre></td></tr></table></figure>
-<h4 id="构建mysql环境"><a href="#构建mysql环境" class="headerlink" title="构建mysql环境"></a>构建mysql环境</h4><p>１.拉取mysql镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull hub.c.163.com/library/mysql:latest</div></pre></td></tr></table></figure>
-<p> 2.导出宿主镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -u root -p mynf &gt; mynf.sql</div></pre></td></tr></table></figure>
-<p>3.创建挂载文件夹：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/mysql</div></pre></td></tr></table></figure>
-<p>4.启动镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name MYNF-mysql  -v /data/mynf:/mnt   -e MYSQL_ROOT_PASSWORD=mima -d hub.c.163.com/library/mysql</div></pre></td></tr></table></figure>
-<p>5.进入镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it MYNF-mysql bash</div></pre></td></tr></table></figure>
-<p>6.导入数据</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pPSW -e source /mnt/mynf.sql</div></pre></td></tr></table></figure>
-<h4 id="连接容器启动项目"><a href="#连接容器启动项目" class="headerlink" title="连接容器启动项目"></a>连接容器启动项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_server --link MYNF-mysql:mysql --link mynf_mongo:mongo -p 8080:8080  -d xxl/ununtu/mynf</div></pre></td></tr></table></figure>
-<blockquote>
-<p>备注：–name 表示容器名称　–link MYNF-mysql：表示连接容器名称，mysql 连接名称　-p 前面端口指代宿主端口号，后者表示容器内部的端口号　</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/28/Docker构建项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1273,15 +1280,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂项</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计划</a>
               </li>
              
               <li class="article-tag-list-item">

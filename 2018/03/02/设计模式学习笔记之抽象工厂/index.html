@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://crazyxxl.github.io">
-  <title>关于angular4部署服务器刷新报错以及相关资源加载不到解决办法 | crazy的博客</title>
+  <title>设计模式学习笔记之抽象工厂模式 | crazy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="部署angular4项目： ng build –prod –aot 资源加载不到问题： 打包以后项目的目录下面会生成dist文件，部署的时候需要将dist文件中的内容拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况; 部署项目成功后刷新报错问题： 需要在app.module里面添加配置项： 首先导入： 1import &amp;#123;HashLocationStr">
-<meta name="keywords" content="前端">
+  <meta name="description" content="设计模式学习笔记之抽象工厂什么是抽象工厂提供一个接口,用于创建相关联或者依赖的对象家族,而不指明其实现类(来源于HeadFirst,不是很能理解)  上一节中我们讲述了,工厂模式,工厂模式是用来生产某一个类产品,但是工厂模式生产的是一个产品族,例如:工厂模式用来生产轮胎,抽象工厂就是用来生产车子(包括相互关联的轮胎,车架,引擎等等)  抽象工厂模式类图    类或者接口名称 作用     Abst">
+<meta name="keywords" content="设计模式学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于angular4部署服务器刷新报错以及相关资源加载不到解决办法">
-<meta property="og:url" content="https://crazyxxl.github.io/2018/02/28/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/index.html">
+<meta property="og:title" content="设计模式学习笔记之抽象工厂模式">
+<meta property="og:url" content="https://crazyxxl.github.io/2018/03/02/设计模式学习笔记之抽象工厂/index.html">
 <meta property="og:site_name" content="crazy的博客">
-<meta property="og:description" content="部署angular4项目： ng build –prod –aot 资源加载不到问题： 打包以后项目的目录下面会生成dist文件，部署的时候需要将dist文件中的内容拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况; 部署项目成功后刷新报错问题： 需要在app.module里面添加配置项： 首先导入： 1import &amp;#123;HashLocationStr">
-<meta property="og:updated_time" content="2018-02-28T05:14:40.600Z">
+<meta property="og:description" content="设计模式学习笔记之抽象工厂什么是抽象工厂提供一个接口,用于创建相关联或者依赖的对象家族,而不指明其实现类(来源于HeadFirst,不是很能理解)  上一节中我们讲述了,工厂模式,工厂模式是用来生产某一个类产品,但是工厂模式生产的是一个产品族,例如:工厂模式用来生产轮胎,抽象工厂就是用来生产车子(包括相互关联的轮胎,车架,引擎等等)  抽象工厂模式类图    类或者接口名称 作用     Abst">
+<meta property="og:image" content="http://www.crazyxxl.tech/AbstractFactory.png">
+<meta property="og:image" content="http://www.crazyxxl.tech/AbstractFactory-eg.png">
+<meta property="og:updated_time" content="2018-03-02T09:11:56.858Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于angular4部署服务器刷新报错以及相关资源加载不到解决办法">
-<meta name="twitter:description" content="部署angular4项目： ng build –prod –aot 资源加载不到问题： 打包以后项目的目录下面会生成dist文件，部署的时候需要将dist文件中的内容拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况; 部署项目成功后刷新报错问题： 需要在app.module里面添加配置项： 首先导入： 1import &amp;#123;HashLocationStr">
+<meta name="twitter:title" content="设计模式学习笔记之抽象工厂模式">
+<meta name="twitter:description" content="设计模式学习笔记之抽象工厂什么是抽象工厂提供一个接口,用于创建相关联或者依赖的对象家族,而不指明其实现类(来源于HeadFirst,不是很能理解)  上一节中我们讲述了,工厂模式,工厂模式是用来生产某一个类产品,但是工厂模式生产的是一个产品族,例如:工厂模式用来生产轮胎,抽象工厂就是用来生产车子(包括相互关联的轮胎,车架,引擎等等)  抽象工厂模式类图    类或者接口名称 作用     Abst">
+<meta name="twitter:image" content="http://www.crazyxxl.tech/AbstractFactory.png">
   
     <link rel="alternative" href="/atom.xml" title="crazy的博客" type="application/atom+xml">
   
@@ -138,37 +141,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-设计模式学习笔记之抽象工厂" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于angular4部署服务器刷新报错以及相关资源加载不到解决办法
+      设计模式学习笔记之抽象工厂模式
     </h1>
   
 
         
-        <a href="/2018/02/28/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" class="archive-article-date">
-  	<time datetime="2018-02-28T05:14:40.600Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+        <a href="/2018/03/02/设计模式学习笔记之抽象工厂/" class="archive-article-date">
+  	<time datetime="2018-03-02T09:11:56.858Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>部署angular4项目：</p>
-<p>ng build –prod –aot</p>
-<p>资源加载不到问题：</p>
-<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
-<p>部署项目成功后刷新报错问题：</p>
-<p>需要在app.module里面添加配置项：</p>
-<p>首先导入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</div></pre></td></tr></table></figure>
-<p>其次在providers里面添加:</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [</div><div class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
+        <h2 id="设计模式学习笔记之抽象工厂"><a href="#设计模式学习笔记之抽象工厂" class="headerlink" title="设计模式学习笔记之抽象工厂"></a>设计模式学习笔记之抽象工厂</h2><h3 id="什么是抽象工厂"><a href="#什么是抽象工厂" class="headerlink" title="什么是抽象工厂"></a>什么是抽象工厂</h3><p>提供一个接口,用于创建相关联或者依赖的对象家族,而不指明其实现类(来源于HeadFirst,不是很能理解)</p>
+<blockquote>
+<p>上一节中我们讲述了,工厂模式,工厂模式是用来生产某一个类产品,但是工厂模式生产的是一个产品族,例如:工厂模式用来生产轮胎,抽象工厂就是用来生产车子(包括相互关联的轮胎,车架,引擎等等)</p>
+</blockquote>
+<h3 id="抽象工厂模式类图"><a href="#抽象工厂模式类图" class="headerlink" title="抽象工厂模式类图"></a>抽象工厂模式类图</h3><p><img src="http://www.crazyxxl.tech/AbstractFactory.png" alt="抽象工厂模式类图"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类或者接口名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">AbstractFactory</td>
+<td>抽象接口,用于创建产品家族(每一个方法都可以创建一个产品)</td>
+</tr>
+<tr>
+<td style="text-align:center">ConcreteFactory1/ConcreteFactory</td>
+<td>用于创建某一具体产品族</td>
+</tr>
+<tr>
+<td style="text-align:center">ProductA1/ProductB1</td>
+<td>具体产品</td>
+</tr>
+</tbody>
+</table>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h4><p>(接着工厂模式)奔驰总部觉得西安人力资源较为廉价,所以打算将中国区的A,C(A和C配件的数目以及种类一致)两种车系全部生产全部交由西安生产,包含两种车辆的各个零部件的生产,全部交由西安,但是车辆的组装,不交给西安(车辆的组装设计先后顺序,之后讲述建造者模式的时候可以用得着),模拟该场景</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>现在A,C两种车系组件的的生产全部交由西安,A,C两种类型部件,全部交由西安,我们可以见建立一个专门生产A类配件的工厂A,和一个专门生产C类车辆配件的工厂C,由于他们的配件种类一致,所以可以给他们向上抽象一个接口,故而使用抽象工厂模式</p>
+<h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="http://www.crazyxxl.tech/AbstractFactory-eg.png" alt=""></p>
+<p>实体类如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 引擎抽象接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AbstractEngine</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 轮胎抽象接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AbstractTyre</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 用于抽象工厂接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AbstractFactory</span> </span>&#123;</div><div class="line">    <span class="function">AbstractTyre <span class="title">createTyre</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">AbstractEngine <span class="title">createEngine</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> A车引擎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EngineA</span> <span class="keyword">implements</span> <span class="title">AbstractEngine</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"A-Engine--001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TyreA</span> <span class="keyword">implements</span> <span class="title">AbstractTyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"A-TyreA-001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> C车引擎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EngineC</span> <span class="keyword">implements</span> <span class="title">AbstractEngine</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"C_Engine_C--001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> C车轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TyreC</span> <span class="keyword">implements</span> <span class="title">AbstractTyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//关于轮胎这一块,我们在工厂模式里面已经做了详述,具体的生产摸一个产品族里面也可以添加,用于建立单个产品的工厂,</span></div><div class="line">        <span class="comment">//说白了,抽象工厂的某一个方法就是一个工厂模式</span></div><div class="line">        System.out.println(<span class="string">"C-TyreC-001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 用于生产A车家族的工厂</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarAFactory</span> <span class="keyword">implements</span> <span class="title">AbstractFactory</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 此处可以结合工厂模式,例如可以将A轮胎的工厂注入进来,在具体的方法中调用用于生产出不同A轮胎</div><div class="line">     *</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> AbstractTyre <span class="title">createTyre</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TyreA();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> AbstractEngine <span class="title">createEngine</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EngineA();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 用于生产C车家族的工厂</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarCFactory</span> <span class="keyword">implements</span> <span class="title">AbstractFactory</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> AbstractTyre <span class="title">createTyre</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TyreC();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> AbstractEngine <span class="title">createEngine</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EngineC();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>开始创造零件:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.AbstractFactory;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        AbstractTyre tyre = <span class="keyword">null</span> ;</div><div class="line">        AbstractEngine engine = <span class="keyword">null</span>;</div><div class="line">        AbstractFactory factory = <span class="keyword">null</span>;</div><div class="line">        <span class="comment">//生产A家族的产品</span></div><div class="line">        factory = <span class="keyword">new</span> CarAFactory();</div><div class="line">        tyre = factory.createTyre();</div><div class="line">        tyre.SN();</div><div class="line">        engine = factory.createEngine();</div><div class="line">        engine.SN();</div><div class="line">        <span class="comment">//生产C家族的产品</span></div><div class="line">        factory = <span class="keyword">new</span> CarCFactory();</div><div class="line">        tyre = factory.createTyre();</div><div class="line">        tyre.SN();</div><div class="line">        engine = factory.createEngine();</div><div class="line">        engine.SN();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>抽象工厂与工厂模式差别在于,工厂模式对应的是摸一个类型产品,而抽象工厂模式对应的是一个产品族,抽象工厂内部对于每一个相关产品的构建都是对于工厂模式的使用.</p>
 
       
 
@@ -208,7 +243,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
         		</li>
       		
 		</ul>
@@ -264,7 +299,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/02/28/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/03/02/设计模式学习笔记之抽象工厂/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,15 +313,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/28/springboot环境搭建教程（eclipse）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          springboot环境搭建
-        
-      </div>
-    </a>
   
+    <a href="/2018/03/01/设计模式学习笔记之工厂模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式学习笔记之工厂模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -311,7 +342,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式学习笔记之抽象工厂"><span class="toc-number">1.</span> <span class="toc-text">设计模式学习笔记之抽象工厂</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是抽象工厂"><span class="toc-number">1.1.</span> <span class="toc-text">什么是抽象工厂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象工厂模式类图"><span class="toc-number">1.2.</span> <span class="toc-text">抽象工厂模式类图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">1.3.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#场景描述"><span class="toc-number">1.3.1.</span> <span class="toc-text">场景描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需求分析"><span class="toc-number">1.3.2.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类图"><span class="toc-number">1.3.3.</span> <span class="toc-text">类图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -327,7 +358,7 @@
   
 
   
-  <div id="SOHUCS" sid="关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" ></div> 
+  <div id="SOHUCS" sid="设计模式学习笔记之抽象工厂" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
