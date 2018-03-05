@@ -135,89 +135,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-设计模式学习笔记之单一职责原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/设计模式学习笔记之单一职责原则/">设计模式学习笔记之单一职责原则</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/设计模式学习笔记之单一职责原则/" class="archive-article-date">
-  	<time datetime="2018-03-05T01:40:41.730Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记之单一职责原则"><a href="#设计模式学习笔记之单一职责原则" class="headerlink" title="设计模式学习笔记之单一职责原则"></a>设计模式学习笔记之单一职责原则</h2><h3 id="什么是单一职责原则"><a href="#什么是单一职责原则" class="headerlink" title="什么是单一职责原则"></a>什么是单一职责原则</h3><p>引起一个类变化的因素只有一个,就叫做单一职责原则(又称为单一功能原则)</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>小张是xx公司程序员,现在遇到了一下问题:现在有两个较为简单的功能需要实现,但是这两个功能并无关联,但实现较为简单,于是小王想,这么简单,<strong>就写在一个类里面</strong>吧:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Functions</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionA</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能A</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionB</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能B</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>随着系统复杂性的提高,原有的两个功能无法支撑现有项目,需要修改,经过几轮的迭代,这两个函数已经变的较为复杂,这个类也已经被改变了若干次,变得异常的复杂.小张悔不当初啊,没能将当初的功能分割开来,致使这个点成为项目的一个弊病.</p>
-<p>时光倒流到了小张开始设计这个功能的时候………</p>
-<p>小张分析了这个功能以后,考虑了其扩展,最终将功能拆分成了两个类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="comment">//实现A的功能</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</div><div class="line">    <span class="comment">//实现功能B</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>于是乎,无论系统怎么扩展,A只负责A的模块,引起A变化的也只有A内部的因素,简单的说A只有一个功能,这就是单一职责.</p>
-<h3 id="有啥好处"><a href="#有啥好处" class="headerlink" title="有啥好处"></a>有啥好处</h3><p>就像上文所述,明确的职责划分,能够使得系统高度内聚,降低系统耦合度,能够使得系统的可扩展性提升.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/设计模式学习笔记之单一职责原则/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-设计模式学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -225,13 +142,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/02/设计模式学习笔记/">设计模式学习笔记</a>
+      <a class="article-title" href="/2018/03/05/设计模式学习笔记/">设计模式学习笔记</a>
     </h1>
   
 
         
-        <a href="/2018/03/02/设计模式学习笔记/" class="archive-article-date">
-  	<time datetime="2018-03-02T09:14:35.613Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-02</time>
+        <a href="/2018/03/05/设计模式学习笔记/" class="archive-article-date">
+  	<time datetime="2018-03-05T01:43:15.738Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
 </a>
         
       </header>
@@ -240,7 +157,7 @@
       
         <h2 id="设计模式学习笔记"><a href="#设计模式学习笔记" class="headerlink" title="设计模式学习笔记"></a>设计模式学习笔记</h2><h3 id="什么是设计模式"><a href="#什么是设计模式" class="headerlink" title="什么是设计模式"></a>什么是设计模式</h3><p>设计模式（Design Pattern）在百度百科中的定义为:<strong>是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结,</strong>说的通俗一点就是用来解决某些问题的套路;</p>
 <h3 id="设计模式遵从的原则有哪些"><a href="#设计模式遵从的原则有哪些" class="headerlink" title="设计模式遵从的原则有哪些"></a>设计模式遵从的原则有哪些</h3><ol>
-<li>单一职责原则</li>
+<li>单一职责原则 <a href="https://crazyxxl.github.io/2018/03/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99/">查看详情</a></li>
 <li>里氏代换原则</li>
 <li>依赖倒置</li>
 <li>接口隔离原则</li>
@@ -300,7 +217,90 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/02/设计模式学习笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/05/设计模式学习笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-设计模式学习笔记之单一职责原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/05/设计模式学习笔记之单一职责原则/">设计模式学习笔记之单一职责原则</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/05/设计模式学习笔记之单一职责原则/" class="archive-article-date">
+  	<time datetime="2018-03-05T01:40:41.730Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设计模式学习笔记之单一职责原则"><a href="#设计模式学习笔记之单一职责原则" class="headerlink" title="设计模式学习笔记之单一职责原则"></a>设计模式学习笔记之单一职责原则</h2><h3 id="什么是单一职责原则"><a href="#什么是单一职责原则" class="headerlink" title="什么是单一职责原则"></a>什么是单一职责原则</h3><p>引起一个类变化的因素只有一个,就叫做单一职责原则(又称为单一功能原则)</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>小张是xx公司程序员,现在遇到了一下问题:现在有两个较为简单的功能需要实现,但是这两个功能并无关联,但实现较为简单,于是小王想,这么简单,<strong>就写在一个类里面</strong>吧:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Functions</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionA</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能A</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionB</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能B</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>随着系统复杂性的提高,原有的两个功能无法支撑现有项目,需要修改,经过几轮的迭代,这两个函数已经变的较为复杂,这个类也已经被改变了若干次,变得异常的复杂.小张悔不当初啊,没能将当初的功能分割开来,致使这个点成为项目的一个弊病.</p>
+<p>时光倒流到了小张开始设计这个功能的时候………</p>
+<p>小张分析了这个功能以后,考虑了其扩展,最终将功能拆分成了两个类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="comment">//实现A的功能</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</div><div class="line">    <span class="comment">//实现功能B</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>于是乎,无论系统怎么扩展,A只负责A的模块,引起A变化的也只有A内部的因素,简单的说A只有一个功能,这就是单一职责.</p>
+<h3 id="有啥好处"><a href="#有啥好处" class="headerlink" title="有啥好处"></a>有啥好处</h3><p>就像上文所述,明确的职责划分,能够使得系统高度内聚,降低系统耦合度,能够使得系统的可扩展性提升.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/05/设计模式学习笔记之单一职责原则/">展开全文 >></a>
         </p>
       
 
@@ -1273,15 +1273,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂项</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计划</a>
               </li>
              
               <li class="article-tag-list-item">
