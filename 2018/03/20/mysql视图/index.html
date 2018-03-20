@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://crazyxxl.github.io">
-  <title>Tag: 计划 | crazy的博客</title>
+  <title>mysql学习之视图 | crazy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="crazy的博客">
-<meta property="og:url" content="https://crazyxxl.github.io/tags/计划/index.html">
+  <meta name="description" content="mysql视图视图什么是视图视图又称虚表，英文名称view，究其本质就是根据sql获取动态数据集，在为他起个名称，之所以叫他虚表，是因为他本身并不作为表存储数据，按照java的说法来讲，就是指向某个sql查询的结果集的指针而已。 如何定义视图1create view view_name as select statment.... 为什么要用视图用视图的作用主要有二：  安全考量 简化查询  具体">
+<meta name="keywords" content="mysql学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql学习之视图">
+<meta property="og:url" content="https://crazyxxl.github.io/2018/03/20/mysql视图/index.html">
 <meta property="og:site_name" content="crazy的博客">
+<meta property="og:description" content="mysql视图视图什么是视图视图又称虚表，英文名称view，究其本质就是根据sql获取动态数据集，在为他起个名称，之所以叫他虚表，是因为他本身并不作为表存储数据，按照java的说法来讲，就是指向某个sql查询的结果集的指针而已。 如何定义视图1create view view_name as select statment.... 为什么要用视图用视图的作用主要有二：  安全考量 简化查询  具体">
+<meta property="og:updated_time" content="2018-03-20T06:16:02.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="crazy的博客">
+<meta name="twitter:title" content="mysql学习之视图">
+<meta name="twitter:description" content="mysql视图视图什么是视图视图又称虚表，英文名称view，究其本质就是根据sql获取动态数据集，在为他起个名称，之所以叫他虚表，是因为他本身并不作为表存储数据，按照java的说法来讲，就是指向某个sql查询的结果集的指针而已。 如何定义视图1create view view_name as select statment.... 为什么要用视图用视图的作用主要有二：  安全考量 简化查询  具体">
   
     <link rel="alternative" href="/atom.xml" title="crazy的博客" type="application/atom+xml">
   
@@ -133,60 +138,255 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mysql视图" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/2018年读书计划/" class="archive-article-date">
-  	<time datetime="2018-03-12T02:52:24.489Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/2018年读书计划/">2018读书计划</a>
+    <h1 class="article-title" itemprop="name">
+      mysql学习之视图
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/20/mysql视图/" class="archive-article-date">
+  	<time datetime="2018-03-20T06:16:02.455Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="mysql视图"><a href="#mysql视图" class="headerlink" title="mysql视图"></a>mysql视图</h2><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><h4 id="什么是视图"><a href="#什么是视图" class="headerlink" title="什么是视图"></a>什么是视图</h4><p>视图又称虚表，英文名称view，究其本质就是根据sql获取动态数据集，在为他起个名称，之所以叫他虚表，是因为他本身并不作为表存储数据，按照java的说法来讲，就是指向某个sql查询的结果集的指针而已。</p>
+<h4 id="如何定义视图"><a href="#如何定义视图" class="headerlink" title="如何定义视图"></a>如何定义视图</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">view</span> view_name <span class="keyword">as</span> <span class="keyword">select</span> statment....</div></pre></td></tr></table></figure>
+<h4 id="为什么要用视图"><a href="#为什么要用视图" class="headerlink" title="为什么要用视图"></a>为什么要用视图</h4><p>用视图的作用主要有二：</p>
+<ol>
+<li>安全考量</li>
+<li>简化查询</li>
+</ol>
+<p>具体叙述：</p>
+<p>其一：安全考量，一个老生常谈的话题人员工资问题，假设人员工资与人员的其他属性在同一张表里面，如果是对整个一张表的查询的话，工资这个属性（列）也会暴露给调用者，工资是机密数据，不能暴露调用者，这时候，我们就可以创建一个视图，只包含员工的基础数据而不包含员工的机密数据</p>
+<p>其二：简化查询</p>
+<p>有些时候我们查询的数据需要构建较为复杂的查询语句，而且这个查询会经常用到，这样每次使用后都去构建太过复杂繁琐，这样我们可以将这个查询构建为一个视图，之后的查询用视图来代替，岂不痛快，这样说来倒有一种设计模式的概念在里面了（内聚）</p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>用户以及用户的基础数据表结构设计如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--</span></div><div class="line"><span class="comment">-- Table structure for table `tb_user`</span></div><div class="line"><span class="comment">--</span></div><div class="line"></div><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`tb_user`</span>;</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`tb_user`</span> (</div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`account`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`password`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`username`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`tb_user_detail`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`salary`</span> <span class="keyword">double</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>),</div><div class="line">  <span class="keyword">UNIQUE</span> <span class="keyword">KEY</span> <span class="string">`account_UNIQUE`</span> (<span class="string">`account`</span>),</div><div class="line">  <span class="keyword">KEY</span> <span class="string">`id_idx`</span> (<span class="string">`tb_user_detail`</span>),</div><div class="line">  <span class="keyword">CONSTRAINT</span> <span class="string">`id`</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">`tb_user_detail`</span>) <span class="keyword">REFERENCES</span> <span class="string">`tb_user_detail`</span> (<span class="string">`id`</span>) <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">NO</span> <span class="keyword">ACTION</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">NO</span> <span class="keyword">ACTION</span></div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=latin1;</div><div class="line"></div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`tb_user`</span> <span class="keyword">VALUES</span> </div><div class="line">(<span class="number">1</span>,<span class="string">'18710111234'</span>,<span class="string">'123456'</span>,<span class="string">'xiaolong'</span>,<span class="number">1</span>,<span class="number">100</span>),</div><div class="line">(<span class="number">2</span>,<span class="string">'18711112222'</span>,<span class="string">'123456'</span>,<span class="string">'xiaoming'</span>,<span class="number">2</span>,<span class="number">12222</span>),(<span class="number">3</span>,<span class="string">'18711112332'</span>,<span class="string">'123456'</span>,<span class="string">'xiaohua'</span>,<span class="number">3</span>,<span class="number">123456</span>);</div><div class="line"></div><div class="line"><span class="comment">--</span></div><div class="line"><span class="comment">-- Table structure for table `tb_user_detail`</span></div><div class="line"><span class="comment">--</span></div><div class="line"></div><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`tb_user_detail`</span>;</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`tb_user_detail`</span> (</div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`telphone`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`school`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`avator`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=latin1;</div><div class="line"></div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`tb_user_detail`</span> <span class="keyword">VALUES</span> </div><div class="line">(<span class="number">1</span>,<span class="string">'18710419873'</span>,<span class="string">'xd'</span>,<span class="string">'/image/xd.jpg'</span>),</div><div class="line">(<span class="number">2</span>,<span class="string">'18711112222'</span>,<span class="string">'jd'</span>,<span class="string">'/image/jd.jpg'</span>),</div><div class="line">(<span class="number">3</span>,<span class="string">'18711112332'</span>,<span class="string">'sy'</span>,<span class="string">'/image/sy.jpg'</span>);</div></pre></td></tr></table></figure>
+<h5 id="安全考量实例"><a href="#安全考量实例" class="headerlink" title="安全考量实例"></a>安全考量实例</h5><p>如果操作者操作的是tb_user 表，则可以获取表中所有数据，但是如果给予操作者查询的对象是一个视图则不然，我们可以定义一个视图如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">view</span> user_base_info <span class="keyword">as</span> <span class="keyword">select</span>  <span class="keyword">id</span> ,<span class="keyword">account</span>, username <span class="keyword">from</span> tb_user;</div></pre></td></tr></table></figure>
+<p>查询数据的时候可以有：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> user_base_info;</div></pre></td></tr></table></figure>
+<p>查询结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+<span class="comment">----+-------------+----------+</span></div><div class="line">| id | account     | username |</div><div class="line">+<span class="comment">----+-------------+----------+</span></div><div class="line">|  1 | 18710111234 | xiaolong |</div><div class="line">|  2 | 18711112222 | xiaoming |</div><div class="line">|  3 | 18711112332 | xiaohua  |</div><div class="line">+<span class="comment">----+-------------+----------+</span></div></pre></td></tr></table></figure>
+<p>屏蔽操作实体，将其交由数据视图控制，保证机密数据不被操作者获取</p>
+<p>简化查询</p>
+<p>现有需求需要查看用户的姓名以及学校信息，而且这个信息是需要经常调用的，sql实现如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> </div><div class="line">tb_user.username, tb_user_detail.school </div><div class="line"><span class="keyword">FROM</span> tb_user <span class="keyword">left</span> <span class="keyword">join</span> tb_user_detail <span class="keyword">on</span> tb_user.tb_user_detail = tb_user_detail.id ;</div></pre></td></tr></table></figure>
+<p>查询结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+<span class="comment">----------+--------+</span></div><div class="line">| username | school |</div><div class="line">+<span class="comment">----------+--------+</span></div><div class="line">| xiaolong | xd     |</div><div class="line">| xiaoming | jd     |</div><div class="line">| xiaohua  | sy     |</div><div class="line">+<span class="comment">----------+--------+</span></div></pre></td></tr></table></figure>
+<p>其实这个也算是比较简单的，但是涉及到多张表的联合查询的时候，有些时候查询的语句会异常的复杂，我们可以将其封装成一个view，view封装如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">view</span> user_info <span class="keyword">as</span></div><div class="line"><span class="keyword">SELECT</span> </div><div class="line">tb_user.username, tb_user_detail.school </div><div class="line"><span class="keyword">FROM</span> tb_user <span class="keyword">left</span> <span class="keyword">join</span> tb_user_detail <span class="keyword">on</span> tb_user.tb_user_detail = tb_user_detail.id ;</div></pre></td></tr></table></figure>
+<p>之后查询只需要执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> user_info</div></pre></td></tr></table></figure>
+<p>查询结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+<span class="comment">----------+--------+</span></div><div class="line">| username | school |</div><div class="line">+<span class="comment">----------+--------+</span></div><div class="line">| xiaolong | xd     |</div><div class="line">| xiaoming | jd     |</div><div class="line">| xiaohua  | sy     |</div><div class="line">+<span class="comment">----------+--------+</span></div></pre></td></tr></table></figure>
+<p>我们可以看出两者完全一致，但是查询却简单了不少；</p>
+<h4 id="视图除了作为查询的一个sql的别名以外还有什么功能吗？"><a href="#视图除了作为查询的一个sql的别名以外还有什么功能吗？" class="headerlink" title="视图除了作为查询的一个sql的别名以外还有什么功能吗？"></a>视图除了作为查询的一个sql的别名以外还有什么功能吗？</h4><p>视图一般是作为一个查询数据的窗口而存在的，所以一般来讲我们用它来查询数据，但是这并不意味着他只能用来查询数据，也可以更新数据（删，改，增都是更新数据），那么什么情况下能够进行更新操作呢：</p>
+<ol>
+<li>视图是对于同一个表的查询（即视图和表的关系是1对1的），那么我们可以用他来修数据，但前提是修改的数据没有相关的约束，如上文中的视图user_base_info，我们可以修改乃至删除他，在数据库中对应的记录也会清除掉，但是不能新增，因为视图中不包含的字段password ，但是password又是有约束NOT NULL</li>
+<li>视图是从多个数据里面抽取出来的（即视图和表的关系是1对多的），可以对其中的某个表的字段进行更新（仅限于修改），但是不可以对于多个表的字段进行更新</li>
+</ol>
+<p>示例如下：</p>
+<p>实例对象：user_base_info</p>
+<p><strong>操作：更新</strong></p>
+<p>sql：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span> user_base_info <span class="keyword">set</span> username = <span class="string">"xiaozhou"</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span>;</div><div class="line">Query OK, 1 row affected (0.09 sec)</div><div class="line">Rows matched: 1  Changed: 1  Warnings: 0</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></div><div class="line">| id | account     | password | username | tb_user_detail | salary |</div><div class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></div><div class="line">|  1 | 18710111234 | 123456   | xiaozhou |              1 |    100 |</div><div class="line">|  2 | 18711112222 | 123456   | xiaoming |              2 |  12222 |</div><div class="line">|  3 | 18711112332 | 123456   | xiaohua  |              3 | 123456 |</div><div class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></div></pre></td></tr></table></figure>
+<p>已修改</p>
+<p><strong>操作：删除</strong></p>
+<p>sql：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> user_base_info <span class="keyword">where</span> <span class="keyword">id</span> =<span class="number">1</span>;</div><div class="line">Query OK, 1 row affected (0.09 sec)</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></div><div class="line">| id | account     | password | username | tb_user_detail | salary |</div><div class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></div><div class="line">|  2 | 18711112222 | 123456   | xiaoming |              2 |  12222 |</div><div class="line">|  3 | 18711112332 | 123456   | xiaohua  |              3 | 123456 |</div><div class="line">+<span class="comment">----+-------------+----------+----------+----------------+-------</span></div></pre></td></tr></table></figure>
+<p>已删除</p>
+<p><strong>操作：新增</strong></p>
+<p>sql：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> user_base_info <span class="keyword">value</span>(<span class="number">1</span>, <span class="string">"18710421234"</span>,<span class="string">"xiaolong"</span>);</div><div class="line">Query OK, 1 row affected (0.10 sec)</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_user;</div><div class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></div><div class="line">| id | account     | password | username | tb_user_detail | salary |</div><div class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></div><div class="line">|  1 | 18710421234 | NULL     | xiaolong |           NULL |   NULL |</div><div class="line">|  2 | 18711112222 | 123456   | xiaoming |              2 |  12222 |</div><div class="line">|  3 | 18711112332 | 123456   | xiaohua  |              3 | 123456 |</div><div class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></div></pre></td></tr></table></figure>
+<p>无非空约束的情况，顺利插入</p>
+<p>接下来添加约束（添加之前请删除之前插入的数据，不然无法更新表结构）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb_user <span class="keyword">modify</span> <span class="keyword">column</span> <span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="literal">null</span>;</div></pre></td></tr></table></figure>
+<p>然后插入:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> user_base_info <span class="keyword">value</span>(<span class="number">1</span>, <span class="string">"18710421234"</span>,<span class="string">"xiaolong"</span>);</div><div class="line">ERROR 1423 (HY000): Field of view 'mybatisplus.user_base_info' underlying table doesn't have a default value</div></pre></td></tr></table></figure>
+<p>我们可以发现，有约束以后无法插入</p>
+<p>对于1对多的情况可自行分析</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mysql学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/03/20/mysql视图/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/03/12/hexo搭建个人博客教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo github 搭建个人博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql视图"><span class="toc-number">1.</span> <span class="toc-text">mysql视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#视图"><span class="toc-number">1.1.</span> <span class="toc-text">视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是视图"><span class="toc-number">1.1.1.</span> <span class="toc-text">什么是视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何定义视图"><span class="toc-number">1.1.2.</span> <span class="toc-text">如何定义视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么要用视图"><span class="toc-number">1.1.3.</span> <span class="toc-text">为什么要用视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实例"><span class="toc-number">1.1.4.</span> <span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安全考量实例"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">安全考量实例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视图除了作为查询的一个sql的别名以外还有什么功能吗？"><span class="toc-number">1.1.5.</span> <span class="toc-text">视图除了作为查询的一个sql的别名以外还有什么功能吗？</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="mysql视图" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytq8Rfod",
+        conf: "1b3305975ccf5ca713923c392f03782d"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -209,9 +409,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

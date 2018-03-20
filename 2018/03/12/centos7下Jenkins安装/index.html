@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://crazyxxl.github.io">
-  <title>Tag: 计划 | crazy的博客</title>
+  <title>centos7下Jenkins安装 | crazy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="crazy的博客">
-<meta property="og:url" content="https://crazyxxl.github.io/tags/计划/index.html">
+  <meta name="description" content="centos7下Jenkins安装在安装Jenkins之前需要安装jdk，安装jdk有两种方法： 1、yum安装安装的为Linux下的open-jdk 2、安装jdk，以下为安装甲骨文体-jdk的步骤：  1、到甲骨文官网找到要下在的文件地址 eg:    http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7下Jenkins安装">
+<meta property="og:url" content="https://crazyxxl.github.io/2018/03/12/centos7下Jenkins安装/index.html">
 <meta property="og:site_name" content="crazy的博客">
+<meta property="og:description" content="centos7下Jenkins安装在安装Jenkins之前需要安装jdk，安装jdk有两种方法： 1、yum安装安装的为Linux下的open-jdk 2、安装jdk，以下为安装甲骨文体-jdk的步骤：  1、到甲骨文官网找到要下在的文件地址 eg:    http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b">
+<meta property="og:updated_time" content="2018-03-07T09:41:35.706Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="crazy的博客">
+<meta name="twitter:title" content="centos7下Jenkins安装">
+<meta name="twitter:description" content="centos7下Jenkins安装在安装Jenkins之前需要安装jdk，安装jdk有两种方法： 1、yum安装安装的为Linux下的open-jdk 2、安装jdk，以下为安装甲骨文体-jdk的步骤：  1、到甲骨文官网找到要下在的文件地址 eg:    http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b">
   
     <link rel="alternative" href="/atom.xml" title="crazy的博客" type="application/atom+xml">
   
@@ -133,60 +138,235 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-centos7下Jenkins安装" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/2018年读书计划/" class="archive-article-date">
-  	<time datetime="2018-03-12T02:52:24.489Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/2018年读书计划/">2018读书计划</a>
+    <h1 class="article-title" itemprop="name">
+      centos7下Jenkins安装
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/12/centos7下Jenkins安装/" class="archive-article-date">
+  	<time datetime="2018-03-12T02:52:24.489Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
+<p>1、yum安装安装的为Linux下的open-jdk</p>
+<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
+<blockquote>
+<p>1、到甲骨文官网找到要下在的文件地址</p>
+<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>2、下载该压缩包：</p>
+<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>3、下载完成之后解压</p>
+<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
+<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
+<p>4、vi /etc/profile</p>
+<p>添加：</p>
+<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
+<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
+<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
+<p>PATH=$JAVA_HOME/bin:$$PATH</p>
+<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
+<p>5、source /etc/profile 让添加项生效</p>
+<p>至此jdk安装成功;</p>
+</blockquote>
+<p>接下来安装Jenkins：</p>
+<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="external">jenkins官网</a></p>
+<p>在这里我们选择稳定版安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</div><div class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</div><div class="line">sudo yum install jenkins</div></pre></td></tr></table></figure>
+<p>安装成功后启动:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service jenkins start(或者 systemctl start jenkins)</div></pre></td></tr></table></figure>
+<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
+<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</div><div class="line">firewall-cmd --zone=public --add-service=http --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
+<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
+<p>结束</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/03/12/centos7下Jenkins安装/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/03/12/Linux下面显示分支名称的方法：/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux下面显示分支名称的方法
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/03/12/2018年读书计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2018读书计划</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#centos7下Jenkins安装"><span class="toc-number">1.</span> <span class="toc-text">centos7下Jenkins安装</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="centos7下Jenkins安装" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytq8Rfod",
+        conf: "1b3305975ccf5ca713923c392f03782d"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -209,9 +389,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
