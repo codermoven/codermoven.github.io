@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://crazyxxl.github.io">
-  <title>crazy的博客</title>
+  <title>celery+rabbitmq+django构建分布式异步任务队列 | crazy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="crazy的博客">
-<meta property="og:url" content="https://crazyxxl.github.io/index.html">
+  <meta name="description" content="celery+rabbitmq+django构建分布式异步任务队列rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）1、安装rabbit 1apt install rabbitmq-server 2、启动rabbitmq 1rabbitmq-server  3、开启web管理插件 1rabbitmq-plugins enable rabbitmq_mana">
+<meta name="keywords" content="django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="celery+rabbitmq+django构建分布式异步任务队列">
+<meta property="og:url" content="https://crazyxxl.github.io/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/index.html">
 <meta property="og:site_name" content="crazy的博客">
+<meta property="og:description" content="celery+rabbitmq+django构建分布式异步任务队列rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）1、安装rabbit 1apt install rabbitmq-server 2、启动rabbitmq 1rabbitmq-server  3、开启web管理插件 1rabbitmq-plugins enable rabbitmq_mana">
+<meta property="og:updated_time" content="2018-06-22T12:09:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="crazy的博客">
+<meta name="twitter:title" content="celery+rabbitmq+django构建分布式异步任务队列">
+<meta name="twitter:description" content="celery+rabbitmq+django构建分布式异步任务队列rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）1、安装rabbit 1apt install rabbitmq-server 2、启动rabbitmq 1rabbitmq-server  3、开启web管理插件 1rabbitmq-plugins enable rabbitmq_mana">
   
     <link rel="alternative" href="/atom.xml" title="crazy的博客" type="application/atom+xml">
   
@@ -135,641 +140,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-spark学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-celery+rabbitmq+django构建分布式异步任务队列" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/spark学习笔记/">BigData-Spark</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/05/spark学习笔记/" class="archive-article-date">
-  	<time datetime="2018-08-05T06:43:17.952Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="spark学习笔记"><a href="#spark学习笔记" class="headerlink" title="spark学习笔记"></a>spark学习笔记</h3><blockquote>
-<p>关于spark的介绍，本文不做详述，本文主要讲述python-spark相关，以实操位置</p>
-</blockquote>
-<h4 id="无需搭建环境即可执行"><a href="#无需搭建环境即可执行" class="headerlink" title="无需搭建环境即可执行"></a>无需搭建环境即可执行</h4><p>前置执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install pyspark</div></pre></td></tr></table></figure>
-<p>单词数目统计</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_001.py</div><div class="line">@time: 18-7-22 下午4:33</div><div class="line">@desc: word count demo for pyspark</div><div class="line">"""</div><div class="line"></div><div class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    sc = SparkContext()</div><div class="line">    files_rdd = sc.textFile(<span class="string">"/home/xxl/personal_protice/data_source/word_count_source.txt"</span>, use_unicode=<span class="keyword">True</span>)</div><div class="line">    word = files_rdd.flatMap(<span class="keyword">lambda</span> line: line.split(<span class="string">" "</span>))</div><div class="line">    word_map = word.map(<span class="keyword">lambda</span> line: (line, <span class="number">1</span>)).countByKey()</div><div class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> word_map.items():</div><div class="line">        <span class="keyword">print</span> key, value</div></pre></td></tr></table></figure>
-<p>搜狗实验室数据集分析</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># encoding: utf-8</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_002.py</div><div class="line">@time: 18-7-22 下午4:51</div><div class="line">@desc: spark_002 搜狗实验室搜索数据处理</div><div class="line">"""</div><div class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    sc = SparkContext()</div><div class="line">    sou_gou_data = sc.textFile(<span class="string">"/home/xxl/personal_protice/data_source/SogouE.txt"</span>, use_unicode=<span class="keyword">True</span>)</div><div class="line">    words = sou_gou_data.flatMap(<span class="keyword">lambda</span> line: line.split(<span class="string">"\t"</span>))</div><div class="line"></div><div class="line">    <span class="comment"># 统计关键词,以及文本出现次数</span></div><div class="line">    all_words = words.collect()</div><div class="line">    keys = list()</div><div class="line">    index = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> all_words:</div><div class="line">        <span class="keyword">if</span> index % <span class="number">3</span> == <span class="number">0</span>:</div><div class="line">            keys.append(word)</div><div class="line">        index = index+<span class="number">1</span></div><div class="line">    sou_gou_data_key = words.filter(<span class="keyword">lambda</span> word: word <span class="keyword">in</span> keys)</div><div class="line">    words_map = sou_gou_data_key.map(<span class="keyword">lambda</span> line: (line, <span class="number">1</span>)).countByKey()</div><div class="line">    index = <span class="number">0</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"----------------key words counter start--------------"</span></div><div class="line">    <span class="keyword">for</span> item, info <span class="keyword">in</span> words_map.items():</div><div class="line">        <span class="keyword">print</span> <span class="string">"key is %s,times is %s"</span> %(item, info)</div><div class="line">    <span class="keyword">print</span> <span class="string">"----------------key words counter end--------------"</span></div><div class="line"></div><div class="line">    <span class="comment"># 统计关键词搜索出的站点</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"------------start analyse keywords and the results-------------------"</span></div><div class="line">    key_search_site = sou_gou_data.map(<span class="keyword">lambda</span> line: (line.split(<span class="string">"\t"</span>)[<span class="number">0</span>], line.split(<span class="string">"\t"</span>)[<span class="number">1</span>]))</div><div class="line">    result_site = key_search_site.groupByKey()</div><div class="line">    result_list = result_site.collect()</div><div class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> result_list:</div><div class="line">        <span class="keyword">print</span> <span class="string">"keyword is %s result is :"</span> % result[<span class="number">0</span>]</div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> result[<span class="number">1</span>]:</div><div class="line">            <span class="keyword">print</span> site</div><div class="line"></div><div class="line">    <span class="comment"># 统计文本关键词所搜最多的站点</span></div><div class="line">    key_search_site_count = sou_gou_data.map(<span class="keyword">lambda</span> line: (line.split(<span class="string">"\t"</span>)[<span class="number">0</span>], (line.split(<span class="string">"\t"</span>)[<span class="number">1</span>],</div><div class="line">                                                                                 line.split(<span class="string">"\t"</span>)[<span class="number">2</span>])))</div><div class="line">    result_site_count = key_search_site_count.groupByKey()</div><div class="line">    result_list = result_site_count.collect()</div><div class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> result_list:</div><div class="line">        <span class="keyword">print</span> result[<span class="number">0</span>]</div><div class="line">        number = <span class="number">0</span></div><div class="line">        site_name = <span class="keyword">None</span></div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> result[<span class="number">1</span>]:</div><div class="line">            <span class="keyword">if</span> site[<span class="number">1</span>] &gt; number:</div><div class="line">                number = site[<span class="number">1</span>]</div><div class="line">                site_name = site[<span class="number">0</span>]</div><div class="line">        <span class="keyword">print</span> site_name, number</div></pre></td></tr></table></figure>
-<h4 id="需要python集群作为支撑"><a href="#需要python集群作为支撑" class="headerlink" title="需要python集群作为支撑"></a>需要python集群作为支撑</h4><h5 id="spark集群环境搭建（yarn）"><a href="#spark集群环境搭建（yarn）" class="headerlink" title="spark集群环境搭建（yarn）"></a>spark集群环境搭建（yarn）</h5><p><em>前置条件</em>：</p>
-<p>下载hadoop，spark（本文使用版本spark-2.2.2-bin-hadoop2.7，hadoop-2.8.4）</p>
-<p>创建虚拟机两台</p>
-<p><em>过程详述：</em></p>
-<ol>
-<li>添加hosts解析(ip根据自己的虚拟机ip自定)</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">192.168.1.103 master</div><div class="line">192.168.1.107 slave</div></pre></td></tr></table></figure>
-<ol>
-<li>两台虚拟机添加彼此公钥到彼此的 ~/.ssh/authorized_keys下，实现彼此无密码访问</li>
-<li>配置hadoop</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> hadoop-env.sh添加</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># hdfs-site.xml </div><div class="line">&lt;configuration&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.replication&lt;/name&gt;</div><div class="line">      &lt;value&gt;1&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">    </div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.name.dir&lt;/name&gt;</div><div class="line">      &lt;value&gt;file:///home/hadoop/hadoopinfra/hdfs/namenode &lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">    </div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.data.dir&lt;/name&gt; </div><div class="line">      &lt;value&gt;file:///home/hadoop/hadoopinfra/hdfs/datanode &lt;/value&gt; </div><div class="line">   &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># core-site.xml</div><div class="line">&lt;configuration&gt;</div><div class="line">    &lt;property&gt;</div><div class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</div><div class="line">        &lt;value&gt;hdfs://master:9000&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"># yarn-site.xml</div><div class="line">&lt;configuration&gt;</div><div class="line">&lt;!-- Site specific YARN configuration properties --&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</div><div class="line">      &lt;value&gt;mapreduce_shuffle&lt;/value&gt; </div><div class="line">   &lt;/property&gt;</div><div class="line">      &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</div><div class="line">         &lt;value&gt;master&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</div><div class="line">         &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8032&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8030&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8031&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8033&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8088&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div><div class="line"></div><div class="line"># slaves</div><div class="line">slave</div></pre></td></tr></table></figure>
-<ol>
-<li>spark配置</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> spark-env.sh</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div><div class="line">export SPARK_MASTER_IP=master</div><div class="line">export SPARK_WORKER_MEMORY=1g</div><div class="line">export SPARK_EXECUTOR_MEMORY=1g</div><div class="line">export SPARK_DRIVER_MEMORY=500m</div><div class="line">export SPARK_WORKER_CORES=2</div><div class="line">export SPARK_HOME=/opt/spark-2.2.2-bin-hadoop2.7</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># spark-defaults.conf</div><div class="line">spark.master                     spark://master:7077</div><div class="line">spark.eventLog.enabled           true</div><div class="line">spark.eventLog.dir               hdfs://master:9000/directory</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># slaves</div><div class="line">slave</div></pre></td></tr></table></figure>
-<ol>
-<li>配置环境变量</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># java_env</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib</div><div class="line">export PATH=$JAVA_HOME/bin:$PATH</div><div class="line"># haddop_env</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div><div class="line">export SPARK_HOME=/opt/spark-2.2.2-bin-hadoop2.7</div></pre></td></tr></table></figure>
-<ol>
-<li>开始运行</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">start-all.sh（hadoop）</div><div class="line">主节点启动方式指定ip</div><div class="line">./start-master.sh -h master</div><div class="line">从节点启动方式</div><div class="line">./sbin/start-slave.sh master://broker1:7077</div></pre></td></tr></table></figure>
-<p>kafka集群搭建，不做详述</p>
-<p>注意点：</p>
-<p>1、kafka客户端连接不上kafka集群</p>
-<p>需要在kafka的配置：server.properties中添加配置：hostname:本机ip</p>
-<p>2、spark连接kafka集群出错</p>
-<p>需要添加：</p>
-<p>listeners=PLAINTEXT://hostname:9092</p>
-<p>advertised.listeners=PLAINTEXT://hostname:9092</p>
-<p><em>spark-streaming-kafka-单词统计</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># encoding: utf-8</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_003.py</div><div class="line">@time: 18-7-22 下午5:57</div><div class="line">@desc:</div><div class="line">&quot;&quot;&quot;</div><div class="line">from pyspark import SparkContext</div><div class="line">from pyspark.streaming import StreamingContext</div><div class="line">from pyspark.streaming.kafka import KafkaUtils</div><div class="line">import redis</div><div class="line"></div><div class="line"></div><div class="line">class RedisClient(object):</div><div class="line">    def __init__(self, host, port):</div><div class="line">        self.host = host</div><div class="line">        self.port = port</div><div class="line">        self.pool = redis.ConnectionPool(host=self.host, port=self.port, db=0)</div><div class="line">        self.redis_cli = redis.StrictRedis(connection_pool=self.pool)</div><div class="line"></div><div class="line">    def insert_data_into_redis(self, key, value):</div><div class="line">        self.redis_cli.hset(&quot;data&quot;, key, value)</div><div class="line"></div><div class="line">    def get_redis_cli(self):</div><div class="line">        return self.redis_cli</div><div class="line"></div><div class="line"></div><div class="line">def echo(rdd):</div><div class="line">    rdd_list = rdd.collect()</div><div class="line">    if rdd_list and len(rdd_list) &gt; 0:</div><div class="line">        for item in rdd_list:</div><div class="line">            print (str(item[1]) + &quot;:&quot; + str(item[0]))</div><div class="line">            rc.insert_data_into_redis(str(item[0]), str(item[1]))</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    rc = RedisClient(&quot;192.168.1.103&quot;, &quot;6379&quot;)</div><div class="line">    sc = SparkContext(master=&quot;spark://192.168.1.103:7077&quot;, appName=&quot;Spark Stream example for kafka&quot;)</div><div class="line">    ssc = StreamingContext(sc, 5)</div><div class="line">    k_stream = KafkaUtils.createStream(ssc, &quot;192.168.1.103:2181&quot;, &quot;redis&quot;, &#123;&quot;test1&quot;: 1&#125;)</div><div class="line">    word_stream = k_stream.map(lambda x: x[1])</div><div class="line">    words = word_stream.flatMap(lambda line: line.split(&quot; &quot;))</div><div class="line">    pair = words.map(lambda line: (line, 1))</div><div class="line">    result = pair.reduceByKey(lambda x, y: x+y)</div><div class="line">    result.foreachRDD(echo)</div><div class="line">    ssc.start()</div><div class="line">    ssc.awaitTermination()</div></pre></td></tr></table></figure>
-<p>注意点，kafka-sparkstreaming本机提交任务到集群时，需要注意本机的spark-streaming-kafka-0-10-assembly_2.10-2.2.2与集群worker一致，sparkconfig配置不生效，俺不知道为啥</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BigData</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/05/spark学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux下面显示分支名称的方法：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/Linux下面显示分支名称的方法：/">Linux下面显示分支名称的方法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/Linux下面显示分支名称的方法：/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Linux下面显示分支名称的方法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function git_branch &#123;</div><div class="line">  branch="`git branch 2&gt;/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"</div><div class="line">  if [ "$&#123;branch&#125;" != "" ];then</div><div class="line">      if [ "$&#123;branch&#125;" = "(no branch)" ];then</div><div class="line">          branch="(`git rev-parse --short HEAD`...)"</div><div class="line">      fi</div><div class="line">      echo "-&gt;$branch"</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"> </div><div class="line">export PS1='\[\e[37;40m\][\[\033[01;36m\]\u\[\e[37;40m\]@\[\e[0m\]\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\]\[\e[37;40m\]]\[\e[0m\]\$ '</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/Linux下面显示分支名称的方法：/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Docker初体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/Docker初体验/">Docker初体验之docker简介</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/Docker初体验/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Docker初体验</p>
-<p>​    Docker 是一个开源的基于 <a href="https://baike.baidu.com/item/LXC" target="_blank" rel="external">LXC</a> 的高级应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 <a href="https://baike.baidu.com/item/Linux" target="_blank" rel="external">Linux</a> 机器上，也可以实现<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%8C%96" target="_blank" rel="external">虚拟化</a>。容器是完全使用<a href="https://baike.baidu.com/item/%E6%B2%99%E7%AE%B1/393318" target="_blank" rel="external">沙箱</a>机制，相互之间不会有任何接口。（不会总结，但是觉得百度说的蛮好）;</p>
-<p>​    综合以上概念，我们可以看出docker是一个应用容器的引擎，其中关键词有两个，应用容器，引擎，引擎自不必说，最为关键的是应用容器，也就是说docker为应用程序的运行提供独立的容器，而且该容器还可以移植，想想都觉的美爆了，应用程序可以移植，如何移植呢，我的想法是通过将应用程序打包build成对应的image（镜像），通过docker平台镜像的随处运行来实现应用程序的移植，关于理论部分就说这么多，i am still learning ,来一波实践;</p>
-<p>​    关于docker的安装，方法众多，因为docker是在Linux平台下面开发出来的，所以即使他提供了MAC,Linux，Windows下的相关client，Linux平台也是最佳的，下面说说如何在centos7上面安装docker:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1、root账户登录;</div><div class="line">2、yum -y install docker（或者普通用户登录 sudo yum -y install docker）</div><div class="line">ok！</div><div class="line">其他linux 平台参见次安装</div><div class="line">安装成功后首先要做的便是启动docker服务：</div><div class="line">service docker start(systemctl start docker)</div><div class="line">查看docker版本：</div><div class="line">docker -v</div><div class="line">Docker version 1.12.6, build 88a4867/1.12.6</div><div class="line">从仓库拉取第一个docker的demo;</div><div class="line">docker pull hello-world</div></pre></td></tr></table></figure>
-<p>以下便是docker从远端获取镜像过程的详解：</p>
-<p><img src="http://hainiubl.com/images/2016/architecture.jpg?_=6822905" alt="docker获取镜像示意图"></p>
-<p><code>docker在拉取镜像之前，先检查本地仓库是否有该镜像，有的话直接使用，没有的话从远端服务器拉取；docker run用来运行docker images，在运行之前需要先获取docker 镜像，若本地（实则是本地的服务端，Linux上面client，与server都在一台机子上面，所以叫本地）存在，直接运行本地实例，不存在来去远端实例;</code></p>
-<p><strong>docker 镜像仓库在国外架设，因此下载起来可能需要某些特殊手段，好在网易给我们提供了很多的常用的镜像</strong></p>
-<p><strong>网址参见：http:/c.163.com</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">docker images 用于查看现有images</div><div class="line">docker images</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div></pre></td></tr></table></figure>
-<p>现在开始运行第一个docker 程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">docker run hello-world</div><div class="line">Hello from Docker!</div><div class="line">This message shows that your installation appears to be working correctly.</div><div class="line"></div><div class="line">To generate this message, Docker took the following steps:</div><div class="line"> 1. The Docker client contacted the Docker daemon.</div><div class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</div><div class="line"> 3. The Docker daemon created a new container from that image which runs the</div><div class="line">    executable that produces the output you are currently reading.</div><div class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</div><div class="line">    to your terminal.</div><div class="line"></div><div class="line">To try something more ambitious, you can run an Ubuntu container with:</div><div class="line"> $ docker run -it ubuntu bash</div><div class="line"></div><div class="line">Share images, automate workflows, and more with a free Docker ID:</div><div class="line"> https://cloud.docker.com/</div><div class="line"></div><div class="line">For more examples and ideas, visit:</div><div class="line"> https://docs.docker.com/engine/userguide/</div></pre></td></tr></table></figure>
-<p>此过程描述运行了一个docker的实例，而且描述了，此过程经过的四个步骤（可自己参阅）；</p>
-<p>hello-world只是简单的命令行输出而已，现在我们需要在docker中运行一个Nginx服务,步骤如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1、下载镜像（登录网易蜂巢-&gt;镜像仓库-&gt;发现更多镜像-搜索nginx-复制右上角下载地址下载镜像）</div><div class="line">docker pull hub.c.163.com/library/nginx:latest</div><div class="line">2、docker images 查看下载好的镜像名称</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div><div class="line">3、运行镜像（由于nginx隶属服务器类型，需要提供不间断的服务，因此需要将其放置在后台运行）</div><div class="line">docker run -d -p 8080:80 hub.c.163.com/library/nginx</div><div class="line">d84e097906770e5fb5911aaee6adce7654b08034a1831c084c40a900c723227e</div><div class="line">释义：docker run 用来运行镜像 hub.c.163.com/library/nginx 为容器名称,-d 是将docker运行实例放在后台运行,-p 是将docker 容器内端口与本机断后做映射，前者是本机端口，后者是容器内的端口</div><div class="line">命令运行后返回的是容器的id(所谓容器就是指镜像运行的一次实例,.可以包含一个独立的操作系统)</div><div class="line">4、查看是否运行成功:</div><div class="line">在本地浏览器输入如:http://localhost:8080 看是否会有nginx works</div><div class="line">5、docker ps 查看现在运行的容器有哪些</div><div class="line">6、docker exec -it 容器id进入容器 /bin/bash </div><div class="line">至此dcoker 运行nginx结束</div></pre></td></tr></table></figure>
-<p><strong><em>学习中·······</em></strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/Docker初体验/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式学习笔记之装饰器模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记之装饰器模式/">设计模式学习笔记之装饰器模式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/设计模式学习笔记之装饰器模式/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记之装饰器模式"><a href="#设计模式学习笔记之装饰器模式" class="headerlink" title="设计模式学习笔记之装饰器模式"></a>设计模式学习笔记之装饰器模式</h2><h3 id="什么是装饰器模式"><a href="#什么是装饰器模式" class="headerlink" title="什么是装饰器模式"></a>什么是装饰器模式</h3><p><strong>装饰器模式是在既不改变原有的代码结构也不使用继承的情况下,动态的扩展类的功能的一种设计方式;</strong></p>
-<blockquote>
-<p>说白了就是,原有的功能不能再适应当前的业务,但是当前的业务和之前的还有一定的关联,稍加扩展就可以实现现有的功能,此时原有的代码逻辑不能修改,要实现该功能时使用的一种设计方法</p>
-</blockquote>
-<h3 id="装饰着模式通用结构图-类图"><a href="#装饰着模式通用结构图-类图" class="headerlink" title="装饰着模式通用结构图(类图)"></a>装饰着模式通用结构图(类图)</h3><p><img src="http://www.crazyxxl.tech/Decorator.png" alt="装饰器模式类图"></p>
-<p>如上图所示:</p>
-<p>装饰器与被装饰者拥有共同的父类Component,装饰其与Component以组合的方式耦合,实现了其子类,即被装饰着与装饰器的松耦合(装饰器与抽象类耦合,并不与具体的实现类耦合)</p>
-<h3 id="装饰者模型示例"><a href="#装饰者模型示例" class="headerlink" title="装饰者模型示例"></a>装饰者模型示例</h3><h4 id="客户需求"><a href="#客户需求" class="headerlink" title="客户需求"></a>客户需求</h4><p>有一个歌唱比赛,某选手只会唱歌(唱得很好),不会说开场白(是不是很扯淡,我觉得也是),但是他有一个孪生兄弟会读开场白,歌唱比赛必须开场白与唱歌同时具备,现在需要一种解决方案,使得唱歌比赛进行下去.</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>该选手不会说开场白,但是会唱歌,他的孪生兄弟可以说开场白,这样我们可以把他的兄弟包装一下,让他上去表演,说开场白(装饰模块),轮到演唱部分的时候由选手后台假唱((⊙o⊙)…)</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 两兄弟的父类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span>  <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 选手类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreateComponent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"sing balabala ......"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 装饰者父类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Component component = <span class="keyword">null</span>;<span class="comment">//依赖抽象,实现松耦合</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Component component)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.component = component;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.component.sing();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 兄弟类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConCreateDecorator</span> <span class="keyword">extends</span> <span class="title">Decorator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConCreateDecorator</span><span class="params">(Component component)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(component);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"i am singer"</span>);</div><div class="line">        <span class="keyword">super</span>.sing();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">*演出开始</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Show</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建创建选手对象</div><div class="line">         */</div><div class="line">        Component component = <span class="keyword">new</span> ConcreateComponent();</div><div class="line">        component.sing();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建兄弟对象</div><div class="line">         */</div><div class="line">        component = <span class="keyword">new</span> ConCreateDecorator(component);</div><div class="line">        component.sing();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>装饰器模式遵循开放封闭的原则(扩展开放,修改封闭),实现了在不修改原实现类结构的的基础之上对类功能的扩展.</p>
-<blockquote>
-<p>虽然给该类添加了父类,但是使得装饰者与被装饰者之间的松耦合,使得程序的可扩展性增强;</p>
-<p>定义中的继承指代的是向下继承,是将原实现类作为父类,新的类继承该类,在子类中实现扩展,与给实现类添加抽象父类并不一样</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之装饰器模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式学习笔记之工厂模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记之工厂模式/">设计模式学习笔记之工厂模式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/设计模式学习笔记之工厂模式/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记之工厂模式"><a href="#设计模式学习笔记之工厂模式" class="headerlink" title="设计模式学习笔记之工厂模式"></a>设计模式学习笔记之工厂模式</h2><h3 id="什么是工厂模式模式"><a href="#什么是工厂模式模式" class="headerlink" title="什么是工厂模式模式"></a>什么是工厂模式模式</h3><p>创建一个接口,但由其子类决定实例化哪个类,将对象的创建延迟到其子类(来源于headFirst设计模式)</p>
-<blockquote>
-<p>我个人解析:工厂是用来创建产品的,不同的产品需要不同的工厂,因此需要创建接口,通过接口的不同实现,来创建不同的工厂,进而创建不同的产品,但工厂只能生产某一类的产品</p>
-<p>当然也有简单工厂模式这一模式,其与工厂模式的区别在于,只有一个具体的工厂而没有对于工厂的抽象,下文会做详述.</p>
-</blockquote>
-<h3 id="工厂模式类图"><a href="#工厂模式类图" class="headerlink" title="工厂模式类图"></a>工厂模式类图</h3><p><img src="http://www.crazyxxl.tech/factory.png" alt="工厂模式类图"></p>
-<p>类图解析:</p>
-<p>Product:产品类的父接口,作用在于,让使用具体的产品的对象依赖于该接口而非具体的产品对象</p>
-<p>ConcreteSubject:具体的产品</p>
-<p>Factory:所有工厂类的父类,实现所有不变的方法(在具体的工厂中,抽离出来在具体的工厂中也不会发生改变的方法)</p>
-<p>ConcreteFactory:具体的工厂类,负责某个或者多个具体产品类的创建</p>
-<p>对于简单工厂,其与工厂的类图的差别在于简单工厂模式没有类Factory</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>奔驰汽车需要在西安建立轮胎制造厂,现在奔驰母公司只把A系列(小型单箱车)的高端和终端两种类型的轮胎交由西安代工厂制造,用程序模拟改场景;</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>简单来讲,现在由两种类型的轮胎需要西安制造厂来制造,我们可以建立一个工厂实现对这两种轮胎的制造</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><h5 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h5><p><img src="http://www.crazyxxl.tech/simpleFactory-eg.png" alt=""></p>
-<p>分析:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//轮胎类的父接口</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Tyre</span> </span>&#123;</div><div class="line">    <span class="comment">//轮胎编号</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 高端轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HighLevel</span> <span class="keyword">implements</span> <span class="title">Tyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"HighLevel-01"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 中端轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MidleLevel</span> <span class="keyword">implements</span> <span class="title">Tyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"MidleLevel-01"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 简单工厂</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TyreFactory</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Tyre tyre;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> type 1 高端轮胎 2,其他 终端轮胎</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> Tyre <span class="title">createTyre</span><span class="params">(<span class="keyword">int</span> type)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="number">1</span> == type)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> HighLevel();</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span>  <span class="keyword">new</span> MidleLevel();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>工厂开工</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.simpleFactory;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []agrs)</span></span>&#123;</div><div class="line">        Tyre tyre = <span class="keyword">null</span>;</div><div class="line">        <span class="comment">//创建工厂</span></div><div class="line">        TyreFactory tyreFactory  = <span class="keyword">new</span> TyreFactory();</div><div class="line">        <span class="comment">//生产高端产品</span></div><div class="line">        tyre = tyreFactory.createTyre(<span class="number">1</span>);</div><div class="line">        tyre.SN();</div><div class="line">        <span class="comment">//生产中端产品</span></div><div class="line">        tyre = tyreFactory.createTyre(<span class="number">2</span>);</div><div class="line">        tyre.SN();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>现在需求发生了变更:总部要把C级别(小型轿车)的车的轮胎制造也要放在西安,C级别由三种高端,中端,低端,如果按照之前的方法来创建的话,我们会发现工厂里面的if-else判断会越来越多,如果总部再把其他车系的轮胎再继续放在西安,一来不符合单一职责原则,二来会造成工厂类越来越厚重,不容易维护,如何解决这个问题呢?</p>
-<p><strong>用工厂模式!</strong></p>
-<p>工厂模式类图如下:</p>
-<p><img src="http://www.crazyxxl.tech/factory-eg.png" alt=""></p>
-<p>类图示意:</p>
-<p>Factory:工厂类的抽象</p>
-<p>A_TyreFactory:负责A类轮胎创建的工厂</p>
-<p>C_TyreFactory:负责C类轮胎创建的工厂</p>
-<p>其他几个分别是a类和c类轮胎</p>
-<p>实现:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.factory;</div><div class="line"></div><div class="line"><span class="comment">//轮胎类的父接口</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Tyre</span> </span>&#123;</div><div class="line">    <span class="comment">//轮胎编号</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.factory;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> A高端轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A_HighLevel</span> <span class="keyword">implements</span> <span class="title">Tyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"HighLevel-01"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.factory;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> A中端轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A_MidleLevel</span> <span class="keyword">implements</span> <span class="title">Tyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"B_MidleLevel-01"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.factory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> C高端轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C_HighLevel</span> <span class="keyword">implements</span> <span class="title">Tyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"C_HighLevel-001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.factory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> C中端轮胎</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C_MidleLevel</span> <span class="keyword">implements</span> <span class="title">Tyre</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SN</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"C_MidelLevel--001"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.factory;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Factory</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Tyre <span class="title">createTyre</span><span class="params">(<span class="keyword">int</span> type)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.factory;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> A类轮胎的工厂类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A_TyreFactory</span> <span class="keyword">extends</span> <span class="title">Factory</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Tyre <span class="title">createTyre</span><span class="params">(<span class="keyword">int</span> type)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="number">1</span> == type)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> A_HighLevel();</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span>  <span class="keyword">new</span> A_MidleLevel();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> C类轮胎的工厂类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C_TyreFactory</span> <span class="keyword">extends</span> <span class="title">Factory</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Tyre <span class="title">createTyre</span><span class="params">(<span class="keyword">int</span> type)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="number">1</span> == type)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> C_HighLevel();</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span>  <span class="keyword">new</span> C_MidleLevel();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>工厂开工:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Factory.eg.factory;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        Factory factory = <span class="keyword">null</span>;</div><div class="line">        Tyre tyre = <span class="keyword">null</span>;</div><div class="line">        <span class="comment">//创建A类类轮胎</span></div><div class="line">        factory = <span class="keyword">new</span> A_TyreFactory();</div><div class="line">        tyre = factory.createTyre(<span class="number">1</span>);</div><div class="line">        tyre.SN();</div><div class="line">        <span class="comment">//创建C类类轮胎</span></div><div class="line">        factory = <span class="keyword">new</span> C_TyreFactory();</div><div class="line">        tyre = factory.createTyre(<span class="number">1</span>);</div><div class="line">        tyre.SN();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>简单工厂模式,没有对于工厂类的抽象,更加接近实际情况,也比较简单,但是可扩展性比较差,工厂模式对其进行扩展虽然将对象的创建延迟到了子类中,但是也使得程序的扩展性能有了比较显著的提升</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之工厂模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hexo搭建个人博客教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/hexo搭建个人博客教程/">hexo github 搭建个人博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/hexo搭建个人博客教程/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="hexo搭建个人博客教程"><a href="#hexo搭建个人博客教程" class="headerlink" title="hexo搭建个人博客教程"></a>hexo搭建个人博客教程</h4><blockquote>
-<p>前提：</p>
-<p>拥有github账号,安装好npm</p>
-</blockquote>
-<h5 id="本地构建"><a href="#本地构建" class="headerlink" title="本地构建"></a>本地构建</h5><blockquote>
-<p>操作步骤如下：</p>
-<ol>
-<li>安装hexo-cli: <strong>pm install -g hexo-cli</strong></li>
-<li>初始化博客框架：<strong>hexo init blog</strong></li>
-<li>进入blog文件夹，安装依赖包：<ul>
-<li><strong>cd blog</strong></li>
-<li><strong>npm install</strong></li>
-</ul>
-</li>
-<li>启动hexo服务：<strong>hexo server</strong></li>
-<li>浏览器输入：<strong>127.0.0.1:4000</strong>即可访问</li>
-</ol>
-<p>如需写文章，只需要在\blog\source_posts\文件夹下面防止写好的md文件，之后执行<strong>hexo g</strong>即可在个人站点访问刚才发布的md文件；</p>
-</blockquote>
-<p>如有不明确之处可参见官网：<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
-<p><strong>主题安装</strong></p>
-<p>hexo提供了众多主题，可以根据个人喜好进行安装，安装过程如下：</p>
-<blockquote>
-<ol>
-<li>登录hexo官网(<a href="https://hexo.io/)，选择主题页面" target="_blank" rel="external">https://hexo.io/)，选择主题页面</a></li>
-<li>选择喜欢的主题，进入对应的github获取主题源码</li>
-<li>进入博客主目录，git clone 仓库地址 themes/主题名称（可自定义）</li>
-<li>将_config.yml 下面的theme: landscape 修改为theme：主题名称</li>
-<li>其他依赖包相关可参见主题所在github下的关于主题仓库的说明</li>
-<li>hexo clean  –&gt; hexo g –&gt;hexo server</li>
-</ol>
-</blockquote>
-<p>综上所述均为本地如何开发hexo，我们构建个人博客需要远程访问，接下来，讲述如何将github与hexo结合开发个人博客：</p>
-<p><strong>将本地博客发布在github上面</strong></p>
-<blockquote>
-<ol>
-<li><p>首先在github上创建blog仓库</p>
-</li>
-<li><p>进入项目主目录打开_config.yml，在文中对应位置添加以下配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    url:  github配置的页面访问url</div><div class="line">&gt;    root: github根目录</div><div class="line">&gt;    deploy:</div><div class="line">&gt;      type: git</div><div class="line">&gt;      repo: git@github.com:github上个人的仓库</div><div class="line">&gt;      branch: master</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<ol>
-<li><p>打包<strong>hexo g</strong></p>
-</li>
-<li><p>执行构建，在此之前需要安装构架依赖的组件：<strong>npm install hexo-deployer-git –save</strong> （如没有该依赖会报错：ERROR Deployer not found: git）</p>
-</li>
-<li><p>执行构建，<strong>hexo d</strong>或者<strong>hexo deploy</strong> 或者 <strong>hexo d -g</strong></p>
-</li>
-<li><p>在github配置的页面访问路径下访问该博客</p>
-</li>
-</ol>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/hexo搭建个人博客教程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-celery+rabbitmq+django构建分布式异步任务队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/">celery+rabbitmq+django构建分布式异步任务队列</a>
+    <h1 class="article-title" itemprop="name">
+      celery+rabbitmq+django构建分布式异步任务队列
     </h1>
   
 
@@ -832,6 +210,32 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -850,16 +254,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/06/23/hexo搭建个人博客教程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hexo github 搭建个人博客
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/23/springboot环境搭建教程（eclipse）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springboot环境搭建</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -874,319 +346,42 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-springboot环境搭建教程（eclipse）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/springboot环境搭建教程（eclipse）/">springboot环境搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/springboot环境搭建教程（eclipse）/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="springboot环境搭建教程（eclipse）"><a href="#springboot环境搭建教程（eclipse）" class="headerlink" title="springboot环境搭建教程（eclipse）"></a>springboot环境搭建教程（eclipse）</h2><ol>
-<li>new-&gt;project-&gt;maven Project-&gt;quickStart</li>
-<li>查看文件目录机构，是否符合约定优配置原则</li>
-<li>配置pom，添加一下依赖</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;parent&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.2.7.RELEASE&lt;/version&gt;</div><div class="line">&lt;/parent&gt;</div><div class="line">  &lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">   	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;dependencies&gt;</div></pre></td></tr></table></figure>
-<p>4、添加配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">spring.datasource.url = jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false //若使用到数据库在此配置，需要在pom里面添加对应的数据驱动，或配置于环境变量中</div><div class="line">spring.datasource.username = username</div><div class="line">spring.datasource.password = password</div><div class="line">spring.datasource.driverClassName = com.mysql.jdbc.Driver</div><div class="line">spring.jpa.database = MYSQL</div><div class="line">spring.jpa.show-sql = true</div><div class="line">spring.jpa.hibernate.ddl-auto = update</div><div class="line">spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy</div><div class="line">spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect</div><div class="line">spring.template.cache = false</div></pre></td></tr></table></figure>
-<p>5、建立boot类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookStart</span> </span>&#123;	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SpringApplication.run(BookStart.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>6、建立controller</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</div><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>至此、配置完成；</p>
-<p><strong>注意：boot类一定要位于所有其他组件（controller，service，vo）的上层，否则，会导致组件注册失败</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/springboot环境搭建教程（eclipse）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#celery-rabbitmq-django构建分布式异步任务队列"><span class="toc-number">1.</span> <span class="toc-text">celery+rabbitmq+django构建分布式异步任务队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）"><span class="toc-number">1.1.</span> <span class="toc-text">rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#django服务器配置"><span class="toc-number">1.2.</span> <span class="toc-text">django服务器配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#worker配置（我以本机虚拟机192-168-1-108作为worker，本机ip-192-168-1-106）"><span class="toc-number">1.3.</span> <span class="toc-text">worker配置（我以本机虚拟机192.168.1.108作为worker，本机ip:192.168.1.106）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试"><span class="toc-number">1.4.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记之观察者模式/">设计模式学习笔记之观察者模式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/设计模式学习笔记之观察者模式/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记之观察者模式"><a href="#设计模式学习笔记之观察者模式" class="headerlink" title="设计模式学习笔记之观察者模式"></a>设计模式学习笔记之观察者模式</h2><h3 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h3><p>观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式</p>
-<blockquote>
-<p>举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)</p>
-</blockquote>
-<h3 id="观察者模式类图"><a href="#观察者模式类图" class="headerlink" title="观察者模式类图"></a>观察者模式类图</h3><p><img src="http://www.crazyxxl.tech/Observer.png" alt="观察者模式类图"></p>
-<p><strong>简要叙述:</strong></p>
-<p><strong>Subject(被监听着接口):</strong></p>
-<p>对于一个被监听者而言,监听其的对象可以有多个(皇帝派出多个间谍监听某一大臣),当某一监听者需要监听被监听者的时候,Subject调用注册监听者方法(registerObserver),取消监听调用(removeObserver),当其状态发生改变的时候调用notifyObserver方法通知已监听该对象的对象</p>
-<p><strong>ConcreteSubject:</strong></p>
-<p>实际被监听者</p>
-<p><strong>Observer:</strong></p>
-<p>监听者对象接口</p>
-<p><strong>ConcreteObserver:</strong></p>
-<p>实际监听的对象</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>古时候,某一个皇帝觉得自己的宰相有谋反的意图,因此派出了间谍1,潜入相府,检查宰相的行为,一旦有变立即上报,辅政大臣一片赤诚之心,派遣了间谍2去监测丞相的行为,用程序模拟该行为</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>皇帝和辅政大臣同时派出了间谍1和间谍2,来监听丞相的行为,我们可以将丞相模拟成被监听者(本来就是个被监听者),间谍1和间谍2是监听者,一旦他有谋反的举动,就干掉他</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><p><img src="http://www.crazyxxl.tech/Observer-eg.png" alt=""></p>
-<p>监控者接口:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>间谍1:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍1</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage1</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"发现他谋反了,通知皇上"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>间谍2:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍2</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage2</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"丞相谋反了,快快通知辅政大臣"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>被监听者接口:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 被监听者接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 注册监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>丞相类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> move_xing</div><div class="line"> * <span class="doctag">@describe</span> 丞相类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeMinister</span> <span class="keyword">implements</span> <span class="title">Subject</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        observers.add(object);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = observers.indexOf(object);</div><div class="line">        <span class="keyword">if</span>(-<span class="number">1</span> != index) &#123;</div><div class="line">            observers.remove(index);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebellion</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"杀了那个狗皇帝"</span>);</div><div class="line">        notifyObserver();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">        observers.forEach(item-&gt;&#123;</div><div class="line">            item.update();</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>场景类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 场景类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">//初始化丞相类</span></div><div class="line">        PrimeMinister primeMinister = <span class="keyword">new</span> PrimeMinister();</div><div class="line">        <span class="comment">//皇上派出间谍</span></div><div class="line">        Espionage1 espionage1 = <span class="keyword">new</span> Espionage1();</div><div class="line">        <span class="comment">//辅政大臣派出间谍</span></div><div class="line">        Espionage2 espionage2 = <span class="keyword">new</span> Espionage2();</div><div class="line">        <span class="comment">//间谍1潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage1);</div><div class="line">        <span class="comment">//间谍2潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage2);</div><div class="line">        <span class="comment">//丞相谋反了</span></div><div class="line">        primeMinister.rebellion();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line">*out:</div><div class="line">*杀了那个狗皇帝</div><div class="line">*发现他谋反了,通知皇上</div><div class="line">*丞相谋反了,快快通知辅政大臣</div><div class="line">*/</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>监听者模式在我们的开发中是经常会遇到的,前端触发,若干事件触发机制,Android开发事件触发,(部分是监控者模式,当然也有责任链模式),java自身也提供了Observer对象,以及Observable接口来实现监听者模式,感兴趣的可以下来自己看一下.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之观察者模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记/">设计模式学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/设计模式学习笔记/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记"><a href="#设计模式学习笔记" class="headerlink" title="设计模式学习笔记"></a>设计模式学习笔记</h2><h3 id="什么是设计模式"><a href="#什么是设计模式" class="headerlink" title="什么是设计模式"></a>什么是设计模式</h3><p>设计模式（Design Pattern）在百度百科中的定义为:<strong>是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结,</strong>说的通俗一点就是用来解决某些问题的套路;</p>
-<h3 id="设计模式遵从的原则有哪些"><a href="#设计模式遵从的原则有哪些" class="headerlink" title="设计模式遵从的原则有哪些"></a>设计模式遵从的原则有哪些</h3><ol>
-<li>单一职责原则 <a href="https://crazyxxl.github.io/2018/03/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99/">查看详情</a></li>
-<li>里氏代换原则</li>
-<li>依赖倒置</li>
-<li>接口隔离原则</li>
-<li>迪米特法则(最少知道原则)</li>
-<li>开放封闭原则(扩展开放,修改封闭)</li>
-</ol>
-<h3 id="常用的设计模式有哪些-java"><a href="#常用的设计模式有哪些-java" class="headerlink" title="常用的设计模式有哪些(java)"></a>常用的设计模式有哪些(java)</h3><p>从用途的不同,可以将设计模式分成三大类<strong>:创建类模式,结构类模式,行为类模式</strong></p>
-<h4 id="创建类模式"><a href="#创建类模式" class="headerlink" title="创建类模式"></a>创建类模式</h4><ol>
-<li>单例模式</li>
-<li>工厂模式 <a href="https://crazyxxl.github.io/2018/03/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>抽象工厂模式  <a href="https://crazyxxl.github.io/2018/03/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/">查看详情</a></li>
-<li>建造者模式</li>
-<li>原型模式</li>
-</ol>
-<h4 id="结构类模式"><a href="#结构类模式" class="headerlink" title="结构类模式"></a>结构类模式</h4><ol>
-<li>适配器模式</li>
-<li>桥梁模式</li>
-<li>组合模式</li>
-<li>装饰器模式   <a href="https://crazyxxl.github.io/2018/02/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>外观模式(门面模式)</li>
-<li>享元模式</li>
-<li>代理模式</li>
-</ol>
-<h4 id="行为类模式"><a href="#行为类模式" class="headerlink" title="行为类模式"></a>行为类模式</h4><ol>
-<li>责任链模式</li>
-<li>命令模式</li>
-<li>解释器模式</li>
-<li>迭代模式</li>
-<li>中介模式</li>
-<li>备忘录模式</li>
-<li>观察者模式 <a href="https://crazyxxl.github.io/2018/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>策略模式  <a href="https://crazyxxl.github.io/2018/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>模板模式</li>
-<li>访问者模式</li>
-<li>状态模式</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+  <div id="SOHUCS" sid="celery+rabbitmq+django构建分布式异步任务队列" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytq8Rfod",
+        conf: "1b3305975ccf5ca713923c392f03782d"
+    });
+</script>
+</script>
+  
+
+  
+
   
 
 
@@ -1209,8 +404,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
