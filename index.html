@@ -150,7 +150,7 @@
 
         
         <a href="/2018/09/08/mongodb通过mapreduce实现数据base64编解码/" class="archive-article-date">
-  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+  	<time datetime="2018-09-08T05:06:51.769Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
 </a>
         
       </header>
@@ -187,7 +187,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">数据库mongoDB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mongodb学习</a>
         		</li>
       		
 		</ul>
@@ -227,19 +227,19 @@
 
 
   
-    <article id="post-2018年读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-springboot环境搭建教程（eclipse）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/2018年读书计划/">2018读书计划</a>
+      <a class="article-title" href="/2018/09/08/springboot环境搭建教程（eclipse）/">springboot环境搭建</a>
     </h1>
   
 
         
-        <a href="/2018/09/08/2018年读书计划/" class="archive-article-date">
+        <a href="/2018/09/08/springboot环境搭建教程（eclipse）/" class="archive-article-date">
   	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
 </a>
         
@@ -247,35 +247,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="2018年读书计划"><a href="#2018年读书计划" class="headerlink" title="2018年读书计划"></a>2018年读书计划</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>书籍总共十本:每月一本,每本书籍做好计划,在个人博客写读书笔记,设计编码的,绘制类图,写好代码以及注释</p>
-<h3 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h3><p>技术书单:</p>
-<ol>
-<li>设计模式:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
-<li>数据结构与算法:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
-<li>网络:&lt;&lt;图解http&gt;&gt;</li>
-<li>数学:&lt;&lt;程序员的数学3：线性代数&gt;&gt;</li>
-<li>服务:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
-<li>密码:&lt;&lt;密码学基础&gt;&gt;</li>
+        <h2 id="springboot环境搭建教程（eclipse）"><a href="#springboot环境搭建教程（eclipse）" class="headerlink" title="springboot环境搭建教程（eclipse）"></a>springboot环境搭建教程（eclipse）</h2><ol>
+<li>new-&gt;project-&gt;maven Project-&gt;quickStart</li>
+<li>查看文件目录机构，是否符合约定优配置原则</li>
+<li>配置pom，添加一下依赖</li>
 </ol>
-<p>文学书单:</p>
-<ol>
-<li>精进</li>
-<li>沉默的大多数</li>
-<li>明朝那些事</li>
-<li>人类简史:从动物到上帝</li>
-</ol>
-<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><ol>
-<li>3-4:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
-<li>4-5:&lt;&lt;精进&gt;&gt;</li>
-<li>5-6:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
-<li>6-7:&lt;&lt;沉默的大多数&gt;&gt;</li>
-<li>7-8:&lt;&lt;图解http&gt;&gt;</li>
-<li>8-9:&lt;&lt;明朝那些事&gt;&gt;</li>
-<li>9-10:&lt;&lt; 程序员的数学3:线性代数&gt;&gt;</li>
-<li>10-11:&lt;&lt;人类简史：从动物到上帝&gt;&gt;</li>
-<li>11-12:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
-<li>12-01(19):&lt;&lt;密码学基础&gt;&gt;</li>
-</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;parent&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.2.7.RELEASE&lt;/version&gt;</div><div class="line">&lt;/parent&gt;</div><div class="line">  &lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">   	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;dependencies&gt;</div></pre></td></tr></table></figure>
+<p>4、添加配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">spring.datasource.url = jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false //若使用到数据库在此配置，需要在pom里面添加对应的数据驱动，或配置于环境变量中</div><div class="line">spring.datasource.username = username</div><div class="line">spring.datasource.password = password</div><div class="line">spring.datasource.driverClassName = com.mysql.jdbc.Driver</div><div class="line">spring.jpa.database = MYSQL</div><div class="line">spring.jpa.show-sql = true</div><div class="line">spring.jpa.hibernate.ddl-auto = update</div><div class="line">spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy</div><div class="line">spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect</div><div class="line">spring.template.cache = false</div></pre></td></tr></table></figure>
+<p>5、建立boot类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookStart</span> </span>&#123;	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SpringApplication.run(BookStart.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>6、建立controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</div><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>至此、配置完成；</p>
+<p><strong>注意：boot类一定要位于所有其他组件（controller，service，vo）的上层，否则，会导致组件注册失败</strong></p>
 
       
 
@@ -289,7 +274,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
         		</li>
       		
 		</ul>
@@ -299,7 +284,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/2018年读书计划/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/08/springboot环境搭建教程（eclipse）/">展开全文 >></a>
         </p>
       
 
@@ -409,96 +394,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/08/Docker构建项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Docker初体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/Docker初体验/">Docker初体验之docker简介</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/08/Docker初体验/" class="archive-article-date">
-  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Docker初体验</p>
-<p>​    Docker 是一个开源的基于 <a href="https://baike.baidu.com/item/LXC" target="_blank" rel="external">LXC</a> 的高级应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 <a href="https://baike.baidu.com/item/Linux" target="_blank" rel="external">Linux</a> 机器上，也可以实现<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%8C%96" target="_blank" rel="external">虚拟化</a>。容器是完全使用<a href="https://baike.baidu.com/item/%E6%B2%99%E7%AE%B1/393318" target="_blank" rel="external">沙箱</a>机制，相互之间不会有任何接口。（不会总结，但是觉得百度说的蛮好）;</p>
-<p>​    综合以上概念，我们可以看出docker是一个应用容器的引擎，其中关键词有两个，应用容器，引擎，引擎自不必说，最为关键的是应用容器，也就是说docker为应用程序的运行提供独立的容器，而且该容器还可以移植，想想都觉的美爆了，应用程序可以移植，如何移植呢，我的想法是通过将应用程序打包build成对应的image（镜像），通过docker平台镜像的随处运行来实现应用程序的移植，关于理论部分就说这么多，i am still learning ,来一波实践;</p>
-<p>​    关于docker的安装，方法众多，因为docker是在Linux平台下面开发出来的，所以即使他提供了MAC,Linux，Windows下的相关client，Linux平台也是最佳的，下面说说如何在centos7上面安装docker:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1、root账户登录;</div><div class="line">2、yum -y install docker（或者普通用户登录 sudo yum -y install docker）</div><div class="line">ok！</div><div class="line">其他linux 平台参见次安装</div><div class="line">安装成功后首先要做的便是启动docker服务：</div><div class="line">service docker start(systemctl start docker)</div><div class="line">查看docker版本：</div><div class="line">docker -v</div><div class="line">Docker version 1.12.6, build 88a4867/1.12.6</div><div class="line">从仓库拉取第一个docker的demo;</div><div class="line">docker pull hello-world</div></pre></td></tr></table></figure>
-<p>以下便是docker从远端获取镜像过程的详解：</p>
-<p><img src="http://hainiubl.com/images/2016/architecture.jpg?_=6822905" alt="docker获取镜像示意图"></p>
-<p><code>docker在拉取镜像之前，先检查本地仓库是否有该镜像，有的话直接使用，没有的话从远端服务器拉取；docker run用来运行docker images，在运行之前需要先获取docker 镜像，若本地（实则是本地的服务端，Linux上面client，与server都在一台机子上面，所以叫本地）存在，直接运行本地实例，不存在来去远端实例;</code></p>
-<p><strong>docker 镜像仓库在国外架设，因此下载起来可能需要某些特殊手段，好在网易给我们提供了很多的常用的镜像</strong></p>
-<p><strong>网址参见：http:/c.163.com</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">docker images 用于查看现有images</div><div class="line">docker images</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div></pre></td></tr></table></figure>
-<p>现在开始运行第一个docker 程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">docker run hello-world</div><div class="line">Hello from Docker!</div><div class="line">This message shows that your installation appears to be working correctly.</div><div class="line"></div><div class="line">To generate this message, Docker took the following steps:</div><div class="line"> 1. The Docker client contacted the Docker daemon.</div><div class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</div><div class="line"> 3. The Docker daemon created a new container from that image which runs the</div><div class="line">    executable that produces the output you are currently reading.</div><div class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</div><div class="line">    to your terminal.</div><div class="line"></div><div class="line">To try something more ambitious, you can run an Ubuntu container with:</div><div class="line"> $ docker run -it ubuntu bash</div><div class="line"></div><div class="line">Share images, automate workflows, and more with a free Docker ID:</div><div class="line"> https://cloud.docker.com/</div><div class="line"></div><div class="line">For more examples and ideas, visit:</div><div class="line"> https://docs.docker.com/engine/userguide/</div></pre></td></tr></table></figure>
-<p>此过程描述运行了一个docker的实例，而且描述了，此过程经过的四个步骤（可自己参阅）；</p>
-<p>hello-world只是简单的命令行输出而已，现在我们需要在docker中运行一个Nginx服务,步骤如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1、下载镜像（登录网易蜂巢-&gt;镜像仓库-&gt;发现更多镜像-搜索nginx-复制右上角下载地址下载镜像）</div><div class="line">docker pull hub.c.163.com/library/nginx:latest</div><div class="line">2、docker images 查看下载好的镜像名称</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div><div class="line">3、运行镜像（由于nginx隶属服务器类型，需要提供不间断的服务，因此需要将其放置在后台运行）</div><div class="line">docker run -d -p 8080:80 hub.c.163.com/library/nginx</div><div class="line">d84e097906770e5fb5911aaee6adce7654b08034a1831c084c40a900c723227e</div><div class="line">释义：docker run 用来运行镜像 hub.c.163.com/library/nginx 为容器名称,-d 是将docker运行实例放在后台运行,-p 是将docker 容器内端口与本机断后做映射，前者是本机端口，后者是容器内的端口</div><div class="line">命令运行后返回的是容器的id(所谓容器就是指镜像运行的一次实例,.可以包含一个独立的操作系统)</div><div class="line">4、查看是否运行成功:</div><div class="line">在本地浏览器输入如:http://localhost:8080 看是否会有nginx works</div><div class="line">5、docker ps 查看现在运行的容器有哪些</div><div class="line">6、docker exec -it 容器id进入容器 /bin/bash </div><div class="line">至此dcoker 运行nginx结束</div></pre></td></tr></table></figure>
-<p><strong><em>学习中·······</em></strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/Docker初体验/">展开全文 >></a>
         </p>
       
 
@@ -679,6 +574,96 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/08/centos7下Jenkins安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Docker初体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/Docker初体验/">Docker初体验之docker简介</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/08/Docker初体验/" class="archive-article-date">
+  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###Docker初体验</p>
+<p>​    Docker 是一个开源的基于 <a href="https://baike.baidu.com/item/LXC" target="_blank" rel="external">LXC</a> 的高级应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 <a href="https://baike.baidu.com/item/Linux" target="_blank" rel="external">Linux</a> 机器上，也可以实现<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%8C%96" target="_blank" rel="external">虚拟化</a>。容器是完全使用<a href="https://baike.baidu.com/item/%E6%B2%99%E7%AE%B1/393318" target="_blank" rel="external">沙箱</a>机制，相互之间不会有任何接口。（不会总结，但是觉得百度说的蛮好）;</p>
+<p>​    综合以上概念，我们可以看出docker是一个应用容器的引擎，其中关键词有两个，应用容器，引擎，引擎自不必说，最为关键的是应用容器，也就是说docker为应用程序的运行提供独立的容器，而且该容器还可以移植，想想都觉的美爆了，应用程序可以移植，如何移植呢，我的想法是通过将应用程序打包build成对应的image（镜像），通过docker平台镜像的随处运行来实现应用程序的移植，关于理论部分就说这么多，i am still learning ,来一波实践;</p>
+<p>​    关于docker的安装，方法众多，因为docker是在Linux平台下面开发出来的，所以即使他提供了MAC,Linux，Windows下的相关client，Linux平台也是最佳的，下面说说如何在centos7上面安装docker:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1、root账户登录;</div><div class="line">2、yum -y install docker（或者普通用户登录 sudo yum -y install docker）</div><div class="line">ok！</div><div class="line">其他linux 平台参见次安装</div><div class="line">安装成功后首先要做的便是启动docker服务：</div><div class="line">service docker start(systemctl start docker)</div><div class="line">查看docker版本：</div><div class="line">docker -v</div><div class="line">Docker version 1.12.6, build 88a4867/1.12.6</div><div class="line">从仓库拉取第一个docker的demo;</div><div class="line">docker pull hello-world</div></pre></td></tr></table></figure>
+<p>以下便是docker从远端获取镜像过程的详解：</p>
+<p><img src="http://hainiubl.com/images/2016/architecture.jpg?_=6822905" alt="docker获取镜像示意图"></p>
+<p><code>docker在拉取镜像之前，先检查本地仓库是否有该镜像，有的话直接使用，没有的话从远端服务器拉取；docker run用来运行docker images，在运行之前需要先获取docker 镜像，若本地（实则是本地的服务端，Linux上面client，与server都在一台机子上面，所以叫本地）存在，直接运行本地实例，不存在来去远端实例;</code></p>
+<p><strong>docker 镜像仓库在国外架设，因此下载起来可能需要某些特殊手段，好在网易给我们提供了很多的常用的镜像</strong></p>
+<p><strong>网址参见：http:/c.163.com</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">docker images 用于查看现有images</div><div class="line">docker images</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div></pre></td></tr></table></figure>
+<p>现在开始运行第一个docker 程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">docker run hello-world</div><div class="line">Hello from Docker!</div><div class="line">This message shows that your installation appears to be working correctly.</div><div class="line"></div><div class="line">To generate this message, Docker took the following steps:</div><div class="line"> 1. The Docker client contacted the Docker daemon.</div><div class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</div><div class="line"> 3. The Docker daemon created a new container from that image which runs the</div><div class="line">    executable that produces the output you are currently reading.</div><div class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</div><div class="line">    to your terminal.</div><div class="line"></div><div class="line">To try something more ambitious, you can run an Ubuntu container with:</div><div class="line"> $ docker run -it ubuntu bash</div><div class="line"></div><div class="line">Share images, automate workflows, and more with a free Docker ID:</div><div class="line"> https://cloud.docker.com/</div><div class="line"></div><div class="line">For more examples and ideas, visit:</div><div class="line"> https://docs.docker.com/engine/userguide/</div></pre></td></tr></table></figure>
+<p>此过程描述运行了一个docker的实例，而且描述了，此过程经过的四个步骤（可自己参阅）；</p>
+<p>hello-world只是简单的命令行输出而已，现在我们需要在docker中运行一个Nginx服务,步骤如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1、下载镜像（登录网易蜂巢-&gt;镜像仓库-&gt;发现更多镜像-搜索nginx-复制右上角下载地址下载镜像）</div><div class="line">docker pull hub.c.163.com/library/nginx:latest</div><div class="line">2、docker images 查看下载好的镜像名称</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div><div class="line">3、运行镜像（由于nginx隶属服务器类型，需要提供不间断的服务，因此需要将其放置在后台运行）</div><div class="line">docker run -d -p 8080:80 hub.c.163.com/library/nginx</div><div class="line">d84e097906770e5fb5911aaee6adce7654b08034a1831c084c40a900c723227e</div><div class="line">释义：docker run 用来运行镜像 hub.c.163.com/library/nginx 为容器名称,-d 是将docker运行实例放在后台运行,-p 是将docker 容器内端口与本机断后做映射，前者是本机端口，后者是容器内的端口</div><div class="line">命令运行后返回的是容器的id(所谓容器就是指镜像运行的一次实例,.可以包含一个独立的操作系统)</div><div class="line">4、查看是否运行成功:</div><div class="line">在本地浏览器输入如:http://localhost:8080 看是否会有nginx works</div><div class="line">5、docker ps 查看现在运行的容器有哪些</div><div class="line">6、docker exec -it 容器id进入容器 /bin/bash </div><div class="line">至此dcoker 运行nginx结束</div></pre></td></tr></table></figure>
+<p><strong><em>学习中·······</em></strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/08/Docker初体验/">展开全文 >></a>
         </p>
       
 
@@ -956,129 +941,6 @@
 
 
   
-    <article id="post-spark学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/spark学习笔记/">BigData-Spark</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/08/spark学习笔记/" class="archive-article-date">
-  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="spark学习笔记"><a href="#spark学习笔记" class="headerlink" title="spark学习笔记"></a>spark学习笔记</h3><blockquote>
-<p>关于spark的介绍，本文不做详述，本文主要讲述python-spark相关，以实操位置</p>
-</blockquote>
-<h4 id="无需搭建环境即可执行"><a href="#无需搭建环境即可执行" class="headerlink" title="无需搭建环境即可执行"></a>无需搭建环境即可执行</h4><p>前置执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install pyspark</div></pre></td></tr></table></figure>
-<p>单词数目统计</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_001.py</div><div class="line">@time: 18-7-22 下午4:33</div><div class="line">@desc: word count demo for pyspark</div><div class="line">"""</div><div class="line"></div><div class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    sc = SparkContext()</div><div class="line">    files_rdd = sc.textFile(<span class="string">"/home/xxl/personal_protice/data_source/word_count_source.txt"</span>, use_unicode=<span class="keyword">True</span>)</div><div class="line">    word = files_rdd.flatMap(<span class="keyword">lambda</span> line: line.split(<span class="string">" "</span>))</div><div class="line">    word_map = word.map(<span class="keyword">lambda</span> line: (line, <span class="number">1</span>)).countByKey()</div><div class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> word_map.items():</div><div class="line">        <span class="keyword">print</span> key, value</div></pre></td></tr></table></figure>
-<p>搜狗实验室数据集分析</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># encoding: utf-8</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_002.py</div><div class="line">@time: 18-7-22 下午4:51</div><div class="line">@desc: spark_002 搜狗实验室搜索数据处理</div><div class="line">"""</div><div class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    sc = SparkContext()</div><div class="line">    sou_gou_data = sc.textFile(<span class="string">"/home/xxl/personal_protice/data_source/SogouE.txt"</span>, use_unicode=<span class="keyword">True</span>)</div><div class="line">    words = sou_gou_data.flatMap(<span class="keyword">lambda</span> line: line.split(<span class="string">"\t"</span>))</div><div class="line"></div><div class="line">    <span class="comment"># 统计关键词,以及文本出现次数</span></div><div class="line">    all_words = words.collect()</div><div class="line">    keys = list()</div><div class="line">    index = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> all_words:</div><div class="line">        <span class="keyword">if</span> index % <span class="number">3</span> == <span class="number">0</span>:</div><div class="line">            keys.append(word)</div><div class="line">        index = index+<span class="number">1</span></div><div class="line">    sou_gou_data_key = words.filter(<span class="keyword">lambda</span> word: word <span class="keyword">in</span> keys)</div><div class="line">    words_map = sou_gou_data_key.map(<span class="keyword">lambda</span> line: (line, <span class="number">1</span>)).countByKey()</div><div class="line">    index = <span class="number">0</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"----------------key words counter start--------------"</span></div><div class="line">    <span class="keyword">for</span> item, info <span class="keyword">in</span> words_map.items():</div><div class="line">        <span class="keyword">print</span> <span class="string">"key is %s,times is %s"</span> %(item, info)</div><div class="line">    <span class="keyword">print</span> <span class="string">"----------------key words counter end--------------"</span></div><div class="line"></div><div class="line">    <span class="comment"># 统计关键词搜索出的站点</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"------------start analyse keywords and the results-------------------"</span></div><div class="line">    key_search_site = sou_gou_data.map(<span class="keyword">lambda</span> line: (line.split(<span class="string">"\t"</span>)[<span class="number">0</span>], line.split(<span class="string">"\t"</span>)[<span class="number">1</span>]))</div><div class="line">    result_site = key_search_site.groupByKey()</div><div class="line">    result_list = result_site.collect()</div><div class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> result_list:</div><div class="line">        <span class="keyword">print</span> <span class="string">"keyword is %s result is :"</span> % result[<span class="number">0</span>]</div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> result[<span class="number">1</span>]:</div><div class="line">            <span class="keyword">print</span> site</div><div class="line"></div><div class="line">    <span class="comment"># 统计文本关键词所搜最多的站点</span></div><div class="line">    key_search_site_count = sou_gou_data.map(<span class="keyword">lambda</span> line: (line.split(<span class="string">"\t"</span>)[<span class="number">0</span>], (line.split(<span class="string">"\t"</span>)[<span class="number">1</span>],</div><div class="line">                                                                                 line.split(<span class="string">"\t"</span>)[<span class="number">2</span>])))</div><div class="line">    result_site_count = key_search_site_count.groupByKey()</div><div class="line">    result_list = result_site_count.collect()</div><div class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> result_list:</div><div class="line">        <span class="keyword">print</span> result[<span class="number">0</span>]</div><div class="line">        number = <span class="number">0</span></div><div class="line">        site_name = <span class="keyword">None</span></div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> result[<span class="number">1</span>]:</div><div class="line">            <span class="keyword">if</span> site[<span class="number">1</span>] &gt; number:</div><div class="line">                number = site[<span class="number">1</span>]</div><div class="line">                site_name = site[<span class="number">0</span>]</div><div class="line">        <span class="keyword">print</span> site_name, number</div></pre></td></tr></table></figure>
-<h4 id="需要python集群作为支撑"><a href="#需要python集群作为支撑" class="headerlink" title="需要python集群作为支撑"></a>需要python集群作为支撑</h4><h5 id="spark集群环境搭建（yarn）"><a href="#spark集群环境搭建（yarn）" class="headerlink" title="spark集群环境搭建（yarn）"></a>spark集群环境搭建（yarn）</h5><p><em>前置条件</em>：</p>
-<p>下载hadoop，spark（本文使用版本spark-2.2.2-bin-hadoop2.7，hadoop-2.8.4）</p>
-<p>创建虚拟机两台</p>
-<p><em>过程详述：</em></p>
-<ol>
-<li>添加hosts解析(ip根据自己的虚拟机ip自定)</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">192.168.1.103 master</div><div class="line">192.168.1.107 slave</div></pre></td></tr></table></figure>
-<ol>
-<li>两台虚拟机添加彼此公钥到彼此的 ~/.ssh/authorized_keys下，实现彼此无密码访问</li>
-<li>配置hadoop</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> hadoop-env.sh添加</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># hdfs-site.xml </div><div class="line">&lt;configuration&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.replication&lt;/name&gt;</div><div class="line">      &lt;value&gt;1&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">    </div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.name.dir&lt;/name&gt;</div><div class="line">      &lt;value&gt;file:///home/hadoop/hadoopinfra/hdfs/namenode &lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">    </div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.data.dir&lt;/name&gt; </div><div class="line">      &lt;value&gt;file:///home/hadoop/hadoopinfra/hdfs/datanode &lt;/value&gt; </div><div class="line">   &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># core-site.xml</div><div class="line">&lt;configuration&gt;</div><div class="line">    &lt;property&gt;</div><div class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</div><div class="line">        &lt;value&gt;hdfs://master:9000&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"># yarn-site.xml</div><div class="line">&lt;configuration&gt;</div><div class="line">&lt;!-- Site specific YARN configuration properties --&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</div><div class="line">      &lt;value&gt;mapreduce_shuffle&lt;/value&gt; </div><div class="line">   &lt;/property&gt;</div><div class="line">      &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</div><div class="line">         &lt;value&gt;master&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</div><div class="line">         &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8032&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8030&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8031&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8033&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8088&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div><div class="line"></div><div class="line"># slaves</div><div class="line">slave</div></pre></td></tr></table></figure>
-<ol>
-<li>spark配置</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> spark-env.sh</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div><div class="line">export SPARK_MASTER_IP=master</div><div class="line">export SPARK_WORKER_MEMORY=1g</div><div class="line">export SPARK_EXECUTOR_MEMORY=1g</div><div class="line">export SPARK_DRIVER_MEMORY=500m</div><div class="line">export SPARK_WORKER_CORES=2</div><div class="line">export SPARK_HOME=/opt/spark-2.2.2-bin-hadoop2.7</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># spark-defaults.conf</div><div class="line">spark.master                     spark://master:7077</div><div class="line">spark.eventLog.enabled           true</div><div class="line">spark.eventLog.dir               hdfs://master:9000/directory</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># slaves</div><div class="line">slave</div></pre></td></tr></table></figure>
-<ol>
-<li>配置环境变量</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># java_env</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib</div><div class="line">export PATH=$JAVA_HOME/bin:$PATH</div><div class="line"># haddop_env</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div><div class="line">export SPARK_HOME=/opt/spark-2.2.2-bin-hadoop2.7</div></pre></td></tr></table></figure>
-<ol>
-<li>开始运行</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">start-all.sh（hadoop）</div><div class="line">主节点启动方式指定ip</div><div class="line">./start-master.sh -h master</div><div class="line">从节点启动方式</div><div class="line">./sbin/start-slave.sh master://broker1:7077</div></pre></td></tr></table></figure>
-<p>kafka集群搭建，不做详述</p>
-<p>注意点：</p>
-<p>1、kafka客户端连接不上kafka集群</p>
-<p>需要在kafka的配置：server.properties中添加配置：hostname:本机ip</p>
-<p>2、spark连接kafka集群出错</p>
-<p>需要添加：</p>
-<p>listeners=PLAINTEXT://hostname:9092</p>
-<p>advertised.listeners=PLAINTEXT://hostname:9092</p>
-<p><em>spark-streaming-kafka-单词统计</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># encoding: utf-8</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_003.py</div><div class="line">@time: 18-7-22 下午5:57</div><div class="line">@desc:</div><div class="line">&quot;&quot;&quot;</div><div class="line">from pyspark import SparkContext</div><div class="line">from pyspark.streaming import StreamingContext</div><div class="line">from pyspark.streaming.kafka import KafkaUtils</div><div class="line">import redis</div><div class="line"></div><div class="line"></div><div class="line">class RedisClient(object):</div><div class="line">    def __init__(self, host, port):</div><div class="line">        self.host = host</div><div class="line">        self.port = port</div><div class="line">        self.pool = redis.ConnectionPool(host=self.host, port=self.port, db=0)</div><div class="line">        self.redis_cli = redis.StrictRedis(connection_pool=self.pool)</div><div class="line"></div><div class="line">    def insert_data_into_redis(self, key, value):</div><div class="line">        self.redis_cli.hset(&quot;data&quot;, key, value)</div><div class="line"></div><div class="line">    def get_redis_cli(self):</div><div class="line">        return self.redis_cli</div><div class="line"></div><div class="line"></div><div class="line">def echo(rdd):</div><div class="line">    rdd_list = rdd.collect()</div><div class="line">    if rdd_list and len(rdd_list) &gt; 0:</div><div class="line">        for item in rdd_list:</div><div class="line">            print (str(item[1]) + &quot;:&quot; + str(item[0]))</div><div class="line">            rc.insert_data_into_redis(str(item[0]), str(item[1]))</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    rc = RedisClient(&quot;192.168.1.103&quot;, &quot;6379&quot;)</div><div class="line">    sc = SparkContext(master=&quot;spark://192.168.1.103:7077&quot;, appName=&quot;Spark Stream example for kafka&quot;)</div><div class="line">    ssc = StreamingContext(sc, 5)</div><div class="line">    k_stream = KafkaUtils.createStream(ssc, &quot;192.168.1.103:2181&quot;, &quot;redis&quot;, &#123;&quot;test1&quot;: 1&#125;)</div><div class="line">    word_stream = k_stream.map(lambda x: x[1])</div><div class="line">    words = word_stream.flatMap(lambda line: line.split(&quot; &quot;))</div><div class="line">    pair = words.map(lambda line: (line, 1))</div><div class="line">    result = pair.reduceByKey(lambda x, y: x+y)</div><div class="line">    result.foreachRDD(echo)</div><div class="line">    ssc.start()</div><div class="line">    ssc.awaitTermination()</div></pre></td></tr></table></figure>
-<p>注意点，kafka-sparkstreaming本机提交任务到集群时，需要注意本机的spark-streaming-kafka-0-10-assembly_2.10-2.2.2与集群worker一致，sparkconfig配置不生效，俺不知道为啥</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BigData</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/spark学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-mysql视图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1184,6 +1046,129 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/08/mysql视图/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spark学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/spark学习笔记/">BigData-Spark</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/08/spark学习笔记/" class="archive-article-date">
+  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="spark学习笔记"><a href="#spark学习笔记" class="headerlink" title="spark学习笔记"></a>spark学习笔记</h3><blockquote>
+<p>关于spark的介绍，本文不做详述，本文主要讲述python-spark相关，以实操位置</p>
+</blockquote>
+<h4 id="无需搭建环境即可执行"><a href="#无需搭建环境即可执行" class="headerlink" title="无需搭建环境即可执行"></a>无需搭建环境即可执行</h4><p>前置执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install pyspark</div></pre></td></tr></table></figure>
+<p>单词数目统计</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_001.py</div><div class="line">@time: 18-7-22 下午4:33</div><div class="line">@desc: word count demo for pyspark</div><div class="line">"""</div><div class="line"></div><div class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    sc = SparkContext()</div><div class="line">    files_rdd = sc.textFile(<span class="string">"/home/xxl/personal_protice/data_source/word_count_source.txt"</span>, use_unicode=<span class="keyword">True</span>)</div><div class="line">    word = files_rdd.flatMap(<span class="keyword">lambda</span> line: line.split(<span class="string">" "</span>))</div><div class="line">    word_map = word.map(<span class="keyword">lambda</span> line: (line, <span class="number">1</span>)).countByKey()</div><div class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> word_map.items():</div><div class="line">        <span class="keyword">print</span> key, value</div></pre></td></tr></table></figure>
+<p>搜狗实验室数据集分析</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># encoding: utf-8</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_002.py</div><div class="line">@time: 18-7-22 下午4:51</div><div class="line">@desc: spark_002 搜狗实验室搜索数据处理</div><div class="line">"""</div><div class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    sc = SparkContext()</div><div class="line">    sou_gou_data = sc.textFile(<span class="string">"/home/xxl/personal_protice/data_source/SogouE.txt"</span>, use_unicode=<span class="keyword">True</span>)</div><div class="line">    words = sou_gou_data.flatMap(<span class="keyword">lambda</span> line: line.split(<span class="string">"\t"</span>))</div><div class="line"></div><div class="line">    <span class="comment"># 统计关键词,以及文本出现次数</span></div><div class="line">    all_words = words.collect()</div><div class="line">    keys = list()</div><div class="line">    index = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> all_words:</div><div class="line">        <span class="keyword">if</span> index % <span class="number">3</span> == <span class="number">0</span>:</div><div class="line">            keys.append(word)</div><div class="line">        index = index+<span class="number">1</span></div><div class="line">    sou_gou_data_key = words.filter(<span class="keyword">lambda</span> word: word <span class="keyword">in</span> keys)</div><div class="line">    words_map = sou_gou_data_key.map(<span class="keyword">lambda</span> line: (line, <span class="number">1</span>)).countByKey()</div><div class="line">    index = <span class="number">0</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"----------------key words counter start--------------"</span></div><div class="line">    <span class="keyword">for</span> item, info <span class="keyword">in</span> words_map.items():</div><div class="line">        <span class="keyword">print</span> <span class="string">"key is %s,times is %s"</span> %(item, info)</div><div class="line">    <span class="keyword">print</span> <span class="string">"----------------key words counter end--------------"</span></div><div class="line"></div><div class="line">    <span class="comment"># 统计关键词搜索出的站点</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"------------start analyse keywords and the results-------------------"</span></div><div class="line">    key_search_site = sou_gou_data.map(<span class="keyword">lambda</span> line: (line.split(<span class="string">"\t"</span>)[<span class="number">0</span>], line.split(<span class="string">"\t"</span>)[<span class="number">1</span>]))</div><div class="line">    result_site = key_search_site.groupByKey()</div><div class="line">    result_list = result_site.collect()</div><div class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> result_list:</div><div class="line">        <span class="keyword">print</span> <span class="string">"keyword is %s result is :"</span> % result[<span class="number">0</span>]</div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> result[<span class="number">1</span>]:</div><div class="line">            <span class="keyword">print</span> site</div><div class="line"></div><div class="line">    <span class="comment"># 统计文本关键词所搜最多的站点</span></div><div class="line">    key_search_site_count = sou_gou_data.map(<span class="keyword">lambda</span> line: (line.split(<span class="string">"\t"</span>)[<span class="number">0</span>], (line.split(<span class="string">"\t"</span>)[<span class="number">1</span>],</div><div class="line">                                                                                 line.split(<span class="string">"\t"</span>)[<span class="number">2</span>])))</div><div class="line">    result_site_count = key_search_site_count.groupByKey()</div><div class="line">    result_list = result_site_count.collect()</div><div class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> result_list:</div><div class="line">        <span class="keyword">print</span> result[<span class="number">0</span>]</div><div class="line">        number = <span class="number">0</span></div><div class="line">        site_name = <span class="keyword">None</span></div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> result[<span class="number">1</span>]:</div><div class="line">            <span class="keyword">if</span> site[<span class="number">1</span>] &gt; number:</div><div class="line">                number = site[<span class="number">1</span>]</div><div class="line">                site_name = site[<span class="number">0</span>]</div><div class="line">        <span class="keyword">print</span> site_name, number</div></pre></td></tr></table></figure>
+<h4 id="需要python集群作为支撑"><a href="#需要python集群作为支撑" class="headerlink" title="需要python集群作为支撑"></a>需要python集群作为支撑</h4><h5 id="spark集群环境搭建（yarn）"><a href="#spark集群环境搭建（yarn）" class="headerlink" title="spark集群环境搭建（yarn）"></a>spark集群环境搭建（yarn）</h5><p><em>前置条件</em>：</p>
+<p>下载hadoop，spark（本文使用版本spark-2.2.2-bin-hadoop2.7，hadoop-2.8.4）</p>
+<p>创建虚拟机两台</p>
+<p><em>过程详述：</em></p>
+<ol>
+<li>添加hosts解析(ip根据自己的虚拟机ip自定)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">192.168.1.103 master</div><div class="line">192.168.1.107 slave</div></pre></td></tr></table></figure>
+<ol>
+<li>两台虚拟机添加彼此公钥到彼此的 ~/.ssh/authorized_keys下，实现彼此无密码访问</li>
+<li>配置hadoop</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> hadoop-env.sh添加</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># hdfs-site.xml </div><div class="line">&lt;configuration&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.replication&lt;/name&gt;</div><div class="line">      &lt;value&gt;1&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">    </div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.name.dir&lt;/name&gt;</div><div class="line">      &lt;value&gt;file:///home/hadoop/hadoopinfra/hdfs/namenode &lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">    </div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.data.dir&lt;/name&gt; </div><div class="line">      &lt;value&gt;file:///home/hadoop/hadoopinfra/hdfs/datanode &lt;/value&gt; </div><div class="line">   &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># core-site.xml</div><div class="line">&lt;configuration&gt;</div><div class="line">    &lt;property&gt;</div><div class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</div><div class="line">        &lt;value&gt;hdfs://master:9000&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"># yarn-site.xml</div><div class="line">&lt;configuration&gt;</div><div class="line">&lt;!-- Site specific YARN configuration properties --&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</div><div class="line">      &lt;value&gt;mapreduce_shuffle&lt;/value&gt; </div><div class="line">   &lt;/property&gt;</div><div class="line">      &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</div><div class="line">         &lt;value&gt;master&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</div><div class="line">         &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8032&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8030&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8031&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8033&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8088&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div><div class="line"></div><div class="line"># slaves</div><div class="line">slave</div></pre></td></tr></table></figure>
+<ol>
+<li>spark配置</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> spark-env.sh</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div><div class="line">export SPARK_MASTER_IP=master</div><div class="line">export SPARK_WORKER_MEMORY=1g</div><div class="line">export SPARK_EXECUTOR_MEMORY=1g</div><div class="line">export SPARK_DRIVER_MEMORY=500m</div><div class="line">export SPARK_WORKER_CORES=2</div><div class="line">export SPARK_HOME=/opt/spark-2.2.2-bin-hadoop2.7</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># spark-defaults.conf</div><div class="line">spark.master                     spark://master:7077</div><div class="line">spark.eventLog.enabled           true</div><div class="line">spark.eventLog.dir               hdfs://master:9000/directory</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># slaves</div><div class="line">slave</div></pre></td></tr></table></figure>
+<ol>
+<li>配置环境变量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># java_env</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib</div><div class="line">export PATH=$JAVA_HOME/bin:$PATH</div><div class="line"># haddop_env</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div><div class="line">export SPARK_HOME=/opt/spark-2.2.2-bin-hadoop2.7</div></pre></td></tr></table></figure>
+<ol>
+<li>开始运行</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">start-all.sh（hadoop）</div><div class="line">主节点启动方式指定ip</div><div class="line">./start-master.sh -h master</div><div class="line">从节点启动方式</div><div class="line">./sbin/start-slave.sh master://broker1:7077</div></pre></td></tr></table></figure>
+<p>kafka集群搭建，不做详述</p>
+<p>注意点：</p>
+<p>1、kafka客户端连接不上kafka集群</p>
+<p>需要在kafka的配置：server.properties中添加配置：hostname:本机ip</p>
+<p>2、spark连接kafka集群出错</p>
+<p>需要添加：</p>
+<p>listeners=PLAINTEXT://hostname:9092</p>
+<p>advertised.listeners=PLAINTEXT://hostname:9092</p>
+<p><em>spark-streaming-kafka-单词统计</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># encoding: utf-8</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_003.py</div><div class="line">@time: 18-7-22 下午5:57</div><div class="line">@desc:</div><div class="line">&quot;&quot;&quot;</div><div class="line">from pyspark import SparkContext</div><div class="line">from pyspark.streaming import StreamingContext</div><div class="line">from pyspark.streaming.kafka import KafkaUtils</div><div class="line">import redis</div><div class="line"></div><div class="line"></div><div class="line">class RedisClient(object):</div><div class="line">    def __init__(self, host, port):</div><div class="line">        self.host = host</div><div class="line">        self.port = port</div><div class="line">        self.pool = redis.ConnectionPool(host=self.host, port=self.port, db=0)</div><div class="line">        self.redis_cli = redis.StrictRedis(connection_pool=self.pool)</div><div class="line"></div><div class="line">    def insert_data_into_redis(self, key, value):</div><div class="line">        self.redis_cli.hset(&quot;data&quot;, key, value)</div><div class="line"></div><div class="line">    def get_redis_cli(self):</div><div class="line">        return self.redis_cli</div><div class="line"></div><div class="line"></div><div class="line">def echo(rdd):</div><div class="line">    rdd_list = rdd.collect()</div><div class="line">    if rdd_list and len(rdd_list) &gt; 0:</div><div class="line">        for item in rdd_list:</div><div class="line">            print (str(item[1]) + &quot;:&quot; + str(item[0]))</div><div class="line">            rc.insert_data_into_redis(str(item[0]), str(item[1]))</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    rc = RedisClient(&quot;192.168.1.103&quot;, &quot;6379&quot;)</div><div class="line">    sc = SparkContext(master=&quot;spark://192.168.1.103:7077&quot;, appName=&quot;Spark Stream example for kafka&quot;)</div><div class="line">    ssc = StreamingContext(sc, 5)</div><div class="line">    k_stream = KafkaUtils.createStream(ssc, &quot;192.168.1.103:2181&quot;, &quot;redis&quot;, &#123;&quot;test1&quot;: 1&#125;)</div><div class="line">    word_stream = k_stream.map(lambda x: x[1])</div><div class="line">    words = word_stream.flatMap(lambda line: line.split(&quot; &quot;))</div><div class="line">    pair = words.map(lambda line: (line, 1))</div><div class="line">    result = pair.reduceByKey(lambda x, y: x+y)</div><div class="line">    result.foreachRDD(echo)</div><div class="line">    ssc.start()</div><div class="line">    ssc.awaitTermination()</div></pre></td></tr></table></figure>
+<p>注意点，kafka-sparkstreaming本机提交任务到集群时，需要注意本机的spark-streaming-kafka-0-10-assembly_2.10-2.2.2与集群worker一致，sparkconfig配置不生效，俺不知道为啥</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BigData</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/08/spark学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -1330,15 +1315,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">数据库mongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1347,6 +1328,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">设计模式学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mongodb学习</a>
               </li>
             
             <div class="clearfix"></div>
