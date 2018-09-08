@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://codermoven.github.io/2018/09/08/hexo搭建个人博客教程/index.html">
 <meta property="og:site_name" content="codermoven的博客">
 <meta property="og:description" content="hexo搭建个人博客教程 前提： 拥有github账号,安装好npm  本地构建 操作步骤如下：  安装hexo-cli: pm install -g hexo-cli 初始化博客框架：hexo init blog 进入blog文件夹，安装依赖包： cd blog npm install   启动hexo服务：hexo server 浏览器输入：127.0.0.1:4000即可访问  如需写文章，">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-09-08T05:00:53.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo github 搭建个人博客">
@@ -179,12 +180,12 @@
 </ol>
 <p>如需写文章，只需要在\blog\source_posts\文件夹下面防止写好的md文件，之后执行<strong>hexo g</strong>即可在个人站点访问刚才发布的md文件；</p>
 </blockquote>
-<p>如有不明确之处可参见官网：<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
+<p>如有不明确之处可参见官网：<a href="https://hexo.io/" target="_blank" rel="noopener">hexo官网</a></p>
 <p><strong>主题安装</strong></p>
 <p>hexo提供了众多主题，可以根据个人喜好进行安装，安装过程如下：</p>
 <blockquote>
 <ol>
-<li>登录hexo官网(<a href="https://hexo.io/)，选择主题页面" target="_blank" rel="external">https://hexo.io/)，选择主题页面</a></li>
+<li>登录hexo官网(<a href="https://hexo.io/)，选择主题页面" target="_blank" rel="noopener">https://hexo.io/)，选择主题页面</a></li>
 <li>选择喜欢的主题，进入对应的github获取主题源码</li>
 <li>进入博客主目录，git clone 仓库地址 themes/主题名称（可自定义）</li>
 <li>将_config.yml 下面的theme: landscape 修改为theme：主题名称</li>
@@ -199,13 +200,12 @@
 <li><p>首先在github上创建blog仓库</p>
 </li>
 <li><p>进入项目主目录打开_config.yml，在文中对应位置添加以下配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    url:  github配置的页面访问url</div><div class="line">&gt;    root: github根目录</div><div class="line">&gt;    deploy:</div><div class="line">&gt;      type: git</div><div class="line">&gt;      repo: git@github.com:github上个人的仓库</div><div class="line">&gt;      branch: master</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;    url:  github配置的页面访问url</span><br><span class="line">&gt;    root: github根目录</span><br><span class="line">&gt;    deploy:</span><br><span class="line">&gt;      type: git</span><br><span class="line">&gt;      repo: git@github.com:github上个人的仓库</span><br><span class="line">&gt;      branch: master</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </blockquote>
-<p>&gt;</p>
 <blockquote>
-<ol>
+<ol start="3">
 <li><p>打包<strong>hexo g</strong></p>
 </li>
 <li><p>执行构建，在此之前需要安装构架依赖的组件：<strong>npm install hexo-deployer-git –save</strong> （如没有该依赖会报错：ERROR Deployer not found: git）</p>
@@ -335,8 +335,8 @@
     </a>
   
   
-    <a href="/2018/09/08/mysql视图/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mysql学习之视图</div>
+    <a href="/2018/09/08/springboot环境搭建教程（eclipse）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springboot环境搭建</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -509,19 +509,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
+                <a href="javascript:void(0)" class="js-tag color4">设计模式学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">设计模式学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
               </li>
             
             <div class="clearfix"></div>

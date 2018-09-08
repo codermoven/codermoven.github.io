@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://codermoven.github.io/2018/09/08/Linux下面显示分支名称的方法：/index.html">
 <meta property="og:site_name" content="codermoven的博客">
 <meta property="og:description" content="Linux下面显示分支名称的方法： 1234567891011function git_branch &amp;#123;  branch=&quot;`git branch 2&amp;gt;/dev/null | grep &quot;^\*&quot; | sed -e &quot;s/^\*\ //&quot;`&quot;  if [ &quot;$&amp;#123;branch&amp;#125;&quot; != &quot;&quot; ];then      if [ &quot;$&amp;#123;branch&amp;#125">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-09-08T05:00:53.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下面显示分支名称的方法">
@@ -161,7 +162,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Linux下面显示分支名称的方法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function git_branch &#123;</div><div class="line">  branch="`git branch 2&gt;/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"</div><div class="line">  if [ "$&#123;branch&#125;" != "" ];then</div><div class="line">      if [ "$&#123;branch&#125;" = "(no branch)" ];then</div><div class="line">          branch="(`git rev-parse --short HEAD`...)"</div><div class="line">      fi</div><div class="line">      echo "-&gt;$branch"</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"> </div><div class="line">export PS1='\[\e[37;40m\][\[\033[01;36m\]\u\[\e[37;40m\]@\[\e[0m\]\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\]\[\e[37;40m\]]\[\e[0m\]\$ '</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function git_branch &#123;</span><br><span class="line">  branch="`git branch 2&gt;/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"</span><br><span class="line">  if [ "$&#123;branch&#125;" != "" ];then</span><br><span class="line">      if [ "$&#123;branch&#125;" = "(no branch)" ];then</span><br><span class="line">          branch="(`git rev-parse --short HEAD`...)"</span><br><span class="line">      fi</span><br><span class="line">      echo "-&gt;$branch"</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">export PS1='\[\e[37;40m\][\[\033[01;36m\]\u\[\e[37;40m\]@\[\e[0m\]\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\]\[\e[37;40m\]]\[\e[0m\]\$ '</span><br></pre></td></tr></table></figure>
 
       
 
@@ -271,18 +272,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/08/centos7下Jenkins安装/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/08/Docker构建项目/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          centos7下Jenkins安装
+          Docker初体验之构建javaWeb项目
         
       </div>
     </a>
   
   
-    <a href="/2018/09/08/celery+rabbitmq+django构建分布式异步任务队列/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">celery+rabbitmq+django构建分布式异步任务队列</div>
+    <a href="/2018/09/08/Docker初体验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker初体验之docker简介</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -455,19 +456,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
+                <a href="javascript:void(0)" class="js-tag color4">设计模式学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">设计模式学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
               </li>
             
             <div class="clearfix"></div>
