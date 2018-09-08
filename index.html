@@ -140,10 +140,24 @@
     <article id="post-mongodb通过mapreduce实现数据base64编解码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/mongodb通过mapreduce实现数据base64编解码/">mongodb通过mapreduce实现数据base64编解码</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/08/mongodb通过mapreduce实现数据base64编解码/" class="archive-article-date">
+  	<time datetime="2018-09-08T02:42:00.871Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: mongodb通过mapreduce实现数据base64编解码<br>tags: [mongoDB]</p>
-<h2 id="mongodb通过mapreduce实现数据base64编解码"><a href="#mongodb通过mapreduce实现数据base64编解码" class="headerlink" title="mongodb通过mapreduce实现数据base64编解码"></a>mongodb通过mapreduce实现数据base64编解码</h2><h3 id="创建base64函数"><a href="#创建base64函数" class="headerlink" title="创建base64函数"></a>创建base64函数</h3><h4 id="编写base64函数（编码）"><a href="#编写base64函数（编码）" class="headerlink" title="编写base64函数（编码）"></a>编写base64函数（编码）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64_encode</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Base64</span>(<span class="params"></span>) </span>&#123; </div><div class="line">  _keyStr = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="</span>; </div><div class="line">  <span class="keyword">this</span>.encode = <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123; </div><div class="line">    <span class="keyword">var</span> output = <span class="string">""</span>; </div><div class="line">    <span class="keyword">var</span> chr1, chr2, chr3, enc1, enc2, enc3, enc4; </div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>; </div><div class="line">    input = _utf8_encode(input); </div><div class="line">    <span class="keyword">while</span> (i &lt; input.length) &#123; </div><div class="line">      chr1 = input.charCodeAt(i++); </div><div class="line">      chr2 = input.charCodeAt(i++); </div><div class="line">      chr3 = input.charCodeAt(i++); </div><div class="line">      enc1 = chr1 &gt;&gt; <span class="number">2</span>; </div><div class="line">      enc2 = ((chr1 &amp; <span class="number">3</span>) &lt;&lt; <span class="number">4</span>) | (chr2 &gt;&gt; <span class="number">4</span>); </div><div class="line">      enc3 = ((chr2 &amp; <span class="number">15</span>) &lt;&lt; <span class="number">2</span>) | (chr3 &gt;&gt; <span class="number">6</span>); </div><div class="line">      enc4 = chr3 &amp; <span class="number">63</span>; </div><div class="line">      <span class="keyword">if</span> (<span class="built_in">isNaN</span>(chr2)) &#123; </div><div class="line">        enc3 = enc4 = <span class="number">64</span>; </div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isNaN</span>(chr3)) &#123; </div><div class="line">        enc4 = <span class="number">64</span>; </div><div class="line">      &#125; </div><div class="line">      output = output + </div><div class="line">      _keyStr.charAt(enc1) + _keyStr.charAt(enc2) + </div><div class="line">      _keyStr.charAt(enc3) + _keyStr.charAt(enc4); </div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> output; </div><div class="line">  &#125;   </div><div class="line">  _utf8_encode = <span class="function"><span class="keyword">function</span> (<span class="params">string</span>) </span>&#123; </div><div class="line">    string = string.replace(<span class="regexp">/\r\n/g</span>,<span class="string">"\n"</span>); </div><div class="line">    <span class="keyword">var</span> utftext = <span class="string">""</span>; </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">0</span>; n &lt; string.length; n++) &#123; </div><div class="line">      <span class="keyword">var</span> c = string.charCodeAt(n); </div><div class="line">      <span class="keyword">if</span> (c &lt; <span class="number">128</span>) &#123; </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode(c); </div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>((c &gt; <span class="number">127</span>) &amp;&amp; (c &lt; <span class="number">2048</span>)) &#123; </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &gt;&gt; <span class="number">6</span>) | <span class="number">192</span>); </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &amp; <span class="number">63</span>) | <span class="number">128</span>); </div><div class="line">      &#125; <span class="keyword">else</span> &#123; </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &gt;&gt; <span class="number">12</span>) | <span class="number">224</span>); </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode(((c &gt;&gt; <span class="number">6</span>) &amp; <span class="number">63</span>) | <span class="number">128</span>); </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &amp; <span class="number">63</span>) | <span class="number">128</span>); </div><div class="line">      &#125; </div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> utftext; </div><div class="line">  &#125;  </div><div class="line">&#125;</div><div class="line">base_64_functions = <span class="keyword">new</span> Base64();</div><div class="line"><span class="keyword">return</span> base_64_functions.encode(str)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="mongodb通过mapreduce实现数据base64编解码"><a href="#mongodb通过mapreduce实现数据base64编解码" class="headerlink" title="mongodb通过mapreduce实现数据base64编解码"></a>mongodb通过mapreduce实现数据base64编解码</h2><h3 id="创建base64函数"><a href="#创建base64函数" class="headerlink" title="创建base64函数"></a>创建base64函数</h3><h4 id="编写base64函数（编码）"><a href="#编写base64函数（编码）" class="headerlink" title="编写base64函数（编码）"></a>编写base64函数（编码）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64_encode</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Base64</span>(<span class="params"></span>) </span>&#123; </div><div class="line">  _keyStr = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="</span>; </div><div class="line">  <span class="keyword">this</span>.encode = <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123; </div><div class="line">    <span class="keyword">var</span> output = <span class="string">""</span>; </div><div class="line">    <span class="keyword">var</span> chr1, chr2, chr3, enc1, enc2, enc3, enc4; </div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>; </div><div class="line">    input = _utf8_encode(input); </div><div class="line">    <span class="keyword">while</span> (i &lt; input.length) &#123; </div><div class="line">      chr1 = input.charCodeAt(i++); </div><div class="line">      chr2 = input.charCodeAt(i++); </div><div class="line">      chr3 = input.charCodeAt(i++); </div><div class="line">      enc1 = chr1 &gt;&gt; <span class="number">2</span>; </div><div class="line">      enc2 = ((chr1 &amp; <span class="number">3</span>) &lt;&lt; <span class="number">4</span>) | (chr2 &gt;&gt; <span class="number">4</span>); </div><div class="line">      enc3 = ((chr2 &amp; <span class="number">15</span>) &lt;&lt; <span class="number">2</span>) | (chr3 &gt;&gt; <span class="number">6</span>); </div><div class="line">      enc4 = chr3 &amp; <span class="number">63</span>; </div><div class="line">      <span class="keyword">if</span> (<span class="built_in">isNaN</span>(chr2)) &#123; </div><div class="line">        enc3 = enc4 = <span class="number">64</span>; </div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isNaN</span>(chr3)) &#123; </div><div class="line">        enc4 = <span class="number">64</span>; </div><div class="line">      &#125; </div><div class="line">      output = output + </div><div class="line">      _keyStr.charAt(enc1) + _keyStr.charAt(enc2) + </div><div class="line">      _keyStr.charAt(enc3) + _keyStr.charAt(enc4); </div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> output; </div><div class="line">  &#125;   </div><div class="line">  _utf8_encode = <span class="function"><span class="keyword">function</span> (<span class="params">string</span>) </span>&#123; </div><div class="line">    string = string.replace(<span class="regexp">/\r\n/g</span>,<span class="string">"\n"</span>); </div><div class="line">    <span class="keyword">var</span> utftext = <span class="string">""</span>; </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">0</span>; n &lt; string.length; n++) &#123; </div><div class="line">      <span class="keyword">var</span> c = string.charCodeAt(n); </div><div class="line">      <span class="keyword">if</span> (c &lt; <span class="number">128</span>) &#123; </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode(c); </div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>((c &gt; <span class="number">127</span>) &amp;&amp; (c &lt; <span class="number">2048</span>)) &#123; </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &gt;&gt; <span class="number">6</span>) | <span class="number">192</span>); </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &amp; <span class="number">63</span>) | <span class="number">128</span>); </div><div class="line">      &#125; <span class="keyword">else</span> &#123; </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &gt;&gt; <span class="number">12</span>) | <span class="number">224</span>); </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode(((c &gt;&gt; <span class="number">6</span>) &amp; <span class="number">63</span>) | <span class="number">128</span>); </div><div class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &amp; <span class="number">63</span>) | <span class="number">128</span>); </div><div class="line">      &#125; </div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> utftext; </div><div class="line">  &#125;  </div><div class="line">&#125;</div><div class="line">base_64_functions = <span class="keyword">new</span> Base64();</div><div class="line"><span class="keyword">return</span> base_64_functions.encode(str)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="编写base64函数（解码）"><a href="#编写base64函数（解码）" class="headerlink" title="编写base64函数（解码）"></a>编写base64函数（解码）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64_decode</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Base64</span>(<span class="params"></span>) </span>&#123; </div><div class="line">  _keyStr = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="</span>;  </div><div class="line">  <span class="keyword">this</span>.decode = <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123; </div><div class="line">    <span class="keyword">var</span> output = <span class="string">""</span>; </div><div class="line">    <span class="keyword">var</span> chr1, chr2, chr3; </div><div class="line">    <span class="keyword">var</span> enc1, enc2, enc3, enc4; </div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>; </div><div class="line">    input = input.replace(<span class="regexp">/[^A-Za-z0-9\+\/\=]/g</span>, <span class="string">""</span>); </div><div class="line">    <span class="keyword">while</span> (i &lt; input.length) &#123; </div><div class="line">      enc1 = _keyStr.indexOf(input.charAt(i++)); </div><div class="line">      enc2 = _keyStr.indexOf(input.charAt(i++)); </div><div class="line">      enc3 = _keyStr.indexOf(input.charAt(i++)); </div><div class="line">      enc4 = _keyStr.indexOf(input.charAt(i++)); </div><div class="line">      chr1 = (enc1 &lt;&lt; <span class="number">2</span>) | (enc2 &gt;&gt; <span class="number">4</span>); </div><div class="line">      chr2 = ((enc2 &amp; <span class="number">15</span>) &lt;&lt; <span class="number">4</span>) | (enc3 &gt;&gt; <span class="number">2</span>); </div><div class="line">      chr3 = ((enc3 &amp; <span class="number">3</span>) &lt;&lt; <span class="number">6</span>) | enc4; </div><div class="line">      output = output + <span class="built_in">String</span>.fromCharCode(chr1); </div><div class="line">      <span class="keyword">if</span> (enc3 != <span class="number">64</span>) &#123; </div><div class="line">        output = output + <span class="built_in">String</span>.fromCharCode(chr2); </div><div class="line">      &#125; </div><div class="line">      <span class="keyword">if</span> (enc4 != <span class="number">64</span>) &#123; </div><div class="line">        output = output + <span class="built_in">String</span>.fromCharCode(chr3); </div><div class="line">      &#125; </div><div class="line">    &#125; </div><div class="line">    output = _utf8_decode(output); </div><div class="line">    <span class="keyword">return</span> output; </div><div class="line">  &#125;  </div><div class="line">  _utf8_decode = <span class="function"><span class="keyword">function</span> (<span class="params">utftext</span>) </span>&#123; </div><div class="line">    <span class="keyword">var</span> string = <span class="string">""</span>; </div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>; </div><div class="line">    <span class="keyword">var</span> c = c1 = c2 = <span class="number">0</span>; </div><div class="line">    <span class="keyword">while</span> ( i &lt; utftext.length ) &#123; </div><div class="line">      c = utftext.charCodeAt(i); </div><div class="line">      <span class="keyword">if</span> (c &lt; <span class="number">128</span>) &#123; </div><div class="line">        string += <span class="built_in">String</span>.fromCharCode(c); </div><div class="line">        i++; </div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>((c &gt; <span class="number">191</span>) &amp;&amp; (c &lt; <span class="number">224</span>)) &#123; </div><div class="line">        c2 = utftext.charCodeAt(i+<span class="number">1</span>); </div><div class="line">        string += <span class="built_in">String</span>.fromCharCode(((c &amp; <span class="number">31</span>) &lt;&lt; <span class="number">6</span>) | (c2 &amp; <span class="number">63</span>)); </div><div class="line">        i += <span class="number">2</span>; </div><div class="line">      &#125; <span class="keyword">else</span> &#123; </div><div class="line">        c2 = utftext.charCodeAt(i+<span class="number">1</span>); </div><div class="line">        c3 = utftext.charCodeAt(i+<span class="number">2</span>); </div><div class="line">        string += <span class="built_in">String</span>.fromCharCode(((c &amp; <span class="number">15</span>) &lt;&lt; <span class="number">12</span>) | ((c2 &amp; <span class="number">63</span>) &lt;&lt; <span class="number">6</span>) | (c3 &amp; <span class="number">63</span>)); </div><div class="line">        i += <span class="number">3</span>; </div><div class="line">      &#125; </div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> string; </div><div class="line">  &#125; </div><div class="line">&#125;</div><div class="line">base_64_functions = <span class="keyword">new</span> Base64();</div><div class="line"><span class="keyword">return</span> base_64_functions.decode(str)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="mongodb函数插入数据"><a href="#mongodb函数插入数据" class="headerlink" title="mongodb函数插入数据"></a>mongodb函数插入数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.system.js.insert(&#123;</div><div class="line">        <span class="attr">_id</span> : <span class="string">"base64_encode"</span>, </div><div class="line">      <span class="attr">value</span> : <span class="function"><span class="keyword">function</span> <span class="title">base64</span>(<span class="params">str</span>)</span>&#123;······ &#125;</div><div class="line">   &#125;);</div></pre></td></tr></table></figure>
 <h3 id="创建场景"><a href="#创建场景" class="headerlink" title="创建场景"></a>创建场景</h3><h4 id="场景描述："><a href="#场景描述：" class="headerlink" title="场景描述："></a>场景描述：</h4><p>现有两种类型的设备分别为n1,n2，为保密传输（虽然base64一点都不安全，总比明文好点），需要对设备名称进行base64编码</p>
@@ -168,6 +182,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongoDB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -325,6 +350,96 @@
 
 
   
+    <article id="post-Docker初体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/Docker初体验/">Docker初体验之docker简介</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/Docker初体验/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###Docker初体验</p>
+<p>​    Docker 是一个开源的基于 <a href="https://baike.baidu.com/item/LXC" target="_blank" rel="external">LXC</a> 的高级应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 <a href="https://baike.baidu.com/item/Linux" target="_blank" rel="external">Linux</a> 机器上，也可以实现<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%8C%96" target="_blank" rel="external">虚拟化</a>。容器是完全使用<a href="https://baike.baidu.com/item/%E6%B2%99%E7%AE%B1/393318" target="_blank" rel="external">沙箱</a>机制，相互之间不会有任何接口。（不会总结，但是觉得百度说的蛮好）;</p>
+<p>​    综合以上概念，我们可以看出docker是一个应用容器的引擎，其中关键词有两个，应用容器，引擎，引擎自不必说，最为关键的是应用容器，也就是说docker为应用程序的运行提供独立的容器，而且该容器还可以移植，想想都觉的美爆了，应用程序可以移植，如何移植呢，我的想法是通过将应用程序打包build成对应的image（镜像），通过docker平台镜像的随处运行来实现应用程序的移植，关于理论部分就说这么多，i am still learning ,来一波实践;</p>
+<p>​    关于docker的安装，方法众多，因为docker是在Linux平台下面开发出来的，所以即使他提供了MAC,Linux，Windows下的相关client，Linux平台也是最佳的，下面说说如何在centos7上面安装docker:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1、root账户登录;</div><div class="line">2、yum -y install docker（或者普通用户登录 sudo yum -y install docker）</div><div class="line">ok！</div><div class="line">其他linux 平台参见次安装</div><div class="line">安装成功后首先要做的便是启动docker服务：</div><div class="line">service docker start(systemctl start docker)</div><div class="line">查看docker版本：</div><div class="line">docker -v</div><div class="line">Docker version 1.12.6, build 88a4867/1.12.6</div><div class="line">从仓库拉取第一个docker的demo;</div><div class="line">docker pull hello-world</div></pre></td></tr></table></figure>
+<p>以下便是docker从远端获取镜像过程的详解：</p>
+<p><img src="http://hainiubl.com/images/2016/architecture.jpg?_=6822905" alt="docker获取镜像示意图"></p>
+<p><code>docker在拉取镜像之前，先检查本地仓库是否有该镜像，有的话直接使用，没有的话从远端服务器拉取；docker run用来运行docker images，在运行之前需要先获取docker 镜像，若本地（实则是本地的服务端，Linux上面client，与server都在一台机子上面，所以叫本地）存在，直接运行本地实例，不存在来去远端实例;</code></p>
+<p><strong>docker 镜像仓库在国外架设，因此下载起来可能需要某些特殊手段，好在网易给我们提供了很多的常用的镜像</strong></p>
+<p><strong>网址参见：http:/c.163.com</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">docker images 用于查看现有images</div><div class="line">docker images</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div></pre></td></tr></table></figure>
+<p>现在开始运行第一个docker 程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">docker run hello-world</div><div class="line">Hello from Docker!</div><div class="line">This message shows that your installation appears to be working correctly.</div><div class="line"></div><div class="line">To generate this message, Docker took the following steps:</div><div class="line"> 1. The Docker client contacted the Docker daemon.</div><div class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</div><div class="line"> 3. The Docker daemon created a new container from that image which runs the</div><div class="line">    executable that produces the output you are currently reading.</div><div class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</div><div class="line">    to your terminal.</div><div class="line"></div><div class="line">To try something more ambitious, you can run an Ubuntu container with:</div><div class="line"> $ docker run -it ubuntu bash</div><div class="line"></div><div class="line">Share images, automate workflows, and more with a free Docker ID:</div><div class="line"> https://cloud.docker.com/</div><div class="line"></div><div class="line">For more examples and ideas, visit:</div><div class="line"> https://docs.docker.com/engine/userguide/</div></pre></td></tr></table></figure>
+<p>此过程描述运行了一个docker的实例，而且描述了，此过程经过的四个步骤（可自己参阅）；</p>
+<p>hello-world只是简单的命令行输出而已，现在我们需要在docker中运行一个Nginx服务,步骤如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1、下载镜像（登录网易蜂巢-&gt;镜像仓库-&gt;发现更多镜像-搜索nginx-复制右上角下载地址下载镜像）</div><div class="line">docker pull hub.c.163.com/library/nginx:latest</div><div class="line">2、docker images 查看下载好的镜像名称</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div><div class="line">3、运行镜像（由于nginx隶属服务器类型，需要提供不间断的服务，因此需要将其放置在后台运行）</div><div class="line">docker run -d -p 8080:80 hub.c.163.com/library/nginx</div><div class="line">d84e097906770e5fb5911aaee6adce7654b08034a1831c084c40a900c723227e</div><div class="line">释义：docker run 用来运行镜像 hub.c.163.com/library/nginx 为容器名称,-d 是将docker运行实例放在后台运行,-p 是将docker 容器内端口与本机断后做映射，前者是本机端口，后者是容器内的端口</div><div class="line">命令运行后返回的是容器的id(所谓容器就是指镜像运行的一次实例,.可以包含一个独立的操作系统)</div><div class="line">4、查看是否运行成功:</div><div class="line">在本地浏览器输入如:http://localhost:8080 看是否会有nginx works</div><div class="line">5、docker ps 查看现在运行的容器有哪些</div><div class="line">6、docker exec -it 容器id进入容器 /bin/bash </div><div class="line">至此dcoker 运行nginx结束</div></pre></td></tr></table></figure>
+<p><strong><em>学习中·······</em></strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/Docker初体验/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux下面显示分支名称的方法：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -400,19 +515,19 @@
 
 
   
-    <article id="post-Docker初体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-设计模式学习笔记之装饰器模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/Docker初体验/">Docker初体验之docker简介</a>
+      <a class="article-title" href="/2018/06/23/设计模式学习笔记之装饰器模式/">设计模式学习笔记之装饰器模式</a>
     </h1>
   
 
         
-        <a href="/2018/06/23/Docker初体验/" class="archive-article-date">
+        <a href="/2018/06/23/设计模式学习笔记之装饰器模式/" class="archive-article-date">
   	<time datetime="2018-06-23T07:44:22.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
 </a>
         
@@ -420,23 +535,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Docker初体验</p>
-<p>​    Docker 是一个开源的基于 <a href="https://baike.baidu.com/item/LXC" target="_blank" rel="external">LXC</a> 的高级应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 <a href="https://baike.baidu.com/item/Linux" target="_blank" rel="external">Linux</a> 机器上，也可以实现<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%8C%96" target="_blank" rel="external">虚拟化</a>。容器是完全使用<a href="https://baike.baidu.com/item/%E6%B2%99%E7%AE%B1/393318" target="_blank" rel="external">沙箱</a>机制，相互之间不会有任何接口。（不会总结，但是觉得百度说的蛮好）;</p>
-<p>​    综合以上概念，我们可以看出docker是一个应用容器的引擎，其中关键词有两个，应用容器，引擎，引擎自不必说，最为关键的是应用容器，也就是说docker为应用程序的运行提供独立的容器，而且该容器还可以移植，想想都觉的美爆了，应用程序可以移植，如何移植呢，我的想法是通过将应用程序打包build成对应的image（镜像），通过docker平台镜像的随处运行来实现应用程序的移植，关于理论部分就说这么多，i am still learning ,来一波实践;</p>
-<p>​    关于docker的安装，方法众多，因为docker是在Linux平台下面开发出来的，所以即使他提供了MAC,Linux，Windows下的相关client，Linux平台也是最佳的，下面说说如何在centos7上面安装docker:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1、root账户登录;</div><div class="line">2、yum -y install docker（或者普通用户登录 sudo yum -y install docker）</div><div class="line">ok！</div><div class="line">其他linux 平台参见次安装</div><div class="line">安装成功后首先要做的便是启动docker服务：</div><div class="line">service docker start(systemctl start docker)</div><div class="line">查看docker版本：</div><div class="line">docker -v</div><div class="line">Docker version 1.12.6, build 88a4867/1.12.6</div><div class="line">从仓库拉取第一个docker的demo;</div><div class="line">docker pull hello-world</div></pre></td></tr></table></figure>
-<p>以下便是docker从远端获取镜像过程的详解：</p>
-<p><img src="http://hainiubl.com/images/2016/architecture.jpg?_=6822905" alt="docker获取镜像示意图"></p>
-<p><code>docker在拉取镜像之前，先检查本地仓库是否有该镜像，有的话直接使用，没有的话从远端服务器拉取；docker run用来运行docker images，在运行之前需要先获取docker 镜像，若本地（实则是本地的服务端，Linux上面client，与server都在一台机子上面，所以叫本地）存在，直接运行本地实例，不存在来去远端实例;</code></p>
-<p><strong>docker 镜像仓库在国外架设，因此下载起来可能需要某些特殊手段，好在网易给我们提供了很多的常用的镜像</strong></p>
-<p><strong>网址参见：http:/c.163.com</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">docker images 用于查看现有images</div><div class="line">docker images</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div></pre></td></tr></table></figure>
-<p>现在开始运行第一个docker 程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">docker run hello-world</div><div class="line">Hello from Docker!</div><div class="line">This message shows that your installation appears to be working correctly.</div><div class="line"></div><div class="line">To generate this message, Docker took the following steps:</div><div class="line"> 1. The Docker client contacted the Docker daemon.</div><div class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</div><div class="line"> 3. The Docker daemon created a new container from that image which runs the</div><div class="line">    executable that produces the output you are currently reading.</div><div class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</div><div class="line">    to your terminal.</div><div class="line"></div><div class="line">To try something more ambitious, you can run an Ubuntu container with:</div><div class="line"> $ docker run -it ubuntu bash</div><div class="line"></div><div class="line">Share images, automate workflows, and more with a free Docker ID:</div><div class="line"> https://cloud.docker.com/</div><div class="line"></div><div class="line">For more examples and ideas, visit:</div><div class="line"> https://docs.docker.com/engine/userguide/</div></pre></td></tr></table></figure>
-<p>此过程描述运行了一个docker的实例，而且描述了，此过程经过的四个步骤（可自己参阅）；</p>
-<p>hello-world只是简单的命令行输出而已，现在我们需要在docker中运行一个Nginx服务,步骤如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1、下载镜像（登录网易蜂巢-&gt;镜像仓库-&gt;发现更多镜像-搜索nginx-复制右上角下载地址下载镜像）</div><div class="line">docker pull hub.c.163.com/library/nginx:latest</div><div class="line">2、docker images 查看下载好的镜像名称</div><div class="line">REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">hub.c.163.com/library/tomcat   latest              b226d7ee3462        31 hours ago        292.4 MB</div><div class="line">docker.io/hello-world          latest              1815c82652c0        7 weeks ago         1.84 kB</div><div class="line">hub.c.163.com/library/nginx    latest              46102226f2fd        3 months ago        109.4 MB</div><div class="line">3、运行镜像（由于nginx隶属服务器类型，需要提供不间断的服务，因此需要将其放置在后台运行）</div><div class="line">docker run -d -p 8080:80 hub.c.163.com/library/nginx</div><div class="line">d84e097906770e5fb5911aaee6adce7654b08034a1831c084c40a900c723227e</div><div class="line">释义：docker run 用来运行镜像 hub.c.163.com/library/nginx 为容器名称,-d 是将docker运行实例放在后台运行,-p 是将docker 容器内端口与本机断后做映射，前者是本机端口，后者是容器内的端口</div><div class="line">命令运行后返回的是容器的id(所谓容器就是指镜像运行的一次实例,.可以包含一个独立的操作系统)</div><div class="line">4、查看是否运行成功:</div><div class="line">在本地浏览器输入如:http://localhost:8080 看是否会有nginx works</div><div class="line">5、docker ps 查看现在运行的容器有哪些</div><div class="line">6、docker exec -it 容器id进入容器 /bin/bash </div><div class="line">至此dcoker 运行nginx结束</div></pre></td></tr></table></figure>
-<p><strong><em>学习中·······</em></strong></p>
+        <h2 id="设计模式学习笔记之装饰器模式"><a href="#设计模式学习笔记之装饰器模式" class="headerlink" title="设计模式学习笔记之装饰器模式"></a>设计模式学习笔记之装饰器模式</h2><h3 id="什么是装饰器模式"><a href="#什么是装饰器模式" class="headerlink" title="什么是装饰器模式"></a>什么是装饰器模式</h3><p><strong>装饰器模式是在既不改变原有的代码结构也不使用继承的情况下,动态的扩展类的功能的一种设计方式;</strong></p>
+<blockquote>
+<p>说白了就是,原有的功能不能再适应当前的业务,但是当前的业务和之前的还有一定的关联,稍加扩展就可以实现现有的功能,此时原有的代码逻辑不能修改,要实现该功能时使用的一种设计方法</p>
+</blockquote>
+<h3 id="装饰着模式通用结构图-类图"><a href="#装饰着模式通用结构图-类图" class="headerlink" title="装饰着模式通用结构图(类图)"></a>装饰着模式通用结构图(类图)</h3><p><img src="http://www.crazyxxl.tech/Decorator.png" alt="装饰器模式类图"></p>
+<p>如上图所示:</p>
+<p>装饰器与被装饰者拥有共同的父类Component,装饰其与Component以组合的方式耦合,实现了其子类,即被装饰着与装饰器的松耦合(装饰器与抽象类耦合,并不与具体的实现类耦合)</p>
+<h3 id="装饰者模型示例"><a href="#装饰者模型示例" class="headerlink" title="装饰者模型示例"></a>装饰者模型示例</h3><h4 id="客户需求"><a href="#客户需求" class="headerlink" title="客户需求"></a>客户需求</h4><p>有一个歌唱比赛,某选手只会唱歌(唱得很好),不会说开场白(是不是很扯淡,我觉得也是),但是他有一个孪生兄弟会读开场白,歌唱比赛必须开场白与唱歌同时具备,现在需要一种解决方案,使得唱歌比赛进行下去.</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>该选手不会说开场白,但是会唱歌,他的孪生兄弟可以说开场白,这样我们可以把他的兄弟包装一下,让他上去表演,说开场白(装饰模块),轮到演唱部分的时候由选手后台假唱((⊙o⊙)…)</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 两兄弟的父类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span>  <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 选手类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreateComponent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"sing balabala ......"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 装饰者父类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Component component = <span class="keyword">null</span>;<span class="comment">//依赖抽象,实现松耦合</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Component component)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.component = component;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.component.sing();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 兄弟类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConCreateDecorator</span> <span class="keyword">extends</span> <span class="title">Decorator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConCreateDecorator</span><span class="params">(Component component)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(component);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"i am singer"</span>);</div><div class="line">        <span class="keyword">super</span>.sing();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">*演出开始</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Show</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建创建选手对象</div><div class="line">         */</div><div class="line">        Component component = <span class="keyword">new</span> ConcreateComponent();</div><div class="line">        component.sing();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建兄弟对象</div><div class="line">         */</div><div class="line">        component = <span class="keyword">new</span> ConCreateDecorator(component);</div><div class="line">        component.sing();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>装饰器模式遵循开放封闭的原则(扩展开放,修改封闭),实现了在不修改原实现类结构的的基础之上对类功能的扩展.</p>
+<blockquote>
+<p>虽然给该类添加了父类,但是使得装饰者与被装饰者之间的松耦合,使得程序的可扩展性增强;</p>
+<p>定义中的继承指代的是向下继承,是将原实现类作为父类,新的类继承该类,在子类中实现扩展,与给实现类添加抽象父类并不一样</p>
+</blockquote>
 
       
 
@@ -450,7 +567,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
         		</li>
       		
 		</ul>
@@ -460,7 +577,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/Docker初体验/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之装饰器模式/">展开全文 >></a>
         </p>
       
 
@@ -606,447 +723,82 @@
 
 
   
-    <article id="post-设计模式学习笔记之装饰器模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hexo搭建个人博客教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记之装饰器模式/">设计模式学习笔记之装饰器模式</a>
+      <a class="article-title" href="/2018/06/23/hexo搭建个人博客教程/">hexo github 搭建个人博客</a>
     </h1>
   
 
         
-        <a href="/2018/06/23/设计模式学习笔记之装饰器模式/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+        <a href="/2018/06/23/hexo搭建个人博客教程/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="设计模式学习笔记之装饰器模式"><a href="#设计模式学习笔记之装饰器模式" class="headerlink" title="设计模式学习笔记之装饰器模式"></a>设计模式学习笔记之装饰器模式</h2><h3 id="什么是装饰器模式"><a href="#什么是装饰器模式" class="headerlink" title="什么是装饰器模式"></a>什么是装饰器模式</h3><p><strong>装饰器模式是在既不改变原有的代码结构也不使用继承的情况下,动态的扩展类的功能的一种设计方式;</strong></p>
-<blockquote>
-<p>说白了就是,原有的功能不能再适应当前的业务,但是当前的业务和之前的还有一定的关联,稍加扩展就可以实现现有的功能,此时原有的代码逻辑不能修改,要实现该功能时使用的一种设计方法</p>
+        <h4 id="hexo搭建个人博客教程"><a href="#hexo搭建个人博客教程" class="headerlink" title="hexo搭建个人博客教程"></a>hexo搭建个人博客教程</h4><blockquote>
+<p>前提：</p>
+<p>拥有github账号,安装好npm</p>
 </blockquote>
-<h3 id="装饰着模式通用结构图-类图"><a href="#装饰着模式通用结构图-类图" class="headerlink" title="装饰着模式通用结构图(类图)"></a>装饰着模式通用结构图(类图)</h3><p><img src="http://www.crazyxxl.tech/Decorator.png" alt="装饰器模式类图"></p>
-<p>如上图所示:</p>
-<p>装饰器与被装饰者拥有共同的父类Component,装饰其与Component以组合的方式耦合,实现了其子类,即被装饰着与装饰器的松耦合(装饰器与抽象类耦合,并不与具体的实现类耦合)</p>
-<h3 id="装饰者模型示例"><a href="#装饰者模型示例" class="headerlink" title="装饰者模型示例"></a>装饰者模型示例</h3><h4 id="客户需求"><a href="#客户需求" class="headerlink" title="客户需求"></a>客户需求</h4><p>有一个歌唱比赛,某选手只会唱歌(唱得很好),不会说开场白(是不是很扯淡,我觉得也是),但是他有一个孪生兄弟会读开场白,歌唱比赛必须开场白与唱歌同时具备,现在需要一种解决方案,使得唱歌比赛进行下去.</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>该选手不会说开场白,但是会唱歌,他的孪生兄弟可以说开场白,这样我们可以把他的兄弟包装一下,让他上去表演,说开场白(装饰模块),轮到演唱部分的时候由选手后台假唱((⊙o⊙)…)</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 两兄弟的父类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span>  <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 选手类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreateComponent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"sing balabala ......"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 装饰者父类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Component component = <span class="keyword">null</span>;<span class="comment">//依赖抽象,实现松耦合</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Component component)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.component = component;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.component.sing();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 兄弟类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConCreateDecorator</span> <span class="keyword">extends</span> <span class="title">Decorator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConCreateDecorator</span><span class="params">(Component component)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(component);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"i am singer"</span>);</div><div class="line">        <span class="keyword">super</span>.sing();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">*演出开始</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Show</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建创建选手对象</div><div class="line">         */</div><div class="line">        Component component = <span class="keyword">new</span> ConcreateComponent();</div><div class="line">        component.sing();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建兄弟对象</div><div class="line">         */</div><div class="line">        component = <span class="keyword">new</span> ConCreateDecorator(component);</div><div class="line">        component.sing();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>装饰器模式遵循开放封闭的原则(扩展开放,修改封闭),实现了在不修改原实现类结构的的基础之上对类功能的扩展.</p>
-<blockquote>
-<p>虽然给该类添加了父类,但是使得装饰者与被装饰者之间的松耦合,使得程序的可扩展性增强;</p>
-<p>定义中的继承指代的是向下继承,是将原实现类作为父类,新的类继承该类,在子类中实现扩展,与给实现类添加抽象父类并不一样</p>
+<h5 id="本地构建"><a href="#本地构建" class="headerlink" title="本地构建"></a>本地构建</h5><blockquote>
+<p>操作步骤如下：</p>
+<ol>
+<li>安装hexo-cli: <strong>pm install -g hexo-cli</strong></li>
+<li>初始化博客框架：<strong>hexo init blog</strong></li>
+<li>进入blog文件夹，安装依赖包：<ul>
+<li><strong>cd blog</strong></li>
+<li><strong>npm install</strong></li>
+</ul>
+</li>
+<li>启动hexo服务：<strong>hexo server</strong></li>
+<li>浏览器输入：<strong>127.0.0.1:4000</strong>即可访问</li>
+</ol>
+<p>如需写文章，只需要在\blog\source_posts\文件夹下面防止写好的md文件，之后执行<strong>hexo g</strong>即可在个人站点访问刚才发布的md文件；</p>
 </blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之装饰器模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记/">设计模式学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/设计模式学习笔记/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记"><a href="#设计模式学习笔记" class="headerlink" title="设计模式学习笔记"></a>设计模式学习笔记</h2><h3 id="什么是设计模式"><a href="#什么是设计模式" class="headerlink" title="什么是设计模式"></a>什么是设计模式</h3><p>设计模式（Design Pattern）在百度百科中的定义为:<strong>是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结,</strong>说的通俗一点就是用来解决某些问题的套路;</p>
-<h3 id="设计模式遵从的原则有哪些"><a href="#设计模式遵从的原则有哪些" class="headerlink" title="设计模式遵从的原则有哪些"></a>设计模式遵从的原则有哪些</h3><ol>
-<li>单一职责原则 <a href="https://crazyxxl.github.io/2018/03/05/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99/">查看详情</a></li>
-<li>里氏代换原则</li>
-<li>依赖倒置</li>
-<li>接口隔离原则</li>
-<li>迪米特法则(最少知道原则)</li>
-<li>开放封闭原则(扩展开放,修改封闭)</li>
-</ol>
-<h3 id="常用的设计模式有哪些-java"><a href="#常用的设计模式有哪些-java" class="headerlink" title="常用的设计模式有哪些(java)"></a>常用的设计模式有哪些(java)</h3><p>从用途的不同,可以将设计模式分成三大类<strong>:创建类模式,结构类模式,行为类模式</strong></p>
-<h4 id="创建类模式"><a href="#创建类模式" class="headerlink" title="创建类模式"></a>创建类模式</h4><ol>
-<li>单例模式</li>
-<li>工厂模式 <a href="https://crazyxxl.github.io/2018/03/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>抽象工厂模式  <a href="https://crazyxxl.github.io/2018/03/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/">查看详情</a></li>
-<li>建造者模式</li>
-<li>原型模式</li>
-</ol>
-<h4 id="结构类模式"><a href="#结构类模式" class="headerlink" title="结构类模式"></a>结构类模式</h4><ol>
-<li>适配器模式</li>
-<li>桥梁模式</li>
-<li>组合模式</li>
-<li>装饰器模式   <a href="https://crazyxxl.github.io/2018/02/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>外观模式(门面模式)</li>
-<li>享元模式</li>
-<li>代理模式</li>
-</ol>
-<h4 id="行为类模式"><a href="#行为类模式" class="headerlink" title="行为类模式"></a>行为类模式</h4><ol>
-<li>责任链模式</li>
-<li>命令模式</li>
-<li>解释器模式</li>
-<li>迭代模式</li>
-<li>中介模式</li>
-<li>备忘录模式</li>
-<li>观察者模式 <a href="https://crazyxxl.github.io/2018/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>策略模式  <a href="https://crazyxxl.github.io/2018/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">查看详情</a></li>
-<li>模板模式</li>
-<li>访问者模式</li>
-<li>状态模式</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-celery+rabbitmq+django构建分布式异步任务队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/">celery+rabbitmq+django构建分布式异步任务队列</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="celery-rabbitmq-django构建分布式异步任务队列"><a href="#celery-rabbitmq-django构建分布式异步任务队列" class="headerlink" title="celery+rabbitmq+django构建分布式异步任务队列"></a>celery+rabbitmq+django构建分布式异步任务队列</h3><h4 id="rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）"><a href="#rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）" class="headerlink" title="rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）"></a>rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）</h4><p>1、安装rabbit</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt install rabbitmq-server</div></pre></td></tr></table></figure>
-<p>2、启动rabbitmq</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rabbitmq-server</div></pre></td></tr></table></figure>
-<p> 3、开启web管理插件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rabbitmq-plugins enable rabbitmq_management</div></pre></td></tr></table></figure>
-<p>4、添加用户</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>#默认用户guest只能本地使用，分布式情况下需要创建用户</div><div class="line">rabbitmqctl add_user admin admin ##添加用户：用户名/密码 admin/admin</div><div class="line">rabbitmqctl set_user_tags admin administrator ##将用户身份设置成管理员</div><div class="line">rabbitmqctl set_permissions -p / rollen ".*" ".*" ".*" ##给用户授权</div></pre></td></tr></table></figure>
-<h4 id="django服务器配置"><a href="#django服务器配置" class="headerlink" title="django服务器配置"></a>django服务器配置</h4><p>1、celery与django安装</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install celery</div><div class="line">pip install django</div></pre></td></tr></table></figure>
-<p>2、代码结构树配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">├── celery_test</div><div class="line">│   ├── celery.py</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── settings.py</div><div class="line">│   ├── urls.py</div><div class="line">│   └── wsgi.py</div><div class="line">├── manage.py</div><div class="line">└── task</div><div class="line">    ├── admin.py</div><div class="line">    ├── apps.py</div><div class="line">    ├── __init__.py</div><div class="line">    ├── migrations</div><div class="line">    │   ├── __init__.py</div><div class="line">    │   └── __pycache__</div><div class="line">    │       └── __init__.cpython-36.pyc</div><div class="line">    ├── models.py</div><div class="line">    ├── __pycache__</div><div class="line">    │   ├── admin.cpython-36.pyc</div><div class="line">    │   ├── __init__.cpython-36.pyc</div><div class="line">    │   ├── models.cpython-36.pyc</div><div class="line">    │   ├── tasks.cpython-36.pyc</div><div class="line">    │   └── views.cpython-36.pyc</div><div class="line">    ├── tasks.py</div><div class="line">    ├── tests.py</div><div class="line">    └── views.py</div></pre></td></tr></table></figure>
-<p>关键代码如下：</p>
-<p>celery.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</div><div class="line"></div><div class="line"><span class="comment"># set the default Django settings module for the 'celery' program.</span></div><div class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'celery_test.settings'</span>)</div><div class="line"></div><div class="line">app = Celery(<span class="string">'celery_test'</span>)</div><div class="line"></div><div class="line"><span class="comment"># Using a string here means the worker doesn't have to serialize</span></div><div class="line"><span class="comment"># the configuration object to child processes.</span></div><div class="line"><span class="comment"># - namespace='CELERY' means all celery-related configuration keys</span></div><div class="line"><span class="comment">#   should have a `CELERY_` prefix.</span></div><div class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>, namespace=<span class="string">'CELERY'</span>)</div><div class="line"></div><div class="line"><span class="comment"># Load task modules from all registered Django app configs.</span></div><div class="line">app.autodiscover_tasks()</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@app.task(bind=True)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">debug_task</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'Request: &#123;0!r&#125;'</span>.format(self.request))%</div></pre></td></tr></table></figure>
-<p>一级目录<strong>init</strong>py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"></div><div class="line"><span class="comment"># This will make sure the app is always imported when</span></div><div class="line"><span class="comment"># Django starts so that shared_task will use this app.</span></div><div class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_app</div><div class="line"><span class="keyword">import</span> pymysql</div><div class="line"></div><div class="line">__all__ = [<span class="string">'celery_app'</span>]</div><div class="line"></div><div class="line">pymysql.install_as_MySQLdb()%</div></pre></td></tr></table></figure>
-<p>setting.py（在django默认配置之上加如下配置）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">BROKER_URL = &apos;amqp://&apos;    #配置broker</div><div class="line">BROKER_POOL_LIMIT = 0</div><div class="line">CELERY_RESULT_BACKEND = &apos;amqp://&apos;</div><div class="line">CELERY_RESULT_BACKEND = &apos;django-cache&apos;</div></pre></td></tr></table></figure>
-<p>urls.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</div><div class="line"><span class="keyword">from</span> task <span class="keyword">import</span> views <span class="keyword">as</span> task_view</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</div><div class="line">    path(<span class="string">'add/'</span>, task_view.add)</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>tasks.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@shared_task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x + y</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@shared_task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x * y</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@shared_task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">xsum</span><span class="params">(numbers)</span>:</span></div><div class="line">    <span class="keyword">return</span> sum(numbers)</div></pre></td></tr></table></figure>
-<p>views.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</div><div class="line"><span class="keyword">from</span> . <span class="keyword">import</span> tasks</div><div class="line"><span class="comment"># Create your views here.</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(request)</span>:</span></div><div class="line">	args1 = request.GET[<span class="string">"x"</span>]</div><div class="line">	args2 = request.GET[<span class="string">"y"</span>]</div><div class="line">	tasks.add.delay(int(args1), int(args2))</div><div class="line">	<span class="keyword">return</span> HttpResponse(<span class="string">"successful"</span>)</div></pre></td></tr></table></figure>
-<p>其余均为django创建项目后默认配置</p>
-<h4 id="worker配置（我以本机虚拟机192-168-1-108作为worker，本机ip-192-168-1-106）"><a href="#worker配置（我以本机虚拟机192-168-1-108作为worker，本机ip-192-168-1-106）" class="headerlink" title="worker配置（我以本机虚拟机192.168.1.108作为worker，本机ip:192.168.1.106）"></a>worker配置（我以本机虚拟机192.168.1.108作为worker，本机ip:192.168.1.106）</h4><p>1、安装celery</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install celery</div></pre></td></tr></table></figure>
-<p>2、代码结构树</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">➜  task tree</div><div class="line">.</div><div class="line">├── celery.py</div><div class="line">├── celery.pyc</div><div class="line">├── __init__.py</div><div class="line">├── __init__.pyc</div><div class="line">├── tasks.py</div><div class="line">└── tasks.pyc</div></pre></td></tr></table></figure>
-<p>celery.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</div><div class="line"></div><div class="line">app = Celery(<span class="string">'proj'</span>,</div><div class="line">             broker=<span class="string">'amqp://admin:admin@192.168.1.106//'</span>,</div><div class="line">             backend=<span class="string">'amqp://admin:admin@192.168.1.106//'</span>,</div><div class="line">             include=[<span class="string">'task.tasks'</span>])</div><div class="line"></div><div class="line"><span class="comment"># Optional configuration, see the application user guide.</span></div><div class="line">app.conf.update(</div><div class="line">    result_expires=<span class="number">3600</span>,</div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app.start()</div></pre></td></tr></table></figure>
-<p>tasks.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@app.task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x + y</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@app.task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x * y</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@app.task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">xsum</span><span class="params">(numbers)</span>:</span></div><div class="line">    <span class="keyword">return</span> sum(numbers)</div></pre></td></tr></table></figure>
+<p>如有不明确之处可参见官网：<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
+<p><strong>主题安装</strong></p>
+<p>hexo提供了众多主题，可以根据个人喜好进行安装，安装过程如下：</p>
 <blockquote>
-<p>整体模块结构要与django中配置的模块相吻合</p>
-<p>==&gt;django任务模块—–task.tasks</p>
-<p>==&gt;worker工作模块—-task.tasks</p>
-</blockquote>
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>1、启动django</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyhon manage.py runserver</div></pre></td></tr></table></figure>
-<p>2、启动worker</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">celery -A task worker -l info</div></pre></td></tr></table></figure>
-<p>3、发送请求</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://127.0.0.1:8000/add/?x=14&amp;y=65</div></pre></td></tr></table></figure>
-<p>4、查看worker打印输出的日志</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">django</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">关于angular4部署服务器刷新报错以及相关资源加载不到解决办法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>部署angular4项目：</p>
-<p>ng build –prod –aot</p>
-<p>资源加载不到问题：</p>
-<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
-<p>部署项目成功后刷新报错问题：</p>
-<p>需要在app.module里面添加配置项：</p>
-<p>首先导入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</div></pre></td></tr></table></figure>
-<p>其次在providers里面添加:</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [</div><div class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-springboot环境搭建教程（eclipse）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/springboot环境搭建教程（eclipse）/">springboot环境搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/springboot环境搭建教程（eclipse）/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="springboot环境搭建教程（eclipse）"><a href="#springboot环境搭建教程（eclipse）" class="headerlink" title="springboot环境搭建教程（eclipse）"></a>springboot环境搭建教程（eclipse）</h2><ol>
-<li>new-&gt;project-&gt;maven Project-&gt;quickStart</li>
-<li>查看文件目录机构，是否符合约定优配置原则</li>
-<li>配置pom，添加一下依赖</li>
+<ol>
+<li>登录hexo官网(<a href="https://hexo.io/)，选择主题页面" target="_blank" rel="external">https://hexo.io/)，选择主题页面</a></li>
+<li>选择喜欢的主题，进入对应的github获取主题源码</li>
+<li>进入博客主目录，git clone 仓库地址 themes/主题名称（可自定义）</li>
+<li>将_config.yml 下面的theme: landscape 修改为theme：主题名称</li>
+<li>其他依赖包相关可参见主题所在github下的关于主题仓库的说明</li>
+<li>hexo clean  –&gt; hexo g –&gt;hexo server</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;parent&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.2.7.RELEASE&lt;/version&gt;</div><div class="line">&lt;/parent&gt;</div><div class="line">  &lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">   	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;dependencies&gt;</div></pre></td></tr></table></figure>
-<p>4、添加配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">spring.datasource.url = jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false //若使用到数据库在此配置，需要在pom里面添加对应的数据驱动，或配置于环境变量中</div><div class="line">spring.datasource.username = username</div><div class="line">spring.datasource.password = password</div><div class="line">spring.datasource.driverClassName = com.mysql.jdbc.Driver</div><div class="line">spring.jpa.database = MYSQL</div><div class="line">spring.jpa.show-sql = true</div><div class="line">spring.jpa.hibernate.ddl-auto = update</div><div class="line">spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy</div><div class="line">spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect</div><div class="line">spring.template.cache = false</div></pre></td></tr></table></figure>
-<p>5、建立boot类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookStart</span> </span>&#123;	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SpringApplication.run(BookStart.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>6、建立controller</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</div><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>至此、配置完成；</p>
-<p><strong>注意：boot类一定要位于所有其他组件（controller，service，vo）的上层，否则，会导致组件注册失败</strong></p>
+</blockquote>
+<p>综上所述均为本地如何开发hexo，我们构建个人博客需要远程访问，接下来，讲述如何将github与hexo结合开发个人博客：</p>
+<p><strong>将本地博客发布在github上面</strong></p>
+<blockquote>
+<ol>
+<li><p>首先在github上创建blog仓库</p>
+</li>
+<li><p>进入项目主目录打开_config.yml，在文中对应位置添加以下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    url:  github配置的页面访问url</div><div class="line">&gt;    root: github根目录</div><div class="line">&gt;    deploy:</div><div class="line">&gt;      type: git</div><div class="line">&gt;      repo: git@github.com:github上个人的仓库</div><div class="line">&gt;      branch: master</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>打包<strong>hexo g</strong></p>
+</li>
+<li><p>执行构建，在此之前需要安装构架依赖的组件：<strong>npm install hexo-deployer-git –save</strong> （如没有该依赖会报错：ERROR Deployer not found: git）</p>
+</li>
+<li><p>执行构建，<strong>hexo d</strong>或者<strong>hexo deploy</strong> 或者 <strong>hexo d -g</strong></p>
+</li>
+<li><p>在github配置的页面访问路径下访问该博客</p>
+</li>
+</ol>
+</blockquote>
 
       
 
@@ -1070,7 +822,317 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/springboot环境搭建教程（eclipse）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/23/hexo搭建个人博客教程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-centos7下Jenkins安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/centos7下Jenkins安装/">centos7下Jenkins安装</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/centos7下Jenkins安装/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
+<p>1、yum安装安装的为Linux下的open-jdk</p>
+<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
+<blockquote>
+<p>1、到甲骨文官网找到要下在的文件地址</p>
+<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>2、下载该压缩包：</p>
+<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>3、下载完成之后解压</p>
+<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
+<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
+<p>4、vi /etc/profile</p>
+<p>添加：</p>
+<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
+<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
+<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
+<p>PATH=$JAVA_HOME/bin:$$PATH</p>
+<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
+<p>5、source /etc/profile 让添加项生效</p>
+<p>至此jdk安装成功;</p>
+</blockquote>
+<p>接下来安装Jenkins：</p>
+<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="external">jenkins官网</a></p>
+<p>在这里我们选择稳定版安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</div><div class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</div><div class="line">sudo yum install jenkins</div></pre></td></tr></table></figure>
+<p>安装成功后启动:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service jenkins start(或者 systemctl start jenkins)</div></pre></td></tr></table></figure>
+<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
+<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</div><div class="line">firewall-cmd --zone=public --add-service=http --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
+<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
+<p>结束</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/centos7下Jenkins安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/设计模式学习笔记之观察者模式/">设计模式学习笔记之观察者模式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/设计模式学习笔记之观察者模式/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设计模式学习笔记之观察者模式"><a href="#设计模式学习笔记之观察者模式" class="headerlink" title="设计模式学习笔记之观察者模式"></a>设计模式学习笔记之观察者模式</h2><h3 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h3><p>观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式</p>
+<blockquote>
+<p>举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)</p>
+</blockquote>
+<h3 id="观察者模式类图"><a href="#观察者模式类图" class="headerlink" title="观察者模式类图"></a>观察者模式类图</h3><p><img src="http://www.crazyxxl.tech/Observer.png" alt="观察者模式类图"></p>
+<p><strong>简要叙述:</strong></p>
+<p><strong>Subject(被监听着接口):</strong></p>
+<p>对于一个被监听者而言,监听其的对象可以有多个(皇帝派出多个间谍监听某一大臣),当某一监听者需要监听被监听者的时候,Subject调用注册监听者方法(registerObserver),取消监听调用(removeObserver),当其状态发生改变的时候调用notifyObserver方法通知已监听该对象的对象</p>
+<p><strong>ConcreteSubject:</strong></p>
+<p>实际被监听者</p>
+<p><strong>Observer:</strong></p>
+<p>监听者对象接口</p>
+<p><strong>ConcreteObserver:</strong></p>
+<p>实际监听的对象</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>古时候,某一个皇帝觉得自己的宰相有谋反的意图,因此派出了间谍1,潜入相府,检查宰相的行为,一旦有变立即上报,辅政大臣一片赤诚之心,派遣了间谍2去监测丞相的行为,用程序模拟该行为</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>皇帝和辅政大臣同时派出了间谍1和间谍2,来监听丞相的行为,我们可以将丞相模拟成被监听者(本来就是个被监听者),间谍1和间谍2是监听者,一旦他有谋反的举动,就干掉他</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><p><img src="http://www.crazyxxl.tech/Observer-eg.png" alt=""></p>
+<p>监控者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍1</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage1</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"发现他谋反了,通知皇上"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍2:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍2</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage2</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"丞相谋反了,快快通知辅政大臣"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被监听者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 被监听者接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 注册监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>丞相类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> move_xing</div><div class="line"> * <span class="doctag">@describe</span> 丞相类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeMinister</span> <span class="keyword">implements</span> <span class="title">Subject</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        observers.add(object);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = observers.indexOf(object);</div><div class="line">        <span class="keyword">if</span>(-<span class="number">1</span> != index) &#123;</div><div class="line">            observers.remove(index);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebellion</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"杀了那个狗皇帝"</span>);</div><div class="line">        notifyObserver();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">        observers.forEach(item-&gt;&#123;</div><div class="line">            item.update();</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>场景类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 场景类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">//初始化丞相类</span></div><div class="line">        PrimeMinister primeMinister = <span class="keyword">new</span> PrimeMinister();</div><div class="line">        <span class="comment">//皇上派出间谍</span></div><div class="line">        Espionage1 espionage1 = <span class="keyword">new</span> Espionage1();</div><div class="line">        <span class="comment">//辅政大臣派出间谍</span></div><div class="line">        Espionage2 espionage2 = <span class="keyword">new</span> Espionage2();</div><div class="line">        <span class="comment">//间谍1潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage1);</div><div class="line">        <span class="comment">//间谍2潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage2);</div><div class="line">        <span class="comment">//丞相谋反了</span></div><div class="line">        primeMinister.rebellion();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line">*out:</div><div class="line">*杀了那个狗皇帝</div><div class="line">*发现他谋反了,通知皇上</div><div class="line">*丞相谋反了,快快通知辅政大臣</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>监听者模式在我们的开发中是经常会遇到的,前端触发,若干事件触发机制,Android开发事件触发,(部分是监控者模式,当然也有责任链模式),java自身也提供了Observer对象,以及Observable接口来实现监听者模式,感兴趣的可以下来自己看一下.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之观察者模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2018年读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/2018年读书计划/">2018读书计划</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/2018年读书计划/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2018年读书计划"><a href="#2018年读书计划" class="headerlink" title="2018年读书计划"></a>2018年读书计划</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>书籍总共十本:每月一本,每本书籍做好计划,在个人博客写读书笔记,设计编码的,绘制类图,写好代码以及注释</p>
+<h3 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h3><p>技术书单:</p>
+<ol>
+<li>设计模式:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
+<li>数据结构与算法:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
+<li>网络:&lt;&lt;图解http&gt;&gt;</li>
+<li>数学:&lt;&lt;程序员的数学3：线性代数&gt;&gt;</li>
+<li>服务:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
+<li>密码:&lt;&lt;密码学基础&gt;&gt;</li>
+</ol>
+<p>文学书单:</p>
+<ol>
+<li>精进</li>
+<li>沉默的大多数</li>
+<li>明朝那些事</li>
+<li>人类简史:从动物到上帝</li>
+</ol>
+<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><ol>
+<li>3-4:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
+<li>4-5:&lt;&lt;精进&gt;&gt;</li>
+<li>5-6:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
+<li>6-7:&lt;&lt;沉默的大多数&gt;&gt;</li>
+<li>7-8:&lt;&lt;图解http&gt;&gt;</li>
+<li>8-9:&lt;&lt;明朝那些事&gt;&gt;</li>
+<li>9-10:&lt;&lt; 程序员的数学3:线性代数&gt;&gt;</li>
+<li>10-11:&lt;&lt;人类简史：从动物到上帝&gt;&gt;</li>
+<li>11-12:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
+<li>12-01(19):&lt;&lt;密码学基础&gt;&gt;</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计划</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/2018年读书计划/">展开全文 >></a>
         </p>
       
 
@@ -1197,6 +1259,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂项</a>
               </li>
              
@@ -1217,11 +1283,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">设计模式学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1229,7 +1291,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计划</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">设计模式学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
