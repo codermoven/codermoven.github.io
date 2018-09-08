@@ -137,292 +137,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-设计模式学习笔记之单一职责原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记之单一职责原则/">设计模式学习笔记之单一职责原则</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/设计模式学习笔记之单一职责原则/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记之单一职责原则"><a href="#设计模式学习笔记之单一职责原则" class="headerlink" title="设计模式学习笔记之单一职责原则"></a>设计模式学习笔记之单一职责原则</h2><h3 id="什么是单一职责原则"><a href="#什么是单一职责原则" class="headerlink" title="什么是单一职责原则"></a>什么是单一职责原则</h3><p>引起一个类变化的因素只有一个,就叫做单一职责原则(又称为单一功能原则)</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>小张是xx公司程序员,现在遇到了一下问题:现在有两个较为简单的功能需要实现,但是这两个功能并无关联,但实现较为简单,于是小王想,这么简单,<strong>就写在一个类里面</strong>吧:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Functions</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionA</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能A</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionB</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能B</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>随着系统复杂性的提高,原有的两个功能无法支撑现有项目,需要修改,经过几轮的迭代,这两个函数已经变的较为复杂,这个类也已经被改变了若干次,变得异常的复杂.小张悔不当初啊,没能将当初的功能分割开来,致使这个点成为项目的一个弊病.</p>
-<p>时光倒流到了小张开始设计这个功能的时候………</p>
-<p>小张分析了这个功能以后,考虑了其扩展,最终将功能拆分成了两个类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="comment">//实现A的功能</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</div><div class="line">    <span class="comment">//实现功能B</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>于是乎,无论系统怎么扩展,A只负责A的模块,引起A变化的也只有A内部的因素,简单的说A只有一个功能,这就是单一职责.</p>
-<h3 id="有啥好处"><a href="#有啥好处" class="headerlink" title="有啥好处"></a>有啥好处</h3><p>就像上文所述,明确的职责划分,能够使得系统高度内聚,降低系统耦合度,能够使得系统的可扩展性提升.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之单一职责原则/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">关于angular4部署服务器刷新报错以及相关资源加载不到解决办法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>部署angular4项目：</p>
-<p>ng build –prod –aot</p>
-<p>资源加载不到问题：</p>
-<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
-<p>部署项目成功后刷新报错问题：</p>
-<p>需要在app.module里面添加配置项：</p>
-<p>首先导入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</div></pre></td></tr></table></figure>
-<p>其次在providers里面添加:</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [</div><div class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-celery+rabbitmq+django构建分布式异步任务队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/">celery+rabbitmq+django构建分布式异步任务队列</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="celery-rabbitmq-django构建分布式异步任务队列"><a href="#celery-rabbitmq-django构建分布式异步任务队列" class="headerlink" title="celery+rabbitmq+django构建分布式异步任务队列"></a>celery+rabbitmq+django构建分布式异步任务队列</h3><h4 id="rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）"><a href="#rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）" class="headerlink" title="rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）"></a>rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）</h4><p>1、安装rabbit</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt install rabbitmq-server</div></pre></td></tr></table></figure>
-<p>2、启动rabbitmq</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rabbitmq-server</div></pre></td></tr></table></figure>
-<p> 3、开启web管理插件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rabbitmq-plugins enable rabbitmq_management</div></pre></td></tr></table></figure>
-<p>4、添加用户</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>#默认用户guest只能本地使用，分布式情况下需要创建用户</div><div class="line">rabbitmqctl add_user admin admin ##添加用户：用户名/密码 admin/admin</div><div class="line">rabbitmqctl set_user_tags admin administrator ##将用户身份设置成管理员</div><div class="line">rabbitmqctl set_permissions -p / rollen ".*" ".*" ".*" ##给用户授权</div></pre></td></tr></table></figure>
-<h4 id="django服务器配置"><a href="#django服务器配置" class="headerlink" title="django服务器配置"></a>django服务器配置</h4><p>1、celery与django安装</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install celery</div><div class="line">pip install django</div></pre></td></tr></table></figure>
-<p>2、代码结构树配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">├── celery_test</div><div class="line">│   ├── celery.py</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── settings.py</div><div class="line">│   ├── urls.py</div><div class="line">│   └── wsgi.py</div><div class="line">├── manage.py</div><div class="line">└── task</div><div class="line">    ├── admin.py</div><div class="line">    ├── apps.py</div><div class="line">    ├── __init__.py</div><div class="line">    ├── migrations</div><div class="line">    │   ├── __init__.py</div><div class="line">    │   └── __pycache__</div><div class="line">    │       └── __init__.cpython-36.pyc</div><div class="line">    ├── models.py</div><div class="line">    ├── __pycache__</div><div class="line">    │   ├── admin.cpython-36.pyc</div><div class="line">    │   ├── __init__.cpython-36.pyc</div><div class="line">    │   ├── models.cpython-36.pyc</div><div class="line">    │   ├── tasks.cpython-36.pyc</div><div class="line">    │   └── views.cpython-36.pyc</div><div class="line">    ├── tasks.py</div><div class="line">    ├── tests.py</div><div class="line">    └── views.py</div></pre></td></tr></table></figure>
-<p>关键代码如下：</p>
-<p>celery.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</div><div class="line"></div><div class="line"><span class="comment"># set the default Django settings module for the 'celery' program.</span></div><div class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'celery_test.settings'</span>)</div><div class="line"></div><div class="line">app = Celery(<span class="string">'celery_test'</span>)</div><div class="line"></div><div class="line"><span class="comment"># Using a string here means the worker doesn't have to serialize</span></div><div class="line"><span class="comment"># the configuration object to child processes.</span></div><div class="line"><span class="comment"># - namespace='CELERY' means all celery-related configuration keys</span></div><div class="line"><span class="comment">#   should have a `CELERY_` prefix.</span></div><div class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>, namespace=<span class="string">'CELERY'</span>)</div><div class="line"></div><div class="line"><span class="comment"># Load task modules from all registered Django app configs.</span></div><div class="line">app.autodiscover_tasks()</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@app.task(bind=True)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">debug_task</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">'Request: &#123;0!r&#125;'</span>.format(self.request))%</div></pre></td></tr></table></figure>
-<p>一级目录<strong>init</strong>py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"></div><div class="line"><span class="comment"># This will make sure the app is always imported when</span></div><div class="line"><span class="comment"># Django starts so that shared_task will use this app.</span></div><div class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_app</div><div class="line"><span class="keyword">import</span> pymysql</div><div class="line"></div><div class="line">__all__ = [<span class="string">'celery_app'</span>]</div><div class="line"></div><div class="line">pymysql.install_as_MySQLdb()%</div></pre></td></tr></table></figure>
-<p>setting.py（在django默认配置之上加如下配置）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">BROKER_URL = &apos;amqp://&apos;    #配置broker</div><div class="line">BROKER_POOL_LIMIT = 0</div><div class="line">CELERY_RESULT_BACKEND = &apos;amqp://&apos;</div><div class="line">CELERY_RESULT_BACKEND = &apos;django-cache&apos;</div></pre></td></tr></table></figure>
-<p>urls.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</div><div class="line"><span class="keyword">from</span> task <span class="keyword">import</span> views <span class="keyword">as</span> task_view</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</div><div class="line">    path(<span class="string">'add/'</span>, task_view.add)</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>tasks.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@shared_task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x + y</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@shared_task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x * y</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@shared_task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">xsum</span><span class="params">(numbers)</span>:</span></div><div class="line">    <span class="keyword">return</span> sum(numbers)</div></pre></td></tr></table></figure>
-<p>views.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</div><div class="line"><span class="keyword">from</span> . <span class="keyword">import</span> tasks</div><div class="line"><span class="comment"># Create your views here.</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(request)</span>:</span></div><div class="line">	args1 = request.GET[<span class="string">"x"</span>]</div><div class="line">	args2 = request.GET[<span class="string">"y"</span>]</div><div class="line">	tasks.add.delay(int(args1), int(args2))</div><div class="line">	<span class="keyword">return</span> HttpResponse(<span class="string">"successful"</span>)</div></pre></td></tr></table></figure>
-<p>其余均为django创建项目后默认配置</p>
-<h4 id="worker配置（我以本机虚拟机192-168-1-108作为worker，本机ip-192-168-1-106）"><a href="#worker配置（我以本机虚拟机192-168-1-108作为worker，本机ip-192-168-1-106）" class="headerlink" title="worker配置（我以本机虚拟机192.168.1.108作为worker，本机ip:192.168.1.106）"></a>worker配置（我以本机虚拟机192.168.1.108作为worker，本机ip:192.168.1.106）</h4><p>1、安装celery</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install celery</div></pre></td></tr></table></figure>
-<p>2、代码结构树</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">➜  task tree</div><div class="line">.</div><div class="line">├── celery.py</div><div class="line">├── celery.pyc</div><div class="line">├── __init__.py</div><div class="line">├── __init__.pyc</div><div class="line">├── tasks.py</div><div class="line">└── tasks.pyc</div></pre></td></tr></table></figure>
-<p>celery.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</div><div class="line"></div><div class="line">app = Celery(<span class="string">'proj'</span>,</div><div class="line">             broker=<span class="string">'amqp://admin:admin@192.168.1.106//'</span>,</div><div class="line">             backend=<span class="string">'amqp://admin:admin@192.168.1.106//'</span>,</div><div class="line">             include=[<span class="string">'task.tasks'</span>])</div><div class="line"></div><div class="line"><span class="comment"># Optional configuration, see the application user guide.</span></div><div class="line">app.conf.update(</div><div class="line">    result_expires=<span class="number">3600</span>,</div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app.start()</div></pre></td></tr></table></figure>
-<p>tasks.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</div><div class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@app.task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x + y</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@app.task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x * y</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@app.task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">xsum</span><span class="params">(numbers)</span>:</span></div><div class="line">    <span class="keyword">return</span> sum(numbers)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>整体模块结构要与django中配置的模块相吻合</p>
-<p>==&gt;django任务模块—–task.tasks</p>
-<p>==&gt;worker工作模块—-task.tasks</p>
-</blockquote>
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>1、启动django</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyhon manage.py runserver</div></pre></td></tr></table></figure>
-<p>2、启动worker</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">celery -A task worker -l info</div></pre></td></tr></table></figure>
-<p>3、发送请求</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://127.0.0.1:8000/add/?x=14&amp;y=65</div></pre></td></tr></table></figure>
-<p>4、查看worker打印输出的日志</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">django</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-设计模式学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -535,6 +249,281 @@
 
 
   
+    <article id="post-springboot环境搭建教程（eclipse）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/springboot环境搭建教程（eclipse）/">springboot环境搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/springboot环境搭建教程（eclipse）/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="springboot环境搭建教程（eclipse）"><a href="#springboot环境搭建教程（eclipse）" class="headerlink" title="springboot环境搭建教程（eclipse）"></a>springboot环境搭建教程（eclipse）</h2><ol>
+<li>new-&gt;project-&gt;maven Project-&gt;quickStart</li>
+<li>查看文件目录机构，是否符合约定优配置原则</li>
+<li>配置pom，添加一下依赖</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;parent&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.2.7.RELEASE&lt;/version&gt;</div><div class="line">&lt;/parent&gt;</div><div class="line">  &lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">   	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;dependencies&gt;</div></pre></td></tr></table></figure>
+<p>4、添加配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">spring.datasource.url = jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false //若使用到数据库在此配置，需要在pom里面添加对应的数据驱动，或配置于环境变量中</div><div class="line">spring.datasource.username = username</div><div class="line">spring.datasource.password = password</div><div class="line">spring.datasource.driverClassName = com.mysql.jdbc.Driver</div><div class="line">spring.jpa.database = MYSQL</div><div class="line">spring.jpa.show-sql = true</div><div class="line">spring.jpa.hibernate.ddl-auto = update</div><div class="line">spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy</div><div class="line">spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect</div><div class="line">spring.template.cache = false</div></pre></td></tr></table></figure>
+<p>5、建立boot类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookStart</span> </span>&#123;	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SpringApplication.run(BookStart.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>6、建立controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</div><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>至此、配置完成；</p>
+<p><strong>注意：boot类一定要位于所有其他组件（controller，service，vo）的上层，否则，会导致组件注册失败</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/springboot环境搭建教程（eclipse）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-centos7下Jenkins安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/centos7下Jenkins安装/">centos7下Jenkins安装</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/centos7下Jenkins安装/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
+<p>1、yum安装安装的为Linux下的open-jdk</p>
+<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
+<blockquote>
+<p>1、到甲骨文官网找到要下在的文件地址</p>
+<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>2、下载该压缩包：</p>
+<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>3、下载完成之后解压</p>
+<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
+<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
+<p>4、vi /etc/profile</p>
+<p>添加：</p>
+<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
+<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
+<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
+<p>PATH=$JAVA_HOME/bin:$$PATH</p>
+<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
+<p>5、source /etc/profile 让添加项生效</p>
+<p>至此jdk安装成功;</p>
+</blockquote>
+<p>接下来安装Jenkins：</p>
+<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="external">jenkins官网</a></p>
+<p>在这里我们选择稳定版安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</div><div class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</div><div class="line">sudo yum install jenkins</div></pre></td></tr></table></figure>
+<p>安装成功后启动:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service jenkins start(或者 systemctl start jenkins)</div></pre></td></tr></table></figure>
+<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
+<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</div><div class="line">firewall-cmd --zone=public --add-service=http --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
+<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
+<p>结束</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/centos7下Jenkins安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-设计模式学习笔记之单一职责原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/设计模式学习笔记之单一职责原则/">设计模式学习笔记之单一职责原则</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/设计模式学习笔记之单一职责原则/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设计模式学习笔记之单一职责原则"><a href="#设计模式学习笔记之单一职责原则" class="headerlink" title="设计模式学习笔记之单一职责原则"></a>设计模式学习笔记之单一职责原则</h2><h3 id="什么是单一职责原则"><a href="#什么是单一职责原则" class="headerlink" title="什么是单一职责原则"></a>什么是单一职责原则</h3><p>引起一个类变化的因素只有一个,就叫做单一职责原则(又称为单一功能原则)</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>小张是xx公司程序员,现在遇到了一下问题:现在有两个较为简单的功能需要实现,但是这两个功能并无关联,但实现较为简单,于是小王想,这么简单,<strong>就写在一个类里面</strong>吧:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Functions</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionA</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能A</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionB</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能B</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>随着系统复杂性的提高,原有的两个功能无法支撑现有项目,需要修改,经过几轮的迭代,这两个函数已经变的较为复杂,这个类也已经被改变了若干次,变得异常的复杂.小张悔不当初啊,没能将当初的功能分割开来,致使这个点成为项目的一个弊病.</p>
+<p>时光倒流到了小张开始设计这个功能的时候………</p>
+<p>小张分析了这个功能以后,考虑了其扩展,最终将功能拆分成了两个类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="comment">//实现A的功能</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</div><div class="line">    <span class="comment">//实现功能B</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>于是乎,无论系统怎么扩展,A只负责A的模块,引起A变化的也只有A内部的因素,简单的说A只有一个功能,这就是单一职责.</p>
+<h3 id="有啥好处"><a href="#有啥好处" class="headerlink" title="有啥好处"></a>有啥好处</h3><p>就像上文所述,明确的职责划分,能够使得系统高度内聚,降低系统耦合度,能够使得系统的可扩展性提升.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之单一职责原则/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -609,6 +598,115 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之观察者模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Docker构建项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/Docker构建项目/">Docker初体验之构建javaWeb项目</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/Docker构建项目/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Docker-构建javaWeb项目"><a href="#Docker-构建javaWeb项目" class="headerlink" title="Ｄocker 构建javaWeb项目"></a>Ｄocker 构建javaWeb项目</h3><h4 id="主环境搭建（tomcat）"><a href="#主环境搭建（tomcat）" class="headerlink" title="主环境搭建（tomcat）"></a>主环境搭建（tomcat）</h4><p>步骤如下：</p>
+<p>1.拉取基准镜像：docker pull hub.c.163.com/public/ubuntu:16.04-tools</p>
+<p>2.配置Dockerfile:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu MYNF Dockerfile</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">###base system</span></div><div class="line"><span class="keyword">FROM</span> hub.c.<span class="number">163</span>.com/public/ubuntu:<span class="number">16.04</span>-tools</div><div class="line"></div><div class="line"><span class="comment">###auther</span></div><div class="line"><span class="keyword">MAINTAINER</span> crazyxxl <span class="string">"1228785231@qq.com"</span></div><div class="line"></div><div class="line"><span class="comment">###config java env begin</span></div><div class="line"><span class="keyword">ADD</span> jdk1.8.0_144 /usr/local/java</div><div class="line"><span class="keyword">RUN</span> ls /usr/local/java/</div><div class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/local/java</div><div class="line"><span class="keyword">ENV</span> PATH $JAVA_HOME/bin:$PATH</div><div class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib</div><div class="line"><span class="comment">###config java env end</span></div><div class="line"></div><div class="line"><span class="comment">###config jms begin</span></div><div class="line"><span class="keyword">ADD</span> apache-activemq-5.5.0 /usr/local/jms</div><div class="line"><span class="comment">###config jms end</span></div><div class="line"></div><div class="line"><span class="keyword">COPY</span> apache-tomcat-8.5.20 /usr/local/tomcat/apache-tomcat-8.5.20/</div><div class="line"><span class="keyword">COPY</span> mynf.war /usr/local/tomcat/apache-tomcat-8.5.20/webapps/</div><div class="line"><span class="keyword">COPY</span> dist /usr/local/tomcat/apache-tomcat-8.5.20/webapps/ROOT/</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/*</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/bin/*.sh</div><div class="line"><span class="keyword">EXPOSE</span> <span class="number">8080</span> <span class="number">60000</span></div><div class="line"><span class="keyword">CMD</span> /usr/local/jms/bin/activemq start</div><div class="line"><span class="keyword">ENTRYPOINT</span> /usr/local/tomcat/apache-tomcat-8.5.20/bin/catalina.sh run</div></pre></td></tr></table></figure>
+<p>3.构建镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t xxl/ubuntu/mynf .</div></pre></td></tr></table></figure>
+<h4 id="构建mongo镜像"><a href="#构建mongo镜像" class="headerlink" title="构建mongo镜像"></a>构建mongo镜像</h4><p>１.拉取mongodb镜像：docker pull hub.c.163.com/public/mongodb:3.2.0</p>
+<p>2.导出宿主机上面的ｍｏｎｇｏ数据，并将其放置在/data 下面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodump  -d mynf -o /data</div></pre></td></tr></table></figure>
+<p>2.启动镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_mongo -v /data:/mnt -d hub.c.163.com/public/mongodb:3.2.0</div></pre></td></tr></table></figure>
+<blockquote>
+<p>备注：-v 表示把宿主机子上面的/data 挂在到容器的/mnt下面。这样/data下面的数据就可以被容器访问了</p>
+</blockquote>
+<p>３.进入容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it mynf_mongo bash</div></pre></td></tr></table></figure>
+<p>4.导入数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore  -d mynf --dir /mnt/mynf</div></pre></td></tr></table></figure>
+<p>5.创建用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">use mynf;</div><div class="line">db.createUser(&#123;user:"root",pwd:"mynfadmin",roles:[]&#125;);</div></pre></td></tr></table></figure>
+<h4 id="构建mysql环境"><a href="#构建mysql环境" class="headerlink" title="构建mysql环境"></a>构建mysql环境</h4><p>１.拉取mysql镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull hub.c.163.com/library/mysql:latest</div></pre></td></tr></table></figure>
+<p> 2.导出宿主镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -u root -p mynf &gt; mynf.sql</div></pre></td></tr></table></figure>
+<p>3.创建挂载文件夹：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/mysql</div></pre></td></tr></table></figure>
+<p>4.启动镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name MYNF-mysql  -v /data/mynf:/mnt   -e MYSQL_ROOT_PASSWORD=mima -d hub.c.163.com/library/mysql</div></pre></td></tr></table></figure>
+<p>5.进入镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it MYNF-mysql bash</div></pre></td></tr></table></figure>
+<p>6.导入数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pPSW -e source /mnt/mynf.sql</div></pre></td></tr></table></figure>
+<h4 id="连接容器启动项目"><a href="#连接容器启动项目" class="headerlink" title="连接容器启动项目"></a>连接容器启动项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_server --link MYNF-mysql:mysql --link mynf_mongo:mongo -p 8080:8080  -d xxl/ununtu/mynf</div></pre></td></tr></table></figure>
+<blockquote>
+<p>备注：–name 表示容器名称　–link MYNF-mysql：表示连接容器名称，mysql 连接名称　-p 前面端口指代宿主端口号，后者表示容器内部的端口号　</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/Docker构建项目/">展开全文 >></a>
         </p>
       
 
@@ -754,19 +852,19 @@
 
 
   
-    <article id="post-Angular 学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-设计模式学习笔记之策略模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/Angular 学习笔记/">angular生命周期</a>
+      <a class="article-title" href="/2018/06/23/设计模式学习笔记之策略模式/">设计模式学习笔记之策略模式</a>
     </h1>
   
 
         
-        <a href="/2018/06/23/Angular 学习笔记/" class="archive-article-date">
+        <a href="/2018/06/23/设计模式学习笔记之策略模式/" class="archive-article-date">
   	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
 </a>
         
@@ -774,49 +872,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Angular-学习笔记："><a href="#Angular-学习笔记：" class="headerlink" title="Angular 学习笔记："></a>Angular 学习笔记：</h4><p><strong>生命周期钩子：</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1692534-691cbdecbd1df3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="钩子示意图"></p>
-<h5 id="共享模块"><a href="#共享模块" class="headerlink" title="共享模块"></a>共享模块</h5><p>共享模块作用：</p>
+        <h2 id="设计模式学习笔记之策略模式"><a href="#设计模式学习笔记之策略模式" class="headerlink" title="设计模式学习笔记之策略模式"></a>设计模式学习笔记之策略模式</h2><h3 id="什么是策略模式"><a href="#什么是策略模式" class="headerlink" title="什么是策略模式"></a>什么是策略模式</h3><p><strong>策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换</strong></p>
 <blockquote>
-<p>有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个<strong><em>ShareModule</em></strong>里面中：</p>
+<p>策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法的执行顺序,或者替换方法执行,这就是策略模式</p>
 </blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NgModule &#125;            <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;        <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormsModule &#125;         <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AwesomePipe &#125;         <span class="keyword">from</span> <span class="string">'./awesome.pipe'</span>;</div><div class="line"><span class="keyword">import</span> &#123; HighlightDirective &#125;  <span class="keyword">from</span> <span class="string">'./highlight.directive'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ AwesomePipe, HighlightDirective ],</div><div class="line">  exports:      [ AwesomePipe, HighlightDirective,</div><div class="line">                  CommonModule, FormsModule ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> SharedModule &#123; &#125;</div></pre></td></tr></table></figure>
+<h3 id="策略模式类图"><a href="#策略模式类图" class="headerlink" title="策略模式类图"></a>策略模式类图</h3><p><img src="http://www.crazyxxl.tech/Strategy.png" alt="策略模式类图"></p>
 <blockquote>
-<p>如上所示：</p>
-<p><strong>管道</strong></p>
+<p>解析:Client为客户,Context为策略的调用者,策略与Context为松耦合(接口耦合),正因为这层关系,才能够使得策略的替换不影响客户</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AwesomePipe</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>指令</strong></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HighlightDirective</div></pre></td></tr></table></figure>
-<blockquote>
-<p>都需要在多个模块中使用，我们可以将其放置在同一个共享模块中，然后将共享模块导入到所要使用这些模块的组件里面，便可以使用这些组件</p>
-</blockquote>
-<p>模块共享注意点：</p>
-<p><strong><em>不要在共享模块中把应用级单例添加到<code>providers</code>中。 否则如果一个惰性加载模块导入了此共享模块，就会导致它自己也生成一份此服务的实例。</em></strong></p>
-<h5 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h5><p>核心模块作用：</p>
-<blockquote>
-<p>将系统首次启动需要加载且只加载一次的模块抽取出来，定义到一起形成一个独立的模块，类似共享模块，与其区别在与共享模块可以导入多次，但是核心模块全应用只能导入一次，否则会导致，单一应用实例被赋予新的值，比如<strong>service</strong></p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  ModuleWithProviders, NgModule,</div><div class="line">  Optional, SkipSelf &#125;       <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;      <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; TitleComponent &#125;    <span class="keyword">from</span> <span class="string">'./title.component'</span>;</div><div class="line"><span class="keyword">import</span> &#123; UserService &#125;       <span class="keyword">from</span> <span class="string">'./user.service'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ TitleComponent ],</div><div class="line">  exports:      [ TitleComponent ],</div><div class="line">  providers:    [ UserService ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> CoreModule &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如以上代码所示：</p>
-<p><strong>组件</strong></p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TitleComponent</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>服务</strong></p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserService</div></pre></td></tr></table></figure>
-<blockquote>
-<p>均需要在系统初始化时完成导入，而且只导入一次，属于全局单例，可以放置在核心模块中，在<strong>AppModule</strong>中进行导入;</p>
-</blockquote>
-<p>共享模块与核心模块总结：</p>
-<blockquote>
-<p>共享模块的作用无非代码的复用与模块化，核心模块为使得启动类看起来整洁，美观，将核心的一次导入的全局单例模块放置在一个module中便于管理隐藏关键信息；</p>
-</blockquote>
-<p><strong>参见：</strong></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>现有一游戏,一个角色可以随意的切换武器,但是同一时间只能使用某一个武器,实现该游戏</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>我们可以把游戏的角色抽象成为策略的调用者,武器抽象成为策略,角色随意切换武器,而不必管武器的材质(算法的内部实现)</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><h5 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h5><p><img src="http://www.crazyxxl.tech/Strategy-eg.png" alt=""></p>
+<p>类图解析:Character为策略的调用者,weaponBehavior为策略的抽象,角色的子类可不予考究(这是我在学习策略模式(HeadFirst设计模式)的时候自己画),我们只需要考量,角色以及武器以及武器的实现即可</p>
+<p>角色:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Character</span> </span>&#123;</div><div class="line"></div><div class="line">    WeaponBehavior weaponBehavior = <span class="keyword">null</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeaponBehavior</span><span class="params">(WeaponBehavior weaponBehavior)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior = weaponBehavior;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>武器抽象接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>武器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器斧头</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AxeBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"AxeBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-弓箭</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BowAndArrowBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"BowAndArrowBehavior"</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 骑士武器</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnightBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"KnightBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-刀</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwordBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"SwordBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>开始游戏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建角色</div><div class="line">         */</div><div class="line">        Character character = <span class="keyword">new</span> Character();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建武器斧头</div><div class="line">         */</div><div class="line">        AxeBehavior axeBehavior  = <span class="keyword">new</span> AxeBehavior();</div><div class="line">        character.setWeaponBehavior(axeBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 切换武器骑士武器</div><div class="line">         */</div><div class="line">        KnightBehavior knightBehavior = <span class="keyword">new</span> KnightBehavior();</div><div class="line">        character.setWeaponBehavior(knightBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于策略模式来讲,最重要要的两个概念是:</p>
+<ol>
+<li><strong>算法</strong></li>
+<li><strong>顺序</strong></li>
+</ol>
+<p>对于第一点算法,策略模式是对于算法的封装,也就是我们不必要去管算法的实现,只需要知道的策略提供了某个算法,可以让我们来解决一些问题,至于这个算法怎么实现的我们没必要知晓,也就是算法是黑盒的;</p>
+<p>对于第二点,调用者可以根据自身的需求,随意的调换算法的执行顺序</p>
 
       
 
@@ -830,7 +912,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
         		</li>
       		
 		</ul>
@@ -840,7 +922,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/Angular 学习笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之策略模式/">展开全文 >></a>
         </p>
       
 
@@ -1004,19 +1086,19 @@
 
 
   
-    <article id="post-设计模式学习笔记之策略模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Angular 学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记之策略模式/">设计模式学习笔记之策略模式</a>
+      <a class="article-title" href="/2018/06/23/Angular 学习笔记/">angular生命周期</a>
     </h1>
   
 
         
-        <a href="/2018/06/23/设计模式学习笔记之策略模式/" class="archive-article-date">
+        <a href="/2018/06/23/Angular 学习笔记/" class="archive-article-date">
   	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
 </a>
         
@@ -1024,33 +1106,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="设计模式学习笔记之策略模式"><a href="#设计模式学习笔记之策略模式" class="headerlink" title="设计模式学习笔记之策略模式"></a>设计模式学习笔记之策略模式</h2><h3 id="什么是策略模式"><a href="#什么是策略模式" class="headerlink" title="什么是策略模式"></a>什么是策略模式</h3><p><strong>策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换</strong></p>
+        <h4 id="Angular-学习笔记："><a href="#Angular-学习笔记：" class="headerlink" title="Angular 学习笔记："></a>Angular 学习笔记：</h4><p><strong>生命周期钩子：</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1692534-691cbdecbd1df3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="钩子示意图"></p>
+<h5 id="共享模块"><a href="#共享模块" class="headerlink" title="共享模块"></a>共享模块</h5><p>共享模块作用：</p>
 <blockquote>
-<p>策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法的执行顺序,或者替换方法执行,这就是策略模式</p>
+<p>有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个<strong><em>ShareModule</em></strong>里面中：</p>
 </blockquote>
-<h3 id="策略模式类图"><a href="#策略模式类图" class="headerlink" title="策略模式类图"></a>策略模式类图</h3><p><img src="http://www.crazyxxl.tech/Strategy.png" alt="策略模式类图"></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NgModule &#125;            <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;        <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormsModule &#125;         <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AwesomePipe &#125;         <span class="keyword">from</span> <span class="string">'./awesome.pipe'</span>;</div><div class="line"><span class="keyword">import</span> &#123; HighlightDirective &#125;  <span class="keyword">from</span> <span class="string">'./highlight.directive'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ AwesomePipe, HighlightDirective ],</div><div class="line">  exports:      [ AwesomePipe, HighlightDirective,</div><div class="line">                  CommonModule, FormsModule ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> SharedModule &#123; &#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>解析:Client为客户,Context为策略的调用者,策略与Context为松耦合(接口耦合),正因为这层关系,才能够使得策略的替换不影响客户</p>
+<p>如上所示：</p>
+<p><strong>管道</strong></p>
 </blockquote>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>现有一游戏,一个角色可以随意的切换武器,但是同一时间只能使用某一个武器,实现该游戏</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>我们可以把游戏的角色抽象成为策略的调用者,武器抽象成为策略,角色随意切换武器,而不必管武器的材质(算法的内部实现)</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><h5 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h5><p><img src="http://www.crazyxxl.tech/Strategy-eg.png" alt=""></p>
-<p>类图解析:Character为策略的调用者,weaponBehavior为策略的抽象,角色的子类可不予考究(这是我在学习策略模式(HeadFirst设计模式)的时候自己画),我们只需要考量,角色以及武器以及武器的实现即可</p>
-<p>角色:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Character</span> </span>&#123;</div><div class="line"></div><div class="line">    WeaponBehavior weaponBehavior = <span class="keyword">null</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeaponBehavior</span><span class="params">(WeaponBehavior weaponBehavior)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior = weaponBehavior;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>武器抽象接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>武器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器斧头</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AxeBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"AxeBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-弓箭</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BowAndArrowBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"BowAndArrowBehavior"</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 骑士武器</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnightBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"KnightBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-刀</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwordBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"SwordBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>开始游戏</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建角色</div><div class="line">         */</div><div class="line">        Character character = <span class="keyword">new</span> Character();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建武器斧头</div><div class="line">         */</div><div class="line">        AxeBehavior axeBehavior  = <span class="keyword">new</span> AxeBehavior();</div><div class="line">        character.setWeaponBehavior(axeBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 切换武器骑士武器</div><div class="line">         */</div><div class="line">        KnightBehavior knightBehavior = <span class="keyword">new</span> KnightBehavior();</div><div class="line">        character.setWeaponBehavior(knightBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于策略模式来讲,最重要要的两个概念是:</p>
-<ol>
-<li><strong>算法</strong></li>
-<li><strong>顺序</strong></li>
-</ol>
-<p>对于第一点算法,策略模式是对于算法的封装,也就是我们不必要去管算法的实现,只需要知道的策略提供了某个算法,可以让我们来解决一些问题,至于这个算法怎么实现的我们没必要知晓,也就是算法是黑盒的;</p>
-<p>对于第二点,调用者可以根据自身的需求,随意的调换算法的执行顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AwesomePipe</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>指令</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HighlightDirective</div></pre></td></tr></table></figure>
+<blockquote>
+<p>都需要在多个模块中使用，我们可以将其放置在同一个共享模块中，然后将共享模块导入到所要使用这些模块的组件里面，便可以使用这些组件</p>
+</blockquote>
+<p>模块共享注意点：</p>
+<p><strong><em>不要在共享模块中把应用级单例添加到<code>providers</code>中。 否则如果一个惰性加载模块导入了此共享模块，就会导致它自己也生成一份此服务的实例。</em></strong></p>
+<h5 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h5><p>核心模块作用：</p>
+<blockquote>
+<p>将系统首次启动需要加载且只加载一次的模块抽取出来，定义到一起形成一个独立的模块，类似共享模块，与其区别在与共享模块可以导入多次，但是核心模块全应用只能导入一次，否则会导致，单一应用实例被赋予新的值，比如<strong>service</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  ModuleWithProviders, NgModule,</div><div class="line">  Optional, SkipSelf &#125;       <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;      <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; TitleComponent &#125;    <span class="keyword">from</span> <span class="string">'./title.component'</span>;</div><div class="line"><span class="keyword">import</span> &#123; UserService &#125;       <span class="keyword">from</span> <span class="string">'./user.service'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ TitleComponent ],</div><div class="line">  exports:      [ TitleComponent ],</div><div class="line">  providers:    [ UserService ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> CoreModule &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如以上代码所示：</p>
+<p><strong>组件</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TitleComponent</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>服务</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserService</div></pre></td></tr></table></figure>
+<blockquote>
+<p>均需要在系统初始化时完成导入，而且只导入一次，属于全局单例，可以放置在核心模块中，在<strong>AppModule</strong>中进行导入;</p>
+</blockquote>
+<p>共享模块与核心模块总结：</p>
+<blockquote>
+<p>共享模块的作用无非代码的复用与模块化，核心模块为使得启动类看起来整洁，美观，将核心的一次导入的全局单例模块放置在一个module中便于管理隐藏关键信息；</p>
+</blockquote>
+<p><strong>参见：</strong></p>
 
       
 
@@ -1064,7 +1162,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
         		</li>
       		
 		</ul>
@@ -1074,116 +1172,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之策略模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Docker构建项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/Docker构建项目/">Docker初体验之构建javaWeb项目</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/Docker构建项目/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Docker-构建javaWeb项目"><a href="#Docker-构建javaWeb项目" class="headerlink" title="Ｄocker 构建javaWeb项目"></a>Ｄocker 构建javaWeb项目</h3><h4 id="主环境搭建（tomcat）"><a href="#主环境搭建（tomcat）" class="headerlink" title="主环境搭建（tomcat）"></a>主环境搭建（tomcat）</h4><p>步骤如下：</p>
-<p>1.拉取基准镜像：docker pull hub.c.163.com/public/ubuntu:16.04-tools</p>
-<p>2.配置Dockerfile:</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu MYNF Dockerfile</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">###base system</span></div><div class="line"><span class="keyword">FROM</span> hub.c.<span class="number">163</span>.com/public/ubuntu:<span class="number">16.04</span>-tools</div><div class="line"></div><div class="line"><span class="comment">###auther</span></div><div class="line"><span class="keyword">MAINTAINER</span> crazyxxl <span class="string">"1228785231@qq.com"</span></div><div class="line"></div><div class="line"><span class="comment">###config java env begin</span></div><div class="line"><span class="keyword">ADD</span> jdk1.8.0_144 /usr/local/java</div><div class="line"><span class="keyword">RUN</span> ls /usr/local/java/</div><div class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/local/java</div><div class="line"><span class="keyword">ENV</span> PATH $JAVA_HOME/bin:$PATH</div><div class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib</div><div class="line"><span class="comment">###config java env end</span></div><div class="line"></div><div class="line"><span class="comment">###config jms begin</span></div><div class="line"><span class="keyword">ADD</span> apache-activemq-5.5.0 /usr/local/jms</div><div class="line"><span class="comment">###config jms end</span></div><div class="line"></div><div class="line"><span class="keyword">COPY</span> apache-tomcat-8.5.20 /usr/local/tomcat/apache-tomcat-8.5.20/</div><div class="line"><span class="keyword">COPY</span> mynf.war /usr/local/tomcat/apache-tomcat-8.5.20/webapps/</div><div class="line"><span class="keyword">COPY</span> dist /usr/local/tomcat/apache-tomcat-8.5.20/webapps/ROOT/</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/*</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/bin/*.sh</div><div class="line"><span class="keyword">EXPOSE</span> <span class="number">8080</span> <span class="number">60000</span></div><div class="line"><span class="keyword">CMD</span> /usr/local/jms/bin/activemq start</div><div class="line"><span class="keyword">ENTRYPOINT</span> /usr/local/tomcat/apache-tomcat-8.5.20/bin/catalina.sh run</div></pre></td></tr></table></figure>
-<p>3.构建镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t xxl/ubuntu/mynf .</div></pre></td></tr></table></figure>
-<h4 id="构建mongo镜像"><a href="#构建mongo镜像" class="headerlink" title="构建mongo镜像"></a>构建mongo镜像</h4><p>１.拉取mongodb镜像：docker pull hub.c.163.com/public/mongodb:3.2.0</p>
-<p>2.导出宿主机上面的ｍｏｎｇｏ数据，并将其放置在/data 下面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodump  -d mynf -o /data</div></pre></td></tr></table></figure>
-<p>2.启动镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_mongo -v /data:/mnt -d hub.c.163.com/public/mongodb:3.2.0</div></pre></td></tr></table></figure>
-<blockquote>
-<p>备注：-v 表示把宿主机子上面的/data 挂在到容器的/mnt下面。这样/data下面的数据就可以被容器访问了</p>
-</blockquote>
-<p>３.进入容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it mynf_mongo bash</div></pre></td></tr></table></figure>
-<p>4.导入数据</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore  -d mynf --dir /mnt/mynf</div></pre></td></tr></table></figure>
-<p>5.创建用户</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">use mynf;</div><div class="line">db.createUser(&#123;user:"root",pwd:"mynfadmin",roles:[]&#125;);</div></pre></td></tr></table></figure>
-<h4 id="构建mysql环境"><a href="#构建mysql环境" class="headerlink" title="构建mysql环境"></a>构建mysql环境</h4><p>１.拉取mysql镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull hub.c.163.com/library/mysql:latest</div></pre></td></tr></table></figure>
-<p> 2.导出宿主镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -u root -p mynf &gt; mynf.sql</div></pre></td></tr></table></figure>
-<p>3.创建挂载文件夹：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/mysql</div></pre></td></tr></table></figure>
-<p>4.启动镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name MYNF-mysql  -v /data/mynf:/mnt   -e MYSQL_ROOT_PASSWORD=mima -d hub.c.163.com/library/mysql</div></pre></td></tr></table></figure>
-<p>5.进入镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it MYNF-mysql bash</div></pre></td></tr></table></figure>
-<p>6.导入数据</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pPSW -e source /mnt/mynf.sql</div></pre></td></tr></table></figure>
-<h4 id="连接容器启动项目"><a href="#连接容器启动项目" class="headerlink" title="连接容器启动项目"></a>连接容器启动项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_server --link MYNF-mysql:mysql --link mynf_mongo:mongo -p 8080:8080  -d xxl/ununtu/mynf</div></pre></td></tr></table></figure>
-<blockquote>
-<p>备注：–name 表示容器名称　–link MYNF-mysql：表示连接容器名称，mysql 连接名称　-p 前面端口指代宿主端口号，后者表示容器内部的端口号　</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/Docker构建项目/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/23/Angular 学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -1314,11 +1303,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂项</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂项</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1330,11 +1319,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
+                <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
               </li>
              
               <li class="article-tag-list-item">
