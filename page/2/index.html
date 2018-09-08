@@ -242,90 +242,6 @@
 
 
   
-    <article id="post-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">关于angular4部署服务器刷新报错以及相关资源加载不到解决办法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>部署angular4项目：</p>
-<p>ng build –prod –aot</p>
-<p>资源加载不到问题：</p>
-<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
-<p>部署项目成功后刷新报错问题：</p>
-<p>需要在app.module里面添加配置项：</p>
-<p>首先导入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</div></pre></td></tr></table></figure>
-<p>其次在providers里面添加:</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [</div><div class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-设计模式学习笔记之单一职责原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -511,61 +427,184 @@
 
 
   
-    <article id="post-Docker构建项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/Docker构建项目/">Docker初体验之构建javaWeb项目</a>
+      <a class="article-title" href="/2018/06/23/设计模式学习笔记之观察者模式/">设计模式学习笔记之观察者模式</a>
     </h1>
   
 
         
-        <a href="/2018/06/23/Docker构建项目/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+        <a href="/2018/06/23/设计模式学习笔记之观察者模式/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Docker-构建javaWeb项目"><a href="#Docker-构建javaWeb项目" class="headerlink" title="Ｄocker 构建javaWeb项目"></a>Ｄocker 构建javaWeb项目</h3><h4 id="主环境搭建（tomcat）"><a href="#主环境搭建（tomcat）" class="headerlink" title="主环境搭建（tomcat）"></a>主环境搭建（tomcat）</h4><p>步骤如下：</p>
-<p>1.拉取基准镜像：docker pull hub.c.163.com/public/ubuntu:16.04-tools</p>
-<p>2.配置Dockerfile:</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu MYNF Dockerfile</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">###base system</span></div><div class="line"><span class="keyword">FROM</span> hub.c.<span class="number">163</span>.com/public/ubuntu:<span class="number">16.04</span>-tools</div><div class="line"></div><div class="line"><span class="comment">###auther</span></div><div class="line"><span class="keyword">MAINTAINER</span> crazyxxl <span class="string">"1228785231@qq.com"</span></div><div class="line"></div><div class="line"><span class="comment">###config java env begin</span></div><div class="line"><span class="keyword">ADD</span> jdk1.8.0_144 /usr/local/java</div><div class="line"><span class="keyword">RUN</span> ls /usr/local/java/</div><div class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/local/java</div><div class="line"><span class="keyword">ENV</span> PATH $JAVA_HOME/bin:$PATH</div><div class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib</div><div class="line"><span class="comment">###config java env end</span></div><div class="line"></div><div class="line"><span class="comment">###config jms begin</span></div><div class="line"><span class="keyword">ADD</span> apache-activemq-5.5.0 /usr/local/jms</div><div class="line"><span class="comment">###config jms end</span></div><div class="line"></div><div class="line"><span class="keyword">COPY</span> apache-tomcat-8.5.20 /usr/local/tomcat/apache-tomcat-8.5.20/</div><div class="line"><span class="keyword">COPY</span> mynf.war /usr/local/tomcat/apache-tomcat-8.5.20/webapps/</div><div class="line"><span class="keyword">COPY</span> dist /usr/local/tomcat/apache-tomcat-8.5.20/webapps/ROOT/</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/*</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/bin/*.sh</div><div class="line"><span class="keyword">EXPOSE</span> <span class="number">8080</span> <span class="number">60000</span></div><div class="line"><span class="keyword">CMD</span> /usr/local/jms/bin/activemq start</div><div class="line"><span class="keyword">ENTRYPOINT</span> /usr/local/tomcat/apache-tomcat-8.5.20/bin/catalina.sh run</div></pre></td></tr></table></figure>
-<p>3.构建镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t xxl/ubuntu/mynf .</div></pre></td></tr></table></figure>
-<h4 id="构建mongo镜像"><a href="#构建mongo镜像" class="headerlink" title="构建mongo镜像"></a>构建mongo镜像</h4><p>１.拉取mongodb镜像：docker pull hub.c.163.com/public/mongodb:3.2.0</p>
-<p>2.导出宿主机上面的ｍｏｎｇｏ数据，并将其放置在/data 下面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodump  -d mynf -o /data</div></pre></td></tr></table></figure>
-<p>2.启动镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_mongo -v /data:/mnt -d hub.c.163.com/public/mongodb:3.2.0</div></pre></td></tr></table></figure>
+        <h2 id="设计模式学习笔记之观察者模式"><a href="#设计模式学习笔记之观察者模式" class="headerlink" title="设计模式学习笔记之观察者模式"></a>设计模式学习笔记之观察者模式</h2><h3 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h3><p>观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式</p>
 <blockquote>
-<p>备注：-v 表示把宿主机子上面的/data 挂在到容器的/mnt下面。这样/data下面的数据就可以被容器访问了</p>
+<p>举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)</p>
 </blockquote>
-<p>３.进入容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it mynf_mongo bash</div></pre></td></tr></table></figure>
-<p>4.导入数据</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore  -d mynf --dir /mnt/mynf</div></pre></td></tr></table></figure>
-<p>5.创建用户</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">use mynf;</div><div class="line">db.createUser(&#123;user:"root",pwd:"mynfadmin",roles:[]&#125;);</div></pre></td></tr></table></figure>
-<h4 id="构建mysql环境"><a href="#构建mysql环境" class="headerlink" title="构建mysql环境"></a>构建mysql环境</h4><p>１.拉取mysql镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull hub.c.163.com/library/mysql:latest</div></pre></td></tr></table></figure>
-<p> 2.导出宿主镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -u root -p mynf &gt; mynf.sql</div></pre></td></tr></table></figure>
-<p>3.创建挂载文件夹：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/mysql</div></pre></td></tr></table></figure>
-<p>4.启动镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name MYNF-mysql  -v /data/mynf:/mnt   -e MYSQL_ROOT_PASSWORD=mima -d hub.c.163.com/library/mysql</div></pre></td></tr></table></figure>
-<p>5.进入镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it MYNF-mysql bash</div></pre></td></tr></table></figure>
-<p>6.导入数据</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pPSW -e source /mnt/mynf.sql</div></pre></td></tr></table></figure>
-<h4 id="连接容器启动项目"><a href="#连接容器启动项目" class="headerlink" title="连接容器启动项目"></a>连接容器启动项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_server --link MYNF-mysql:mysql --link mynf_mongo:mongo -p 8080:8080  -d xxl/ununtu/mynf</div></pre></td></tr></table></figure>
+<h3 id="观察者模式类图"><a href="#观察者模式类图" class="headerlink" title="观察者模式类图"></a>观察者模式类图</h3><p><img src="http://www.crazyxxl.tech/Observer.png" alt="观察者模式类图"></p>
+<p><strong>简要叙述:</strong></p>
+<p><strong>Subject(被监听着接口):</strong></p>
+<p>对于一个被监听者而言,监听其的对象可以有多个(皇帝派出多个间谍监听某一大臣),当某一监听者需要监听被监听者的时候,Subject调用注册监听者方法(registerObserver),取消监听调用(removeObserver),当其状态发生改变的时候调用notifyObserver方法通知已监听该对象的对象</p>
+<p><strong>ConcreteSubject:</strong></p>
+<p>实际被监听者</p>
+<p><strong>Observer:</strong></p>
+<p>监听者对象接口</p>
+<p><strong>ConcreteObserver:</strong></p>
+<p>实际监听的对象</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>古时候,某一个皇帝觉得自己的宰相有谋反的意图,因此派出了间谍1,潜入相府,检查宰相的行为,一旦有变立即上报,辅政大臣一片赤诚之心,派遣了间谍2去监测丞相的行为,用程序模拟该行为</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>皇帝和辅政大臣同时派出了间谍1和间谍2,来监听丞相的行为,我们可以将丞相模拟成被监听者(本来就是个被监听者),间谍1和间谍2是监听者,一旦他有谋反的举动,就干掉他</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><p><img src="http://www.crazyxxl.tech/Observer-eg.png" alt=""></p>
+<p>监控者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍1</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage1</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"发现他谋反了,通知皇上"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍2:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍2</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage2</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"丞相谋反了,快快通知辅政大臣"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被监听者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 被监听者接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 注册监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>丞相类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> move_xing</div><div class="line"> * <span class="doctag">@describe</span> 丞相类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeMinister</span> <span class="keyword">implements</span> <span class="title">Subject</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        observers.add(object);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = observers.indexOf(object);</div><div class="line">        <span class="keyword">if</span>(-<span class="number">1</span> != index) &#123;</div><div class="line">            observers.remove(index);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebellion</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"杀了那个狗皇帝"</span>);</div><div class="line">        notifyObserver();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">        observers.forEach(item-&gt;&#123;</div><div class="line">            item.update();</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>场景类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 场景类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">//初始化丞相类</span></div><div class="line">        PrimeMinister primeMinister = <span class="keyword">new</span> PrimeMinister();</div><div class="line">        <span class="comment">//皇上派出间谍</span></div><div class="line">        Espionage1 espionage1 = <span class="keyword">new</span> Espionage1();</div><div class="line">        <span class="comment">//辅政大臣派出间谍</span></div><div class="line">        Espionage2 espionage2 = <span class="keyword">new</span> Espionage2();</div><div class="line">        <span class="comment">//间谍1潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage1);</div><div class="line">        <span class="comment">//间谍2潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage2);</div><div class="line">        <span class="comment">//丞相谋反了</span></div><div class="line">        primeMinister.rebellion();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line">*out:</div><div class="line">*杀了那个狗皇帝</div><div class="line">*发现他谋反了,通知皇上</div><div class="line">*丞相谋反了,快快通知辅政大臣</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>监听者模式在我们的开发中是经常会遇到的,前端触发,若干事件触发机制,Android开发事件触发,(部分是监控者模式,当然也有责任链模式),java自身也提供了Observer对象,以及Observable接口来实现监听者模式,感兴趣的可以下来自己看一下.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之观察者模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo搭建个人博客教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/hexo搭建个人博客教程/">hexo github 搭建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/hexo搭建个人博客教程/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="hexo搭建个人博客教程"><a href="#hexo搭建个人博客教程" class="headerlink" title="hexo搭建个人博客教程"></a>hexo搭建个人博客教程</h4><blockquote>
+<p>前提：</p>
+<p>拥有github账号,安装好npm</p>
+</blockquote>
+<h5 id="本地构建"><a href="#本地构建" class="headerlink" title="本地构建"></a>本地构建</h5><blockquote>
+<p>操作步骤如下：</p>
+<ol>
+<li>安装hexo-cli: <strong>pm install -g hexo-cli</strong></li>
+<li>初始化博客框架：<strong>hexo init blog</strong></li>
+<li>进入blog文件夹，安装依赖包：<ul>
+<li><strong>cd blog</strong></li>
+<li><strong>npm install</strong></li>
+</ul>
+</li>
+<li>启动hexo服务：<strong>hexo server</strong></li>
+<li>浏览器输入：<strong>127.0.0.1:4000</strong>即可访问</li>
+</ol>
+<p>如需写文章，只需要在\blog\source_posts\文件夹下面防止写好的md文件，之后执行<strong>hexo g</strong>即可在个人站点访问刚才发布的md文件；</p>
+</blockquote>
+<p>如有不明确之处可参见官网：<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
+<p><strong>主题安装</strong></p>
+<p>hexo提供了众多主题，可以根据个人喜好进行安装，安装过程如下：</p>
 <blockquote>
-<p>备注：–name 表示容器名称　–link MYNF-mysql：表示连接容器名称，mysql 连接名称　-p 前面端口指代宿主端口号，后者表示容器内部的端口号　</p>
+<ol>
+<li>登录hexo官网(<a href="https://hexo.io/)，选择主题页面" target="_blank" rel="external">https://hexo.io/)，选择主题页面</a></li>
+<li>选择喜欢的主题，进入对应的github获取主题源码</li>
+<li>进入博客主目录，git clone 仓库地址 themes/主题名称（可自定义）</li>
+<li>将_config.yml 下面的theme: landscape 修改为theme：主题名称</li>
+<li>其他依赖包相关可参见主题所在github下的关于主题仓库的说明</li>
+<li>hexo clean  –&gt; hexo g –&gt;hexo server</li>
+</ol>
+</blockquote>
+<p>综上所述均为本地如何开发hexo，我们构建个人博客需要远程访问，接下来，讲述如何将github与hexo结合开发个人博客：</p>
+<p><strong>将本地博客发布在github上面</strong></p>
+<blockquote>
+<ol>
+<li><p>首先在github上创建blog仓库</p>
+</li>
+<li><p>进入项目主目录打开_config.yml，在文中对应位置添加以下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    url:  github配置的页面访问url</div><div class="line">&gt;    root: github根目录</div><div class="line">&gt;    deploy:</div><div class="line">&gt;      type: git</div><div class="line">&gt;      repo: git@github.com:github上个人的仓库</div><div class="line">&gt;      branch: master</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>打包<strong>hexo g</strong></p>
+</li>
+<li><p>执行构建，在此之前需要安装构架依赖的组件：<strong>npm install hexo-deployer-git –save</strong> （如没有该依赖会报错：ERROR Deployer not found: git）</p>
+</li>
+<li><p>执行构建，<strong>hexo d</strong>或者<strong>hexo deploy</strong> 或者 <strong>hexo d -g</strong></p>
+</li>
+<li><p>在github配置的页面访问路径下访问该博客</p>
+</li>
+</ol>
 </blockquote>
 
       
@@ -580,7 +619,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
         		</li>
       		
 		</ul>
@@ -590,7 +629,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/Docker构建项目/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/23/hexo搭建个人博客教程/">展开全文 >></a>
         </p>
       
 
@@ -807,6 +846,115 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之抽象工厂/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Docker构建项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/Docker构建项目/">Docker初体验之构建javaWeb项目</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/Docker构建项目/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Docker-构建javaWeb项目"><a href="#Docker-构建javaWeb项目" class="headerlink" title="Ｄocker 构建javaWeb项目"></a>Ｄocker 构建javaWeb项目</h3><h4 id="主环境搭建（tomcat）"><a href="#主环境搭建（tomcat）" class="headerlink" title="主环境搭建（tomcat）"></a>主环境搭建（tomcat）</h4><p>步骤如下：</p>
+<p>1.拉取基准镜像：docker pull hub.c.163.com/public/ubuntu:16.04-tools</p>
+<p>2.配置Dockerfile:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu MYNF Dockerfile</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">###base system</span></div><div class="line"><span class="keyword">FROM</span> hub.c.<span class="number">163</span>.com/public/ubuntu:<span class="number">16.04</span>-tools</div><div class="line"></div><div class="line"><span class="comment">###auther</span></div><div class="line"><span class="keyword">MAINTAINER</span> crazyxxl <span class="string">"1228785231@qq.com"</span></div><div class="line"></div><div class="line"><span class="comment">###config java env begin</span></div><div class="line"><span class="keyword">ADD</span> jdk1.8.0_144 /usr/local/java</div><div class="line"><span class="keyword">RUN</span> ls /usr/local/java/</div><div class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/local/java</div><div class="line"><span class="keyword">ENV</span> PATH $JAVA_HOME/bin:$PATH</div><div class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib</div><div class="line"><span class="comment">###config java env end</span></div><div class="line"></div><div class="line"><span class="comment">###config jms begin</span></div><div class="line"><span class="keyword">ADD</span> apache-activemq-5.5.0 /usr/local/jms</div><div class="line"><span class="comment">###config jms end</span></div><div class="line"></div><div class="line"><span class="keyword">COPY</span> apache-tomcat-8.5.20 /usr/local/tomcat/apache-tomcat-8.5.20/</div><div class="line"><span class="keyword">COPY</span> mynf.war /usr/local/tomcat/apache-tomcat-8.5.20/webapps/</div><div class="line"><span class="keyword">COPY</span> dist /usr/local/tomcat/apache-tomcat-8.5.20/webapps/ROOT/</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/*</div><div class="line"><span class="keyword">RUN</span> chmod +x /usr/local/tomcat/apache-tomcat-8.5.20/bin/*.sh</div><div class="line"><span class="keyword">EXPOSE</span> <span class="number">8080</span> <span class="number">60000</span></div><div class="line"><span class="keyword">CMD</span> /usr/local/jms/bin/activemq start</div><div class="line"><span class="keyword">ENTRYPOINT</span> /usr/local/tomcat/apache-tomcat-8.5.20/bin/catalina.sh run</div></pre></td></tr></table></figure>
+<p>3.构建镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t xxl/ubuntu/mynf .</div></pre></td></tr></table></figure>
+<h4 id="构建mongo镜像"><a href="#构建mongo镜像" class="headerlink" title="构建mongo镜像"></a>构建mongo镜像</h4><p>１.拉取mongodb镜像：docker pull hub.c.163.com/public/mongodb:3.2.0</p>
+<p>2.导出宿主机上面的ｍｏｎｇｏ数据，并将其放置在/data 下面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodump  -d mynf -o /data</div></pre></td></tr></table></figure>
+<p>2.启动镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_mongo -v /data:/mnt -d hub.c.163.com/public/mongodb:3.2.0</div></pre></td></tr></table></figure>
+<blockquote>
+<p>备注：-v 表示把宿主机子上面的/data 挂在到容器的/mnt下面。这样/data下面的数据就可以被容器访问了</p>
+</blockquote>
+<p>３.进入容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it mynf_mongo bash</div></pre></td></tr></table></figure>
+<p>4.导入数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore  -d mynf --dir /mnt/mynf</div></pre></td></tr></table></figure>
+<p>5.创建用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">use mynf;</div><div class="line">db.createUser(&#123;user:"root",pwd:"mynfadmin",roles:[]&#125;);</div></pre></td></tr></table></figure>
+<h4 id="构建mysql环境"><a href="#构建mysql环境" class="headerlink" title="构建mysql环境"></a>构建mysql环境</h4><p>１.拉取mysql镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull hub.c.163.com/library/mysql:latest</div></pre></td></tr></table></figure>
+<p> 2.导出宿主镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -u root -p mynf &gt; mynf.sql</div></pre></td></tr></table></figure>
+<p>3.创建挂载文件夹：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/mysql</div></pre></td></tr></table></figure>
+<p>4.启动镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name MYNF-mysql  -v /data/mynf:/mnt   -e MYSQL_ROOT_PASSWORD=mima -d hub.c.163.com/library/mysql</div></pre></td></tr></table></figure>
+<p>5.进入镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it MYNF-mysql bash</div></pre></td></tr></table></figure>
+<p>6.导入数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pPSW -e source /mnt/mynf.sql</div></pre></td></tr></table></figure>
+<h4 id="连接容器启动项目"><a href="#连接容器启动项目" class="headerlink" title="连接容器启动项目"></a>连接容器启动项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mynf_server --link MYNF-mysql:mysql --link mynf_mongo:mongo -p 8080:8080  -d xxl/ununtu/mynf</div></pre></td></tr></table></figure>
+<blockquote>
+<p>备注：–name 表示容器名称　–link MYNF-mysql：表示连接容器名称，mysql 连接名称　-p 前面端口指代宿主端口号，后者表示容器内部的端口号　</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/Docker构建项目/">展开全文 >></a>
         </p>
       
 
@@ -1191,10 +1339,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -1207,15 +1351,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">设计模式学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计划</a>
               </li>
             
             <div class="clearfix"></div>

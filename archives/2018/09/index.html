@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://crazyxxl.github.io">
-  <title>BigData-Spark | crazy的博客</title>
+  <title>Archives: 2018/9 | crazy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="spark学习笔记 关于spark的介绍，本文不做详述，本文主要讲述python-spark相关，以实操位置  无需搭建环境即可执行前置执行 1pip install pyspark 单词数目统计 1234567891011121314151617181920#!/usr/bin/env python# -*- coding:utf-8 -*-&quot;&quot;&quot;@author: xingxiaolong@co">
-<meta name="keywords" content="BigData">
-<meta property="og:type" content="article">
-<meta property="og:title" content="BigData-Spark">
-<meta property="og:url" content="https://crazyxxl.github.io/2018/08/05/spark学习笔记/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="crazy的博客">
+<meta property="og:url" content="https://crazyxxl.github.io/archives/2018/09/index.html">
 <meta property="og:site_name" content="crazy的博客">
-<meta property="og:description" content="spark学习笔记 关于spark的介绍，本文不做详述，本文主要讲述python-spark相关，以实操位置  无需搭建环境即可执行前置执行 1pip install pyspark 单词数目统计 1234567891011121314151617181920#!/usr/bin/env python# -*- coding:utf-8 -*-&quot;&quot;&quot;@author: xingxiaolong@co">
-<meta property="og:updated_time" content="2018-08-05T06:42:57.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BigData-Spark">
-<meta name="twitter:description" content="spark学习笔记 关于spark的介绍，本文不做详述，本文主要讲述python-spark相关，以实操位置  无需搭建环境即可执行前置执行 1pip install pyspark 单词数目统计 1234567891011121314151617181920#!/usr/bin/env python# -*- coding:utf-8 -*-&quot;&quot;&quot;@author: xingxiaolong@co">
+<meta name="twitter:title" content="crazy的博客">
   
     <link rel="alternative" href="/atom.xml" title="crazy的博客" type="application/atom+xml">
   
@@ -140,253 +135,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-spark学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      BigData-Spark
-    </h1>
-  
-
-        
-        <a href="/2018/08/05/spark学习笔记/" class="archive-article-date">
-  	<time datetime="2018-08-05T06:43:17.952Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-05</time>
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/09/08/mongodb通过mapreduce实现数据base64编解码/" class="archive-article-date">
+  	<time datetime="2018-09-08T02:40:08.905Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="spark学习笔记"><a href="#spark学习笔记" class="headerlink" title="spark学习笔记"></a>spark学习笔记</h3><blockquote>
-<p>关于spark的介绍，本文不做详述，本文主要讲述python-spark相关，以实操位置</p>
-</blockquote>
-<h4 id="无需搭建环境即可执行"><a href="#无需搭建环境即可执行" class="headerlink" title="无需搭建环境即可执行"></a>无需搭建环境即可执行</h4><p>前置执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install pyspark</div></pre></td></tr></table></figure>
-<p>单词数目统计</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_001.py</div><div class="line">@time: 18-7-22 下午4:33</div><div class="line">@desc: word count demo for pyspark</div><div class="line">"""</div><div class="line"></div><div class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    sc = SparkContext()</div><div class="line">    files_rdd = sc.textFile(<span class="string">"/home/xxl/personal_protice/data_source/word_count_source.txt"</span>, use_unicode=<span class="keyword">True</span>)</div><div class="line">    word = files_rdd.flatMap(<span class="keyword">lambda</span> line: line.split(<span class="string">" "</span>))</div><div class="line">    word_map = word.map(<span class="keyword">lambda</span> line: (line, <span class="number">1</span>)).countByKey()</div><div class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> word_map.items():</div><div class="line">        <span class="keyword">print</span> key, value</div></pre></td></tr></table></figure>
-<p>搜狗实验室数据集分析</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># encoding: utf-8</span></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_002.py</div><div class="line">@time: 18-7-22 下午4:51</div><div class="line">@desc: spark_002 搜狗实验室搜索数据处理</div><div class="line">"""</div><div class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    sc = SparkContext()</div><div class="line">    sou_gou_data = sc.textFile(<span class="string">"/home/xxl/personal_protice/data_source/SogouE.txt"</span>, use_unicode=<span class="keyword">True</span>)</div><div class="line">    words = sou_gou_data.flatMap(<span class="keyword">lambda</span> line: line.split(<span class="string">"\t"</span>))</div><div class="line"></div><div class="line">    <span class="comment"># 统计关键词,以及文本出现次数</span></div><div class="line">    all_words = words.collect()</div><div class="line">    keys = list()</div><div class="line">    index = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> all_words:</div><div class="line">        <span class="keyword">if</span> index % <span class="number">3</span> == <span class="number">0</span>:</div><div class="line">            keys.append(word)</div><div class="line">        index = index+<span class="number">1</span></div><div class="line">    sou_gou_data_key = words.filter(<span class="keyword">lambda</span> word: word <span class="keyword">in</span> keys)</div><div class="line">    words_map = sou_gou_data_key.map(<span class="keyword">lambda</span> line: (line, <span class="number">1</span>)).countByKey()</div><div class="line">    index = <span class="number">0</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"----------------key words counter start--------------"</span></div><div class="line">    <span class="keyword">for</span> item, info <span class="keyword">in</span> words_map.items():</div><div class="line">        <span class="keyword">print</span> <span class="string">"key is %s,times is %s"</span> %(item, info)</div><div class="line">    <span class="keyword">print</span> <span class="string">"----------------key words counter end--------------"</span></div><div class="line"></div><div class="line">    <span class="comment"># 统计关键词搜索出的站点</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"------------start analyse keywords and the results-------------------"</span></div><div class="line">    key_search_site = sou_gou_data.map(<span class="keyword">lambda</span> line: (line.split(<span class="string">"\t"</span>)[<span class="number">0</span>], line.split(<span class="string">"\t"</span>)[<span class="number">1</span>]))</div><div class="line">    result_site = key_search_site.groupByKey()</div><div class="line">    result_list = result_site.collect()</div><div class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> result_list:</div><div class="line">        <span class="keyword">print</span> <span class="string">"keyword is %s result is :"</span> % result[<span class="number">0</span>]</div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> result[<span class="number">1</span>]:</div><div class="line">            <span class="keyword">print</span> site</div><div class="line"></div><div class="line">    <span class="comment"># 统计文本关键词所搜最多的站点</span></div><div class="line">    key_search_site_count = sou_gou_data.map(<span class="keyword">lambda</span> line: (line.split(<span class="string">"\t"</span>)[<span class="number">0</span>], (line.split(<span class="string">"\t"</span>)[<span class="number">1</span>],</div><div class="line">                                                                                 line.split(<span class="string">"\t"</span>)[<span class="number">2</span>])))</div><div class="line">    result_site_count = key_search_site_count.groupByKey()</div><div class="line">    result_list = result_site_count.collect()</div><div class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> result_list:</div><div class="line">        <span class="keyword">print</span> result[<span class="number">0</span>]</div><div class="line">        number = <span class="number">0</span></div><div class="line">        site_name = <span class="keyword">None</span></div><div class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> result[<span class="number">1</span>]:</div><div class="line">            <span class="keyword">if</span> site[<span class="number">1</span>] &gt; number:</div><div class="line">                number = site[<span class="number">1</span>]</div><div class="line">                site_name = site[<span class="number">0</span>]</div><div class="line">        <span class="keyword">print</span> site_name, number</div></pre></td></tr></table></figure>
-<h4 id="需要python集群作为支撑"><a href="#需要python集群作为支撑" class="headerlink" title="需要python集群作为支撑"></a>需要python集群作为支撑</h4><h5 id="spark集群环境搭建（yarn）"><a href="#spark集群环境搭建（yarn）" class="headerlink" title="spark集群环境搭建（yarn）"></a>spark集群环境搭建（yarn）</h5><p><em>前置条件</em>：</p>
-<p>下载hadoop，spark（本文使用版本spark-2.2.2-bin-hadoop2.7，hadoop-2.8.4）</p>
-<p>创建虚拟机两台</p>
-<p><em>过程详述：</em></p>
-<ol>
-<li>添加hosts解析(ip根据自己的虚拟机ip自定)</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">192.168.1.103 master</div><div class="line">192.168.1.107 slave</div></pre></td></tr></table></figure>
-<ol>
-<li>两台虚拟机添加彼此公钥到彼此的 ~/.ssh/authorized_keys下，实现彼此无密码访问</li>
-<li>配置hadoop</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> hadoop-env.sh添加</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># hdfs-site.xml </div><div class="line">&lt;configuration&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.replication&lt;/name&gt;</div><div class="line">      &lt;value&gt;1&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">    </div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.name.dir&lt;/name&gt;</div><div class="line">      &lt;value&gt;file:///home/hadoop/hadoopinfra/hdfs/namenode &lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">    </div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;dfs.data.dir&lt;/name&gt; </div><div class="line">      &lt;value&gt;file:///home/hadoop/hadoopinfra/hdfs/datanode &lt;/value&gt; </div><div class="line">   &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># core-site.xml</div><div class="line">&lt;configuration&gt;</div><div class="line">    &lt;property&gt;</div><div class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</div><div class="line">        &lt;value&gt;hdfs://master:9000&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"># yarn-site.xml</div><div class="line">&lt;configuration&gt;</div><div class="line">&lt;!-- Site specific YARN configuration properties --&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">      &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</div><div class="line">      &lt;value&gt;mapreduce_shuffle&lt;/value&gt; </div><div class="line">   &lt;/property&gt;</div><div class="line">      &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</div><div class="line">         &lt;value&gt;master&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</div><div class="line">         &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8032&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8030&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8031&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8033&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">   &lt;property&gt;</div><div class="line">         &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</div><div class="line">         &lt;value&gt;master:8088&lt;/value&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">&lt;/configuration&gt;</div><div class="line"></div><div class="line"># slaves</div><div class="line">slave</div></pre></td></tr></table></figure>
-<ol>
-<li>spark配置</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> spark-env.sh</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div><div class="line">export SPARK_MASTER_IP=master</div><div class="line">export SPARK_WORKER_MEMORY=1g</div><div class="line">export SPARK_EXECUTOR_MEMORY=1g</div><div class="line">export SPARK_DRIVER_MEMORY=500m</div><div class="line">export SPARK_WORKER_CORES=2</div><div class="line">export SPARK_HOME=/opt/spark-2.2.2-bin-hadoop2.7</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># spark-defaults.conf</div><div class="line">spark.master                     spark://master:7077</div><div class="line">spark.eventLog.enabled           true</div><div class="line">spark.eventLog.dir               hdfs://master:9000/directory</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># slaves</div><div class="line">slave</div></pre></td></tr></table></figure>
-<ol>
-<li>配置环境变量</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># java_env</div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_171</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib</div><div class="line">export PATH=$JAVA_HOME/bin:$PATH</div><div class="line"># haddop_env</div><div class="line">export HADOOP_HOME=/opt/hadoop-2.8.4</div><div class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</div><div class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</div><div class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</div><div class="line">export SPARK_HOME=/opt/spark-2.2.2-bin-hadoop2.7</div></pre></td></tr></table></figure>
-<ol>
-<li>开始运行</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">start-all.sh（hadoop）</div><div class="line">主节点启动方式指定ip</div><div class="line">./start-master.sh -h master</div><div class="line">从节点启动方式</div><div class="line">./sbin/start-slave.sh master://broker1:7077</div></pre></td></tr></table></figure>
-<p>kafka集群搭建，不做详述</p>
-<p>注意点：</p>
-<p>1、kafka客户端连接不上kafka集群</p>
-<p>需要在kafka的配置：server.properties中添加配置：hostname:本机ip</p>
-<p>2、spark连接kafka集群出错</p>
-<p>需要添加：</p>
-<p>listeners=PLAINTEXT://hostname:9092</p>
-<p>advertised.listeners=PLAINTEXT://hostname:9092</p>
-<p><em>spark-streaming-kafka-单词统计</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># encoding: utf-8</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">@author: xingxiaolong</div><div class="line">@contact: 1228785231@qq.com</div><div class="line">@software: spark_demo</div><div class="line">@file: spark_003.py</div><div class="line">@time: 18-7-22 下午5:57</div><div class="line">@desc:</div><div class="line">&quot;&quot;&quot;</div><div class="line">from pyspark import SparkContext</div><div class="line">from pyspark.streaming import StreamingContext</div><div class="line">from pyspark.streaming.kafka import KafkaUtils</div><div class="line">import redis</div><div class="line"></div><div class="line"></div><div class="line">class RedisClient(object):</div><div class="line">    def __init__(self, host, port):</div><div class="line">        self.host = host</div><div class="line">        self.port = port</div><div class="line">        self.pool = redis.ConnectionPool(host=self.host, port=self.port, db=0)</div><div class="line">        self.redis_cli = redis.StrictRedis(connection_pool=self.pool)</div><div class="line"></div><div class="line">    def insert_data_into_redis(self, key, value):</div><div class="line">        self.redis_cli.hset(&quot;data&quot;, key, value)</div><div class="line"></div><div class="line">    def get_redis_cli(self):</div><div class="line">        return self.redis_cli</div><div class="line"></div><div class="line"></div><div class="line">def echo(rdd):</div><div class="line">    rdd_list = rdd.collect()</div><div class="line">    if rdd_list and len(rdd_list) &gt; 0:</div><div class="line">        for item in rdd_list:</div><div class="line">            print (str(item[1]) + &quot;:&quot; + str(item[0]))</div><div class="line">            rc.insert_data_into_redis(str(item[0]), str(item[1]))</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    rc = RedisClient(&quot;192.168.1.103&quot;, &quot;6379&quot;)</div><div class="line">    sc = SparkContext(master=&quot;spark://192.168.1.103:7077&quot;, appName=&quot;Spark Stream example for kafka&quot;)</div><div class="line">    ssc = StreamingContext(sc, 5)</div><div class="line">    k_stream = KafkaUtils.createStream(ssc, &quot;192.168.1.103:2181&quot;, &quot;redis&quot;, &#123;&quot;test1&quot;: 1&#125;)</div><div class="line">    word_stream = k_stream.map(lambda x: x[1])</div><div class="line">    words = word_stream.flatMap(lambda line: line.split(&quot; &quot;))</div><div class="line">    pair = words.map(lambda line: (line, 1))</div><div class="line">    result = pair.reduceByKey(lambda x, y: x+y)</div><div class="line">    result.foreachRDD(echo)</div><div class="line">    ssc.start()</div><div class="line">    ssc.awaitTermination()</div></pre></td></tr></table></figure>
-<p>注意点，kafka-sparkstreaming本机提交任务到集群时，需要注意本机的spark-streaming-kafka-0-10-assembly_2.10-2.2.2与集群worker一致，sparkconfig配置不生效，俺不知道为啥</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechat.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BigData</a>
-        		</li>
-      		
-		</ul>
-	</div>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://crazyxxl.github.io/2018/08/05/spark学习笔记/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/09/08/mongodb通过mapreduce实现数据base64编解码/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/06/23/Linux下面显示分支名称的方法：/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux下面显示分支名称的方法</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#spark学习笔记"><span class="toc-number">1.</span> <span class="toc-text">spark学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#无需搭建环境即可执行"><span class="toc-number">1.1.</span> <span class="toc-text">无需搭建环境即可执行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需要python集群作为支撑"><span class="toc-number">1.2.</span> <span class="toc-text">需要python集群作为支撑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#spark集群环境搭建（yarn）"><span class="toc-number">1.2.1.</span> <span class="toc-text">spark集群环境搭建（yarn）</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="spark学习笔记" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cytq8Rfod",
-        conf: "1b3305975ccf5ca713923c392f03782d"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -409,8 +194,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
