@@ -150,7 +150,7 @@
 
         
         <a href="/2018/09/08/mongodb通过mapreduce实现数据base64编解码/" class="archive-article-date">
-  	<time datetime="2018-09-08T02:42:00.871Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+  	<time datetime="2018-09-08T02:46:12.065Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
 </a>
         
       </header>
@@ -440,81 +440,6 @@
 
 
   
-    <article id="post-Linux下面显示分支名称的方法：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/Linux下面显示分支名称的方法：/">Linux下面显示分支名称的方法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/Linux下面显示分支名称的方法：/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Linux下面显示分支名称的方法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function git_branch &#123;</div><div class="line">  branch="`git branch 2&gt;/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"</div><div class="line">  if [ "$&#123;branch&#125;" != "" ];then</div><div class="line">      if [ "$&#123;branch&#125;" = "(no branch)" ];then</div><div class="line">          branch="(`git rev-parse --short HEAD`...)"</div><div class="line">      fi</div><div class="line">      echo "-&gt;$branch"</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"> </div><div class="line">export PS1='\[\e[37;40m\][\[\033[01;36m\]\u\[\e[37;40m\]@\[\e[0m\]\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\]\[\e[37;40m\]]\[\e[0m\]\$ '</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/Linux下面显示分支名称的方法：/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-设计模式学习笔记之装饰器模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -578,6 +503,81 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之装饰器模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux下面显示分支名称的方法：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/Linux下面显示分支名称的方法：/">Linux下面显示分支名称的方法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/Linux下面显示分支名称的方法：/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Linux下面显示分支名称的方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function git_branch &#123;</div><div class="line">  branch="`git branch 2&gt;/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"</div><div class="line">  if [ "$&#123;branch&#125;" != "" ];then</div><div class="line">      if [ "$&#123;branch&#125;" = "(no branch)" ];then</div><div class="line">          branch="(`git rev-parse --short HEAD`...)"</div><div class="line">      fi</div><div class="line">      echo "-&gt;$branch"</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"> </div><div class="line">export PS1='\[\e[37;40m\][\[\033[01;36m\]\u\[\e[37;40m\]@\[\e[0m\]\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\]\[\e[37;40m\]]\[\e[0m\]\$ '</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/Linux下面显示分支名称的方法：/">展开全文 >></a>
         </p>
       
 
@@ -694,6 +694,213 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之工厂模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-centos7下Jenkins安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/centos7下Jenkins安装/">centos7下Jenkins安装</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/centos7下Jenkins安装/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
+<p>1、yum安装安装的为Linux下的open-jdk</p>
+<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
+<blockquote>
+<p>1、到甲骨文官网找到要下在的文件地址</p>
+<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>2、下载该压缩包：</p>
+<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>3、下载完成之后解压</p>
+<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
+<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
+<p>4、vi /etc/profile</p>
+<p>添加：</p>
+<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
+<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
+<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
+<p>PATH=$JAVA_HOME/bin:$$PATH</p>
+<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
+<p>5、source /etc/profile 让添加项生效</p>
+<p>至此jdk安装成功;</p>
+</blockquote>
+<p>接下来安装Jenkins：</p>
+<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="external">jenkins官网</a></p>
+<p>在这里我们选择稳定版安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</div><div class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</div><div class="line">sudo yum install jenkins</div></pre></td></tr></table></figure>
+<p>安装成功后启动:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service jenkins start(或者 systemctl start jenkins)</div></pre></td></tr></table></figure>
+<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
+<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</div><div class="line">firewall-cmd --zone=public --add-service=http --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
+<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
+<p>结束</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/centos7下Jenkins安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2018年读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/2018年读书计划/">2018读书计划</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/2018年读书计划/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2018年读书计划"><a href="#2018年读书计划" class="headerlink" title="2018年读书计划"></a>2018年读书计划</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>书籍总共十本:每月一本,每本书籍做好计划,在个人博客写读书笔记,设计编码的,绘制类图,写好代码以及注释</p>
+<h3 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h3><p>技术书单:</p>
+<ol>
+<li>设计模式:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
+<li>数据结构与算法:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
+<li>网络:&lt;&lt;图解http&gt;&gt;</li>
+<li>数学:&lt;&lt;程序员的数学3：线性代数&gt;&gt;</li>
+<li>服务:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
+<li>密码:&lt;&lt;密码学基础&gt;&gt;</li>
+</ol>
+<p>文学书单:</p>
+<ol>
+<li>精进</li>
+<li>沉默的大多数</li>
+<li>明朝那些事</li>
+<li>人类简史:从动物到上帝</li>
+</ol>
+<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><ol>
+<li>3-4:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
+<li>4-5:&lt;&lt;精进&gt;&gt;</li>
+<li>5-6:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
+<li>6-7:&lt;&lt;沉默的大多数&gt;&gt;</li>
+<li>7-8:&lt;&lt;图解http&gt;&gt;</li>
+<li>8-9:&lt;&lt;明朝那些事&gt;&gt;</li>
+<li>9-10:&lt;&lt; 程序员的数学3:线性代数&gt;&gt;</li>
+<li>10-11:&lt;&lt;人类简史：从动物到上帝&gt;&gt;</li>
+<li>11-12:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
+<li>12-01(19):&lt;&lt;密码学基础&gt;&gt;</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计划</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/2018年读书计划/">展开全文 >></a>
         </p>
       
 
@@ -852,19 +1059,19 @@
 
 
   
-    <article id="post-centos7下Jenkins安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-springboot环境搭建教程（eclipse）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/centos7下Jenkins安装/">centos7下Jenkins安装</a>
+      <a class="article-title" href="/2018/06/23/springboot环境搭建教程（eclipse）/">springboot环境搭建</a>
     </h1>
   
 
         
-        <a href="/2018/06/23/centos7下Jenkins安装/" class="archive-article-date">
+        <a href="/2018/06/23/springboot环境搭建教程（eclipse）/" class="archive-article-date">
   	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
 </a>
         
@@ -872,38 +1079,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
-<p>1、yum安装安装的为Linux下的open-jdk</p>
-<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
-<blockquote>
-<p>1、到甲骨文官网找到要下在的文件地址</p>
-<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
-<p>2、下载该压缩包：</p>
-<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="external">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
-<p>3、下载完成之后解压</p>
-<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
-<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
-<p>4、vi /etc/profile</p>
-<p>添加：</p>
-<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
-<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
-<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
-<p>PATH=$JAVA_HOME/bin:$$PATH</p>
-<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
-<p>5、source /etc/profile 让添加项生效</p>
-<p>至此jdk安装成功;</p>
-</blockquote>
-<p>接下来安装Jenkins：</p>
-<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="external">jenkins官网</a></p>
-<p>在这里我们选择稳定版安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</div><div class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</div><div class="line">sudo yum install jenkins</div></pre></td></tr></table></figure>
-<p>安装成功后启动:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service jenkins start(或者 systemctl start jenkins)</div></pre></td></tr></table></figure>
-<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
-<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</div><div class="line">firewall-cmd --zone=public --add-service=http --permanent</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
-<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
-<p>结束</p>
+        <h2 id="springboot环境搭建教程（eclipse）"><a href="#springboot环境搭建教程（eclipse）" class="headerlink" title="springboot环境搭建教程（eclipse）"></a>springboot环境搭建教程（eclipse）</h2><ol>
+<li>new-&gt;project-&gt;maven Project-&gt;quickStart</li>
+<li>查看文件目录机构，是否符合约定优配置原则</li>
+<li>配置pom，添加一下依赖</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;parent&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.2.7.RELEASE&lt;/version&gt;</div><div class="line">&lt;/parent&gt;</div><div class="line">  &lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">   	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;dependencies&gt;</div></pre></td></tr></table></figure>
+<p>4、添加配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">spring.datasource.url = jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false //若使用到数据库在此配置，需要在pom里面添加对应的数据驱动，或配置于环境变量中</div><div class="line">spring.datasource.username = username</div><div class="line">spring.datasource.password = password</div><div class="line">spring.datasource.driverClassName = com.mysql.jdbc.Driver</div><div class="line">spring.jpa.database = MYSQL</div><div class="line">spring.jpa.show-sql = true</div><div class="line">spring.jpa.hibernate.ddl-auto = update</div><div class="line">spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy</div><div class="line">spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect</div><div class="line">spring.template.cache = false</div></pre></td></tr></table></figure>
+<p>5、建立boot类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookStart</span> </span>&#123;	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SpringApplication.run(BookStart.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>6、建立controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</div><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>至此、配置完成；</p>
+<p><strong>注意：boot类一定要位于所有其他组件（controller，service，vo）的上层，否则，会导致组件注册失败</strong></p>
 
       
 
@@ -917,7 +1106,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
         		</li>
       		
 		</ul>
@@ -927,212 +1116,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/centos7下Jenkins安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记之观察者模式/">设计模式学习笔记之观察者模式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/设计模式学习笔记之观察者模式/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记之观察者模式"><a href="#设计模式学习笔记之观察者模式" class="headerlink" title="设计模式学习笔记之观察者模式"></a>设计模式学习笔记之观察者模式</h2><h3 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h3><p>观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式</p>
-<blockquote>
-<p>举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)</p>
-</blockquote>
-<h3 id="观察者模式类图"><a href="#观察者模式类图" class="headerlink" title="观察者模式类图"></a>观察者模式类图</h3><p><img src="http://www.crazyxxl.tech/Observer.png" alt="观察者模式类图"></p>
-<p><strong>简要叙述:</strong></p>
-<p><strong>Subject(被监听着接口):</strong></p>
-<p>对于一个被监听者而言,监听其的对象可以有多个(皇帝派出多个间谍监听某一大臣),当某一监听者需要监听被监听者的时候,Subject调用注册监听者方法(registerObserver),取消监听调用(removeObserver),当其状态发生改变的时候调用notifyObserver方法通知已监听该对象的对象</p>
-<p><strong>ConcreteSubject:</strong></p>
-<p>实际被监听者</p>
-<p><strong>Observer:</strong></p>
-<p>监听者对象接口</p>
-<p><strong>ConcreteObserver:</strong></p>
-<p>实际监听的对象</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>古时候,某一个皇帝觉得自己的宰相有谋反的意图,因此派出了间谍1,潜入相府,检查宰相的行为,一旦有变立即上报,辅政大臣一片赤诚之心,派遣了间谍2去监测丞相的行为,用程序模拟该行为</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>皇帝和辅政大臣同时派出了间谍1和间谍2,来监听丞相的行为,我们可以将丞相模拟成被监听者(本来就是个被监听者),间谍1和间谍2是监听者,一旦他有谋反的举动,就干掉他</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><p><img src="http://www.crazyxxl.tech/Observer-eg.png" alt=""></p>
-<p>监控者接口:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>间谍1:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍1</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage1</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"发现他谋反了,通知皇上"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>间谍2:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍2</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage2</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"丞相谋反了,快快通知辅政大臣"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>被监听者接口:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 被监听者接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 注册监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>丞相类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> move_xing</div><div class="line"> * <span class="doctag">@describe</span> 丞相类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeMinister</span> <span class="keyword">implements</span> <span class="title">Subject</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        observers.add(object);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = observers.indexOf(object);</div><div class="line">        <span class="keyword">if</span>(-<span class="number">1</span> != index) &#123;</div><div class="line">            observers.remove(index);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebellion</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"杀了那个狗皇帝"</span>);</div><div class="line">        notifyObserver();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">        observers.forEach(item-&gt;&#123;</div><div class="line">            item.update();</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>场景类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 场景类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">//初始化丞相类</span></div><div class="line">        PrimeMinister primeMinister = <span class="keyword">new</span> PrimeMinister();</div><div class="line">        <span class="comment">//皇上派出间谍</span></div><div class="line">        Espionage1 espionage1 = <span class="keyword">new</span> Espionage1();</div><div class="line">        <span class="comment">//辅政大臣派出间谍</span></div><div class="line">        Espionage2 espionage2 = <span class="keyword">new</span> Espionage2();</div><div class="line">        <span class="comment">//间谍1潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage1);</div><div class="line">        <span class="comment">//间谍2潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage2);</div><div class="line">        <span class="comment">//丞相谋反了</span></div><div class="line">        primeMinister.rebellion();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line">*out:</div><div class="line">*杀了那个狗皇帝</div><div class="line">*发现他谋反了,通知皇上</div><div class="line">*丞相谋反了,快快通知辅政大臣</div><div class="line">*/</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>监听者模式在我们的开发中是经常会遇到的,前端触发,若干事件触发机制,Android开发事件触发,(部分是监控者模式,当然也有责任链模式),java自身也提供了Observer对象,以及Observable接口来实现监听者模式,感兴趣的可以下来自己看一下.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之观察者模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2018年读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/2018年读书计划/">2018读书计划</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/2018年读书计划/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="2018年读书计划"><a href="#2018年读书计划" class="headerlink" title="2018年读书计划"></a>2018年读书计划</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>书籍总共十本:每月一本,每本书籍做好计划,在个人博客写读书笔记,设计编码的,绘制类图,写好代码以及注释</p>
-<h3 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h3><p>技术书单:</p>
-<ol>
-<li>设计模式:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
-<li>数据结构与算法:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
-<li>网络:&lt;&lt;图解http&gt;&gt;</li>
-<li>数学:&lt;&lt;程序员的数学3：线性代数&gt;&gt;</li>
-<li>服务:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
-<li>密码:&lt;&lt;密码学基础&gt;&gt;</li>
-</ol>
-<p>文学书单:</p>
-<ol>
-<li>精进</li>
-<li>沉默的大多数</li>
-<li>明朝那些事</li>
-<li>人类简史:从动物到上帝</li>
-</ol>
-<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><ol>
-<li>3-4:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
-<li>4-5:&lt;&lt;精进&gt;&gt;</li>
-<li>5-6:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
-<li>6-7:&lt;&lt;沉默的大多数&gt;&gt;</li>
-<li>7-8:&lt;&lt;图解http&gt;&gt;</li>
-<li>8-9:&lt;&lt;明朝那些事&gt;&gt;</li>
-<li>9-10:&lt;&lt; 程序员的数学3:线性代数&gt;&gt;</li>
-<li>10-11:&lt;&lt;人类简史：从动物到上帝&gt;&gt;</li>
-<li>11-12:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
-<li>12-01(19):&lt;&lt;密码学基础&gt;&gt;</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/2018年读书计划/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/23/springboot环境搭建教程（eclipse）/">展开全文 >></a>
         </p>
       
 
@@ -1283,15 +1267,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BigData</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
               </li>
              
               <li class="article-tag-list-item">

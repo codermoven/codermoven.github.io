@@ -137,6 +137,173 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-设计模式学习笔记之单一职责原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/设计模式学习笔记之单一职责原则/">设计模式学习笔记之单一职责原则</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/设计模式学习笔记之单一职责原则/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设计模式学习笔记之单一职责原则"><a href="#设计模式学习笔记之单一职责原则" class="headerlink" title="设计模式学习笔记之单一职责原则"></a>设计模式学习笔记之单一职责原则</h2><h3 id="什么是单一职责原则"><a href="#什么是单一职责原则" class="headerlink" title="什么是单一职责原则"></a>什么是单一职责原则</h3><p>引起一个类变化的因素只有一个,就叫做单一职责原则(又称为单一功能原则)</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>小张是xx公司程序员,现在遇到了一下问题:现在有两个较为简单的功能需要实现,但是这两个功能并无关联,但实现较为简单,于是小王想,这么简单,<strong>就写在一个类里面</strong>吧:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Functions</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionA</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能A</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionB</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能B</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>随着系统复杂性的提高,原有的两个功能无法支撑现有项目,需要修改,经过几轮的迭代,这两个函数已经变的较为复杂,这个类也已经被改变了若干次,变得异常的复杂.小张悔不当初啊,没能将当初的功能分割开来,致使这个点成为项目的一个弊病.</p>
+<p>时光倒流到了小张开始设计这个功能的时候………</p>
+<p>小张分析了这个功能以后,考虑了其扩展,最终将功能拆分成了两个类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="comment">//实现A的功能</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</div><div class="line">    <span class="comment">//实现功能B</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>于是乎,无论系统怎么扩展,A只负责A的模块,引起A变化的也只有A内部的因素,简单的说A只有一个功能,这就是单一职责.</p>
+<h3 id="有啥好处"><a href="#有啥好处" class="headerlink" title="有啥好处"></a>有啥好处</h3><p>就像上文所述,明确的职责划分,能够使得系统高度内聚,降低系统耦合度,能够使得系统的可扩展性提升.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之单一职责原则/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">关于angular4部署服务器刷新报错以及相关资源加载不到解决办法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>部署angular4项目：</p>
+<p>ng build –prod –aot</p>
+<p>资源加载不到问题：</p>
+<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
+<p>部署项目成功后刷新报错问题：</p>
+<p>需要在app.module里面添加配置项：</p>
+<p>首先导入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</div></pre></td></tr></table></figure>
+<p>其次在providers里面添加:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [</div><div class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-celery+rabbitmq+django构建分布式异步任务队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -227,177 +394,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/23/celery+rabbitmq+django构建分布式异步任务队列/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-springboot环境搭建教程（eclipse）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/springboot环境搭建教程（eclipse）/">springboot环境搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/springboot环境搭建教程（eclipse）/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="springboot环境搭建教程（eclipse）"><a href="#springboot环境搭建教程（eclipse）" class="headerlink" title="springboot环境搭建教程（eclipse）"></a>springboot环境搭建教程（eclipse）</h2><ol>
-<li>new-&gt;project-&gt;maven Project-&gt;quickStart</li>
-<li>查看文件目录机构，是否符合约定优配置原则</li>
-<li>配置pom，添加一下依赖</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;parent&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.2.7.RELEASE&lt;/version&gt;</div><div class="line">&lt;/parent&gt;</div><div class="line">  &lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">   	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;dependencies&gt;</div></pre></td></tr></table></figure>
-<p>4、添加配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">spring.datasource.url = jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false //若使用到数据库在此配置，需要在pom里面添加对应的数据驱动，或配置于环境变量中</div><div class="line">spring.datasource.username = username</div><div class="line">spring.datasource.password = password</div><div class="line">spring.datasource.driverClassName = com.mysql.jdbc.Driver</div><div class="line">spring.jpa.database = MYSQL</div><div class="line">spring.jpa.show-sql = true</div><div class="line">spring.jpa.hibernate.ddl-auto = update</div><div class="line">spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy</div><div class="line">spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect</div><div class="line">spring.template.cache = false</div></pre></td></tr></table></figure>
-<p>5、建立boot类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookStart</span> </span>&#123;	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SpringApplication.run(BookStart.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>6、建立controller</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</div><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>至此、配置完成；</p>
-<p><strong>注意：boot类一定要位于所有其他组件（controller，service，vo）的上层，否则，会导致组件注册失败</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/springboot环境搭建教程（eclipse）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">关于angular4部署服务器刷新报错以及相关资源加载不到解决办法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>部署angular4项目：</p>
-<p>ng build –prod –aot</p>
-<p>资源加载不到问题：</p>
-<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
-<p>部署项目成功后刷新报错问题：</p>
-<p>需要在app.module里面添加配置项：</p>
-<p>首先导入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</div></pre></td></tr></table></figure>
-<p>其次在providers里面添加:</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [</div><div class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">展开全文 >></a>
         </p>
       
 
@@ -539,19 +535,19 @@
 
 
   
-    <article id="post-设计模式学习笔记之单一职责原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记之单一职责原则/">设计模式学习笔记之单一职责原则</a>
+      <a class="article-title" href="/2018/06/23/设计模式学习笔记之观察者模式/">设计模式学习笔记之观察者模式</a>
     </h1>
   
 
         
-        <a href="/2018/06/23/设计模式学习笔记之单一职责原则/" class="archive-article-date">
+        <a href="/2018/06/23/设计模式学习笔记之观察者模式/" class="archive-article-date">
   	<time datetime="2018-06-23T07:44:22.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
 </a>
         
@@ -559,16 +555,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="设计模式学习笔记之单一职责原则"><a href="#设计模式学习笔记之单一职责原则" class="headerlink" title="设计模式学习笔记之单一职责原则"></a>设计模式学习笔记之单一职责原则</h2><h3 id="什么是单一职责原则"><a href="#什么是单一职责原则" class="headerlink" title="什么是单一职责原则"></a>什么是单一职责原则</h3><p>引起一个类变化的因素只有一个,就叫做单一职责原则(又称为单一功能原则)</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>小张是xx公司程序员,现在遇到了一下问题:现在有两个较为简单的功能需要实现,但是这两个功能并无关联,但实现较为简单,于是小王想,这么简单,<strong>就写在一个类里面</strong>吧:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Functions</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionA</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能A</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionB</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//功能B</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>随着系统复杂性的提高,原有的两个功能无法支撑现有项目,需要修改,经过几轮的迭代,这两个函数已经变的较为复杂,这个类也已经被改变了若干次,变得异常的复杂.小张悔不当初啊,没能将当初的功能分割开来,致使这个点成为项目的一个弊病.</p>
-<p>时光倒流到了小张开始设计这个功能的时候………</p>
-<p>小张分析了这个功能以后,考虑了其扩展,最终将功能拆分成了两个类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="comment">//实现A的功能</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</div><div class="line">    <span class="comment">//实现功能B</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>于是乎,无论系统怎么扩展,A只负责A的模块,引起A变化的也只有A内部的因素,简单的说A只有一个功能,这就是单一职责.</p>
-<h3 id="有啥好处"><a href="#有啥好处" class="headerlink" title="有啥好处"></a>有啥好处</h3><p>就像上文所述,明确的职责划分,能够使得系统高度内聚,降低系统耦合度,能够使得系统的可扩展性提升.</p>
+        <h2 id="设计模式学习笔记之观察者模式"><a href="#设计模式学习笔记之观察者模式" class="headerlink" title="设计模式学习笔记之观察者模式"></a>设计模式学习笔记之观察者模式</h2><h3 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h3><p>观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式</p>
+<blockquote>
+<p>举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)</p>
+</blockquote>
+<h3 id="观察者模式类图"><a href="#观察者模式类图" class="headerlink" title="观察者模式类图"></a>观察者模式类图</h3><p><img src="http://www.crazyxxl.tech/Observer.png" alt="观察者模式类图"></p>
+<p><strong>简要叙述:</strong></p>
+<p><strong>Subject(被监听着接口):</strong></p>
+<p>对于一个被监听者而言,监听其的对象可以有多个(皇帝派出多个间谍监听某一大臣),当某一监听者需要监听被监听者的时候,Subject调用注册监听者方法(registerObserver),取消监听调用(removeObserver),当其状态发生改变的时候调用notifyObserver方法通知已监听该对象的对象</p>
+<p><strong>ConcreteSubject:</strong></p>
+<p>实际被监听者</p>
+<p><strong>Observer:</strong></p>
+<p>监听者对象接口</p>
+<p><strong>ConcreteObserver:</strong></p>
+<p>实际监听的对象</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>古时候,某一个皇帝觉得自己的宰相有谋反的意图,因此派出了间谍1,潜入相府,检查宰相的行为,一旦有变立即上报,辅政大臣一片赤诚之心,派遣了间谍2去监测丞相的行为,用程序模拟该行为</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>皇帝和辅政大臣同时派出了间谍1和间谍2,来监听丞相的行为,我们可以将丞相模拟成被监听者(本来就是个被监听者),间谍1和间谍2是监听者,一旦他有谋反的举动,就干掉他</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><p><img src="http://www.crazyxxl.tech/Observer-eg.png" alt=""></p>
+<p>监控者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍1</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage1</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"发现他谋反了,通知皇上"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>间谍2:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 间谍2</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage2</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"丞相谋反了,快快通知辅政大臣"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被监听者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@describe</span> 被监听者接口</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 注册监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> object</div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 移除监听者</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>丞相类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> move_xing</div><div class="line"> * <span class="doctag">@describe</span> 丞相类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeMinister</span> <span class="keyword">implements</span> <span class="title">Subject</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        observers.add(object);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = observers.indexOf(object);</div><div class="line">        <span class="keyword">if</span>(-<span class="number">1</span> != index) &#123;</div><div class="line">            observers.remove(index);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebellion</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"杀了那个狗皇帝"</span>);</div><div class="line">        notifyObserver();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">        observers.forEach(item-&gt;&#123;</div><div class="line">            item.update();</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>场景类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 场景类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">//初始化丞相类</span></div><div class="line">        PrimeMinister primeMinister = <span class="keyword">new</span> PrimeMinister();</div><div class="line">        <span class="comment">//皇上派出间谍</span></div><div class="line">        Espionage1 espionage1 = <span class="keyword">new</span> Espionage1();</div><div class="line">        <span class="comment">//辅政大臣派出间谍</span></div><div class="line">        Espionage2 espionage2 = <span class="keyword">new</span> Espionage2();</div><div class="line">        <span class="comment">//间谍1潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage1);</div><div class="line">        <span class="comment">//间谍2潜入丞相府</span></div><div class="line">        primeMinister.registerObserver(espionage2);</div><div class="line">        <span class="comment">//丞相谋反了</span></div><div class="line">        primeMinister.rebellion();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line">*out:</div><div class="line">*杀了那个狗皇帝</div><div class="line">*发现他谋反了,通知皇上</div><div class="line">*丞相谋反了,快快通知辅政大臣</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>监听者模式在我们的开发中是经常会遇到的,前端触发,若干事件触发机制,Android开发事件触发,(部分是监控者模式,当然也有责任链模式),java自身也提供了Observer对象,以及Observable接口来实现监听者模式,感兴趣的可以下来自己看一下.</p>
 
       
 
@@ -592,123 +608,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之单一职责原则/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Angular 学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/Angular 学习笔记/">angular生命周期</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/Angular 学习笔记/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Angular-学习笔记："><a href="#Angular-学习笔记：" class="headerlink" title="Angular 学习笔记："></a>Angular 学习笔记：</h4><p><strong>生命周期钩子：</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1692534-691cbdecbd1df3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="钩子示意图"></p>
-<h5 id="共享模块"><a href="#共享模块" class="headerlink" title="共享模块"></a>共享模块</h5><p>共享模块作用：</p>
-<blockquote>
-<p>有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个<strong><em>ShareModule</em></strong>里面中：</p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NgModule &#125;            <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;        <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormsModule &#125;         <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AwesomePipe &#125;         <span class="keyword">from</span> <span class="string">'./awesome.pipe'</span>;</div><div class="line"><span class="keyword">import</span> &#123; HighlightDirective &#125;  <span class="keyword">from</span> <span class="string">'./highlight.directive'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ AwesomePipe, HighlightDirective ],</div><div class="line">  exports:      [ AwesomePipe, HighlightDirective,</div><div class="line">                  CommonModule, FormsModule ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> SharedModule &#123; &#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如上所示：</p>
-<p><strong>管道</strong></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AwesomePipe</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>指令</strong></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HighlightDirective</div></pre></td></tr></table></figure>
-<blockquote>
-<p>都需要在多个模块中使用，我们可以将其放置在同一个共享模块中，然后将共享模块导入到所要使用这些模块的组件里面，便可以使用这些组件</p>
-</blockquote>
-<p>模块共享注意点：</p>
-<p><strong><em>不要在共享模块中把应用级单例添加到<code>providers</code>中。 否则如果一个惰性加载模块导入了此共享模块，就会导致它自己也生成一份此服务的实例。</em></strong></p>
-<h5 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h5><p>核心模块作用：</p>
-<blockquote>
-<p>将系统首次启动需要加载且只加载一次的模块抽取出来，定义到一起形成一个独立的模块，类似共享模块，与其区别在与共享模块可以导入多次，但是核心模块全应用只能导入一次，否则会导致，单一应用实例被赋予新的值，比如<strong>service</strong></p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  ModuleWithProviders, NgModule,</div><div class="line">  Optional, SkipSelf &#125;       <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;      <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; TitleComponent &#125;    <span class="keyword">from</span> <span class="string">'./title.component'</span>;</div><div class="line"><span class="keyword">import</span> &#123; UserService &#125;       <span class="keyword">from</span> <span class="string">'./user.service'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ TitleComponent ],</div><div class="line">  exports:      [ TitleComponent ],</div><div class="line">  providers:    [ UserService ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> CoreModule &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如以上代码所示：</p>
-<p><strong>组件</strong></p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TitleComponent</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>服务</strong></p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserService</div></pre></td></tr></table></figure>
-<blockquote>
-<p>均需要在系统初始化时完成导入，而且只导入一次，属于全局单例，可以放置在核心模块中，在<strong>AppModule</strong>中进行导入;</p>
-</blockquote>
-<p>共享模块与核心模块总结：</p>
-<blockquote>
-<p>共享模块的作用无非代码的复用与模块化，核心模块为使得启动类看起来整洁，美观，将核心的一次导入的全局单例模块放置在一个module中便于管理隐藏关键信息；</p>
-</blockquote>
-<p><strong>参见：</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/Angular 学习笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之观察者模式/">展开全文 >></a>
         </p>
       
 
@@ -825,6 +725,122 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之抽象工厂/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Angular 学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/Angular 学习笔记/">angular生命周期</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/Angular 学习笔记/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Angular-学习笔记："><a href="#Angular-学习笔记：" class="headerlink" title="Angular 学习笔记："></a>Angular 学习笔记：</h4><p><strong>生命周期钩子：</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1692534-691cbdecbd1df3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="钩子示意图"></p>
+<h5 id="共享模块"><a href="#共享模块" class="headerlink" title="共享模块"></a>共享模块</h5><p>共享模块作用：</p>
+<blockquote>
+<p>有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个<strong><em>ShareModule</em></strong>里面中：</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NgModule &#125;            <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;        <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormsModule &#125;         <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AwesomePipe &#125;         <span class="keyword">from</span> <span class="string">'./awesome.pipe'</span>;</div><div class="line"><span class="keyword">import</span> &#123; HighlightDirective &#125;  <span class="keyword">from</span> <span class="string">'./highlight.directive'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ AwesomePipe, HighlightDirective ],</div><div class="line">  exports:      [ AwesomePipe, HighlightDirective,</div><div class="line">                  CommonModule, FormsModule ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> SharedModule &#123; &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如上所示：</p>
+<p><strong>管道</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AwesomePipe</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>指令</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HighlightDirective</div></pre></td></tr></table></figure>
+<blockquote>
+<p>都需要在多个模块中使用，我们可以将其放置在同一个共享模块中，然后将共享模块导入到所要使用这些模块的组件里面，便可以使用这些组件</p>
+</blockquote>
+<p>模块共享注意点：</p>
+<p><strong><em>不要在共享模块中把应用级单例添加到<code>providers</code>中。 否则如果一个惰性加载模块导入了此共享模块，就会导致它自己也生成一份此服务的实例。</em></strong></p>
+<h5 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h5><p>核心模块作用：</p>
+<blockquote>
+<p>将系统首次启动需要加载且只加载一次的模块抽取出来，定义到一起形成一个独立的模块，类似共享模块，与其区别在与共享模块可以导入多次，但是核心模块全应用只能导入一次，否则会导致，单一应用实例被赋予新的值，比如<strong>service</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  ModuleWithProviders, NgModule,</div><div class="line">  Optional, SkipSelf &#125;       <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; CommonModule &#125;      <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</div><div class="line"><span class="keyword">import</span> &#123; TitleComponent &#125;    <span class="keyword">from</span> <span class="string">'./title.component'</span>;</div><div class="line"><span class="keyword">import</span> &#123; UserService &#125;       <span class="keyword">from</span> <span class="string">'./user.service'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports:      [ CommonModule ],</div><div class="line">  declarations: [ TitleComponent ],</div><div class="line">  exports:      [ TitleComponent ],</div><div class="line">  providers:    [ UserService ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> CoreModule &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如以上代码所示：</p>
+<p><strong>组件</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TitleComponent</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>服务</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UserService</div></pre></td></tr></table></figure>
+<blockquote>
+<p>均需要在系统初始化时完成导入，而且只导入一次，属于全局单例，可以放置在核心模块中，在<strong>AppModule</strong>中进行导入;</p>
+</blockquote>
+<p>共享模块与核心模块总结：</p>
+<blockquote>
+<p>共享模块的作用无非代码的复用与模块化，核心模块为使得启动类看起来整洁，美观，将核心的一次导入的全局单例模块放置在一个module中便于管理隐藏关键信息；</p>
+</blockquote>
+<p><strong>参见：</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/Angular 学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -988,6 +1004,106 @@
 
 
   
+    <article id="post-设计模式学习笔记之策略模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/23/设计模式学习笔记之策略模式/">设计模式学习笔记之策略模式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/23/设计模式学习笔记之策略模式/" class="archive-article-date">
+  	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设计模式学习笔记之策略模式"><a href="#设计模式学习笔记之策略模式" class="headerlink" title="设计模式学习笔记之策略模式"></a>设计模式学习笔记之策略模式</h2><h3 id="什么是策略模式"><a href="#什么是策略模式" class="headerlink" title="什么是策略模式"></a>什么是策略模式</h3><p><strong>策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换</strong></p>
+<blockquote>
+<p>策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法的执行顺序,或者替换方法执行,这就是策略模式</p>
+</blockquote>
+<h3 id="策略模式类图"><a href="#策略模式类图" class="headerlink" title="策略模式类图"></a>策略模式类图</h3><p><img src="http://www.crazyxxl.tech/Strategy.png" alt="策略模式类图"></p>
+<blockquote>
+<p>解析:Client为客户,Context为策略的调用者,策略与Context为松耦合(接口耦合),正因为这层关系,才能够使得策略的替换不影响客户</p>
+</blockquote>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>现有一游戏,一个角色可以随意的切换武器,但是同一时间只能使用某一个武器,实现该游戏</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>我们可以把游戏的角色抽象成为策略的调用者,武器抽象成为策略,角色随意切换武器,而不必管武器的材质(算法的内部实现)</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><h5 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h5><p><img src="http://www.crazyxxl.tech/Strategy-eg.png" alt=""></p>
+<p>类图解析:Character为策略的调用者,weaponBehavior为策略的抽象,角色的子类可不予考究(这是我在学习策略模式(HeadFirst设计模式)的时候自己画),我们只需要考量,角色以及武器以及武器的实现即可</p>
+<p>角色:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Character</span> </span>&#123;</div><div class="line"></div><div class="line">    WeaponBehavior weaponBehavior = <span class="keyword">null</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeaponBehavior</span><span class="params">(WeaponBehavior weaponBehavior)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior = weaponBehavior;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>武器抽象接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>武器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器斧头</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AxeBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"AxeBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-弓箭</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BowAndArrowBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"BowAndArrowBehavior"</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 骑士武器</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnightBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"KnightBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-刀</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwordBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"SwordBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>开始游戏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建角色</div><div class="line">         */</div><div class="line">        Character character = <span class="keyword">new</span> Character();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建武器斧头</div><div class="line">         */</div><div class="line">        AxeBehavior axeBehavior  = <span class="keyword">new</span> AxeBehavior();</div><div class="line">        character.setWeaponBehavior(axeBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 切换武器骑士武器</div><div class="line">         */</div><div class="line">        KnightBehavior knightBehavior = <span class="keyword">new</span> KnightBehavior();</div><div class="line">        character.setWeaponBehavior(knightBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于策略模式来讲,最重要要的两个概念是:</p>
+<ol>
+<li><strong>算法</strong></li>
+<li><strong>顺序</strong></li>
+</ol>
+<p>对于第一点算法,策略模式是对于算法的封装,也就是我们不必要去管算法的实现,只需要知道的策略提供了某个算法,可以让我们来解决一些问题,至于这个算法怎么实现的我们没必要知晓,也就是算法是黑盒的;</p>
+<p>对于第二点,调用者可以根据自身的需求,随意的调换算法的执行顺序</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之策略模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Docker构建项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1068,106 +1184,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/23/Docker构建项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式学习笔记之策略模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/设计模式学习笔记之策略模式/">设计模式学习笔记之策略模式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/设计模式学习笔记之策略模式/" class="archive-article-date">
-  	<time datetime="2018-06-23T07:44:22.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记之策略模式"><a href="#设计模式学习笔记之策略模式" class="headerlink" title="设计模式学习笔记之策略模式"></a>设计模式学习笔记之策略模式</h2><h3 id="什么是策略模式"><a href="#什么是策略模式" class="headerlink" title="什么是策略模式"></a>什么是策略模式</h3><p><strong>策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换</strong></p>
-<blockquote>
-<p>策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法的执行顺序,或者替换方法执行,这就是策略模式</p>
-</blockquote>
-<h3 id="策略模式类图"><a href="#策略模式类图" class="headerlink" title="策略模式类图"></a>策略模式类图</h3><p><img src="http://www.crazyxxl.tech/Strategy.png" alt="策略模式类图"></p>
-<blockquote>
-<p>解析:Client为客户,Context为策略的调用者,策略与Context为松耦合(接口耦合),正因为这层关系,才能够使得策略的替换不影响客户</p>
-</blockquote>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>现有一游戏,一个角色可以随意的切换武器,但是同一时间只能使用某一个武器,实现该游戏</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>我们可以把游戏的角色抽象成为策略的调用者,武器抽象成为策略,角色随意切换武器,而不必管武器的材质(算法的内部实现)</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><h5 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h5><p><img src="http://www.crazyxxl.tech/Strategy-eg.png" alt=""></p>
-<p>类图解析:Character为策略的调用者,weaponBehavior为策略的抽象,角色的子类可不予考究(这是我在学习策略模式(HeadFirst设计模式)的时候自己画),我们只需要考量,角色以及武器以及武器的实现即可</p>
-<p>角色:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Character</span> </span>&#123;</div><div class="line"></div><div class="line">    WeaponBehavior weaponBehavior = <span class="keyword">null</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeaponBehavior</span><span class="params">(WeaponBehavior weaponBehavior)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior = weaponBehavior;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.weaponBehavior.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>武器抽象接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>武器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器斧头</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AxeBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"AxeBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-弓箭</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BowAndArrowBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"BowAndArrowBehavior"</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 骑士武器</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnightBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"KnightBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> moven_xing</div><div class="line"> * <span class="doctag">@descrie</span> 武器-刀</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwordBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"SwordBehavior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>开始游戏</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建角色</div><div class="line">         */</div><div class="line">        Character character = <span class="keyword">new</span> Character();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 创建武器斧头</div><div class="line">         */</div><div class="line">        AxeBehavior axeBehavior  = <span class="keyword">new</span> AxeBehavior();</div><div class="line">        character.setWeaponBehavior(axeBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 切换武器骑士武器</div><div class="line">         */</div><div class="line">        KnightBehavior knightBehavior = <span class="keyword">new</span> KnightBehavior();</div><div class="line">        character.setWeaponBehavior(knightBehavior);</div><div class="line">        character.useWeapon();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于策略模式来讲,最重要要的两个概念是:</p>
-<ol>
-<li><strong>算法</strong></li>
-<li><strong>顺序</strong></li>
-</ol>
-<p>对于第一点算法,策略模式是对于算法的封装,也就是我们不必要去管算法的实现,只需要知道的策略提供了某个算法,可以让我们来解决一些问题,至于这个算法怎么实现的我们没必要知晓,也就是算法是黑盒的;</p>
-<p>对于第二点,调用者可以根据自身的需求,随意的调换算法的执行顺序</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/设计模式学习笔记之策略模式/">展开全文 >></a>
         </p>
       
 
@@ -1318,15 +1334,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BigData</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
