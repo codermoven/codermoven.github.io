@@ -228,90 +228,6 @@
 
 
   
-    <article id="post-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">关于angular4部署服务器刷新报错以及相关资源加载不到解决办法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/08/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" class="archive-article-date">
-  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>部署angular4项目：</p>
-<p>ng build –prod –aot</p>
-<p>资源加载不到问题：</p>
-<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
-<p>部署项目成功后刷新报错问题：</p>
-<p>需要在app.module里面添加配置项：</p>
-<p>首先导入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</span><br></pre></td></tr></table></figure>
-<p>其次在providers里面添加:</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">providers: [</span><br><span class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Docker构建项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -421,81 +337,6 @@
 
 
   
-    <article id="post-Linux下面显示分支名称的方法：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/Linux下面显示分支名称的方法：/">Linux下面显示分支名称的方法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/08/Linux下面显示分支名称的方法：/" class="archive-article-date">
-  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Linux下面显示分支名称的方法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function git_branch &#123;</span><br><span class="line">  branch="`git branch 2&gt;/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"</span><br><span class="line">  if [ "$&#123;branch&#125;" != "" ];then</span><br><span class="line">      if [ "$&#123;branch&#125;" = "(no branch)" ];then</span><br><span class="line">          branch="(`git rev-parse --short HEAD`...)"</span><br><span class="line">      fi</span><br><span class="line">      echo "-&gt;$branch"</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">export PS1='\[\e[37;40m\][\[\033[01;36m\]\u\[\e[37;40m\]@\[\e[0m\]\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\]\[\e[37;40m\]]\[\e[0m\]\$ '</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/Linux下面显示分支名称的方法：/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Docker初体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -557,111 +398,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/08/Docker初体验/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-centos7下Jenkins安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/centos7下Jenkins安装/">centos7下Jenkins安装</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/08/centos7下Jenkins安装/" class="archive-article-date">
-  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
-<p>1、yum安装安装的为Linux下的open-jdk</p>
-<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
-<blockquote>
-<p>1、到甲骨文官网找到要下在的文件地址</p>
-<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="noopener">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
-<p>2、下载该压缩包：</p>
-<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="noopener">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
-<p>3、下载完成之后解压</p>
-<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
-<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
-<p>4、vi /etc/profile</p>
-<p>添加：</p>
-<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
-<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
-<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
-<p>PATH=$JAVA_HOME/bin:$$PATH</p>
-<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
-<p>5、source /etc/profile 让添加项生效</p>
-<p>至此jdk安装成功;</p>
-</blockquote>
-<p>接下来安装Jenkins：</p>
-<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="noopener">jenkins官网</a></p>
-<p>在这里我们选择稳定版安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</span><br><span class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</span><br><span class="line">sudo yum install jenkins</span><br></pre></td></tr></table></figure>
-<p>安装成功后启动:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service jenkins start(或者 systemctl start jenkins)</span><br></pre></td></tr></table></figure>
-<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
-<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-service=http --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
-<p>结束</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/centos7下Jenkins安装/">展开全文 >></a>
         </p>
       
 
@@ -810,19 +546,19 @@
 
 
   
-    <article id="post-2018年读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux下面显示分支名称的方法：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/2018年读书计划/">2018读书计划</a>
+      <a class="article-title" href="/2018/09/08/Linux下面显示分支名称的方法：/">Linux下面显示分支名称的方法</a>
     </h1>
   
 
         
-        <a href="/2018/09/08/2018年读书计划/" class="archive-article-date">
+        <a href="/2018/09/08/Linux下面显示分支名称的方法：/" class="archive-article-date">
   	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
 </a>
         
@@ -830,35 +566,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="2018年读书计划"><a href="#2018年读书计划" class="headerlink" title="2018年读书计划"></a>2018年读书计划</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>书籍总共十本:每月一本,每本书籍做好计划,在个人博客写读书笔记,设计编码的,绘制类图,写好代码以及注释</p>
-<h3 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h3><p>技术书单:</p>
-<ol>
-<li>设计模式:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
-<li>数据结构与算法:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
-<li>网络:&lt;&lt;图解http&gt;&gt;</li>
-<li>数学:&lt;&lt;程序员的数学3：线性代数&gt;&gt;</li>
-<li>服务:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
-<li>密码:&lt;&lt;密码学基础&gt;&gt;</li>
-</ol>
-<p>文学书单:</p>
-<ol>
-<li>精进</li>
-<li>沉默的大多数</li>
-<li>明朝那些事</li>
-<li>人类简史:从动物到上帝</li>
-</ol>
-<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><ol>
-<li>3-4:&lt;&lt;设计模式：headFirst&gt;&gt;</li>
-<li>4-5:&lt;&lt;精进&gt;&gt;</li>
-<li>5-6:&lt;&lt; 数据结构与算法分析：C语言描述&gt;&gt;</li>
-<li>6-7:&lt;&lt;沉默的大多数&gt;&gt;</li>
-<li>7-8:&lt;&lt;图解http&gt;&gt;</li>
-<li>8-9:&lt;&lt;明朝那些事&gt;&gt;</li>
-<li>9-10:&lt;&lt; 程序员的数学3:线性代数&gt;&gt;</li>
-<li>10-11:&lt;&lt;人类简史：从动物到上帝&gt;&gt;</li>
-<li>11-12:&lt;&lt;深入理解nginx：模块开发与架构解析&gt;&gt;</li>
-<li>12-01(19):&lt;&lt;密码学基础&gt;&gt;</li>
-</ol>
+        <p>Linux下面显示分支名称的方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function git_branch &#123;</span><br><span class="line">  branch="`git branch 2&gt;/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"</span><br><span class="line">  if [ "$&#123;branch&#125;" != "" ];then</span><br><span class="line">      if [ "$&#123;branch&#125;" = "(no branch)" ];then</span><br><span class="line">          branch="(`git rev-parse --short HEAD`...)"</span><br><span class="line">      fi</span><br><span class="line">      echo "-&gt;$branch"</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">export PS1='\[\e[37;40m\][\[\033[01;36m\]\u\[\e[37;40m\]@\[\e[0m\]\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\]\[\e[37;40m\]]\[\e[0m\]\$ '</span><br></pre></td></tr></table></figure>
 
       
 
@@ -872,7 +581,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -882,7 +591,246 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/2018年读书计划/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/08/Linux下面显示分支名称的方法：/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql视图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/mysql视图/">mysql学习之视图</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/08/mysql视图/" class="archive-article-date">
+  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="mysql视图"><a href="#mysql视图" class="headerlink" title="mysql视图"></a>mysql视图</h2><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><h4 id="什么是视图"><a href="#什么是视图" class="headerlink" title="什么是视图"></a>什么是视图</h4><p>视图又称虚表，英文名称view，究其本质就是根据sql获取动态数据集，在为他起个名称，之所以叫他虚表，是因为他本身并不作为表存储数据，按照java的说法来讲，就是指向某个sql查询的结果集的指针而已。</p>
+<h4 id="如何定义视图"><a href="#如何定义视图" class="headerlink" title="如何定义视图"></a>如何定义视图</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> view_name <span class="keyword">as</span> <span class="keyword">select</span> statment....</span><br></pre></td></tr></table></figure>
+<h4 id="为什么要用视图"><a href="#为什么要用视图" class="headerlink" title="为什么要用视图"></a>为什么要用视图</h4><p>用视图的作用主要有二：</p>
+<ol>
+<li>安全考量</li>
+<li>简化查询</li>
+</ol>
+<p>具体叙述：</p>
+<p>其一：安全考量，一个老生常谈的话题人员工资问题，假设人员工资与人员的其他属性在同一张表里面，如果是对整个一张表的查询的话，工资这个属性（列）也会暴露给调用者，工资是机密数据，不能暴露调用者，这时候，我们就可以创建一个视图，只包含员工的基础数据而不包含员工的机密数据</p>
+<p>其二：简化查询</p>
+<p>有些时候我们查询的数据需要构建较为复杂的查询语句，而且这个查询会经常用到，这样每次使用后都去构建太过复杂繁琐，这样我们可以将这个查询构建为一个视图，之后的查询用视图来代替，岂不痛快，这样说来倒有一种设计模式的概念在里面了（内聚）</p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>用户以及用户的基础数据表结构设计如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- Table structure for table `tb_user`</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`tb_user`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`tb_user`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`account`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`password`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`username`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`tb_user_detail`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`salary`</span> <span class="keyword">double</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>),</span><br><span class="line">  <span class="keyword">UNIQUE</span> <span class="keyword">KEY</span> <span class="string">`account_UNIQUE`</span> (<span class="string">`account`</span>),</span><br><span class="line">  <span class="keyword">KEY</span> <span class="string">`id_idx`</span> (<span class="string">`tb_user_detail`</span>),</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> <span class="string">`id`</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">`tb_user_detail`</span>) <span class="keyword">REFERENCES</span> <span class="string">`tb_user_detail`</span> (<span class="string">`id`</span>) <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">NO</span> <span class="keyword">ACTION</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">NO</span> <span class="keyword">ACTION</span></span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=latin1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`tb_user`</span> <span class="keyword">VALUES</span> </span><br><span class="line">(<span class="number">1</span>,<span class="string">'18710111234'</span>,<span class="string">'123456'</span>,<span class="string">'xiaolong'</span>,<span class="number">1</span>,<span class="number">100</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">'18711112222'</span>,<span class="string">'123456'</span>,<span class="string">'xiaoming'</span>,<span class="number">2</span>,<span class="number">12222</span>),(<span class="number">3</span>,<span class="string">'18711112332'</span>,<span class="string">'123456'</span>,<span class="string">'xiaohua'</span>,<span class="number">3</span>,<span class="number">123456</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- Table structure for table `tb_user_detail`</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`tb_user_detail`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`tb_user_detail`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`telphone`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`school`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`avator`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=latin1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`tb_user_detail`</span> <span class="keyword">VALUES</span> </span><br><span class="line">(<span class="number">1</span>,<span class="string">'18710419873'</span>,<span class="string">'xd'</span>,<span class="string">'/image/xd.jpg'</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">'18711112222'</span>,<span class="string">'jd'</span>,<span class="string">'/image/jd.jpg'</span>),</span><br><span class="line">(<span class="number">3</span>,<span class="string">'18711112332'</span>,<span class="string">'sy'</span>,<span class="string">'/image/sy.jpg'</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="安全考量实例"><a href="#安全考量实例" class="headerlink" title="安全考量实例"></a>安全考量实例</h5><p>如果操作者操作的是tb_user 表，则可以获取表中所有数据，但是如果给予操作者查询的对象是一个视图则不然，我们可以定义一个视图如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> user_base_info <span class="keyword">as</span> <span class="keyword">select</span>  <span class="keyword">id</span> ,<span class="keyword">account</span>, username <span class="keyword">from</span> tb_user;</span><br></pre></td></tr></table></figure>
+<p>查询数据的时候可以有：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> user_base_info;</span><br></pre></td></tr></table></figure>
+<p>查询结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+-------------+----------+</span></span><br><span class="line">| id | account     | username |</span><br><span class="line">+<span class="comment">----+-------------+----------+</span></span><br><span class="line">|  1 | 18710111234 | xiaolong |</span><br><span class="line">|  2 | 18711112222 | xiaoming |</span><br><span class="line">|  3 | 18711112332 | xiaohua  |</span><br><span class="line">+<span class="comment">----+-------------+----------+</span></span><br></pre></td></tr></table></figure>
+<p>屏蔽操作实体，将其交由数据视图控制，保证机密数据不被操作者获取</p>
+<p>简化查询</p>
+<p>现有需求需要查看用户的姓名以及学校信息，而且这个信息是需要经常调用的，sql实现如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">tb_user.username, tb_user_detail.school </span><br><span class="line"><span class="keyword">FROM</span> tb_user <span class="keyword">left</span> <span class="keyword">join</span> tb_user_detail <span class="keyword">on</span> tb_user.tb_user_detail = tb_user_detail.id ;</span><br></pre></td></tr></table></figure>
+<p>查询结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----------+--------+</span></span><br><span class="line">| username | school |</span><br><span class="line">+<span class="comment">----------+--------+</span></span><br><span class="line">| xiaolong | xd     |</span><br><span class="line">| xiaoming | jd     |</span><br><span class="line">| xiaohua  | sy     |</span><br><span class="line">+<span class="comment">----------+--------+</span></span><br></pre></td></tr></table></figure>
+<p>其实这个也算是比较简单的，但是涉及到多张表的联合查询的时候，有些时候查询的语句会异常的复杂，我们可以将其封装成一个view，view封装如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> user_info <span class="keyword">as</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">tb_user.username, tb_user_detail.school </span><br><span class="line"><span class="keyword">FROM</span> tb_user <span class="keyword">left</span> <span class="keyword">join</span> tb_user_detail <span class="keyword">on</span> tb_user.tb_user_detail = tb_user_detail.id ;</span><br></pre></td></tr></table></figure>
+<p>之后查询只需要执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> user_info</span><br></pre></td></tr></table></figure>
+<p>查询结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----------+--------+</span></span><br><span class="line">| username | school |</span><br><span class="line">+<span class="comment">----------+--------+</span></span><br><span class="line">| xiaolong | xd     |</span><br><span class="line">| xiaoming | jd     |</span><br><span class="line">| xiaohua  | sy     |</span><br><span class="line">+<span class="comment">----------+--------+</span></span><br></pre></td></tr></table></figure>
+<p>我们可以看出两者完全一致，但是查询却简单了不少；</p>
+<h4 id="视图除了作为查询的一个sql的别名以外还有什么功能吗？"><a href="#视图除了作为查询的一个sql的别名以外还有什么功能吗？" class="headerlink" title="视图除了作为查询的一个sql的别名以外还有什么功能吗？"></a>视图除了作为查询的一个sql的别名以外还有什么功能吗？</h4><p>视图一般是作为一个查询数据的窗口而存在的，所以一般来讲我们用它来查询数据，但是这并不意味着他只能用来查询数据，也可以更新数据（删，改，增都是更新数据），那么什么情况下能够进行更新操作呢：</p>
+<ol>
+<li>视图是对于同一个表的查询（即视图和表的关系是1对1的），那么我们可以用他来修数据，但前提是修改的数据没有相关的约束，如上文中的视图user_base_info，我们可以修改乃至删除他，在数据库中对应的记录也会清除掉，但是不能新增，因为视图中不包含的字段password ，但是password又是有约束NOT NULL</li>
+<li>视图是从多个数据里面抽取出来的（即视图和表的关系是1对多的），可以对其中的某个表的字段进行更新（仅限于修改），但是不可以对于多个表的字段进行更新</li>
+</ol>
+<p>示例如下：</p>
+<p>实例对象：user_base_info</p>
+<p><strong>操作：更新</strong></p>
+<p>sql：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> user_base_info <span class="keyword">set</span> username = <span class="string">"xiaozhou"</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br><span class="line">Query OK, 1 row affected (0.09 sec)</span><br><span class="line">Rows matched: 1  Changed: 1  Warnings: 0</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></span><br><span class="line">| id | account     | password | username | tb_user_detail | salary |</span><br><span class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></span><br><span class="line">|  1 | 18710111234 | 123456   | xiaozhou |              1 |    100 |</span><br><span class="line">|  2 | 18711112222 | 123456   | xiaoming |              2 |  12222 |</span><br><span class="line">|  3 | 18711112332 | 123456   | xiaohua  |              3 | 123456 |</span><br><span class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></span><br></pre></td></tr></table></figure>
+<p>已修改</p>
+<p><strong>操作：删除</strong></p>
+<p>sql：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> user_base_info <span class="keyword">where</span> <span class="keyword">id</span> =<span class="number">1</span>;</span><br><span class="line">Query OK, 1 row affected (0.09 sec)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></span><br><span class="line">| id | account     | password | username | tb_user_detail | salary |</span><br><span class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></span><br><span class="line">|  2 | 18711112222 | 123456   | xiaoming |              2 |  12222 |</span><br><span class="line">|  3 | 18711112332 | 123456   | xiaohua  |              3 | 123456 |</span><br><span class="line">+<span class="comment">----+-------------+----------+----------+----------------+-------</span></span><br></pre></td></tr></table></figure>
+<p>已删除</p>
+<p><strong>操作：新增</strong></p>
+<p>sql：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> user_base_info <span class="keyword">value</span>(<span class="number">1</span>, <span class="string">"18710421234"</span>,<span class="string">"xiaolong"</span>);</span><br><span class="line">Query OK, 1 row affected (0.10 sec)</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_user;</span><br><span class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></span><br><span class="line">| id | account     | password | username | tb_user_detail | salary |</span><br><span class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></span><br><span class="line">|  1 | 18710421234 | NULL     | xiaolong |           NULL |   NULL |</span><br><span class="line">|  2 | 18711112222 | 123456   | xiaoming |              2 |  12222 |</span><br><span class="line">|  3 | 18711112332 | 123456   | xiaohua  |              3 | 123456 |</span><br><span class="line">+<span class="comment">----+-------------+----------+----------+----------------+--------+</span></span><br></pre></td></tr></table></figure>
+<p>无非空约束的情况，顺利插入</p>
+<p>接下来添加约束（添加之前请删除之前插入的数据，不然无法更新表结构）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb_user <span class="keyword">modify</span> <span class="keyword">column</span> <span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p>然后插入:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> user_base_info <span class="keyword">value</span>(<span class="number">1</span>, <span class="string">"18710421234"</span>,<span class="string">"xiaolong"</span>);</span><br><span class="line">ERROR 1423 (HY000): Field of view 'mybatisplus.user_base_info' underlying table doesn't have a default value</span><br></pre></td></tr></table></figure>
+<p>我们可以发现，有约束以后无法插入</p>
+<p>对于1对多的情况可自行分析</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mysql学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/08/mysql视图/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-centos7下Jenkins安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/centos7下Jenkins安装/">centos7下Jenkins安装</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/08/centos7下Jenkins安装/" class="archive-article-date">
+  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="centos7下Jenkins安装"><a href="#centos7下Jenkins安装" class="headerlink" title="centos7下Jenkins安装"></a>centos7下Jenkins安装</h3><p>在安装Jenkins之前需要安装jdk，安装jdk有两种方法：</p>
+<p>1、yum安装安装的为Linux下的open-jdk</p>
+<p>2、安装jdk，以下为安装甲骨文体-jdk的步骤：</p>
+<blockquote>
+<p>1、到甲骨文官网找到要下在的文件地址</p>
+<p>eg:    <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="noopener">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>2、下载该压缩包：</p>
+<p>wget –no-check-certificate –no-cookies –header “Cookie: oraclelicense=accept-securebackup-cookie”  <a href="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz" target="_blank" rel="noopener">http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</a></p>
+<p>3、下载完成之后解压</p>
+<p>tar -zxvf  jdk-8u144-linux-x64.tar.gz  -C  /usr/local/jvm</p>
+<p>mv /usr/local/jvm/jdk-8u144-linux-x64 /usr/local/jvm/jdk8</p>
+<p>4、vi /etc/profile</p>
+<p>添加：</p>
+<p>JAVA_HOME =/usr/local/jvm/jdk8</p>
+<p>JRE_HOME=/usr/local/jvm/jdk8/jre</p>
+<p>CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib</p>
+<p>PATH=$JAVA_HOME/bin:$$PATH</p>
+<p>EXPORT JAVA_HOME JRE_HOME CLASSPATH PATH</p>
+<p>5、source /etc/profile 让添加项生效</p>
+<p>至此jdk安装成功;</p>
+</blockquote>
+<p>接下来安装Jenkins：</p>
+<p>安装可分为最新版和稳定版：具体可以参见<a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions#InstallingJenkinsonRedHatdistributions-ImportantNoteonCentOSJava" target="_blank" rel="noopener">jenkins官网</a></p>
+<p>在这里我们选择稳定版安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</span><br><span class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</span><br><span class="line">sudo yum install jenkins</span><br></pre></td></tr></table></figure>
+<p>安装成功后启动:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service jenkins start(或者 systemctl start jenkins)</span><br></pre></td></tr></table></figure>
+<p>默认端口是:8080,可以在：/etc/sysconfig/jenkins 修改默认端口;</p>
+<p>修改防火墙权限：使得外网可以访问(8080为默认端口，在实际中选择启动端口)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-service=http --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>在浏览器输入:http:/ip:8080即可到其网页端管理页面，之后的操作会有提示，此处不做详细介绍</p>
+<p>结束</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/08/centos7下Jenkins安装/">展开全文 >></a>
         </p>
       
 
@@ -1040,19 +988,19 @@
 
 
   
-    <article id="post-springboot环境搭建教程（eclipse）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/springboot环境搭建教程（eclipse）/">springboot环境搭建</a>
+      <a class="article-title" href="/2018/09/08/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">关于angular4部署服务器刷新报错以及相关资源加载不到解决办法</a>
     </h1>
   
 
         
-        <a href="/2018/09/08/springboot环境搭建教程（eclipse）/" class="archive-article-date">
+        <a href="/2018/09/08/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" class="archive-article-date">
   	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
 </a>
         
@@ -1060,20 +1008,133 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="springboot环境搭建教程（eclipse）"><a href="#springboot环境搭建教程（eclipse）" class="headerlink" title="springboot环境搭建教程（eclipse）"></a>springboot环境搭建教程（eclipse）</h2><ol>
-<li>new-&gt;project-&gt;maven Project-&gt;quickStart</li>
-<li>查看文件目录机构，是否符合约定优配置原则</li>
-<li>配置pom，添加一下依赖</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.2.7.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/parent&gt;</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">   	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</span><br><span class="line">	&lt;/dependency&gt;</span><br><span class="line">&lt;dependencies&gt;</span><br></pre></td></tr></table></figure>
-<p>4、添加配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.url = jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false //若使用到数据库在此配置，需要在pom里面添加对应的数据驱动，或配置于环境变量中</span><br><span class="line">spring.datasource.username = username</span><br><span class="line">spring.datasource.password = password</span><br><span class="line">spring.datasource.driverClassName = com.mysql.jdbc.Driver</span><br><span class="line">spring.jpa.database = MYSQL</span><br><span class="line">spring.jpa.show-sql = true</span><br><span class="line">spring.jpa.hibernate.ddl-auto = update</span><br><span class="line">spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy</span><br><span class="line">spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect</span><br><span class="line">spring.template.cache = false</span><br></pre></td></tr></table></figure>
-<p>5、建立boot类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookStart</span> </span>&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(BookStart.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>6、建立controller</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"hello"</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>至此、配置完成；</p>
-<p><strong>注意：boot类一定要位于所有其他组件（controller，service，vo）的上层，否则，会导致组件注册失败</strong></p>
+        <p>部署angular4项目：</p>
+<p>ng build –prod –aot</p>
+<p>资源加载不到问题：</p>
+<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
+<p>部署项目成功后刷新报错问题：</p>
+<p>需要在app.module里面添加配置项：</p>
+<p>首先导入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</span><br></pre></td></tr></table></figure>
+<p>其次在providers里面添加:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">providers: [</span><br><span class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/08/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Angular 学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/Angular 学习笔记/">angular生命周期</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/08/Angular 学习笔记/" class="archive-article-date">
+  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Angular-学习笔记："><a href="#Angular-学习笔记：" class="headerlink" title="Angular 学习笔记："></a>Angular 学习笔记：</h4><p><strong>生命周期钩子：</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1692534-691cbdecbd1df3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="钩子示意图"></p>
+<h5 id="共享模块"><a href="#共享模块" class="headerlink" title="共享模块"></a>共享模块</h5><p>共享模块作用：</p>
+<blockquote>
+<p>有些模块可能需要在多个模块中使用，在每个组件中定义会是的程序重复代码过多，不利于维护，出现这样的情况，可以将这些组件提取在同一个<strong><em>ShareModule</em></strong>里面中：</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; NgModule &#125;            <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CommonModule &#125;        <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; FormsModule &#125;         <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AwesomePipe &#125;         <span class="keyword">from</span> <span class="string">'./awesome.pipe'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; HighlightDirective &#125;  <span class="keyword">from</span> <span class="string">'./highlight.directive'</span>;</span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  imports:      [ CommonModule ],</span><br><span class="line">  declarations: [ AwesomePipe, HighlightDirective ],</span><br><span class="line">  exports:      [ AwesomePipe, HighlightDirective,</span><br><span class="line">                  CommonModule, FormsModule ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> SharedModule &#123; &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如上所示：</p>
+<p><strong>管道</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AwesomePipe</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>指令</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HighlightDirective</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>都需要在多个模块中使用，我们可以将其放置在同一个共享模块中，然后将共享模块导入到所要使用这些模块的组件里面，便可以使用这些组件</p>
+</blockquote>
+<p>模块共享注意点：</p>
+<p><strong><em>不要在共享模块中把应用级单例添加到<code>providers</code>中。 否则如果一个惰性加载模块导入了此共享模块，就会导致它自己也生成一份此服务的实例。</em></strong></p>
+<h5 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h5><p>核心模块作用：</p>
+<blockquote>
+<p>将系统首次启动需要加载且只加载一次的模块抽取出来，定义到一起形成一个独立的模块，类似共享模块，与其区别在与共享模块可以导入多次，但是核心模块全应用只能导入一次，否则会导致，单一应用实例被赋予新的值，比如<strong>service</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  ModuleWithProviders, NgModule,</span><br><span class="line">  Optional, SkipSelf &#125;       <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; CommonModule &#125;      <span class="keyword">from</span> <span class="string">'@angular/common'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; TitleComponent &#125;    <span class="keyword">from</span> <span class="string">'./title.component'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; UserService &#125;       <span class="keyword">from</span> <span class="string">'./user.service'</span>;</span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  imports:      [ CommonModule ],</span><br><span class="line">  declarations: [ TitleComponent ],</span><br><span class="line">  exports:      [ TitleComponent ],</span><br><span class="line">  providers:    [ UserService ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> CoreModule &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如以上代码所示：</p>
+<p><strong>组件</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TitleComponent</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>服务</strong></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserService</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>均需要在系统初始化时完成导入，而且只导入一次，属于全局单例，可以放置在核心模块中，在<strong>AppModule</strong>中进行导入;</p>
+</blockquote>
+<p>共享模块与核心模块总结：</p>
+<blockquote>
+<p>共享模块的作用无非代码的复用与模块化，核心模块为使得启动类看起来整洁，美观，将核心的一次导入的全局单例模块放置在一个module中便于管理隐藏关键信息；</p>
+</blockquote>
+<p><strong>参见：</strong></p>
 
       
 
@@ -1097,7 +1158,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/springboot环境搭建教程（eclipse）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/08/Angular 学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -1141,7 +1202,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 codermoven
+    		&copy; 2019 codermoven
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1224,7 +1285,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计划</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1232,7 +1293,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1240,11 +1301,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">django</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mongodb学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1256,11 +1313,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BigData</a>
+                <a href="javascript:void(0)" class="js-tag color5">mongodb学习</a>
               </li>
             
             <div class="clearfix"></div>
