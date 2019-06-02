@@ -254,89 +254,6 @@
 
 
   
-    <article id="post-设计模式学习笔记之单一职责原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/设计模式学习笔记之单一职责原则/">设计模式学习笔记之单一职责原则</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/08/设计模式学习笔记之单一职责原则/" class="archive-article-date">
-  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记之单一职责原则"><a href="#设计模式学习笔记之单一职责原则" class="headerlink" title="设计模式学习笔记之单一职责原则"></a>设计模式学习笔记之单一职责原则</h2><h3 id="什么是单一职责原则"><a href="#什么是单一职责原则" class="headerlink" title="什么是单一职责原则"></a>什么是单一职责原则</h3><p>引起一个类变化的因素只有一个,就叫做单一职责原则(又称为单一功能原则)</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>小张是xx公司程序员,现在遇到了一下问题:现在有两个较为简单的功能需要实现,但是这两个功能并无关联,但实现较为简单,于是小王想,这么简单,<strong>就写在一个类里面</strong>吧:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Functions</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//功能A</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionB</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//功能B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>随着系统复杂性的提高,原有的两个功能无法支撑现有项目,需要修改,经过几轮的迭代,这两个函数已经变的较为复杂,这个类也已经被改变了若干次,变得异常的复杂.小张悔不当初啊,没能将当初的功能分割开来,致使这个点成为项目的一个弊病.</p>
-<p>时光倒流到了小张开始设计这个功能的时候………</p>
-<p>小张分析了这个功能以后,考虑了其扩展,最终将功能拆分成了两个类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="comment">//实现A的功能</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span><br><span class="line">    <span class="comment">//实现功能B</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>于是乎,无论系统怎么扩展,A只负责A的模块,引起A变化的也只有A内部的因素,简单的说A只有一个功能,这就是单一职责.</p>
-<h3 id="有啥好处"><a href="#有啥好处" class="headerlink" title="有啥好处"></a>有啥好处</h3><p>就像上文所述,明确的职责划分,能够使得系统高度内聚,降低系统耦合度,能够使得系统的可扩展性提升.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/设计模式学习笔记之单一职责原则/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-设计模式学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -449,19 +366,19 @@
 
 
   
-    <article id="post-设计模式学习笔记之策略模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-设计模式学习笔记之单一职责原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/设计模式学习笔记之策略模式/">设计模式学习笔记之策略模式</a>
+      <a class="article-title" href="/2018/09/08/设计模式学习笔记之单一职责原则/">设计模式学习笔记之单一职责原则</a>
     </h1>
   
 
         
-        <a href="/2018/09/08/设计模式学习笔记之策略模式/" class="archive-article-date">
+        <a href="/2018/09/08/设计模式学习笔记之单一职责原则/" class="archive-article-date">
   	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
 </a>
         
@@ -469,33 +386,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="设计模式学习笔记之策略模式"><a href="#设计模式学习笔记之策略模式" class="headerlink" title="设计模式学习笔记之策略模式"></a>设计模式学习笔记之策略模式</h2><h3 id="什么是策略模式"><a href="#什么是策略模式" class="headerlink" title="什么是策略模式"></a>什么是策略模式</h3><p><strong>策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换</strong></p>
-<blockquote>
-<p>策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法的执行顺序,或者替换方法执行,这就是策略模式</p>
-</blockquote>
-<h3 id="策略模式类图"><a href="#策略模式类图" class="headerlink" title="策略模式类图"></a>策略模式类图</h3><p><img src="http://www.crazyxxl.tech/Strategy.png" alt="策略模式类图"></p>
-<blockquote>
-<p>解析:Client为客户,Context为策略的调用者,策略与Context为松耦合(接口耦合),正因为这层关系,才能够使得策略的替换不影响客户</p>
-</blockquote>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>现有一游戏,一个角色可以随意的切换武器,但是同一时间只能使用某一个武器,实现该游戏</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>我们可以把游戏的角色抽象成为策略的调用者,武器抽象成为策略,角色随意切换武器,而不必管武器的材质(算法的内部实现)</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><h5 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h5><p><img src="http://www.crazyxxl.tech/Strategy-eg.png" alt=""></p>
-<p>类图解析:Character为策略的调用者,weaponBehavior为策略的抽象,角色的子类可不予考究(这是我在学习策略模式(HeadFirst设计模式)的时候自己画),我们只需要考量,角色以及武器以及武器的实现即可</p>
-<p>角色:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Character</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    WeaponBehavior weaponBehavior = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeaponBehavior</span><span class="params">(WeaponBehavior weaponBehavior)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weaponBehavior = weaponBehavior;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weaponBehavior.useWeapon();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>武器抽象接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>武器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descrie</span> 武器斧头</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AxeBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"AxeBehavior"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descrie</span> 武器-弓箭</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BowAndArrowBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"BowAndArrowBehavior"</span>);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descrie</span> 骑士武器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnightBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"KnightBehavior"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descrie</span> 武器-刀</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwordBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"SwordBehavior"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>开始游戏</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 创建角色</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Character character = <span class="keyword">new</span> Character();</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 创建武器斧头</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        AxeBehavior axeBehavior  = <span class="keyword">new</span> AxeBehavior();</span><br><span class="line">        character.setWeaponBehavior(axeBehavior);</span><br><span class="line">        character.useWeapon();</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 切换武器骑士武器</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        KnightBehavior knightBehavior = <span class="keyword">new</span> KnightBehavior();</span><br><span class="line">        character.setWeaponBehavior(knightBehavior);</span><br><span class="line">        character.useWeapon();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于策略模式来讲,最重要要的两个概念是:</p>
-<ol>
-<li><strong>算法</strong></li>
-<li><strong>顺序</strong></li>
-</ol>
-<p>对于第一点算法,策略模式是对于算法的封装,也就是我们不必要去管算法的实现,只需要知道的策略提供了某个算法,可以让我们来解决一些问题,至于这个算法怎么实现的我们没必要知晓,也就是算法是黑盒的;</p>
-<p>对于第二点,调用者可以根据自身的需求,随意的调换算法的执行顺序</p>
+        <h2 id="设计模式学习笔记之单一职责原则"><a href="#设计模式学习笔记之单一职责原则" class="headerlink" title="设计模式学习笔记之单一职责原则"></a>设计模式学习笔记之单一职责原则</h2><h3 id="什么是单一职责原则"><a href="#什么是单一职责原则" class="headerlink" title="什么是单一职责原则"></a>什么是单一职责原则</h3><p>引起一个类变化的因素只有一个,就叫做单一职责原则(又称为单一功能原则)</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>小张是xx公司程序员,现在遇到了一下问题:现在有两个较为简单的功能需要实现,但是这两个功能并无关联,但实现较为简单,于是小王想,这么简单,<strong>就写在一个类里面</strong>吧:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Functions</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//功能A</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionB</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//功能B</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>随着系统复杂性的提高,原有的两个功能无法支撑现有项目,需要修改,经过几轮的迭代,这两个函数已经变的较为复杂,这个类也已经被改变了若干次,变得异常的复杂.小张悔不当初啊,没能将当初的功能分割开来,致使这个点成为项目的一个弊病.</p>
+<p>时光倒流到了小张开始设计这个功能的时候………</p>
+<p>小张分析了这个功能以后,考虑了其扩展,最终将功能拆分成了两个类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="comment">//实现A的功能</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span><br><span class="line">    <span class="comment">//实现功能B</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>于是乎,无论系统怎么扩展,A只负责A的模块,引起A变化的也只有A内部的因素,简单的说A只有一个功能,这就是单一职责.</p>
+<h3 id="有啥好处"><a href="#有啥好处" class="headerlink" title="有啥好处"></a>有啥好处</h3><p>就像上文所述,明确的职责划分,能够使得系统高度内聚,降低系统耦合度,能够使得系统的可扩展性提升.</p>
 
       
 
@@ -519,7 +419,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/设计模式学习笔记之策略模式/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/08/设计模式学习笔记之单一职责原则/">展开全文 >></a>
         </p>
       
 
@@ -781,6 +681,106 @@
 
 
   
+    <article id="post-设计模式学习笔记之策略模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/设计模式学习笔记之策略模式/">设计模式学习笔记之策略模式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/08/设计模式学习笔记之策略模式/" class="archive-article-date">
+  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设计模式学习笔记之策略模式"><a href="#设计模式学习笔记之策略模式" class="headerlink" title="设计模式学习笔记之策略模式"></a>设计模式学习笔记之策略模式</h2><h3 id="什么是策略模式"><a href="#什么是策略模式" class="headerlink" title="什么是策略模式"></a>什么是策略模式</h3><p><strong>策略模式是定义一系列的算法,并将这些算法封装起来,在使用的时候这些算法的使用顺序可以随意替换</strong></p>
+<blockquote>
+<p>策略,字面意思是解决某些问题的一些列的方法,而解决某个问题的方法就是解决问题的套路,说的专业一点就是算法,所以说策略模式就是对一系列算法的封装,其最小单元是算法,不探究算法的实现过程,只是单纯的使用算法,解决某个问题的时候,按照既定的策略解决不了的时候可以调换方法的执行顺序,或者替换方法执行,这就是策略模式</p>
+</blockquote>
+<h3 id="策略模式类图"><a href="#策略模式类图" class="headerlink" title="策略模式类图"></a>策略模式类图</h3><p><img src="http://www.crazyxxl.tech/Strategy.png" alt="策略模式类图"></p>
+<blockquote>
+<p>解析:Client为客户,Context为策略的调用者,策略与Context为松耦合(接口耦合),正因为这层关系,才能够使得策略的替换不影响客户</p>
+</blockquote>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>现有一游戏,一个角色可以随意的切换武器,但是同一时间只能使用某一个武器,实现该游戏</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>我们可以把游戏的角色抽象成为策略的调用者,武器抽象成为策略,角色随意切换武器,而不必管武器的材质(算法的内部实现)</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><h5 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h5><p><img src="http://www.crazyxxl.tech/Strategy-eg.png" alt=""></p>
+<p>类图解析:Character为策略的调用者,weaponBehavior为策略的抽象,角色的子类可不予考究(这是我在学习策略模式(HeadFirst设计模式)的时候自己画),我们只需要考量,角色以及武器以及武器的实现即可</p>
+<p>角色:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Character</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    WeaponBehavior weaponBehavior = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeaponBehavior</span><span class="params">(WeaponBehavior weaponBehavior)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weaponBehavior = weaponBehavior;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weaponBehavior.useWeapon();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>武器抽象接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>武器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descrie</span> 武器斧头</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AxeBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"AxeBehavior"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descrie</span> 武器-弓箭</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BowAndArrowBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"BowAndArrowBehavior"</span>);</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descrie</span> 骑士武器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnightBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"KnightBehavior"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descrie</span> 武器-刀</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwordBehavior</span> <span class="keyword">implements</span> <span class="title">WeaponBehavior</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useWeapon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"SwordBehavior"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>开始游戏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 创建角色</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Character character = <span class="keyword">new</span> Character();</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 创建武器斧头</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        AxeBehavior axeBehavior  = <span class="keyword">new</span> AxeBehavior();</span><br><span class="line">        character.setWeaponBehavior(axeBehavior);</span><br><span class="line">        character.useWeapon();</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 切换武器骑士武器</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        KnightBehavior knightBehavior = <span class="keyword">new</span> KnightBehavior();</span><br><span class="line">        character.setWeaponBehavior(knightBehavior);</span><br><span class="line">        character.useWeapon();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于策略模式来讲,最重要要的两个概念是:</p>
+<ol>
+<li><strong>算法</strong></li>
+<li><strong>顺序</strong></li>
+</ol>
+<p>对于第一点算法,策略模式是对于算法的封装,也就是我们不必要去管算法的实现,只需要知道的策略提供了某个算法,可以让我们来解决一些问题,至于这个算法怎么实现的我们没必要知晓,也就是算法是黑盒的;</p>
+<p>对于第二点,调用者可以根据自身的需求,随意的调换算法的执行顺序</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/08/设计模式学习笔记之策略模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-设计模式学习笔记之装饰器模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -846,109 +846,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/08/设计模式学习笔记之装饰器模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/设计模式学习笔记之观察者模式/">设计模式学习笔记之观察者模式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/08/设计模式学习笔记之观察者模式/" class="archive-article-date">
-  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设计模式学习笔记之观察者模式"><a href="#设计模式学习笔记之观察者模式" class="headerlink" title="设计模式学习笔记之观察者模式"></a>设计模式学习笔记之观察者模式</h2><h3 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h3><p>观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式</p>
-<blockquote>
-<p>举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)</p>
-</blockquote>
-<h3 id="观察者模式类图"><a href="#观察者模式类图" class="headerlink" title="观察者模式类图"></a>观察者模式类图</h3><p><img src="http://www.crazyxxl.tech/Observer.png" alt="观察者模式类图"></p>
-<p><strong>简要叙述:</strong></p>
-<p><strong>Subject(被监听着接口):</strong></p>
-<p>对于一个被监听者而言,监听其的对象可以有多个(皇帝派出多个间谍监听某一大臣),当某一监听者需要监听被监听者的时候,Subject调用注册监听者方法(registerObserver),取消监听调用(removeObserver),当其状态发生改变的时候调用notifyObserver方法通知已监听该对象的对象</p>
-<p><strong>ConcreteSubject:</strong></p>
-<p>实际被监听者</p>
-<p><strong>Observer:</strong></p>
-<p>监听者对象接口</p>
-<p><strong>ConcreteObserver:</strong></p>
-<p>实际监听的对象</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>古时候,某一个皇帝觉得自己的宰相有谋反的意图,因此派出了间谍1,潜入相府,检查宰相的行为,一旦有变立即上报,辅政大臣一片赤诚之心,派遣了间谍2去监测丞相的行为,用程序模拟该行为</p>
-<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>皇帝和辅政大臣同时派出了间谍1和间谍2,来监听丞相的行为,我们可以将丞相模拟成被监听者(本来就是个被监听者),间谍1和间谍2是监听者,一旦他有谋反的举动,就干掉他</p>
-<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><p><img src="http://www.crazyxxl.tech/Observer-eg.png" alt=""></p>
-<p>监控者接口:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>间谍1:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 间谍1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage1</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"发现他谋反了,通知皇上"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>间谍2:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 间谍2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage2</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"丞相谋反了,快快通知辅政大臣"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>被监听者接口:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 被监听者接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> object</span></span><br><span class="line"><span class="comment">     * 注册监听者</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> object</span></span><br><span class="line"><span class="comment">     * 移除监听者</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 移除监听者</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>丞相类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> move_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 丞相类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeMinister</span> <span class="keyword">implements</span> <span class="title">Subject</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span> </span>&#123;</span><br><span class="line">        observers.add(object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index = observers.indexOf(object);</span><br><span class="line">        <span class="keyword">if</span>(-<span class="number">1</span> != index) &#123;</span><br><span class="line">            observers.remove(index);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebellion</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"杀了那个狗皇帝"</span>);</span><br><span class="line">        notifyObserver();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        observers.forEach(item-&gt;&#123;</span><br><span class="line">            item.update();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>场景类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 场景类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//初始化丞相类</span></span><br><span class="line">        PrimeMinister primeMinister = <span class="keyword">new</span> PrimeMinister();</span><br><span class="line">        <span class="comment">//皇上派出间谍</span></span><br><span class="line">        Espionage1 espionage1 = <span class="keyword">new</span> Espionage1();</span><br><span class="line">        <span class="comment">//辅政大臣派出间谍</span></span><br><span class="line">        Espionage2 espionage2 = <span class="keyword">new</span> Espionage2();</span><br><span class="line">        <span class="comment">//间谍1潜入丞相府</span></span><br><span class="line">        primeMinister.registerObserver(espionage1);</span><br><span class="line">        <span class="comment">//间谍2潜入丞相府</span></span><br><span class="line">        primeMinister.registerObserver(espionage2);</span><br><span class="line">        <span class="comment">//丞相谋反了</span></span><br><span class="line">        primeMinister.rebellion();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*out:</span></span><br><span class="line"><span class="comment">*杀了那个狗皇帝</span></span><br><span class="line"><span class="comment">*发现他谋反了,通知皇上</span></span><br><span class="line"><span class="comment">*丞相谋反了,快快通知辅政大臣</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>监听者模式在我们的开发中是经常会遇到的,前端触发,若干事件触发机制,Android开发事件触发,(部分是监控者模式,当然也有责任链模式),java自身也提供了Observer对象,以及Observable接口来实现监听者模式,感兴趣的可以下来自己看一下.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/设计模式学习笔记之观察者模式/">展开全文 >></a>
         </p>
       
 
@@ -1101,19 +998,19 @@
 
 
   
-    <article id="post-关于angular4部署服务器刷新报错以及相关资源加载不到解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-设计模式学习笔记之观察者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">关于angular4部署服务器刷新报错以及相关资源加载不到解决办法</a>
+      <a class="article-title" href="/2018/09/08/设计模式学习笔记之观察者模式/">设计模式学习笔记之观察者模式</a>
     </h1>
   
 
         
-        <a href="/2018/09/08/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/" class="archive-article-date">
+        <a href="/2018/09/08/设计模式学习笔记之观察者模式/" class="archive-article-date">
   	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
 </a>
         
@@ -1121,17 +1018,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>部署angular4项目：</p>
-<p>ng build –prod –aot</p>
-<p>资源加载不到问题：</p>
-<p>打包以后项目的目录下面会生成dist文件，部署的时候需要将dist<strong><em>文件中的内容</em></strong>拷贝在Tomcat容器的ROOT下面，若果不部署在ROOT下面会出现资源加载不到的情况;</p>
-<p>部署项目成功后刷新报错问题：</p>
-<p>需要在app.module里面添加配置项：</p>
-<p>首先导入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;HashLocationStrategy , LocationStrategy&#125; from &apos;@angular/common&apos;;</span><br></pre></td></tr></table></figure>
-<p>其次在providers里面添加:</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">providers: [</span><br><span class="line">  &#123; provide: LocationStrategy, useClass: HashLocationStrategy&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>添加成功后重新打包部署项目，刷新查看是否有问题;</p>
+        <h2 id="设计模式学习笔记之观察者模式"><a href="#设计模式学习笔记之观察者模式" class="headerlink" title="设计模式学习笔记之观察者模式"></a>设计模式学习笔记之观察者模式</h2><h3 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h3><p>观察者模式:在程序设计中,某个对象状态的变化,会引起其他与其相关对象的相关反应,因此与其相关的对象需要监听该对象状态的变化,我们将解决此类问题的模式称之为观察者模式</p>
+<blockquote>
+<p>举例来讲,我们在开发安卓程序的时候,给某个组件绑定相关的相应事件就是一个典型的观察者模式,古代皇帝委派间谍,去监听一些大臣的行为也是典型的监听者模式的应用(后面将以此为例)</p>
+</blockquote>
+<h3 id="观察者模式类图"><a href="#观察者模式类图" class="headerlink" title="观察者模式类图"></a>观察者模式类图</h3><p><img src="http://www.crazyxxl.tech/Observer.png" alt="观察者模式类图"></p>
+<p><strong>简要叙述:</strong></p>
+<p><strong>Subject(被监听着接口):</strong></p>
+<p>对于一个被监听者而言,监听其的对象可以有多个(皇帝派出多个间谍监听某一大臣),当某一监听者需要监听被监听者的时候,Subject调用注册监听者方法(registerObserver),取消监听调用(removeObserver),当其状态发生改变的时候调用notifyObserver方法通知已监听该对象的对象</p>
+<p><strong>ConcreteSubject:</strong></p>
+<p>实际被监听者</p>
+<p><strong>Observer:</strong></p>
+<p>监听者对象接口</p>
+<p><strong>ConcreteObserver:</strong></p>
+<p>实际监听的对象</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>古时候,某一个皇帝觉得自己的宰相有谋反的意图,因此派出了间谍1,潜入相府,检查宰相的行为,一旦有变立即上报,辅政大臣一片赤诚之心,派遣了间谍2去监测丞相的行为,用程序模拟该行为</p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>皇帝和辅政大臣同时派出了间谍1和间谍2,来监听丞相的行为,我们可以将丞相模拟成被监听者(本来就是个被监听者),间谍1和间谍2是监听者,一旦他有谋反的举动,就干掉他</p>
+<h4 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h4><p><img src="http://www.crazyxxl.tech/Observer-eg.png" alt=""></p>
+<p>监控者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>间谍1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 间谍1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage1</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"发现他谋反了,通知皇上"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>间谍2:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 间谍2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Espionage2</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"丞相谋反了,快快通知辅政大臣"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>被监听者接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> moven_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 被监听者接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> object</span></span><br><span class="line"><span class="comment">     * 注册监听者</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> object</span></span><br><span class="line"><span class="comment">     * 移除监听者</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 移除监听者</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>丞相类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> move_xing</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 丞相类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeMinister</span> <span class="keyword">implements</span> <span class="title">Subject</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer object)</span> </span>&#123;</span><br><span class="line">        observers.add(object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index = observers.indexOf(object);</span><br><span class="line">        <span class="keyword">if</span>(-<span class="number">1</span> != index) &#123;</span><br><span class="line">            observers.remove(index);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rebellion</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"杀了那个狗皇帝"</span>);</span><br><span class="line">        notifyObserver();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        observers.forEach(item-&gt;&#123;</span><br><span class="line">            item.update();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>场景类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 场景类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//初始化丞相类</span></span><br><span class="line">        PrimeMinister primeMinister = <span class="keyword">new</span> PrimeMinister();</span><br><span class="line">        <span class="comment">//皇上派出间谍</span></span><br><span class="line">        Espionage1 espionage1 = <span class="keyword">new</span> Espionage1();</span><br><span class="line">        <span class="comment">//辅政大臣派出间谍</span></span><br><span class="line">        Espionage2 espionage2 = <span class="keyword">new</span> Espionage2();</span><br><span class="line">        <span class="comment">//间谍1潜入丞相府</span></span><br><span class="line">        primeMinister.registerObserver(espionage1);</span><br><span class="line">        <span class="comment">//间谍2潜入丞相府</span></span><br><span class="line">        primeMinister.registerObserver(espionage2);</span><br><span class="line">        <span class="comment">//丞相谋反了</span></span><br><span class="line">        primeMinister.rebellion();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*out:</span></span><br><span class="line"><span class="comment">*杀了那个狗皇帝</span></span><br><span class="line"><span class="comment">*发现他谋反了,通知皇上</span></span><br><span class="line"><span class="comment">*丞相谋反了,快快通知辅政大臣</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>监听者模式在我们的开发中是经常会遇到的,前端触发,若干事件触发机制,Android开发事件触发,(部分是监控者模式,当然也有责任链模式),java自身也提供了Observer对象,以及Observable接口来实现监听者模式,感兴趣的可以下来自己看一下.</p>
 
       
 
@@ -1145,7 +1061,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">设计模式学习笔记</a>
         		</li>
       		
 		</ul>
@@ -1155,7 +1071,126 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/关于angular4部署服务器刷新报错以及相关资源加载不到解决办法/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/08/设计模式学习笔记之观察者模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-celery+rabbitmq+django构建分布式异步任务队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/celery+rabbitmq+django构建分布式异步任务队列/">celery+rabbitmq+django构建分布式异步任务队列</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/08/celery+rabbitmq+django构建分布式异步任务队列/" class="archive-article-date">
+  	<time datetime="2018-09-08T05:00:53.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="celery-rabbitmq-django构建分布式异步任务队列"><a href="#celery-rabbitmq-django构建分布式异步任务队列" class="headerlink" title="celery+rabbitmq+django构建分布式异步任务队列"></a>celery+rabbitmq+django构建分布式异步任务队列</h3><h4 id="rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）"><a href="#rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）" class="headerlink" title="rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）"></a>rabbitmq服务配置（我自身选取自己的机器-deepin操作系统作为rabbit服务器）</h4><p>1、安装rabbit</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install rabbitmq-server</span><br></pre></td></tr></table></figure>
+<p>2、启动rabbitmq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-server</span><br></pre></td></tr></table></figure>
+<p> 3、开启web管理插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br></pre></td></tr></table></figure>
+<p>4、添加用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>#默认用户guest只能本地使用，分布式情况下需要创建用户</span><br><span class="line">rabbitmqctl add_user admin admin ##添加用户：用户名/密码 admin/admin</span><br><span class="line">rabbitmqctl set_user_tags admin administrator ##将用户身份设置成管理员</span><br><span class="line">rabbitmqctl set_permissions -p / rollen ".*" ".*" ".*" ##给用户授权</span><br></pre></td></tr></table></figure>
+<h4 id="django服务器配置"><a href="#django服务器配置" class="headerlink" title="django服务器配置"></a>django服务器配置</h4><p>1、celery与django安装</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install celery</span><br><span class="line">pip install django</span><br></pre></td></tr></table></figure>
+<p>2、代码结构树配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">├── celery_test</span><br><span class="line">│   ├── celery.py</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── settings.py</span><br><span class="line">│   ├── urls.py</span><br><span class="line">│   └── wsgi.py</span><br><span class="line">├── manage.py</span><br><span class="line">└── task</span><br><span class="line">    ├── admin.py</span><br><span class="line">    ├── apps.py</span><br><span class="line">    ├── __init__.py</span><br><span class="line">    ├── migrations</span><br><span class="line">    │   ├── __init__.py</span><br><span class="line">    │   └── __pycache__</span><br><span class="line">    │       └── __init__.cpython-36.pyc</span><br><span class="line">    ├── models.py</span><br><span class="line">    ├── __pycache__</span><br><span class="line">    │   ├── admin.cpython-36.pyc</span><br><span class="line">    │   ├── __init__.cpython-36.pyc</span><br><span class="line">    │   ├── models.cpython-36.pyc</span><br><span class="line">    │   ├── tasks.cpython-36.pyc</span><br><span class="line">    │   └── views.cpython-36.pyc</span><br><span class="line">    ├── tasks.py</span><br><span class="line">    ├── tests.py</span><br><span class="line">    └── views.py</span><br></pre></td></tr></table></figure>
+<p>关键代码如下：</p>
+<p>celery.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line"><span class="comment"># set the default Django settings module for the 'celery' program.</span></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'celery_test.settings'</span>)</span><br><span class="line"></span><br><span class="line">app = Celery(<span class="string">'celery_test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using a string here means the worker doesn't have to serialize</span></span><br><span class="line"><span class="comment"># the configuration object to child processes.</span></span><br><span class="line"><span class="comment"># - namespace='CELERY' means all celery-related configuration keys</span></span><br><span class="line"><span class="comment">#   should have a `CELERY_` prefix.</span></span><br><span class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>, namespace=<span class="string">'CELERY'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load task modules from all registered Django app configs.</span></span><br><span class="line">app.autodiscover_tasks()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.task(bind=True)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">debug_task</span><span class="params">(self)</span>:</span></span><br><span class="line">    print(<span class="string">'Request: &#123;0!r&#125;'</span>.format(self.request))%</span><br></pre></td></tr></table></figure>
+<p>一级目录<strong>init</strong>py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"></span><br><span class="line"><span class="comment"># This will make sure the app is always imported when</span></span><br><span class="line"><span class="comment"># Django starts so that shared_task will use this app.</span></span><br><span class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_app</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">__all__ = [<span class="string">'celery_app'</span>]</span><br><span class="line"></span><br><span class="line">pymysql.install_as_MySQLdb()%</span><br></pre></td></tr></table></figure>
+<p>setting.py（在django默认配置之上加如下配置）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">BROKER_URL = &apos;amqp://&apos;    #配置broker</span><br><span class="line">BROKER_POOL_LIMIT = 0</span><br><span class="line">CELERY_RESULT_BACKEND = &apos;amqp://&apos;</span><br><span class="line">CELERY_RESULT_BACKEND = &apos;django-cache&apos;</span><br></pre></td></tr></table></figure>
+<p>urls.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> task <span class="keyword">import</span> views <span class="keyword">as</span> task_view</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">'add/'</span>, task_view.add)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>tasks.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xsum</span><span class="params">(numbers)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> sum(numbers)</span><br></pre></td></tr></table></figure>
+<p>views.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> tasks</span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(request)</span>:</span></span><br><span class="line">	args1 = request.GET[<span class="string">"x"</span>]</span><br><span class="line">	args2 = request.GET[<span class="string">"y"</span>]</span><br><span class="line">	tasks.add.delay(int(args1), int(args2))</span><br><span class="line">	<span class="keyword">return</span> HttpResponse(<span class="string">"successful"</span>)</span><br></pre></td></tr></table></figure>
+<p>其余均为django创建项目后默认配置</p>
+<h4 id="worker配置（我以本机虚拟机192-168-1-108作为worker，本机ip-192-168-1-106）"><a href="#worker配置（我以本机虚拟机192-168-1-108作为worker，本机ip-192-168-1-106）" class="headerlink" title="worker配置（我以本机虚拟机192.168.1.108作为worker，本机ip:192.168.1.106）"></a>worker配置（我以本机虚拟机192.168.1.108作为worker，本机ip:192.168.1.106）</h4><p>1、安装celery</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install celery</span><br></pre></td></tr></table></figure>
+<p>2、代码结构树</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  task tree</span><br><span class="line">.</span><br><span class="line">├── celery.py</span><br><span class="line">├── celery.pyc</span><br><span class="line">├── __init__.py</span><br><span class="line">├── __init__.pyc</span><br><span class="line">├── tasks.py</span><br><span class="line">└── tasks.pyc</span><br></pre></td></tr></table></figure>
+<p>celery.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line">app = Celery(<span class="string">'proj'</span>,</span><br><span class="line">             broker=<span class="string">'amqp://admin:admin@192.168.1.106//'</span>,</span><br><span class="line">             backend=<span class="string">'amqp://admin:admin@192.168.1.106//'</span>,</span><br><span class="line">             include=[<span class="string">'task.tasks'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Optional configuration, see the application user guide.</span></span><br><span class="line">app.conf.update(</span><br><span class="line">    result_expires=<span class="number">3600</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.start()</span><br></pre></td></tr></table></figure>
+<p>tasks.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xsum</span><span class="params">(numbers)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> sum(numbers)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>整体模块结构要与django中配置的模块相吻合</p>
+<p>==&gt;django任务模块—–task.tasks</p>
+<p>==&gt;worker工作模块—-task.tasks</p>
+</blockquote>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>1、启动django</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyhon manage.py runserver</span><br></pre></td></tr></table></figure>
+<p>2、启动worker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A task worker -l info</span><br></pre></td></tr></table></figure>
+<p>3、发送请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:8000/add/?x=14&amp;y=65</span><br></pre></td></tr></table></figure>
+<p>4、查看worker打印输出的日志</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">django</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/08/celery+rabbitmq+django构建分布式异步任务队列/">展开全文 >></a>
         </p>
       
 
@@ -1187,7 +1222,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1294,10 +1329,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">django</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mysql学习</a>
               </li>
              
@@ -1315,6 +1346,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BigData</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
              
               <li class="article-tag-list-item">
